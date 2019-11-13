@@ -1,4 +1,4 @@
-Here is "Week 3":
+Here is "Week 3":  
 With the money we earned, we are able to go on with our product, so keep up the good work !!!
 
 We need to keep all previous functionnalities, this is mandatory for our reputation !

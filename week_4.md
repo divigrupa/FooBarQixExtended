@@ -1,5 +1,5 @@
 Here is "Week 4":  
-Our FooBarQix service is up and running. Based on feedback we have decided to create new service InfQixFoo.
+Our FooBarQix service is up and running. Based on feedback we have decided to create **new service InfQixFoo**.
 
 So, we need to create another service InfQixFoo. FooBarQix service stays as it is, this is mandatory for our reputation!
 

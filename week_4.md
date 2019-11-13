@@ -1,7 +1,7 @@
 Here is "Week 4":  
 Our FooBarQix service is up and running. Based on feedback we have decided to create new service InfQixFoo.
 
-So we need to create another service InfQixFoo. FooBarQix service stays as it is, this is mandatory for our reputation!
+So, we need to create another service InfQixFoo. FooBarQix service stays as it is, this is mandatory for our reputation!
 
 InfQixFoo will take a number (positive integer) and provide :
 - **"Inf" if this number is multiple of 8**

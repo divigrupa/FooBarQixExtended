@@ -27,6 +27,6 @@ You have two main options to do that :
 1. Update existing tests with cases that trigger only the multiples, and add tests that triggers only occurences (then ones that triggers both).
 2. Update existing tests to call new services or package visible's methods : one dedicated to multiples, the other to occurences, and original service will call both of them to integrate them (without regressions, of course).
 
-Let's go to next week, the week 4 will be something new.
+Let's go to next week, the [week 4](./week_4.md) will be something new.
 
 

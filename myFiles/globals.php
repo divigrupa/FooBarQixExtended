@@ -1,7 +1,7 @@
 <?php
 
 // input value
-$input = 777;
+$input = 168;
 $input_split = str_split($input, 1);
 
 // return constants
@@ -23,6 +23,7 @@ $fooStatus = false;
 $barStatus = false;
 $qixStatus = false;
 $infStatus = false;
+$service_2 = false;
 
 // array
 $test_array = [];

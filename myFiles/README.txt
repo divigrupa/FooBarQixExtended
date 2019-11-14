@@ -32,10 +32,10 @@ Contains the extended class Occurences, responsible for finding occurring digits
 Contains, well, this :)
 
     -> run_s1.php
-Executes FooBarQix or service1.
+Executes FooBarQix or service1 (week1 & week2).
 
     -> run_s2.php
-Executes InfQixFoo or service2.
+Executes InfQixFoo or service2 (week3, week4 & week5).
 
     -> test_s1.php
 Executes tests for service1.

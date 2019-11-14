@@ -2,25 +2,27 @@
 require_once('Multiples.php');
 require_once('Occurrences.php');
 
-$service_2 = true;
-
 if ($input <= 0 || gettype($input) != 'integer') {
     echo "Please provide a valid input!";
 } else {
 
-    $test = new Multiples();
-    $test->checkInf()->checkQix()->checkFoo();
+    $service2_mult = new Multiples();
+    $service2_mult->checkInf()->checkQix()->checkFoo();
 
-    echo $test->inf;
-    echo $test->qix;
-    echo $test->foo;
+    echo $service2_mult->inf;
+    echo $service2_mult->qix;
+    echo $service2_mult->foo;
 
-    // $test2 = new Occurrences();
-    // $test2->checkFooOcc()->checkInfOcc()->checkQixOcc();
+    $service2_occ = new Occurrences();
+    $service2_occ->checkOcc_s2();
 
 
     if (array_count_values($test_array) == null) {
         echo strval($input);
+    } else {
+        if (array_sum($input_split) % $infDivider == 0) {
+        echo $inf;
+        }
     };
 
 }

@@ -6,15 +6,15 @@ if ($input <= 0 || gettype($input) != 'integer') {
     echo "Please provide a valid input!";
 } else {
 
-    $test = new Multiples();
-    $test->checkFoo()->checkBar()->checkQix();
+    $service1_mult = new Multiples();
+    $service1_mult->checkFoo()->checkBar()->checkQix();
 
-    echo $test->foo;
-    echo $test->bar;
-    echo $test->qix;
+    echo $service1_mult->foo;
+    echo $service1_mult->bar;
+    echo $service1_mult->qix;
 
-    $test2 = new Occurrences();
-    $test2->checkFooOcc()->checkBarOcc()->checkQixOcc();
+    $service1_occ = new Occurrences();
+    $service1_occ->checkOcc_s1();
 
 
     if (array_count_values($test_array) == null) {

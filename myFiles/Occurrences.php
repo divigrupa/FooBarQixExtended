@@ -6,9 +6,11 @@ class Occurrences extends Multiples
     public $fooOcc;
     public $barOcc;
     public $qixOcc;
+    public $infOcc;
     public $fooDiv;
     public $barDiv;
     public $qixDiv;
+    public $infDiv;
 
     public function setFooDiv() {
         $this->fooDiv = $GLOBALS['fooDivider'];
@@ -34,44 +36,71 @@ class Occurrences extends Multiples
         return $this->qixDiv;
     }
 
-    public function checkFooOcc() {
+     public function setInfDiv() {
+        $this->infDiv = $GLOBALS['infDivider'];
+    }
+
+    public function getInfDiv() {
+        return $this->infDiv;
+    }
+
+    public function checkOcc_s1() {
         $this->setFooDiv();
+        $this->setBarDiv();
+        $this->setQixDiv();
         foreach ($GLOBALS['input_split'] as $digit) {
             if ($digit == $this->getFooDiv()) {
             parent::setFoo();
             $this->fooOcc = parent::getFoo();
             array_push($GLOBALS['test_array'], $this->fooOcc);
             echo $this->fooOcc;
+            } else {
+                if ($digit == $this->getBarDiv()) {
+                parent::setBar();
+                $this->barOcc = parent::getBar();
+                array_push($GLOBALS['test_array'], $this->barOcc);
+                echo $this->barOcc;
+            } else {
+                if ($digit == $this->getQixDiv()) {
+                parent::setQix();
+                $this->qixOcc = parent::getQix();
+                array_push($GLOBALS['test_array'], $this->qixOcc);
+                echo $this->qixOcc;
+                }
             }
         }
-        return $this;
     }
+    return $this;
+}
 
-    public function checkBarOcc() {
-        $this->setBarDiv();
-        foreach ($GLOBALS['input_split'] as $digit) {
-            if ($digit == $this->getBarDiv()) {
-            parent::setBar();
-            $this->barOcc = parent::getBar();
-            array_push($GLOBALS['test_array'], $this->barOcc);
-            echo $this->barOcc;
-            } 
-        }
-        return $this; 
-    }
-
-     public function checkQixOcc() {
+    public function checkOcc_s2() {
+        $this->setFooDiv();
+        $this->setInfDiv();
         $this->setQixDiv();
         foreach ($GLOBALS['input_split'] as $digit) {
-            if ($digit == $this->getQixDiv()) {
-            parent::setQix();
-            $this->qixOcc = parent::getQix();
-            array_push($GLOBALS['test_array'], $this->qixOcc);
-            echo $this->qixOcc;
-            } 
+            if ($digit == $this->getFooDiv()) {
+            parent::setFoo();
+            $this->fooOcc = parent::getFoo();
+            array_push($GLOBALS['test_array'], $this->fooOcc);
+            echo $this->fooOcc;
+            } else {
+                if ($digit == $this->getInfDiv()) {
+                parent::setInf();
+                $this->infOcc = parent::getInf();
+                array_push($GLOBALS['test_array'], $this->infOcc);
+                echo $this->infOcc;
+            } else {
+                if ($digit == $this->getQixDiv()) {
+                parent::setQix();
+                $this->qixOcc = parent::getQix();
+                array_push($GLOBALS['test_array'], $this->qixOcc);
+                echo $this->qixOcc;
+                }
+            }
         }
-        return $this; 
     }
+    return $this;
+}
 
   
 

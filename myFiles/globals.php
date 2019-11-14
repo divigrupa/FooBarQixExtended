@@ -1,7 +1,7 @@
 <?php
 
 // input value
-$input = 168;
+$input = 9744;
 $input_split = str_split($input, 1);
 
 // return constants

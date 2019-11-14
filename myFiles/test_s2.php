@@ -8,23 +8,28 @@ function myTests() {
     } else {
 
     $test = new Multiples();
-    $test->checkFoo()->checkBar()->checkQix();
+    $test->checkInf()->checkQix()->checkFoo();
 
-    echo $test->foo;
-    echo $test->bar;
+    echo $test->inf;
     echo $test->qix;
+    echo $test->foo;
 
     $test2 = new Occurrences();
-    $test2->checkOcc_s1();
+    $test2->checkOcc_s2();
 
     if (array_count_values($GLOBALS['test_array']) == null) {
         echo $GLOBALS['input'];
-    };
-
+    } else {
+        if (array_sum($GLOBALS['input_split']) % $GLOBALS['infDivider'] == 0) {
+        echo $GLOBALS['inf'];
+        }
     }
+}
+
     $GLOBALS['fooStatus'] = false;
     $GLOBALS['barStatus'] = false;
     $GLOBALS['qixStatus'] = false;
+    $GLOBALS['infStatus'] = false;
 };
 
 // should return info message
@@ -62,8 +67,8 @@ $test_array = [];
 myTests();
 echo PHP_EOL;
 
-// should return BarBar
-$input = 5;
+// should return InfInf
+$input = 8;
 $input_split = str_split($input, 1);
 $test_array = [];
 myTests();
@@ -76,54 +81,70 @@ $test_array = [];
 myTests();
 echo PHP_EOL;
 
-// should return Foo, BarBar
-$input = 15;
+// should return Foo (only multiple)
+$input = 12;
 $input_split = str_split($input, 1);
 $test_array = [];
 myTests();
 echo PHP_EOL;
 
-// should return Foo, Qix (only multiples)
+// should return Inf (only multiple)
+$input = 16;
+$input_split = str_split($input, 1);
+$test_array = [];
+myTests();
+echo PHP_EOL;
+
+// should return Qix (only multiple)
+$input = 14;
+$input_split = str_split($input, 1);
+$test_array = [];
+myTests();
+echo PHP_EOL;
+
+// should return Inf; Foo
+$input = 24;
+$input_split = str_split($input, 1);
+$test_array = [];
+myTests();
+echo PHP_EOL;
+
+// should return Inf; Qix
+$input = 56;
+$input_split = str_split($input, 1);
+$test_array = [];
+myTests();
+echo PHP_EOL;
+
+// should return Qix; Foo
 $input = 21;
 $input_split = str_split($input, 1);
 $test_array = [];
 myTests();
 echo PHP_EOL;
 
-// should return Bar, QixFooBar
-$input = 35;
+// should return Foo(multiple)QixFooFooQixInf(occurences)
+$input = 733758;
 $input_split = str_split($input, 1);
 $test_array = [];
 myTests();
 echo PHP_EOL;
 
-// should return Foo, Bar, QixBar
-$input = 105;
+// should return FooFooQix(occurences only)
+$input = 337;
 $input_split = str_split($input, 1);
 $test_array = [];
 myTests();
 echo PHP_EOL;
 
-// should return BarBarFooFoo (only occurrences)
-$input = 5533;
+// should return Inf; Qix; Foo(multiples)Qix(occurence)Inf(sum is a multiple of 8)
+$input = 9744;
 $input_split = str_split($input, 1);
 $test_array = [];
 myTests();
 echo PHP_EOL;
 
-// should return 998
-$input = 998;
-$input_split = str_split($input, 1);
-$test_array = [];
-myTests();
-echo PHP_EOL;
 
-// should return Foo, QixQixQixQix
-$input = 777;
-$input_split = str_split($input, 1);
-$test_array = [];
-myTests();
-echo PHP_EOL;
 
 
 

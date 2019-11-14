@@ -23,7 +23,6 @@ $fooStatus = false;
 $barStatus = false;
 $qixStatus = false;
 $infStatus = false;
-$service_2 = false;
 
 // array
 $test_array = [];

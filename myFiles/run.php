@@ -2,7 +2,7 @@
 require_once('Multiples.php');
 require_once('Occurrences.php');
 
-if ($input <= 0) {
+if ($input <= 0 || gettype($input) != 'integer') {
     echo "Please provide a valid input!";
 } else {
 

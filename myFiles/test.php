@@ -3,7 +3,7 @@ require_once('Multiples.php');
 require_once('Occurrences.php');
 
 function myTests() {
-    if ($GLOBALS['input'] <= 0) {
+    if ($GLOBALS['input'] <= 0 || gettype($GLOBALS['input']) != 'integer') {
      echo "Please provide a valid input!";
     } else {
 
@@ -26,6 +26,13 @@ function myTests() {
     $GLOBALS['barStatus'] = false;
     $GLOBALS['qixStatus'] = false;
 };
+
+// should return info message
+$input = 'text';
+$input_split = str_split($input, 1);
+$test_array = [];
+myTests();
+echo PHP_EOL;
 
 // should return info message
 $input = -1;

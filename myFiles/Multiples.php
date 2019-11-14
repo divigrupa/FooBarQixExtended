@@ -32,11 +32,11 @@ class Multiples
     }
 
      public function setBarSeparator() {
-        $this->bar = $GLOBALS['separator'].$GLOBALS['bar'];
+        $this->bar = $GLOBALS['separator_s1'].$GLOBALS['bar'];
     }
 
       public function setQixSeparator() {
-        $this->qix = $GLOBALS['separator'].$GLOBALS['qix'];
+        $this->qix = $GLOBALS['separator_s1'].$GLOBALS['qix'];
     }
 
     public function checkFoo() {

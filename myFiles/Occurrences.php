@@ -5,6 +5,7 @@ class Occurrences extends Multiples
 {
     public $fooOcc;
     public $barOcc;
+    public $qixOcc;
     public $fooDiv;
     public $barDiv;
     public $qixDiv;
@@ -23,6 +24,14 @@ class Occurrences extends Multiples
 
     public function getBarDiv() {
         return $this->barDiv;
+    }
+
+     public function setQixDiv() {
+        $this->qixDiv = $GLOBALS['qixDivider'];
+    }
+
+    public function getQixDiv() {
+        return $this->qixDiv;
     }
 
     public function checkFooOcc() {
@@ -46,6 +55,19 @@ class Occurrences extends Multiples
             $this->barOcc = parent::getBar();
             array_push($GLOBALS['test_array'], $this->barOcc);
             echo $this->barOcc;
+            } 
+        }
+        return $this; 
+    }
+
+     public function checkQixOcc() {
+        $this->setQixDiv();
+        foreach ($GLOBALS['input_split'] as $digit) {
+            if ($digit == $this->getQixDiv()) {
+            parent::setQix();
+            $this->qixOcc = parent::getQix();
+            array_push($GLOBALS['test_array'], $this->qixOcc);
+            echo $this->qixOcc;
             } 
         }
         return $this; 

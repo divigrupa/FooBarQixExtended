@@ -15,7 +15,7 @@ function myTests() {
     echo $test->qix;
 
     $test2 = new Occurrences();
-    $test2->checkFooOcc()->checkBarOcc();
+    $test2->checkFooOcc()->checkBarOcc()->checkQixOcc();
 
     if (array_count_values($GLOBALS['test_array']) == null) {
         echo $GLOBALS['input'];
@@ -108,10 +108,18 @@ echo PHP_EOL;
 $input = 5533;
 $input_split = str_split($input, 1);
 $test_array = [];
+myTests();
 echo PHP_EOL;
 
 // should return 998
 $input = 998;
+$input_split = str_split($input, 1);
+$test_array = [];
+myTests();
+echo PHP_EOL;
+
+// should return Foo, QixQixQixQix
+$input = 777;
 $input_split = str_split($input, 1);
 $test_array = [];
 myTests();

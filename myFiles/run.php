@@ -14,7 +14,7 @@ if ($input <= 0 || gettype($input) != 'integer') {
     echo $test->qix;
 
     $test2 = new Occurrences();
-    $test2->checkFooOcc()->checkBarOcc();
+    $test2->checkFooOcc()->checkBarOcc()->checkQixOcc();
 
 
     if (array_count_values($test_array) == null) {

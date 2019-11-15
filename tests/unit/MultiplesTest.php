@@ -10,7 +10,6 @@ class MultiplesTest extends \PHPUnit\Framework\TestCase {
         $test = new \App\myFiles\Multiples;
 
         $GLOBALS['input'] = 1;
-        $GLOBALS['input_split'] = str_split($GLOBALS['input'], 1);
         $GLOBALS['fooStatus'] = false;
         $GLOBALS['barStatus'] = false;
         $GLOBALS['qixStatus'] = false;
@@ -26,8 +25,7 @@ class MultiplesTest extends \PHPUnit\Framework\TestCase {
 
         $test = new \App\myFiles\Multiples;
 
-        $GLOBALS['input'] = 3;
-        $GLOBALS['input_split'] = str_split($GLOBALS['input'], 1);
+        $GLOBALS['input'] = 3;     
         $GLOBALS['fooStatus'] = false;
         $GLOBALS['barStatus'] = false;
         $GLOBALS['qixStatus'] = false;
@@ -45,7 +43,6 @@ class MultiplesTest extends \PHPUnit\Framework\TestCase {
         $test = new \App\myFiles\Multiples;
 
         $GLOBALS['input'] = 5;
-        $GLOBALS['input_split'] = str_split($GLOBALS['input'], 1);
         $GLOBALS['fooStatus'] = false;
         $GLOBALS['barStatus'] = false;
         $GLOBALS['qixStatus'] = false;
@@ -63,7 +60,6 @@ class MultiplesTest extends \PHPUnit\Framework\TestCase {
         $test = new \App\myFiles\Multiples;
 
         $GLOBALS['input'] = 7;
-        $GLOBALS['input_split'] = str_split($GLOBALS['input'], 1);
         $GLOBALS['fooStatus'] = false;
         $GLOBALS['barStatus'] = false;
         $GLOBALS['qixStatus'] = false;
@@ -81,7 +77,6 @@ class MultiplesTest extends \PHPUnit\Framework\TestCase {
         $test = new \App\myFiles\Multiples;
 
         $GLOBALS['input'] = 15;
-        $GLOBALS['input_split'] = str_split($GLOBALS['input'], 1);
         $GLOBALS['fooStatus'] = false;
         $GLOBALS['barStatus'] = false;
         $GLOBALS['qixStatus'] = false;
@@ -99,7 +94,6 @@ class MultiplesTest extends \PHPUnit\Framework\TestCase {
         $test = new \App\myFiles\Multiples;
 
         $GLOBALS['input'] = 21;
-        $GLOBALS['input_split'] = str_split($GLOBALS['input'], 1);
         $GLOBALS['fooStatus'] = false;
         $GLOBALS['barStatus'] = false;
         $GLOBALS['qixStatus'] = false;
@@ -117,7 +111,6 @@ class MultiplesTest extends \PHPUnit\Framework\TestCase {
         $test = new \App\myFiles\Multiples;
 
         $GLOBALS['input'] = 35;
-        $GLOBALS['input_split'] = str_split($GLOBALS['input'], 1);
         $GLOBALS['fooStatus'] = false;
         $GLOBALS['barStatus'] = false;
         $GLOBALS['qixStatus'] = false;
@@ -135,7 +128,6 @@ class MultiplesTest extends \PHPUnit\Framework\TestCase {
         $test = new \App\myFiles\Multiples;
 
         $GLOBALS['input'] = 105;
-        $GLOBALS['input_split'] = str_split($GLOBALS['input'], 1);
         $GLOBALS['fooStatus'] = false;
         $GLOBALS['barStatus'] = false;
         $GLOBALS['qixStatus'] = false;
@@ -153,7 +145,6 @@ class MultiplesTest extends \PHPUnit\Framework\TestCase {
         $test = new \App\myFiles\Multiples;
 
         $GLOBALS['input'] = 8;
-        $GLOBALS['input_split'] = str_split($GLOBALS['input'], 1);
         $GLOBALS['fooStatus'] = false;
         $GLOBALS['barStatus'] = false;
         $GLOBALS['qixStatus'] = false;
@@ -171,7 +162,6 @@ class MultiplesTest extends \PHPUnit\Framework\TestCase {
         $test = new \App\myFiles\Multiples;
 
         $GLOBALS['input'] = 56;
-        $GLOBALS['input_split'] = str_split($GLOBALS['input'], 1);
         $GLOBALS['fooStatus'] = false;
         $GLOBALS['barStatus'] = false;
         $GLOBALS['qixStatus'] = false;
@@ -189,7 +179,6 @@ class MultiplesTest extends \PHPUnit\Framework\TestCase {
         $test = new \App\myFiles\Multiples;
 
         $GLOBALS['input'] = 24;
-        $GLOBALS['input_split'] = str_split($GLOBALS['input'], 1);
         $GLOBALS['fooStatus'] = false;
         $GLOBALS['barStatus'] = false;
         $GLOBALS['qixStatus'] = false;
@@ -207,7 +196,6 @@ class MultiplesTest extends \PHPUnit\Framework\TestCase {
         $test = new \App\myFiles\Multiples;
 
         $GLOBALS['input'] = 168;
-        $GLOBALS['input_split'] = str_split($GLOBALS['input'], 1);
         $GLOBALS['fooStatus'] = false;
         $GLOBALS['barStatus'] = false;
         $GLOBALS['qixStatus'] = false;

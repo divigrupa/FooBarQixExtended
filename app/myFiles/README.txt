@@ -8,6 +8,11 @@ I wrote separate scripts for both services, run_s1.php and run_s2.php accordingl
 
 There are tests for each service, test_s1.php and test_s2.php accordingly. I tried to cover as many test cases as I could think of to ensure both services work properly.
 
+=============UPDATE 15.11.2019======================
+I have added new tests for both classes. Tests are located in tests/unit and were run successfully with PHPUnit. Since this is the first time I've used PHPUnit (or written such tests for that matter), I followed the tutorial step by step and restructured all files into a new directory "app". I also added namespaces to Multiples class and Occurrences class.
+I did not include the "vendor" directory, which contains PHPUnit, but I did keep 2 extra files - composer.json and phpunit.xml - because they contain some configuration settings I used to run the tests successfully.
+=============UPDATE 15.11.2019======================
+
 I used Powershell to run the scripts with these commands:
 
 php myFiles/run_s1.php
@@ -17,7 +22,7 @@ php myFiles/test_s1.php
 
 CONTENTS:
 
-myFiles:
+app/myFiles:
 
     -> globals.php
 Contains a few global variables and states I use accross classes and scripts. The very first global variable $input holds the real input value used by both services. Changing this value will change the outcome of run_s1.php and run_s2.php when run.
@@ -42,3 +47,17 @@ Executes tests for service1.
 
     -> test_s2.php
 Executes tests for service2.
+
+tests/unit:
+
+    -> MultiplesTest.php
+Contains tests for Multiples class. Since the methods of this class don't directly return the results, I tested for correct property/variable assignments, their combinations and correct separators being used, depending on the service used. Since multiple tests are run one after another, each test includes the necessary resets for states and input value to avoid errors.
+
+    -> OccurrencesTest.php
+Contains tests for Occurrences class. Since the methods of this class actualy do return results via echos, I tested for correct string values being returned. At this time, I only wrote tests for service 1, since service 2 pretty much uses the same methods, just in a different order.
+
+-> composer.json
+Contains my user settings for autoload.
+
+-> phpunit.xml
+Contains my user settings for PHPUnit.

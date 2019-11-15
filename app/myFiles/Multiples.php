@@ -1,4 +1,5 @@
 <?php
+namespace App\myFiles;
 require_once('globals.php');
 
 class Multiples 

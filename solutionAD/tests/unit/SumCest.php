@@ -3,15 +3,7 @@ include dirname(__DIR__, 2) . '/App/App.php';
 
 class sumCest
 {
-    public function _before(UnitTester $I)
-    {
-    }
-
-    public function _after(UnitTester $I)
-    {
-    }
-
-
+    
     public function givenNumberDividesWith3ReturnFoo(UnitTester $I)
     {
         $app = new App(3);

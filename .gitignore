@@ -23,7 +23,8 @@ vēlreiz.iml
 .idea
 .name
 projectAD.iml
-/solutionAD/vendor
-solutionAD/src/User123.php
+solutionAD/vendor
 solutionAD/c3.php
-solutionAD/sum.php
+solutionAD/src/User123.php
+solutionAD/composer.lock
+solutionAD/composer.json

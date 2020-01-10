@@ -4,39 +4,39 @@
 class App
 {
 
-    public $skaitlis;
+    public $number;
 
-    public function __construct($skaitlis)
+    public function __construct($number)
     {
-        $this->skaitlis = $skaitlis;
+        $this->number = $number;
     }
 
 
     public function getResult()
     {
-       // throw new Exception();
-
-        $nibba='';
-        $skaitlis3 = $this->skaitlis;
-        $skaitlis3 %= 3;
-        if ($skaitlis3 == 0)
-            $nibba.= 'Foo';
 
 
+        $result = '';
+        $number3 = $this->number;
+        $number3 %= 3;
+        if ($number3 == 0)
+            $result .= 'Foo';
 
-            $skaitlis5 = $this->skaitlis;
-            $skaitlis5 %= 5;
-            if ($skaitlis5 == 0)
-            {
-                if ($nibba == 'Foo')
-                {
-                    $nibba .= ', ';
+
+            $number5 = $this->number;
+            $number5 %= 5;
+            if ($number5 == 0) {
+                if ($result == 'Foo') {
+                    $result .= ', ';
                 }
-                $nibba .= 'Bar';
+                $result .= 'Bar';
             }
 
-            return $nibba;
-
+            if($result==''){
+                return $this->number;
+            }else{
+                return $result;
+            }
 
 
     }

@@ -11,9 +11,6 @@ class sumCest
     {
     }
 
-//    public function sumTest(UnitTester $I)
-//    {
-//    }
 
     public function givenNumberDividesWith3ReturnFoo(UnitTester $I)
     {
@@ -36,28 +33,26 @@ class sumCest
         $I->assertEquals('Foo, Bar', $result);
     }
 
-    public function givenNegativeNumberReturnException(UnitTester $I)
+    public function givenNumberMustBePositive(UnitTester $I)
     {
-        $app = new App(7);
+        $app = new App(3);
         try {
-            $result = $app->skaitlis;
-            // $I->assert;
+            $result = $app->number;
 
-            $I->assertGreaterThan(0, $result, 'Fail');
-            //$I->fail('Fail');
+            $I->assertGreaterThan(0, $result, 'Fail:Enter positive number');
         } catch (Throwable $e) {
            echo $e->getMessage();
         }
     }
 
-    public function givenNonIntegerReturnException(UnitTester $I)
+    public function givenNumberMustBeInteger(UnitTester $I)
     {
         $app = new App(7);
         try {
 
-            $result = $app->skaitlis;
+            $result = $app->number;
 
-            $I->assertInternalType('int', $result, 'Fail:NonInteger');
+            $I->assertInternalType('int', $result, 'Fail:Enter integer Number');
 
         } catch (Throwable $e) {
             echo $e->getMessage();
@@ -66,18 +61,19 @@ class sumCest
     }
     public function returnTheGivenNumberAsAStringIfThereIsNoTransformationToDo(UnitTester $I)
     {
-        $app = new App(15);
+        $app = new App(5);
         try {
 
             $result = $app->getResult();
-            $dots = $app->skaitlis;
-            $I->assertNotEquals('',$result,$dots.'  There Is No Transformation To Do ');
+            $dots = $app->number;
+            $I->assertNotEquals($dots,$result,$result.' There Is No Transformation To Do ');
 
         } catch (Throwable $e) {
             echo $e->getMessage();
 
         }
     }
+
 }
 ?>
 

@@ -21,7 +21,7 @@ So if a number contains :
 So we may have multiples followed by occurrences.
 
 
-Let's go to [final week](./week_5.md).
+Let's go to [final week](week_5.md).
 
 
 

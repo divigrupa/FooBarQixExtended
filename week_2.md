@@ -24,4 +24,4 @@ Did you notice, the more sucessfull a software is, the more evolutions it has to
 We do as TDD helps deploying "almost bug free" softwares by implementing the features right.
 *Note that BDD helps us to implement the right feature !*
 
-Let's go to next week, the [week 3](./week_3.md), where real problems begins.
+Let's go to next week, the [week 3](week_3.md), where real problems begins.

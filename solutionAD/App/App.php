@@ -11,24 +11,54 @@ class App
         $this->number = $number;
     }
 
-
-    public function getResult()
+    private function getResult3()
     {
-
-        $result = '';
         $number3 = $this->number;
+        $result = '';
         $number3 %= 3;
         if ($number3 == 0)
             $result .= 'Foo';
+        return $result;
+    }
 
+    private function getResult5()
+    {
         $number5 = $this->number;
+        $result = '';
         $number5 %= 5;
-        if ($number5 == 0) {
-            if ($result == 'Foo') {
-                $result .= ', ';
-            }
+        if ($number5 == 0)
             $result .= 'Bar';
+        return $result;
+    }
+
+    private function getResult7()
+    {
+        $number7 = $this->number;
+        $result = '';
+        $number7 %= 7;
+        if ($number7 == 0)
+            $result .= 'Qix';
+        return $result;
+    }
+
+    public function getResult()
+    {
+        $result = '';
+        $result .= $this->getResult3();
+
+        if ($result !== '') {
+            if ($this->getResult5() == 'Bar')
+                $result .= ', ';
         }
+        $result .= $this->getResult5();
+
+
+        if ($result != '') {
+            if ($this->getResult7() == 'Qix')
+                $result .= ', ';
+        }
+        $result .= $this->getResult7();
+
 
         if ($result == '') {
             return $this->number;
@@ -38,5 +68,3 @@ class App
 
     }
 }
-
-

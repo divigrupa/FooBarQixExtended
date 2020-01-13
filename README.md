@@ -31,4 +31,4 @@ If number have several multiples, they appear in natural order (Foo, Bar).
 
 We will return the given number as a string if there is no transformation to do.
 
-Once this step is complete, read and do [week 2](./week_2.md).
+Once this step is complete, read and do [week 2](week_2.md).

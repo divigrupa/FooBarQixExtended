@@ -11,7 +11,7 @@ class App
         $this->number = $number;
     }
 
-    private function getResult3()
+    private function getResultDividesBy3()
     {
         $number3 = $this->number;
         $result = '';
@@ -21,7 +21,7 @@ class App
         return $result;
     }
 
-    private function getResult5()
+    private function getResultDividesBy5()
     {
         $number5 = $this->number;
         $result = '';
@@ -31,7 +31,7 @@ class App
         return $result;
     }
 
-    private function getResult7()
+    private function getResultDividesBy7()
     {
         $number7 = $this->number;
         $result = '';
@@ -44,20 +44,20 @@ class App
     public function getResult()
     {
         $result = '';
-        $result .= $this->getResult3();
+        $result .= $this->getResultDividesBy3();
 
         if ($result !== '') {
-            if ($this->getResult5() == 'Bar')
+            if ($this->getResultDividesBy5() == 'Bar')
                 $result .= ', ';
         }
-        $result .= $this->getResult5();
+        $result .= $this->getResultDividesBy5();
 
 
         if ($result != '') {
-            if ($this->getResult7() == 'Qix')
+            if ($this->getResultDividesBy7() == 'Qix')
                 $result .= ', ';
         }
-        $result .= $this->getResult7();
+        $result .= $this->getResultDividesBy7();
 
 
         if ($result == '') {

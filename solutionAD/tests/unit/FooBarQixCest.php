@@ -1,9 +1,8 @@
 <?php
 include dirname(__DIR__, 2) . '/App/App.php';
 
-class FooBarCest
+class FooBarQixCest
 {
-
     public function givenNumberDividesWith3ReturnFoo(UnitTester $I)
     {
         $app = new App(3);
@@ -53,40 +52,26 @@ class FooBarCest
         $I->assertEquals('Bar, Qix', $result);
     }
 
-    public function givenNumberMustBePositive(UnitTester $I)
+    public function givenNegativeNumberThrowException(UnitTester $I)
     {
-        $app = new App(3);
-        try {
-            $result = $app->number;
-            $I->assertGreaterThan(0, $result, 'Fail:Enter positive number');
-        } catch (Throwable $e) {
-            echo $e->getMessage();
-        }
+        $I->expectThrowable(Exception::class, function () {
+            (new App(-35))->getResult();
+        });
     }
-
-    public function givenNumberMustBeInteger(UnitTester $I)
+    public function givenNumberIsNotIntegerThrowException(UnitTester $I)
     {
-        $app = new App(7);
-        try {
-            $result = $app->number;
-            $I->assertInternalType('int', $result, 'Fail:Enter integer Number');
-        } catch (Throwable $e) {
-            echo $e->getMessage();
-        }
+        $I->expectThrowable(Exception::class, function () {
+            (new App('7'))->getResult();
+        });
     }
 
     public function returnTheGivenNumberAsAStringIfThereIsNoTransformationToDo(UnitTester $I)
     {
-        $app = new App(7);
-        try {
-            $result = $app->getResult();
-            $given = $app->number;
-            $I->assertNotEquals($given, $result, $result . ' There Is No Transformation To Do ');
-        } catch (Throwable $e) {
-            echo $e->getMessage();
-        }
+        $I->expectThrowable(Exception::class, function () {
+            (new App(92))->getResult();
+        });
     }
-
 }
+
 ?>
 

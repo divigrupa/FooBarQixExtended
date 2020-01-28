@@ -1,0 +1,7 @@
+tests\unit\FooBarQixCest.php:givenNumberDividesWith3ReturnFoo
+tests\unit\FooBarQixCest.php:givenNumberDividesWith5ReturnBar
+tests\unit\FooBarQixCest.php:givenNumberDividesWith7ReturnQix
+tests\unit\FooBarQixCest.php:givenNumberDividesWith5And3ReturnFooBar
+tests\unit\FooBarQixCest.php:givenNumberDividesWith5And3And7ReturnFooBarQix
+tests\unit\FooBarQixCest.php:givenNumberDividesWith3And7ReturnFooBar
+tests\unit\FooBarQixCest.php:givenNumberDividesWith5And7ReturnFooBar

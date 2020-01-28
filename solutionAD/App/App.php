@@ -3,13 +3,13 @@
 
 class App
 {
-
     public $number;
 
     public function __construct($number)
     {
         $this->number = $number;
     }
+
 
     private function getResultDividesBy3()
     {
@@ -41,8 +41,17 @@ class App
         return $result;
     }
 
+
     public function getResult()
     {
+        if (!is_int($this->number)) {
+            throw new Exception("FAIL:Enter integer Number");
+        }
+        if ($this->number < 0) {
+            throw new Exception("ERROR:Enter positive number");
+        }
+
+
         $result = '';
         $result .= $this->getResultDividesBy3();
 
@@ -61,10 +70,9 @@ class App
 
 
         if ($result == '') {
-            return $this->number;
+            return strval($this->number);
         } else {
             return $result;
         }
-
     }
 }

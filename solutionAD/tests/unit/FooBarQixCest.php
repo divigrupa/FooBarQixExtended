@@ -58,6 +58,7 @@ class FooBarQixCest
             (new App(-35))->getResult();
         });
     }
+
     public function givenNumberIsNotIntegerThrowException(UnitTester $I)
     {
         $I->expectThrowable(Exception::class, function () {
@@ -67,11 +68,10 @@ class FooBarQixCest
 
     public function returnTheGivenNumberAsAStringIfThereIsNoTransformationToDo(UnitTester $I)
     {
-        $I->expectThrowable(Exception::class, function () {
-            (new App(92))->getResult();
-        });
+        $app = new App(92);
+        $result = $app->getResult();
+        $I->assertIsString($result, 'There Is No Transformation To Do');
     }
 }
-
 ?>
 

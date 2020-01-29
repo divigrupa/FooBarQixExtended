@@ -70,8 +70,9 @@ class FooBarQixCest
     {
         $app = new App(92);
         $result = $app->getResult();
-        $I->assertIsString($result, 'There Is No Transformation To Do');
+        $given =$app->number;
+        $I->assertIsString($result);
+        $I->assertEquals($given, $result);
     }
 }
 ?>
-

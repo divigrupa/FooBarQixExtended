@@ -55,6 +55,7 @@ class App
         $result = '';
         $result .= $this->getResultDividesBy3();
 
+
         if ($result !== '') {
             if ($this->getResultDividesBy5() == 'Bar')
                 $result .= ', ';

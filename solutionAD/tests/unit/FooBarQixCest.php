@@ -71,7 +71,6 @@ class FooBarQixCest
         $app = new App(92);
         $result = $app->getResult();
         $given =$app->number;
-        $I->assertIsString($result);
         $I->assertEquals($given, $result);
     }
 }

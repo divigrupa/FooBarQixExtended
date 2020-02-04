@@ -82,6 +82,7 @@ class FooBarQixCest
 
 
     /**
+     * @example [0]
      * @example [105]
      * @example [210]
      * @example [53438490]

@@ -1,6 +1,4 @@
 <?php
-
-
 class App
 {
     public $number;

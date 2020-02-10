@@ -1,4 +1,5 @@
 <?php
+
 class App
 {
     public $number;
@@ -40,16 +41,8 @@ class App
     }
 
 
-    public function getResult()
+    public function getMultiple()
     {
-        if (!is_int($this->number)) {
-            throw new Exception("FAIL:Enter integer Number");
-        }
-        if ($this->number < 0) {
-            throw new Exception("ERROR:Enter positive number");
-        }
-
-
         $result = '';
         $result .= $this->getResultDividesBy3();
 
@@ -66,12 +59,56 @@ class App
                 $result .= ', ';
         }
         $result .= $this->getResultDividesBy7();
+        return $result;
+    }
 
 
-        if ($result == '') {
+    private function getContains()
+    {
+        $number = (string)$this->number;
+        $numlength = strlen((string)abs($number));
+        $result = '';
+        $z = 0;
+        $i = 1;
+        while ($i <= $numlength) {
+            $character=$number[$z];
+
+            if ($character == 3) {
+                $result .= 'Foo';
+            } elseif ($character == 5) {
+                $result .= 'Bar';
+            } elseif ($character == 7) {
+                $result .= 'Qix';
+            }
+            $z++;
+            $i++;
+        }
+        return $result;
+    }
+
+
+    public function getOccurrences()
+    {
+        $result = '';
+        $result .= $this->getContains();
+        return $result;
+    }
+
+
+    public function getResult()
+    {
+        if (!is_int($this->number)) {
+            throw new Exception("FAIL:Enter integer Number");
+        }
+        if ($this->number < 0) {
+            throw new Exception("ERROR:Enter positive number");
+        }
+
+
+        if ($this->getMultiple() == '') {
             return strval($this->number);
         } else {
-            return $result;
+            return $this->getMultiple() . $this->getOccurrences();
         }
     }
 }

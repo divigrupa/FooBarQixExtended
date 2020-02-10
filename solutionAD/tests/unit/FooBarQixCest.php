@@ -10,8 +10,8 @@ class FooBarQixCest
      */
     public function givenNumberDividesWith3ReturnFoo(UnitTester $I, \Codeception\Example $example)
     {
-        $app = new App(3);
-        $result = $app->getResult();
+        $app = new App($example[0]);
+        $result = $app->getMultiple();
         $I->assertEquals('Foo', $result);
     }
 
@@ -24,7 +24,7 @@ class FooBarQixCest
     public function givenNumberDividesWith5ReturnBar(UnitTester $I, \Codeception\Example $example)
     {
         $app = new App($example[0]);
-        $result = $app->getResult();
+        $result = $app->getMultiple();
         $I->assertEquals('Bar', $result);
     }
 
@@ -37,7 +37,7 @@ class FooBarQixCest
     public function givenNumberDividesWith7ReturnQix(UnitTester $I, \Codeception\Example $example)
     {
         $app = new App($example[0]);
-        $result = $app->getResult();
+        $result = $app->getMultiple();
         $I->assertEquals('Qix', $result);
     }
 
@@ -50,7 +50,7 @@ class FooBarQixCest
     public function givenNumberDividesWith5And3ReturnFooBar(UnitTester $I, \Codeception\Example $example)
     {
         $app = new App($example[0]);
-        $result = $app->getResult();
+        $result = $app->getMultiple();
         $I->assertEquals('Foo, Bar', $result);
     }
 
@@ -63,7 +63,7 @@ class FooBarQixCest
     public function givenNumberDividesWith3And7ReturnFooBar(UnitTester $I, \Codeception\Example $example)
     {
         $app = new App($example[0]);
-        $result = $app->getResult();
+        $result = $app->getMultiple();
         $I->assertEquals('Foo, Qix', $result);
     }
 
@@ -76,7 +76,7 @@ class FooBarQixCest
     public function givenNumberDividesWith5And7ReturnFooBar(UnitTester $I, \Codeception\Example $example)
     {
         $app = new App($example[0]);
-        $result = $app->getResult();
+        $result = $app->getMultiple();
         $I->assertEquals('Bar, Qix', $result);
     }
 
@@ -90,7 +90,7 @@ class FooBarQixCest
     public function givenNumberDividesWith5And3And7ReturnFooBarQix(UnitTester $I, \Codeception\Example $example)
     {
         $app = new App($example[0]);
-        $result = $app->getResult();
+        $result = $app->getMultiple();
         $I->assertEquals('Foo, Bar, Qix', $result);
     }
 
@@ -135,5 +135,100 @@ class FooBarQixCest
         $given = $app->number;
         $I->assertEquals($given, $result);
     }
+
+    /**
+     * @example [3]
+     * @example [4348]
+     */
+    public function givenNumberContains3ReturnFoo(UnitTester $I, \Codeception\Example $example)
+    {
+        $app = new App($example[0]);
+        $result = $app->getOccurrences();
+        $I->assertEquals('Foo', $result);
+    }
+
+
+    /**
+     * @example [5]
+     * @example [8151]
+     */
+    public function givenNumberContains5ReturnBar(UnitTester $I, \Codeception\Example $example)
+    {
+        $app = new App($example[0]);
+        $result = $app->getOccurrences();
+        $I->assertEquals('Bar', $result);
+    }
+
+
+    /**
+     * @example [7]
+     * @example [1872]
+     */
+    public function givenNumberContains7ReturnQix(UnitTester $I, \Codeception\Example $example)
+    {
+        $app = new App($example[0]);
+        $result = $app->getOccurrences();
+        $I->assertEquals('Qix', $result);
+    }
+
+
+    /**
+     * @example [35]
+     * @example [123512]
+     */
+    public function givenNumberContains3And5ReturnFooBar(UnitTester $I, \Codeception\Example $example)
+    {
+        $app = new App($example[0]);
+        $result = $app->getOccurrences();
+        $I->assertEquals('FooBar', $result);
+    }
+
+
+    /**
+     * @example [37]
+     * @example [213721]
+     */
+    public function givenNumberContains3And7ReturnFooQix(UnitTester $I, \Codeception\Example $example)
+    {
+        $app = new App($example[0]);
+        $result = $app->getOccurrences();
+        $I->assertEquals('FooQix', $result);
+    }
+
+
+    /**
+     * @example [57]
+     * @example [485784]
+     */
+    public function givenNumberContains5And7ReturnBarQix(UnitTester $I, \Codeception\Example $example)
+    {
+        $app = new App($example[0]);
+        $result = $app->getOccurrences();
+        $I->assertEquals('BarQix', $result);
+    }
+
+
+    /**
+     * @example [3353]
+     * @example [4838312531]
+     */
+    public function givenNumberContains3353ReturnFooFooBarFoo(UnitTester $I, \Codeception\Example $example)
+    {
+        $app = new App($example[0]);
+        $result = $app->getOccurrences();
+        $I->assertEquals('FooFooBarFoo', $result);
+    }
+
+
+    /**
+     * @example [77832191115]
+     */
+    public function resultTest(UnitTester $I, \Codeception\Example $example)
+    {
+        $app = new App($example[0]);
+        $result = $app->getResult();
+        $I->assertEquals('Foo, Bar, QixQixQixFooBar', $result);
+    }
 }
+
 ?>

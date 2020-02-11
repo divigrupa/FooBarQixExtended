@@ -174,7 +174,7 @@ class FooBarQixCest
 
     /**
      * @example [35]
-     * @example [123512]
+     * @example [12322512]
      */
     public function givenNumberContains3And5ReturnFooBar(UnitTester $I, \Codeception\Example $example)
     {
@@ -186,7 +186,7 @@ class FooBarQixCest
 
     /**
      * @example [37]
-     * @example [213721]
+     * @example [21311721]
      */
     public function givenNumberContains3And7ReturnFooQix(UnitTester $I, \Codeception\Example $example)
     {
@@ -198,7 +198,7 @@ class FooBarQixCest
 
     /**
      * @example [57]
-     * @example [485784]
+     * @example [48511784]
      */
     public function givenNumberContains5And7ReturnBarQix(UnitTester $I, \Codeception\Example $example)
     {
@@ -221,14 +221,50 @@ class FooBarQixCest
 
 
     /**
+     * @example [3]
+     * @example [123]
+     */
+    public function givenNumberDividesWith3AndContains3ReturnFooFoo(UnitTester $I, \Codeception\Example $example)
+    {
+        $app = new App($example[0]);
+        $result = $app->getResult();
+        $I->assertEquals('FooFoo', $result);
+    }
+
+
+    /**
+     * @example [5]
+     * @example [25]
+     */
+    public function givenNumberDividesWith5AndContains5ReturnBarBar(UnitTester $I, \Codeception\Example $example)
+    {
+        $app = new App($example[0]);
+        $result = $app->getResult();
+        $I->assertEquals('BarBar', $result);
+    }
+
+
+    /**
+     * @example [7]
+     * @example [217]
+     */
+    public function givenNumberDividesWith7AndContains7ReturnQixQix(UnitTester $I, \Codeception\Example $example)
+    {
+        $app = new App($example[0]);
+        $result = $app->getResult();
+        $I->assertEquals('QixQix', $result);
+    }
+
+
+    /**
      * @example [77832191115]
      */
-    public function resultTest(UnitTester $I, \Codeception\Example $example)
+    public function givenNumberDividesWith375AndContains7735ReturnFooBarQixQixQixFooBar(UnitTester $I, \Codeception\Example $example)
     {
         $app = new App($example[0]);
         $result = $app->getResult();
         $I->assertEquals('Foo, Bar, QixQixQixFooBar', $result);
+
     }
 }
-
 ?>

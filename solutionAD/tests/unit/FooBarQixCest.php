@@ -104,7 +104,7 @@ class FooBarQixCest
     {
         $app = new App($example[0]);
         $I->expectThrowable(Exception::class, function () use ($app) {
-            $app->getResult();
+            $app->validate();
         });
     }
 
@@ -118,7 +118,7 @@ class FooBarQixCest
     {
         $app = new App($example[0]);
         $I->expectThrowable(Exception::class, function () use ($app) {
-            $app->getResult();
+            $app->validate();
         });
     }
 
@@ -132,8 +132,7 @@ class FooBarQixCest
     {
         $app = new App($example[0]);
         $result = $app->getResult();
-        $given = $app->number;
-        $I->assertEquals($given, $result);
+        $I->assertEquals($example[0], $result);
     }
 
     /**

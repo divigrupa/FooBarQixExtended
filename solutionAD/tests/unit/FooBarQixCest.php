@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 include dirname(__DIR__, 2) . '/App/App.php';
 
 class FooBarQixCest
@@ -102,9 +103,9 @@ class FooBarQixCest
      */
     public function givenNegativeNumberThrowException(UnitTester $I, \Codeception\Example $example)
     {
-        $app = new App($example[0]);
-        $I->expectThrowable(Exception::class, function () use ($app) {
-            $app->validate();
+        $I->expectThrowable(Exception::class, function () use ($example) {
+            $app = new App($example[0]);
+            $app->getResult();
         });
     }
 
@@ -116,9 +117,8 @@ class FooBarQixCest
      */
     public function givenNumberIsNotIntegerThrowException(UnitTester $I, \Codeception\Example $example)
     {
-        $app = new App($example[0]);
-        $I->expectThrowable(Exception::class, function () use ($app) {
-            $app->validate();
+        $I->expectThrowable(TypeError::class, function () use ($example) {
+            new App($example[0]);
         });
     }
 

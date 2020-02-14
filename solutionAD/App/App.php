@@ -1,64 +1,58 @@
 <?php
+declare(strict_types=1);
 
 class App
 {
-    private $number;
+    private int $number;
 
-    public function __construct($number)
+    public function __construct(int $number)
     {
         $this->number = $number;
     }
 
-    private function getResultDividesBy3()
+    public function getResult(): string
     {
-        if ($this->number % 3 === 0) {
-            return 'Foo';
-        }
+        $this->validate();
+        return ($this->getMultiple() === '') ? (string)$this->number : $this->getMultiple() . $this->getOccurrences();
     }
 
-    private function getResultDividesBy5()
+    public function getMultiple(): string
     {
-        if ($this->number % 5 === 0) {
-            return 'Bar';
-        }
+        $array = [$this->getResultDividesBy3(), $this->getResultDividesBy5(), $this->getResultDividesBy7()];
+        $array = array_filter($array);
+        $array = implode(', ', $array);
+        return $array;
     }
 
-    private function getResultDividesBy7()
+    public function getOccurrences(): string
     {
-        if ($this->number % 7 === 0) {
-            return 'Qix';
-        }
+        return $this->getContains();
     }
 
-    public function getMultiple()
+    private function getResultDividesBy3(): string
     {
-        $result = '';
-        $result .= $this->getResultDividesBy3();
-
-        if ($result !== '') {
-            if ($this->getResultDividesBy5() == 'Bar')
-                $result .= ', ';
-        }
-        $result .= $this->getResultDividesBy5();
-
-        if ($result != '') {
-            if ($this->getResultDividesBy7() == 'Qix')
-                $result .= ', ';
-        }
-        $result .= $this->getResultDividesBy7();
-        return $result;
+        return ($this->number % 3 === 0) ?  'Foo' : '';
     }
 
-    private function getContains()
+    private function getResultDividesBy5(): string
+    {
+        return ($this->number % 5 === 0) ?  'Bar' : '';
+    }
+
+    private function getResultDividesBy7(): string
+    {
+        return ($this->number % 7 === 0) ?  'Qix' : '';
+    }
+
+    private function getContains(): string
     {
         $number = (string)$this->number;
-        $numlength = strlen((string)abs($number));
+        $numLength = strlen((string)abs($number));
         $result = '';
         $z = 0;
         $i = 1;
-        while ($i <= $numlength) {
+        while ($i <= $numLength) {
             $character = $number[$z];
-
             if ($character == 3) {
                 $result .= 'Foo';
             } elseif ($character == 5) {
@@ -72,12 +66,7 @@ class App
         return $result;
     }
 
-    public function getOccurrences()
-    {
-        return $this->getContains();
-    }
-
-    public function validate()
+    private function validate(): void
     {
         if (!is_int($this->number)) {
             throw new Exception('FAIL:Enter integer Number');
@@ -85,10 +74,5 @@ class App
         if ($this->number < 0) {
             throw new Exception('ERROR:Enter positive number');
         }
-    }
-
-    public function getResult()
-    {
-        return ($this->getMultiple() === '') ? $this->number : $this->getMultiple() . $this->getOccurrences();
     }
 }

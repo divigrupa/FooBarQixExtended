@@ -18,10 +18,10 @@ class App
 
     public function getMultiple(): string
     {
-        $array = [$this->getResultDividesBy3(), $this->getResultDividesBy5(), $this->getResultDividesBy7()];
-        $array = array_filter($array);
-        $array = implode(', ', $array);
-        return $array;
+        $multiple = [$this->getResultDividesBy3(), $this->getResultDividesBy5(), $this->getResultDividesBy7()];
+        $multiple = array_filter($multiple);
+        $multiple = implode(', ', $multiple);
+        return $multiple;
     }
 
     public function getOccurrences(): string

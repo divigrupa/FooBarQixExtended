@@ -15,8 +15,10 @@ $testCases = [
 	4 => '4',
 	5 => 'Bar',
 	6 => 'Foo',
+	7 => 'Qix',
 	8 => '8',
 	15 => 'Foo, Bar',
+    105 => 'Foo, Bar, Qix',
 ];
 
 foreach ($testCases as $number => $expected) {

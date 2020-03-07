@@ -11,6 +11,7 @@ class Transformer
 		if ($number) {
 			if (!fmod($number,3)) $result[] = 'Foo';
 			if (!fmod($number,5)) $result[] = 'Bar';
+            if (!fmod($number,7)) $result[] = 'Qix';
 		}
 
 		if (!empty($result)) {

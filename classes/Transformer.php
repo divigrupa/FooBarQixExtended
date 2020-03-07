@@ -1,63 +1,102 @@
 <?php
 class Transformer
 {
+	private $config;
+	private $splitter;
+
 	/**
-	 * @param int $number
+	 * Transformer constructor.
+	 * @param int $id
+	 */
+	public function __construct(int $id = 1) {
+		$service = new Service($id);
+		$this->config = $service->config;
+
+		$splitter = $service->config['splitter'] ?? null;
+		$this->splitter = !empty($splitter) ? $splitter . ' ' : '';
+	}
+
+	/**
+	 * @param int $input
 	 * @return string
 	 */
-	public static function fullTransform(int $number): string
-	{
+	public function fullTransform(int $input): string {
 		$result = array_filter([
-			self::divTransform($number, false),
-			self::attachTransform($number, false)
+			$this->divTransform($input, false),
+			$this->attachTransform($input, false)
 		]);
-		return !empty($result)
-			? implode(', ', $result)
-			: $number;
+		$mergedResult = $this->resultMerge($result, $input, true);
+		return $mergedResult . $this->sumTransform($input);
 	}
 
 	/**
-	 * @param int $number
+	 * @param int $input
 	 * @param bool $needNumber
 	 * @return string
 	 */
-	public static function divTransform(int $number, bool $needNumber = true): string
-	{
+	public function divTransform(int $input, bool $needNumber = true): string {
 		$result = [];
-		if ($number) {
-			if (!fmod($number,3)) $result[] = 'Foo';
-			if (!fmod($number,5)) $result[] = 'Bar';
-			if (!fmod($number,7)) $result[] = 'Qix';
+		if ($input) {
+			foreach ($this->config['divider'] as $case) {
+				if (!fmod($input, $case['number'])) {
+					$result[] = $case['string'];
+				}
+			}
 		}
-
-		if (!empty($result)) {
-			return implode(', ', $result);
-		}
-		return $needNumber ? $number : '';
+		return $this->resultMerge($result, $input, $needNumber);
 	}
 
 	/**
-	 * @param int $number
+	 * @param int $input
 	 * @param bool $needNumber
 	 * @return string
 	 */
-	public static function attachTransform(int $number, bool $needNumber = true): string
-	{
+	public function attachTransform(int $input, bool $needNumber = true): string {
 		$result = [];
-		if (!empty($number)) {
-			$charRow = (string) abs($number);
+		if (!empty($input)) {
+			$charRow = (string) abs($input);
 			$charArray = str_split($charRow);
 
 			foreach ($charArray as $char) {
-				if (!fmod($char, 3)) $result[] = 'Foo';
-				if (!fmod($char, 5)) $result[] = 'Bar';
-				if (!fmod($char, 7)) $result[] = 'Qix';
+				foreach ($this->config['appender'] as $case) {
+					if (!fmod($char, $case['number'])) {
+						$result[] = $case['string'];
+					}
+				}
 			}
 		}
-		if (!empty($result)) {
-			return implode(', ', $result);
+		return $this->resultMerge($result, $input, $needNumber);
+	}
+
+	/**
+	 * @param int $input
+	 * @return string
+	 */
+	public function sumTransform(int $input): string {
+		$result = [];
+		if (!empty($input)) {
+			$charRow = (string) abs($input);
+			$charArray = str_split($charRow);
+			foreach ($this->config['sum'] ?? [] as $case) {
+				if (array_sum($charArray) === $case['number']) {
+					$result[] = $case['string'];
+				}
+			}
 		}
-		return $needNumber ? $number : '';
+		return implode('', $result);
+	}
+
+	/**
+	 * @param array $result
+	 * @param $input
+	 * @param bool $needNumber
+	 * @return string
+	 */
+	public function resultMerge(array $result, $input, bool $needNumber = true): string {
+		if (!empty($result)) {
+			return implode($this->splitter, $result);
+		}
+		return $needNumber ? $input : '';
 	}
 }
 

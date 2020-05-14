@@ -1,119 +1,73 @@
 <?php
 use PHPUnit\Framework\TestCase;
+
 require DIR . "/../src/Classes/FooBar.php";
 
 class FooBarTest extends TestCase
 {
 
-    //FooBarQix tests
-
-    public function tests1()
-     {
-        $test1 = new FooBar();
-        $this->assertEquals("FooBar", $test1->foo_bar_qix(15));
-    }
-
-    public function tests2()
-     {
-        $test1 = new FooBar();
-        $this->assertEquals("Foo", $test1->foo_bar_qix(3));
-    }
-
-    public function tests3()
-     {
-        $test1 = new FooBar();
-        $this->assertEquals("Bar", $test1->foo_bar_qix(5));
-    }
-
-    public function tests4()
-     {
-        $test1 = new FooBar();
-        $this->assertEquals("Bar", $test1->foo_bar_qix(5));
-    }
-
-    public function tests5()
-     {
-        $test1 = new FooBar();
-        $this->assertEquals("Foo", $test1->foo_bar_qix(3));
-    }
-
-    public function tests6()
-     {
-        $test1 = new FooBar();
-        $this->assertEquals("Foo", $test1->foo_bar_qix(3));
-    }
-
-    public function tests7()
+    public function testFoo()
     {
-       $test1 = new FooBar();
-       $this->assertEquals("Bar", $test1->foo_bar_qix(5));
-   }
+        $function_test = new FooBar();
+        $this->assertEquals("Foo", $function_test->fooBarQix(3));
+        $this->assertEquals("Foo", $function_test->fooBarQix(6));
+        $this->assertEquals("Foo", $function_test->fooBarQix(9));
+        $this->assertEquals("Foo", $function_test->fooBarQix(12));
+    }
 
-   public function tests8()
-   {
-      $test1 = new FooBar();
-      $this->assertEquals("FooBar", $test1->foo_bar_qix(345));
-  }
+    public function testBar()
+    {
+        $function_test = new FooBar();
+        $this->assertEquals("Bar", $function_test->fooBarQix(5));
+        $this->assertEquals("Bar", $function_test->fooBarQix(10));
+        $this->assertEquals("Bar", $function_test->fooBarQix(20));
+        $this->assertEquals("Bar", $function_test->fooBarQix(40));
+    }
 
-  public function tests9()
-   {
-      $test1 = new FooBar();
-      $this->assertEquals("Qix", $test1->foo_bar_qix(7));
-  }
+    public function testQix()
+    {
+        $function_test = new FooBar();
+        $this->assertEquals("Qix", $function_test->fooBarQix(7));
+        $this->assertEquals("Qix", $function_test->fooBarQix(14));
+        $this->assertEquals("Qix", $function_test->fooBarQix(28));
+        $this->assertEquals("Qix", $function_test->fooBarQix(49));
+    }
 
-  public function tests10()
-   {
-      $test1 = new FooBar();
-      $this->assertEquals("BarQix", $test1->foo_bar_qix(35));
-  }
+    public function testFooBar()
+    {
+        $function_test = new FooBar();
+        $this->assertEquals("FooBar", $function_test->fooBarQix(15));
+        $this->assertEquals("FooBar", $function_test->fooBarQix(30));
+        $this->assertEquals("FooBar", $function_test->fooBarQix(45));
+        $this->assertEquals("FooBar", $function_test->fooBarQix(60));
+    }
 
-  public function tests11()
-   {
-      $test1 = new FooBar();
-      $this->assertEquals("FooQix", $test1->foo_bar_qix(21));
-  }
+    public function testFooQix()
+    {
+        $function_test = new FooBar();
+        $this->assertEquals("FooQix", $function_test->fooBarQix(21));
+        $this->assertEquals("FooQix", $function_test->fooBarQix(42));
+        $this->assertEquals("FooQix", $function_test->fooBarQix(63));
+        $this->assertEquals("FooQix", $function_test->fooBarQix(84));
+    }
 
-  public function tests12()
-   {
-      $test1 = new FooBar();
-      $this->assertEquals("FooBar", $test1->foo_bar_qix(345));
-  }
+    public function testBarQix()
+    {
+        $function_test = new FooBar();
+        $this->assertEquals("BarQix", $function_test->fooBarQix(35));
+        $this->assertEquals("BarQix", $function_test->fooBarQix(70));
+        $this->assertEquals("BarQix", $function_test->fooBarQix(140));
+        $this->assertEquals("BarQix", $function_test->fooBarQix(175));
 
-  public function tests13()
-   {
-      $test1 = new FooBar();
-      $this->assertEquals("FooBarQix", $test1->foo_bar_qix(105));
-   }
+    }
 
-  public function tests14()
-   {
-      $test1 = new FooBar();
-      $this->assertEquals("1", $test1->foo_bar_qix(2));
-  }
-
-  public function tests15()
-  {
-     $test1 = new FooBar();
-     $this->assertEquals("Qix", $test1->foo_bar_qix(77));
-  }
-
-  public function tests16()
-  {
-    $test1 = new FooBar();
-    $this->assertEquals("Bar", $test1->foo_bar_qix(77));
-  }
-
-  public function tests17()
-  {
-    $test1 = new FooBar();
-    $this->assertEquals("Bar", $test1->foo_bar_qix(3));
-  }
-
-  public function tests18()
-  {
-    $test1 = new FooBar();
-    $this->assertEquals("QixFoo", $test1->foo_bar_qix(37));
-  }
+    public function testFooBarQix()
+    {
+        $function_test = new FooBar();
+        $this->assertEquals("FooBarQix", $function_test->fooBarQix(105));
+        $this->assertEquals("FooBarQix", $function_test->fooBarQix(210));
+        $this->assertEquals("FooBarQix", $function_test->fooBarQix(315));
+        $this->assertEquals("FooBarQix", $function_test->fooBarQix(420));
+    }
 
 }
-

@@ -3,48 +3,43 @@
 class FooBar
 {
 
-    // OLD RULES
-
-    public function foo($cash):string
+    private function foo($given_number): string
     {
-        $str = "";
-        if($cash % 3 == 0){
-            $str = "Foo";
-         }
-        return $str ;
-    }
-    
-    private function bar($cash):string
-    {
-        $str = "";
-        if($cash % 5 == 0){
-            $str = "Bar";
-         }
-        return $str ;
-    }
-
-    private function qix($cash):string
-    {
-        $str = "";
-        if($cash % 7 == 0){
-            $str = "Qix";
-         }
-        return $str ;
-    }
-
-    //Foo, Bar, Qix together
-
-    public function foo_bar_qix($cash):string
-    {
-        $str = $this->foo($cash);
-        $str .= $this->bar($cash);
-        $str .= $this->qix($cash);
-
-        if(strlen($str) == 0){
-            $str = $cash;
+        $number_to_string = "";
+        if ($given_number % 3 == 0) {
+            $number_to_string = "Foo";
         }
-        return $str;
+        return $number_to_string;
+    }
+
+    private function bar($given_number): string
+    {
+        $number_to_string = "";
+        if ($given_number % 5 == 0) {
+            $number_to_string = "Bar";
+        }
+        return $number_to_string;
+    }
+
+    private function qix($given_number): string
+    {
+        $number_to_string = "";
+        if ($given_number % 7 == 0) {
+            $number_to_string = "Qix";
+        }
+        return $number_to_string;
+    }
+
+    public function fooBarQix($given_number): string
+    {
+        $functions_summary = $this->foo($given_number);
+        $functions_summary .= $this->bar($given_number);
+        $functions_summary .= $this->qix($given_number);
+
+        if (strlen($functions_summary) == 0) {
+            $functions_summary = $given_number;
+        }
+        return $functions_summary;
     }
 
 }
-?>

@@ -3,43 +3,43 @@
 class FooBar
 {
 
-    private function foo($given_number): string
+    private function foo($givenNumber): string
     {
-        $number_to_string = "";
-        if ($given_number % 3 == 0) {
-            $number_to_string = "Foo";
+        $numberToString = "";
+        if ($givenNumber % 3 == 0) {
+            $numberToString = "Foo";
         }
-        return $number_to_string;
+        return $numberToString;
     }
 
-    private function bar($given_number): string
+    private function bar($givenNumber): string
     {
-        $number_to_string = "";
-        if ($given_number % 5 == 0) {
-            $number_to_string = "Bar";
+        $numberToString = "";
+        if ($givenNumber % 5 == 0) {
+            $numberToString = "Bar";
         }
-        return $number_to_string;
+        return $numberToString;
     }
 
-    private function qix($given_number): string
+    private function qix($givenNumber): string
     {
-        $number_to_string = "";
-        if ($given_number % 7 == 0) {
-            $number_to_string = "Qix";
+        $numberToString = "";
+        if ($givenNumber % 7 == 0) {
+            $numberToString = "Qix";
         }
-        return $number_to_string;
+        return $numberToString;
     }
 
-    public function fooBarQix($given_number): string
+    public function fooBarQix($givenNumber): string
     {
-        $functions_summary = $this->foo($given_number);
-        $functions_summary .= $this->bar($given_number);
-        $functions_summary .= $this->qix($given_number);
+        $functionSummary = $this->foo($givenNumber);
+        $functionSummary .= $this->bar($givenNumber);
+        $functionSummary .= $this->qix($givenNumber);
 
-        if (strlen($functions_summary) == 0) {
-            $functions_summary = $given_number;
+        if (strlen($functionSummary) == 0) {
+            $functionSummary = $givenNumber;
         }
-        return $functions_summary;
+        return $functionSummary;
     }
 
 }

@@ -70,4 +70,33 @@ class FooBarTest extends TestCase
         $this->assertEquals("FooBarQix", $functionTest->fooBarQix(420));
     }
 
+    public function testSpecificDigit()
+    {
+        $functionTest = new FooBar();
+        $this->assertEquals("Foo", $functionTest->specificDigit(3));
+        $this->assertEquals("Bar", $functionTest->specificDigit(5));
+        $this->assertEquals("Qix", $functionTest->specificDigit(7));
+        $this->assertEquals("FooFooFoo", $functionTest->specificDigit(333));
+        $this->assertEquals("BarBarBar", $functionTest->specificDigit(555));
+        $this->assertEquals("QixQixQix", $functionTest->specificDigit(777));
+        $this->assertEquals("FooBarQix", $functionTest->specificDigit(357));
+        $this->assertEquals("QixBarFoo", $functionTest->specificDigit(753));
+        $this->assertEquals("BarFooBar", $functionTest->specificDigit(535));
+        $this->assertEquals("FooQixBarQixFoo", $functionTest->specificDigit(37573));
+    }
+
+    public function testBothFunctions()
+    {
+        $functionTest = new FooBar();
+        $this->assertEquals("Foo", $functionTest->specificDigit(3));
+        $this->assertEquals("Foo", $functionTest->fooBarQix(3));
+
+        $this->assertEquals("Bar", $functionTest->specificDigit(15));
+        $this->assertEquals("FooBar", $functionTest->fooBarQix(15));
+
+        $this->assertEquals("FooBar", $functionTest->specificDigit(315));
+        $this->assertEquals("FooBarQix", $functionTest->fooBarQix(315));
+
+    }
+
 }

@@ -42,6 +42,25 @@ class FooBar
         return $functionSummary;
     }
 
+    public function specificDigit($givenNumber): string
+    {
+
+        $array = str_split($givenNumber);
+        $numberToString = "";
+
+        foreach ($array as $value) {
+            if ($value == 3) {
+                $numberToString .= "Foo";
+            }
+            if ($value == 5) {
+                $numberToString .= "Bar";
+            }
+            if ($value == 7) {
+                $numberToString .= "Qix";
+            }
+        }
+        return $numberToString;
+    }
+
 }
-$van = new FooBar();
-echo $van->fooBarQix(3);
+

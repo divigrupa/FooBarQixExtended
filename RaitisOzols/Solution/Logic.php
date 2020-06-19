@@ -68,4 +68,9 @@ class Logic
         
         return $this->result;
     }
+    
+    public function serviceFooBarQixNew()
+    {
+        
+    }
 }

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 require_once 'Logic.php';
 
-class Tests extends PHPUnit\Framework\TestCase 
+class Tests extends PHPUnit\Framework\TestCase
 {
     public function testFoo()
     {
@@ -28,6 +28,17 @@ class Tests extends PHPUnit\Framework\TestCase
         );
     }
     
+    public function testQix()
+    {
+        $logicObj =  new Logic();
+        
+        $this->assertEquals(
+            'Bar',
+            $logicObj->serviceFooBar(7),
+            'String \'Qix\' expected!'
+        );
+    }
+    
     public function testFooBar()
     {
         $logicObj =  new Logic();
@@ -36,6 +47,39 @@ class Tests extends PHPUnit\Framework\TestCase
             'FooBar',
             $logicObj->serviceFooBar(15),
             'String \'FooBar\' expected!'
+        );
+    }
+    
+    public function testFooQix()
+    {
+        $logicObj =  new Logic();
+        
+        $this->assertEquals(
+            'FooBar',
+            $logicObj->serviceFooBar(21),
+            'String \'FooQix\' expected!'
+        );
+    }
+    
+    public function testBarQix()
+    {
+        $logicObj =  new Logic();
+        
+        $this->assertEquals(
+            'FooBar',
+            $logicObj->serviceFooBar(35),
+            'String \'BarQix\' expected!'
+        );
+    }
+    
+    public function testFooBarQix()
+    {
+        $logicObj =  new Logic();
+        
+        $this->assertEquals(
+            'FooBar',
+            $logicObj->serviceFooBar(105),
+            'String \'FooBarQix\' expected!'
         );
     }
     

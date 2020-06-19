@@ -38,4 +38,34 @@ class Logic
         
         return $this->result;
     }
+    
+    public function serviceFooBarQixOld()
+    {
+        if ($input <= 0)
+        {
+            throw new InvalidArgumentException(
+                'Only positive integers allowed!'
+            );
+        }
+        
+        $this->result = '';
+        
+        if ($input % 3 == 0) {
+            $this->result = $this->foo;
+        }
+        
+        if ($input % 5 == 0) {
+            $this->result .= $this->bar;
+        }
+        
+        if ($input % 7 == 0) {
+            $this->result .= $this->qix;
+        }
+        
+        if ($input % 3 != 0 && $input % 5 != 0 && $input % 7 != 0) {
+           $this->result = strval($input);
+        }
+        
+        return $this->result;
+    }
 }

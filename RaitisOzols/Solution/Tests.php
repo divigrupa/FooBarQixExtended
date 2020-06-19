@@ -12,7 +12,7 @@ class Tests extends PHPUnit\Framework\TestCase
         
         $this->assertEquals(
             'Foo',
-            $logicObj->serviceFooBarQixMain(3),
+            $logicObj->serviceFooBarQixOld(3),
             'String \'Foo\' expected!'
         );
     }
@@ -23,7 +23,7 @@ class Tests extends PHPUnit\Framework\TestCase
         
         $this->assertEquals(
             'Bar',
-            $logicObj->serviceFooBarQixMain(5),
+            $logicObj->serviceFooBarQixOld(5),
             'String \'Bar\' expected!'
         );
     }
@@ -34,7 +34,7 @@ class Tests extends PHPUnit\Framework\TestCase
         
         $this->assertEquals(
             'Qix',
-            $logicObj->serviceFooBarQixMain(7),
+            $logicObj->serviceFooBarQixOld(7),
             'String \'Qix\' expected!'
         );
     }
@@ -45,7 +45,7 @@ class Tests extends PHPUnit\Framework\TestCase
         
         $this->assertEquals(
             'FooBar',
-            $logicObj->serviceFooBarQixMain(15),
+            $logicObj->serviceFooBarQixOld(15),
             'String \'FooBar\' expected!'
         );
     }
@@ -56,7 +56,7 @@ class Tests extends PHPUnit\Framework\TestCase
         
         $this->assertEquals(
             'FooQix',
-            $logicObj->serviceFooBarQixMain(21),
+            $logicObj->serviceFooBarQixOld(21),
             'String \'FooQix\' expected!'
         );
     }
@@ -67,7 +67,7 @@ class Tests extends PHPUnit\Framework\TestCase
         
         $this->assertEquals(
             'BarQix',
-            $logicObj->serviceFooBarQixMain(35),
+            $logicObj->serviceFooBarQixOld(35),
             'String \'BarQix\' expected!'
         );
     }
@@ -78,7 +78,7 @@ class Tests extends PHPUnit\Framework\TestCase
         
         $this->assertEquals(
             'FooBarQix',
-            $logicObj->serviceFooBarQixMain(105),
+            $logicObj->serviceFooBarQixOld(105),
             'String \'FooBarQix\' expected!'
         );
     }
@@ -89,7 +89,7 @@ class Tests extends PHPUnit\Framework\TestCase
         
         $this->assertEquals(
             '8',
-            $logicObj->serviceFooBarQixMain(8),
+            $logicObj->serviceFooBarQixOld(8),
             'String \'8\' expected!'
         );
     }
@@ -99,7 +99,7 @@ class Tests extends PHPUnit\Framework\TestCase
         $logicObj =  new Logic();
         
         $this->expectException(TypeError::class);
-        $logicObj->serviceFooBarQixMain('Exception of type mismatch expected!');
+        $logicObj->serviceFooBarQixOld('Exception of type mismatch expected!');
     }
     
     public function testExceptionNegative()
@@ -107,6 +107,6 @@ class Tests extends PHPUnit\Framework\TestCase
         $logicObj =  new Logic();
         
         $this->expectException(InvalidArgumentException::class);
-        $logicObj->serviceFooBarQixMain(-3);
+        $logicObj->serviceFooBarQixOld(-3);
     }
 }

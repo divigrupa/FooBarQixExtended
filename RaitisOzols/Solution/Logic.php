@@ -39,7 +39,7 @@ class Logic
         return $this->result;
     }
     
-    public function serviceFooBarQixOld()
+    public function serviceFooBarQixOld(int $input)
     {
         if ($input <= 0)
         {

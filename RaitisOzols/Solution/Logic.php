@@ -9,7 +9,7 @@ class Logic
     private $qix = 'Qix';
     private $result;
     
-    public function serviceFooBar(int $input)
+    public function serviceFooBarQixMain(int $input)
     {
         if ($input <= 0)
         {

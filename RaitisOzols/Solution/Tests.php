@@ -33,7 +33,7 @@ class Tests extends PHPUnit\Framework\TestCase
         $logicObj =  new Logic();
         
         $this->assertEquals(
-            'Bar',
+            'Qix',
             $logicObj->serviceFooBar(7),
             'String \'Qix\' expected!'
         );
@@ -55,7 +55,7 @@ class Tests extends PHPUnit\Framework\TestCase
         $logicObj =  new Logic();
         
         $this->assertEquals(
-            'FooBar',
+            'FooQix',
             $logicObj->serviceFooBar(21),
             'String \'FooQix\' expected!'
         );
@@ -66,7 +66,7 @@ class Tests extends PHPUnit\Framework\TestCase
         $logicObj =  new Logic();
         
         $this->assertEquals(
-            'FooBar',
+            'BarQix',
             $logicObj->serviceFooBar(35),
             'String \'BarQix\' expected!'
         );
@@ -77,7 +77,7 @@ class Tests extends PHPUnit\Framework\TestCase
         $logicObj =  new Logic();
         
         $this->assertEquals(
-            'FooBar',
+            'FooBarQix',
             $logicObj->serviceFooBar(105),
             'String \'FooBarQix\' expected!'
         );
@@ -88,9 +88,9 @@ class Tests extends PHPUnit\Framework\TestCase
         $logicObj =  new Logic();
         
         $this->assertEquals(
-            '7',
-            $logicObj->serviceFooBar(7),
-            'String \'7\' expected!'
+            '8',
+            $logicObj->serviceFooBar(8),
+            'String \'8\' expected!'
         );
     }
     

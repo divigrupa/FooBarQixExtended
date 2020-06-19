@@ -6,6 +6,7 @@ class Logic
 {
     private $foo = 'Foo';
     private $bar = 'Bar';
+    private $qix = 'Qix';
     private $result;
     
     public function serviceFooBar(int $input)
@@ -27,7 +28,11 @@ class Logic
             $this->result .= $this->bar;
         }
         
-        if ($input % 3 != 0 && $input % 5 != 0) {
+        if ($input % 7 == 0) {
+            $this->result .= $this->qix;
+        }
+        
+        if ($input % 3 != 0 && $input % 5 != 0 && $input % 7 != 0) {
            $this->result = strval($input);
         }
         

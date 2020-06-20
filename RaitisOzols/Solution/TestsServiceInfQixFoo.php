@@ -272,14 +272,14 @@ class TestsServiceInfQixFoo extends PHPUnit\Framework\TestCase
         );
     }
     
-    public function testInfSepFooIndQix()
+    public function testInfSepFooInfQix()
     {
         $logicObj =  new Logic();
         
         $this->assertEquals(
-            'Inf; FooIndQix',
+            'Inf; FooInfQix',
             $logicObj->serviceInfQixFoo(1872),
-            'String \'Inf; FooIndQix\' expected!'
+            'String \'Inf; FooInfQix\' expected!'
         );
     }
     
@@ -394,14 +394,14 @@ class TestsServiceInfQixFoo extends PHPUnit\Framework\TestCase
         );
     }
     
-    public function testQixIngFoo()
+    public function testQixInfFoo()
     {
         $logicObj =  new Logic();
         
         $this->assertEquals(
-            'QixIngFoo',
+            'QixInfFoo',
             $logicObj->serviceInfQixFoo(833),
-            'String \'QixIngFoo\' expected!'
+            'String \'QixInfFoo\' expected!'
         );
     }
     
@@ -488,7 +488,7 @@ class TestsServiceInfQixFoo extends PHPUnit\Framework\TestCase
         
         $this->assertEquals(
             'Qix; FooInfQixFoo',
-            $logicObj->serviceInfQixFoo(6873),
+            $logicObj->serviceInfQixFoo(8673),
             'String \'Qix; FooInfQixFoo\' expected!'
         );
     }
@@ -725,20 +725,20 @@ class TestsServiceInfQixFoo extends PHPUnit\Framework\TestCase
         
         $this->assertEquals(
             'Inf',
-            $logicObj->serviceInfQixFoo(5888),
-            'String \'Foo\' expected!'
-        );
-        
-        $this->assertEquals(
-            'Bar',
-            $logicObj->serviceInfQixFoo(1777),
-            'String \'Bar\' expected!'
+            $logicObj->serviceInfQixFoo(5818),
+            'String \'Inf\' expected!'
         );
         
         $this->assertEquals(
             'Qix',
-            $logicObj->serviceInfQixFoo(1333),
+            $logicObj->serviceInfQixFoo(1717),
             'String \'Qix\' expected!'
+        );
+        
+        $this->assertEquals(
+            'Foo',
+            $logicObj->serviceInfQixFoo(1333),
+            'String \'Foo\' expected!'
         );
         
     }

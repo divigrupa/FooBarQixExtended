@@ -6,6 +6,65 @@ require_once 'Logic.php';
 
 class TestsServiceInfQixFoo extends PHPUnit\Framework\TestCase
 {
+    public function testInfIsAtEnd()
+    {
+        $logicObj =  new Logic();
+        
+        $this->assertEquals(
+            'Inf',
+            substr($logicObj->serviceInfQixFoo(1232), -3),
+            'String \'Inf\' expected!'
+        );
+        
+        $this->assertEquals(
+            'Inf',
+            substr($logicObj->serviceInfQixFoo(3221), -3),
+            'String \'Inf\' expected!'
+        );
+        
+        $this->assertEquals(
+            'Inf',
+            substr($logicObj->serviceInfQixFoo(2231), -3),
+            'String \'Inf\' expected!'
+        );
+        
+        $this->assertEquals(
+            'Inf',
+            substr($logicObj->serviceInfQixFoo(8), -3),
+            'String \'Inf\' expected!'
+        );
+        
+        $this->assertEquals(
+            'Inf',
+            substr($logicObj->serviceInfQixFoo(18), -3),
+            'String \'Inf\' expected!'
+        );
+        
+        $this->assertEquals(
+            'Inf',
+            substr($logicObj->serviceInfQixFoo(134), -3),
+            'String \'Inf\' expected!'
+        );
+        
+        $this->assertEquals(
+            'Inf',
+            substr($logicObj->serviceInfQixFoo(413), -3),
+            'String \'Inf\' expected!'
+        );
+        
+        $this->assertEquals(
+            'Inf',
+            substr($logicObj->serviceInfQixFoo(2222), -3),
+            'String \'Inf\' expected!'
+        );
+        
+        $this->assertEquals(
+            'Inf',
+            substr($logicObj->serviceInfQixFoo(11111111), -3),
+            'String \'Inf\' expected!'
+        );
+    }
+
     public function testInf()
     {
         $logicObj =  new Logic();

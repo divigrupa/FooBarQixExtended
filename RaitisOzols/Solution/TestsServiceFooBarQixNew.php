@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 require_once 'Logic.php';
 
-class Tests extends PHPUnit\Framework\TestCase
+class TestsServiceFooBarQixNew extends PHPUnit\Framework\TestCase
 {
     public function testFoo()
     {
@@ -12,7 +12,13 @@ class Tests extends PHPUnit\Framework\TestCase
         
         $this->assertEquals(
             'Foo',
-            $logicObj->serviceFooBarQixOld(3),
+            $logicObj->serviceFooBarQixNew(3),
+            'String \'Foo\' expected!'
+        );
+        
+        $this->assertEquals(
+            'Foo',
+            $logicObj->serviceFooBarQixNew(331),
             'String \'Foo\' expected!'
         );
     }
@@ -23,7 +29,13 @@ class Tests extends PHPUnit\Framework\TestCase
         
         $this->assertEquals(
             'Bar',
-            $logicObj->serviceFooBarQixOld(5),
+            $logicObj->serviceFooBarQixNew(5),
+            'String \'Bar\' expected!'
+        );
+        
+        $this->assertEquals(
+            'Bar',
+            $logicObj->serviceFooBarQixNew(1525),
             'String \'Bar\' expected!'
         );
     }
@@ -34,7 +46,13 @@ class Tests extends PHPUnit\Framework\TestCase
         
         $this->assertEquals(
             'Qix',
-            $logicObj->serviceFooBarQixOld(7),
+            $logicObj->serviceFooBarQixNew(7),
+            'String \'Qix\' expected!'
+        );
+        
+        $this->assertEquals(
+            'Qix',
+            $logicObj->serviceFooBarQixNew(177),
             'String \'Qix\' expected!'
         );
     }
@@ -45,7 +63,13 @@ class Tests extends PHPUnit\Framework\TestCase
         
         $this->assertEquals(
             'FooBar',
-            $logicObj->serviceFooBarQixOld(15),
+            $logicObj->serviceFooBarQixNew(53),
+            'String \'FooBar\' expected!'
+        );
+        
+        $this->assertEquals(
+            'FooBar',
+            $logicObj->serviceFooBarQixNew(5353),
             'String \'FooBar\' expected!'
         );
     }
@@ -56,7 +80,13 @@ class Tests extends PHPUnit\Framework\TestCase
         
         $this->assertEquals(
             'FooQix',
-            $logicObj->serviceFooBarQixOld(21),
+            $logicObj->serviceFooBarQixNew(713),
+            'String \'FooQix\' expected!'
+        );
+        
+        $this->assertEquals(
+            'FooQix',
+            $logicObj->serviceFooBarQixNew(73713),
             'String \'FooQix\' expected!'
         );
     }
@@ -67,7 +97,13 @@ class Tests extends PHPUnit\Framework\TestCase
         
         $this->assertEquals(
             'BarQix',
-            $logicObj->serviceFooBarQixOld(35),
+            $logicObj->serviceFooBarQixNew(75),
+            'String \'BarQix\' expected!'
+        );
+        
+        $this->assertEquals(
+            'BarQix',
+            $logicObj->serviceFooBarQixNew(75756),
             'String \'BarQix\' expected!'
         );
     }
@@ -78,7 +114,13 @@ class Tests extends PHPUnit\Framework\TestCase
         
         $this->assertEquals(
             'FooBarQix',
-            $logicObj->serviceFooBarQixOld(105),
+            $logicObj->serviceFooBarQixNew(753),
+            'String \'FooBarQix\' expected!'
+        );
+        
+        $this->assertEquals(
+            'FooBarQix',
+            $logicObj->serviceFooBarQixNew(753753),
             'String \'FooBarQix\' expected!'
         );
     }
@@ -89,7 +131,7 @@ class Tests extends PHPUnit\Framework\TestCase
         
         $this->assertEquals(
             '8',
-            $logicObj->serviceFooBarQixOld(8),
+            $logicObj->serviceFooBarQixNew(8),
             'String \'8\' expected!'
         );
     }
@@ -99,7 +141,7 @@ class Tests extends PHPUnit\Framework\TestCase
         $logicObj =  new Logic();
         
         $this->expectException(TypeError::class);
-        $logicObj->serviceFooBarQixOld('Exception of type mismatch expected!');
+        $logicObj->serviceFooBarQixNew('Exception of type mismatch expected!');
     }
     
     public function testExceptionNegative()
@@ -107,6 +149,6 @@ class Tests extends PHPUnit\Framework\TestCase
         $logicObj =  new Logic();
         
         $this->expectException(InvalidArgumentException::class);
-        $logicObj->serviceFooBarQixOld(-3);
+        $logicObj->serviceFooBarQixNew(-3);
     }
 }

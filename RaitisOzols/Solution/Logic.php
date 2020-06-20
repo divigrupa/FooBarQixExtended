@@ -69,8 +69,33 @@ class Logic
         return $this->result;
     }
     
-    public function serviceFooBarQixNew()
+    public function serviceFooBarQixNew(int $input)
     {
+        if ($input <= 0)
+        {
+            throw new InvalidArgumentException(
+                'Only positive integers allowed!'
+            );
+        }
         
+        $this->result = '';
+        
+        if (preg_match('/3/', strval($input))) {
+            $this->result .= $this->foo;
+        }
+        
+        if (preg_match('/5/', strval($input))) {
+            $this->result .= $this->bar;
+        }
+        
+        if (preg_match('/7/', strval($input))) {
+            $this->result .= $this->qix;
+        }
+        
+        if (!preg_match('/3/', strval($input)) && !preg_match('/5/', strval($input)) && !preg_match('/7/', strval($input))) {
+           $this->result = strval($input);
+        }
+        
+        return $this->result;
     }
 }

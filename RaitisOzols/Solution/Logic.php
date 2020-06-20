@@ -9,6 +9,11 @@ class Logic
     private $qix = 'Qix';
     private $result = '';
     
+    public function serviceInfQixFoo(int $input)
+    {
+        
+    }
+    
     public function serviceFooBarQixMain(int $input)
     {
         $this->result = '';

@@ -63,13 +63,7 @@ class TestsServiceFooBarQixNew extends PHPUnit\Framework\TestCase
         
         $this->assertEquals(
             'FooBar',
-            $logicObj->serviceFooBarQixNew(53),
-            'String \'FooBar\' expected!'
-        );
-        
-        $this->assertEquals(
-            'FooBar',
-            $logicObj->serviceFooBarQixNew(5353),
+            $logicObj->serviceFooBarQixNew(35),
             'String \'FooBar\' expected!'
         );
     }
@@ -80,13 +74,13 @@ class TestsServiceFooBarQixNew extends PHPUnit\Framework\TestCase
         
         $this->assertEquals(
             'FooQix',
-            $logicObj->serviceFooBarQixNew(713),
+            $logicObj->serviceFooBarQixNew(317),
             'String \'FooQix\' expected!'
         );
         
         $this->assertEquals(
             'FooQix',
-            $logicObj->serviceFooBarQixNew(73713),
+            $logicObj->serviceFooBarQixNew(3713),
             'String \'FooQix\' expected!'
         );
     }
@@ -97,13 +91,7 @@ class TestsServiceFooBarQixNew extends PHPUnit\Framework\TestCase
         
         $this->assertEquals(
             'BarQix',
-            $logicObj->serviceFooBarQixNew(75),
-            'String \'BarQix\' expected!'
-        );
-        
-        $this->assertEquals(
-            'BarQix',
-            $logicObj->serviceFooBarQixNew(75756),
+            $logicObj->serviceFooBarQixNew(57),
             'String \'BarQix\' expected!'
         );
     }
@@ -114,13 +102,131 @@ class TestsServiceFooBarQixNew extends PHPUnit\Framework\TestCase
         
         $this->assertEquals(
             'FooBarQix',
-            $logicObj->serviceFooBarQixNew(753),
+            $logicObj->serviceFooBarQixNew(357),
             'String \'FooBarQix\' expected!'
+        );
+    }
+    
+    public function testOrder()
+    {
+        $logicObj =  new Logic();
+        
+        $this->assertEquals(
+            'FooBar',
+            $logicObj->serviceFooBarQixNew(30052),
+            'String \'FooBar\' expected!'
+        );
+        
+        $this->assertEquals(
+            'BarFoo',
+            $logicObj->serviceFooBarQixNew(50032),
+            'String \'BarFoo\' expected!'
+        );
+        
+        $this->assertEquals(
+            'FooQix',
+            $logicObj->serviceFooBarQixNew(30007),
+            'String \'FooQix\' expected!'
+        );
+        
+        $this->assertEquals(
+            'QixFoo',
+            $logicObj->serviceFooBarQixNew(70003),
+            'String \'QixFoo\' expected!'
+        );
+        
+        $this->assertEquals(
+            'BarQix',
+            $logicObj->serviceFooBarQixNew(50017),
+            'String \'BarQix\' expected!'
+        );
+        
+        $this->assertEquals(
+            'QixBar',
+            $logicObj->serviceFooBarQixNew(70051),
+            'String \'QixBar\' expected!'
         );
         
         $this->assertEquals(
             'FooBarQix',
-            $logicObj->serviceFooBarQixNew(753753),
+            $logicObj->serviceFooBarQixNew(30517),
+            'String \'FooBarQix\' expected!'
+        );
+        
+        $this->assertEquals(
+            'FooQixBar',
+            $logicObj->serviceFooBarQixNew(30752),
+            'String \'FooQixBar\' expected!'
+        );
+        
+        $this->assertEquals(
+            'BarFooQix',
+            $logicObj->serviceFooBarQixNew(50317),
+            'String \'BarFooQix\' expected!'
+        );
+        
+        $this->assertEquals(
+            'BarQixFoo',
+            $logicObj->serviceFooBarQixNew(50713),
+            'String \'BarQixFoo\' expected!'
+        );
+        
+        $this->assertEquals(
+            'QixFooBar',
+            $logicObj->serviceFooBarQixNew(70351),
+            'String \'QixFooBar\' expected!'
+        );
+        
+        $this->assertEquals(
+            'QixBarFoo',
+            $logicObj->serviceFooBarQixNew(70531),
+            'String \'QixBarFoo\' expected!'
+        );
+    }
+    
+    public function testDuplicateReduction()
+    {
+        $logicObj =  new Logic();
+        
+        $this->assertEquals(
+            'Foo',
+            $logicObj->serviceFooBarQixNew(33),
+            'String \'Foo\' expected!'
+        );
+        
+        $this->assertEquals(
+            'Bar',
+            $logicObj->serviceFooBarQixNew(55),
+            'String \'Bar\' expected!'
+        );
+        
+        $this->assertEquals(
+            'Qix',
+            $logicObj->serviceFooBarQixNew(77),
+            'String \'Qix\' expected!'
+        );
+        
+        $this->assertEquals(
+            'FooBar',
+            $logicObj->serviceFooBarQixNew(353),
+            'String \'FooBar\' expected!'
+        );
+        
+        $this->assertEquals(
+            'FooQix',
+            $logicObj->serviceFooBarQixNew(373),
+            'String \'FooQix\' expected!'
+        );
+        
+        $this->assertEquals(
+            'BarQix',
+            $logicObj->serviceFooBarQixNew(575),
+            'String \'BarQix\' expected!'
+        );
+        
+        $this->assertEquals(
+            'FooBarQix',
+            $logicObj->serviceFooBarQixNew(1030503050703),
             'String \'FooBarQix\' expected!'
         );
     }

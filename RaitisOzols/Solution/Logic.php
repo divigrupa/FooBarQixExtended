@@ -7,7 +7,7 @@ class Logic
     private $foo = 'Foo';
     private $bar = 'Bar';
     private $qix = 'Qix';
-    private $result;
+    private $result = '';
     
     public function serviceFooBarQixMain(int $input)
     {
@@ -71,6 +71,8 @@ class Logic
     
     public function serviceFooBarQixNew(int $input)
     {
+        $arrayOccurances = [];
+        
         if ($input <= 0)
         {
             throw new InvalidArgumentException(
@@ -78,21 +80,25 @@ class Logic
             );
         }
         
-        $this->result = '';
-        
         if (preg_match('/3/', strval($input))) {
-            $this->result .= $this->foo;
+            $arrayOccurances[strpos(strval($input), '3')] = $this->foo;
         }
         
         if (preg_match('/5/', strval($input))) {
-            $this->result .= $this->bar;
+            $arrayOccurances[strpos(strval($input), '5')] = $this->bar;
         }
         
         if (preg_match('/7/', strval($input))) {
-            $this->result .= $this->qix;
+            $arrayOccurances[strpos(strval($input), '7')] = $this->qix;
         }
         
-        if (!preg_match('/3/', strval($input)) && !preg_match('/5/', strval($input)) && !preg_match('/7/', strval($input))) {
+        ksort($arrayOccurances);
+        $this->result = implode($arrayOccurances);
+        
+        if (
+            (!preg_match('/3/', strval($input)))
+            && !preg_match('/5/', strval($input))
+            && !preg_match('/7/', strval($input))) {
            $this->result = strval($input);
         }
         

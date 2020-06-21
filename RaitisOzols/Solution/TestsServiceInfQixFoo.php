@@ -88,8 +88,25 @@ class TestsServiceInfQixFoo extends PHPUnit\Framework\TestCase
         
         $this->assertEquals(
             'InfInf',
-            $logicObj->serviceInfQixFoo(8),
+            $logicObj->serviceInfQixFoo(128),
             'String \'InfInf\' expected!'
+        );
+    }
+    
+    public function testInfInfInf()
+    {
+        $logicObj =  new Logic();
+        
+        $this->assertEquals(
+            'InfInfInf',
+            $logicObj->serviceInfQixFoo(8),
+            'String \'InfInfInf\' expected!'
+        );
+        
+        $this->assertEquals(
+            'InfInfInf',
+            $logicObj->serviceInfQixFoo(88),
+            'String \'InfInfInf\' expected!'
         );
     }
     
@@ -102,11 +119,16 @@ class TestsServiceInfQixFoo extends PHPUnit\Framework\TestCase
             $logicObj->serviceInfQixFoo(176),
             'String \'InfQix\' expected!'
         );
+    }
+    
+    public function testInfQixInf()
+    {
+        $logicObj =  new Logic();
         
         $this->assertEquals(
-            'InfQix',
+            'InfQixInf',
             $logicObj->serviceInfQixFoo(187),
-            'String \'InfQix\' expected!'
+            'String \'InfQixInf\' expected!'
         );
     }
     
@@ -177,14 +199,19 @@ class TestsServiceInfQixFoo extends PHPUnit\Framework\TestCase
         
         $this->assertEquals(
             'InfQixFoo',
-            $logicObj->serviceInfQixFoo(736),
-            'String \'InfQixFoo\' expected!'
-        );
-        
-        $this->assertEquals(
-            'InfQixFoo',
             $logicObj->serviceInfQixFoo(1873),
             'String \'InfQixFoo\' expected!'
+        );
+    }
+    
+    public function testInfQixFooInf()
+    {
+        $logicObj =  new Logic();
+        
+        $this->assertEquals(
+            'InfQixFooInf',
+            $logicObj->serviceInfQixFoo(736),
+            'String \'InfQixFooInf\' expected!'
         );
     }
     
@@ -384,12 +411,6 @@ class TestsServiceInfQixFoo extends PHPUnit\Framework\TestCase
             $logicObj->serviceInfQixFoo(14),
             'String \'Qix\' expected!'
         );
-        
-        $this->assertEquals(
-            'Qix',
-            $logicObj->serviceInfQixFoo(17),
-            'String \'Qix\' expected!'
-        );
     }
     
     public function testQixInf()
@@ -399,6 +420,12 @@ class TestsServiceInfQixFoo extends PHPUnit\Framework\TestCase
         $this->assertEquals(
             'QixInf',
             $logicObj->serviceInfQixFoo(28),
+            'String \'QixInf\' expected!'
+        );
+        
+        $this->assertEquals(
+            'QixInf',
+            $logicObj->serviceInfQixFoo(17),
             'String \'QixInf\' expected!'
         );
     }
@@ -420,14 +447,19 @@ class TestsServiceInfQixFoo extends PHPUnit\Framework\TestCase
         
         $this->assertEquals(
             'QixFoo',
-            $logicObj->serviceInfQixFoo(35),
-            'String \'QixFoo\' expected!'
-        );
-        
-        $this->assertEquals(
-            'QixFoo',
             $logicObj->serviceInfQixFoo(73),
             'String \'QixFoo\' expected!'
+        );
+    }
+    
+    public function testQixFooInf()
+    {
+        $logicObj =  new Logic();
+        
+        $this->assertEquals(
+            'QixFooInf',
+            $logicObj->serviceInfQixFoo(35),
+            'String \'QixFooInf\' expected!'
         );
     }
     
@@ -470,8 +502,19 @@ class TestsServiceInfQixFoo extends PHPUnit\Framework\TestCase
         
         $this->assertEquals(
             'QixQixFoo',
-            $logicObj->serviceInfQixFoo(763),
+            $logicObj->serviceInfQixFoo(973),
             'String \'QixQixFoo\' expected!'
+        );
+    }
+    
+    public function testQixQixFooInf()
+    {
+        $logicObj =  new Logic();
+        
+        $this->assertEquals(
+            'QixQixFooInf',
+            $logicObj->serviceInfQixFoo(763),
+            'String \'QixQixFooInf\' expected!'
         );
     }
     
@@ -514,8 +557,19 @@ class TestsServiceInfQixFoo extends PHPUnit\Framework\TestCase
         
         $this->assertEquals(
             'Qix; FooInfQix',
-            $logicObj->serviceInfQixFoo(987),
+            $logicObj->serviceInfQixFoo(1827),
             'String \'Qix; FooInfQix\' expected!'
+        );
+    }
+    
+    public function testQixSepFooInfQixInf()
+    {
+        $logicObj =  new Logic();
+        
+        $this->assertEquals(
+            'Qix; FooInfQixInf',
+            $logicObj->serviceInfQixFoo(987),
+            'String \'Qix; FooInfQixInf\' expected!'
         );
     }
     
@@ -547,8 +601,19 @@ class TestsServiceInfQixFoo extends PHPUnit\Framework\TestCase
         
         $this->assertEquals(
             'Qix; FooInfQixFoo',
-            $logicObj->serviceInfQixFoo(8673),
+            $logicObj->serviceInfQixFoo(12873),
             'String \'Qix; FooInfQixFoo\' expected!'
+        );
+    }
+    
+    public function testQixSepFooInfQixFooInf()
+    {
+        $logicObj =  new Logic();
+        
+        $this->assertEquals(
+            'Qix; FooInfQixFooInf',
+            $logicObj->serviceInfQixFoo(8673),
+            'String \'Qix; FooInfQixFooInf\' expected!'
         );
     }
     
@@ -718,8 +783,19 @@ class TestsServiceInfQixFoo extends PHPUnit\Framework\TestCase
         
         $this->assertEquals(
             'Inf; Qix; FooInfQixFoo',
-            $logicObj->serviceInfQixFoo(8736),
+            $logicObj->serviceInfQixFoo(187320),
             'String \'Inf; Qix; FooInfQixFoo\' expected!'
+        );
+    }
+    
+    public function testInfSepQixSepFooInfQixFooInf()
+    {
+        $logicObj =  new Logic();
+        
+        $this->assertEquals(
+            'Inf; Qix; FooInfQixFooInf',
+            $logicObj->serviceInfQixFoo(8736),
+            'String \'Inf; Qix; FooInfQixFooInf\' expected!'
         );
     }
     
@@ -740,8 +816,19 @@ class TestsServiceInfQixFoo extends PHPUnit\Framework\TestCase
         
         $this->assertEquals(
             'Inf; Qix; FooQixFooInf',
-            $logicObj->serviceInfQixFoo(27384),
+            $logicObj->serviceInfQixFoo(167328),
             'String \'Inf; Qix; FooQixFooInf\' expected!'
+        );
+    }
+    
+    public function testInfSepQixSepFooQixFooInfInf()
+    {
+        $logicObj =  new Logic();
+        
+        $this->assertEquals(
+            'Inf; Qix; FooQixFooInfInf',
+            $logicObj->serviceInfQixFoo(27384),
+            'String \'Inf; Qix; FooQixFooInfInf\' expected!'
         );
     }
     
@@ -773,8 +860,19 @@ class TestsServiceInfQixFoo extends PHPUnit\Framework\TestCase
         
         $this->assertEquals(
             'Inf; Qix; FooFooInfQix',
-            $logicObj->serviceInfQixFoo(38472),
+            $logicObj->serviceInfQixFoo(38976),
             'String \'Inf; Qix; FooFooInfQix\' expected!'
+        );
+    }
+    
+    public function testInfSepQixSepFooFooInfQixInf()
+    {
+        $logicObj =  new Logic();
+        
+        $this->assertEquals(
+            'Inf; Qix; FooFooInfQixInf',
+            $logicObj->serviceInfQixFoo(38472),
+            'String \'Inf; Qix; FooFooInfQixInf\' expected!'
         );
     }
     
@@ -790,7 +888,7 @@ class TestsServiceInfQixFoo extends PHPUnit\Framework\TestCase
         
         $this->assertEquals(
             'Qix',
-            $logicObj->serviceInfQixFoo(1717),
+            $logicObj->serviceInfQixFoo(1727),
             'String \'Qix\' expected!'
         );
         

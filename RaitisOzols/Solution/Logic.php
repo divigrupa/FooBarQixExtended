@@ -14,6 +14,7 @@ class Logic
     {
         $this->result = '';
         $arrayOccurances = [];
+        $arrayDigits = [];
         
         if ($input <= 0)
         {
@@ -56,6 +57,13 @@ class Logic
             && !preg_match('/7/', strval($input))
             && !preg_match('/3/', strval($input))) {
            $this->result = strval($input);
+        }
+        
+        $arrayDigits = str_split(strval($input));
+        
+        if (array_sum($arrayDigits) % 8 == 0)
+        {
+            $this->result .= 'Inf';
         }
         
         return $this->result;
@@ -115,7 +123,6 @@ class Logic
     public function serviceFooBarQixOld(int $input)
     {
         $this->result = '';
-        
         if ($input <= 0)
         {
             throw new InvalidArgumentException(
@@ -144,6 +151,7 @@ class Logic
     
     public function serviceFooBarQixNew(int $input)
     {
+        $this->result = '';
         $arrayOccurances = [];
         
         if ($input <= 0)

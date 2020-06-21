@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-require_once 'Logic.php';
+require_once __DIR__ . '/../Logic.php';
 
-class TestsServiceFooBarQixMain extends PHPUnit\Framework\TestCase
+class ServiceFooBarQixMainTest extends PHPUnit\Framework\TestCase
 {
     public function testFoo()
     {

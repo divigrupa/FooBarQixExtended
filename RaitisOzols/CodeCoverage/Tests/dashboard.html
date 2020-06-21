@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for C:\xampp\htdocs\DIVI-lv_cloned\RaitisOzols\Solution\Tests</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../_css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="../_css/nv.d3.min.css" rel="stylesheet" type="text/css">
+  <link href="../_css/style.css" rel="stylesheet" type="text/css">
+  <link href="../_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="../index.html">C:\xampp\htdocs\DIVI-lv_cloned\RaitisOzols\Solution</a></li>
+         <li class="breadcrumb-item"><a href="index.html">Tests</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="ServiceFooBarQixMainTest.php.html#818"><abbr title="ServiceFooBarQixMainTest::testExceptionType">testExceptionType</abbr></a></td><td class="text-right">75%</td></tr>
+       <tr><td><a href="ServiceFooBarQixMainTest.php.html#826"><abbr title="ServiceFooBarQixMainTest::testExceptionNegative">testExceptionNegative</abbr></a></td><td class="text-right">75%</td></tr>
+       <tr><td><a href="ServiceFooBarQixNewTest.php.html#245"><abbr title="ServiceFooBarQixNewTest::testExceptionType">testExceptionType</abbr></a></td><td class="text-right">75%</td></tr>
+       <tr><td><a href="ServiceFooBarQixNewTest.php.html#253"><abbr title="ServiceFooBarQixNewTest::testExceptionNegative">testExceptionNegative</abbr></a></td><td class="text-right">75%</td></tr>
+       <tr><td><a href="ServiceFooBarQixOldTest.php.html#97"><abbr title="ServiceFooBarQixOldTest::testExceptionType">testExceptionType</abbr></a></td><td class="text-right">75%</td></tr>
+       <tr><td><a href="ServiceFooBarQixOldTest.php.html#105"><abbr title="ServiceFooBarQixOldTest::testExceptionNegative">testExceptionNegative</abbr></a></td><td class="text-right">75%</td></tr>
+       <tr><td><a href="ServiceInfQixFooTest.php.html#914"><abbr title="ServiceInfQixFooTest::testExceptionType">testExceptionType</abbr></a></td><td class="text-right">75%</td></tr>
+       <tr><td><a href="ServiceInfQixFooTest.php.html#922"><abbr title="ServiceInfQixFooTest::testExceptionNegative">testExceptionNegative</abbr></a></td><td class="text-right">75%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 8.0.2</a> using <a href="https://secure.php.net/" target="_top">PHP 7.4.7</a> with <a href="https://xdebug.org/">Xdebug 2.9.6</a> and <a href="https://phpunit.de/">PHPUnit 9.2.3</a> at Sun Jun 21 3:19:27 CEST 2020.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="../_js/jquery.min.js" type="text/javascript"></script>
+  <script src="../_js/d3.min.js" type="text/javascript"></script>
+  <script src="../_js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([0,0,0,0,0,0,0,0,0,0,4,0], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([0,0,0,0,0,0,0,0,8,0,0,147], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[99.57805907172997,57,"<a href=\"ServiceFooBarQixMainTest.php.html#7\">ServiceFooBarQixMainTest<\/a>"],[98.68421052631578,12,"<a href=\"ServiceFooBarQixNewTest.php.html#7\">ServiceFooBarQixNewTest<\/a>"],[96.42857142857143,10,"<a href=\"ServiceFooBarQixOldTest.php.html#7\">ServiceFooBarQixOldTest<\/a>"],[99.609375,76,"<a href=\"ServiceInfQixFooTest.php.html#7\">ServiceInfQixFooTest<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#9\">ServiceFooBarQixMainTest::testFoo<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#26\">ServiceFooBarQixMainTest::testFooFoo<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#37\">ServiceFooBarQixMainTest::testFooBar<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#60\">ServiceFooBarQixMainTest::testFooQix<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#83\">ServiceFooBarQixMainTest::testFooFooBar<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#94\">ServiceFooBarQixMainTest::testFooFooQix<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#105\">ServiceFooBarQixMainTest::testFooBarQix<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#134\">ServiceFooBarQixMainTest::testFooFooBarQix<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#145\">ServiceFooBarQixMainTest::testFooBarFoo<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#162\">ServiceFooBarQixMainTest::testFooBarBar<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#173\">ServiceFooBarQixMainTest::testFooBarFooBar<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#184\">ServiceFooBarQixMainTest::testFooBarFooQix<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#195\">ServiceFooBarQixMainTest::testFooBarBarQix<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#206\">ServiceFooBarQixMainTest::testFooBarFooBarQix<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#217\">ServiceFooBarQixMainTest::testFooQixFoo<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#228\">ServiceFooBarQixMainTest::testFooQixBar<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#239\">ServiceFooBarQixMainTest::testFooQixQix<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#250\">ServiceFooBarQixMainTest::testFooQixFooBar<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#261\">ServiceFooBarQixMainTest::testFooQixFooQix<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#272\">ServiceFooBarQixMainTest::testFooQixBarQix<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#283\">ServiceFooBarQixMainTest::testFooQixFooBarQix<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#294\">ServiceFooBarQixMainTest::testBar<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#311\">ServiceFooBarQixMainTest::testBarFoo<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#328\">ServiceFooBarQixMainTest::testBarBar<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#339\">ServiceFooBarQixMainTest::testBarQix<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#362\">ServiceFooBarQixMainTest::testBarFooBar<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#373\">ServiceFooBarQixMainTest::testBarFooQix<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#384\">ServiceFooBarQixMainTest::testBarBarQix<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#395\">ServiceFooBarQixMainTest::testBarFooBarQix<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#406\">ServiceFooBarQixMainTest::testBarQixFoo<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#417\">ServiceFooBarQixMainTest::testBarQixBar<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#428\">ServiceFooBarQixMainTest::testBarQixQix<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#439\">ServiceFooBarQixMainTest::testBarQixFooBar<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#450\">ServiceFooBarQixMainTest::testBarQixFooQix<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#461\">ServiceFooBarQixMainTest::testBarQixBarQix<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#472\">ServiceFooBarQixMainTest::testBarQixFooBarQix<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#483\">ServiceFooBarQixMainTest::testQix<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#500\">ServiceFooBarQixMainTest::testQixFoo<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#511\">ServiceFooBarQixMainTest::testQixBar<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#522\">ServiceFooBarQixMainTest::testQixQix<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#533\">ServiceFooBarQixMainTest::testQixFooBar<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#544\">ServiceFooBarQixMainTest::testQixFooQix<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#555\">ServiceFooBarQixMainTest::testQixBarQix<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#566\">ServiceFooBarQixMainTest::testQixFooBarQix<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#577\">ServiceFooBarQixMainTest::testFooBarQixFoo<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#588\">ServiceFooBarQixMainTest::testFooBarQixBar<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#599\">ServiceFooBarQixMainTest::testFooBarQixQix<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#610\">ServiceFooBarQixMainTest::testFooBarQixFooBar<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#621\">ServiceFooBarQixMainTest::testFooBarQixFooQix<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#632\">ServiceFooBarQixMainTest::testFooBarQixBarQix<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#643\">ServiceFooBarQixMainTest::testFooBarQixFooBarQix<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#654\">ServiceFooBarQixMainTest::testBarQixBarFoo<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#665\">ServiceFooBarQixMainTest::testOrder<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#760\">ServiceFooBarQixMainTest::testDuplicateReduction<\/a>"],[100,1,"<a href=\"ServiceFooBarQixMainTest.php.html#807\">ServiceFooBarQixMainTest::testIntToString<\/a>"],[75,1,"<a href=\"ServiceFooBarQixMainTest.php.html#818\">ServiceFooBarQixMainTest::testExceptionType<\/a>"],[75,1,"<a href=\"ServiceFooBarQixMainTest.php.html#826\">ServiceFooBarQixMainTest::testExceptionNegative<\/a>"],[100,1,"<a href=\"ServiceFooBarQixNewTest.php.html#9\">ServiceFooBarQixNewTest::testFoo<\/a>"],[100,1,"<a href=\"ServiceFooBarQixNewTest.php.html#26\">ServiceFooBarQixNewTest::testBar<\/a>"],[100,1,"<a href=\"ServiceFooBarQixNewTest.php.html#43\">ServiceFooBarQixNewTest::testQix<\/a>"],[100,1,"<a href=\"ServiceFooBarQixNewTest.php.html#60\">ServiceFooBarQixNewTest::testFooBar<\/a>"],[100,1,"<a href=\"ServiceFooBarQixNewTest.php.html#71\">ServiceFooBarQixNewTest::testFooQix<\/a>"],[100,1,"<a href=\"ServiceFooBarQixNewTest.php.html#88\">ServiceFooBarQixNewTest::testBarQix<\/a>"],[100,1,"<a href=\"ServiceFooBarQixNewTest.php.html#99\">ServiceFooBarQixNewTest::testFooBarQix<\/a>"],[100,1,"<a href=\"ServiceFooBarQixNewTest.php.html#110\">ServiceFooBarQixNewTest::testOrder<\/a>"],[100,1,"<a href=\"ServiceFooBarQixNewTest.php.html#187\">ServiceFooBarQixNewTest::testDuplicateReduction<\/a>"],[100,1,"<a href=\"ServiceFooBarQixNewTest.php.html#234\">ServiceFooBarQixNewTest::testIntToString<\/a>"],[75,1,"<a href=\"ServiceFooBarQixNewTest.php.html#245\">ServiceFooBarQixNewTest::testExceptionType<\/a>"],[75,1,"<a href=\"ServiceFooBarQixNewTest.php.html#253\">ServiceFooBarQixNewTest::testExceptionNegative<\/a>"],[100,1,"<a href=\"ServiceFooBarQixOldTest.php.html#9\">ServiceFooBarQixOldTest::testFoo<\/a>"],[100,1,"<a href=\"ServiceFooBarQixOldTest.php.html#20\">ServiceFooBarQixOldTest::testBar<\/a>"],[100,1,"<a href=\"ServiceFooBarQixOldTest.php.html#31\">ServiceFooBarQixOldTest::testQix<\/a>"],[100,1,"<a href=\"ServiceFooBarQixOldTest.php.html#42\">ServiceFooBarQixOldTest::testFooBar<\/a>"],[100,1,"<a href=\"ServiceFooBarQixOldTest.php.html#53\">ServiceFooBarQixOldTest::testFooQix<\/a>"],[100,1,"<a href=\"ServiceFooBarQixOldTest.php.html#64\">ServiceFooBarQixOldTest::testBarQix<\/a>"],[100,1,"<a href=\"ServiceFooBarQixOldTest.php.html#75\">ServiceFooBarQixOldTest::testFooBarQix<\/a>"],[100,1,"<a href=\"ServiceFooBarQixOldTest.php.html#86\">ServiceFooBarQixOldTest::testIntToString<\/a>"],[75,1,"<a href=\"ServiceFooBarQixOldTest.php.html#97\">ServiceFooBarQixOldTest::testExceptionType<\/a>"],[75,1,"<a href=\"ServiceFooBarQixOldTest.php.html#105\">ServiceFooBarQixOldTest::testExceptionNegative<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#9\">ServiceInfQixFooTest::testInfIsAtEnd<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#68\">ServiceInfQixFooTest::testInf<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#85\">ServiceInfQixFooTest::testInfInf<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#96\">ServiceInfQixFooTest::testInfInfInf<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#113\">ServiceInfQixFooTest::testInfQix<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#124\">ServiceInfQixFooTest::testInfQixInf<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#135\">ServiceInfQixFooTest::testInfSepQix<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#146\">ServiceInfQixFooTest::testInfFoo<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#163\">ServiceInfQixFooTest::testInfSepFoo<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#174\">ServiceInfQixFooTest::testInfInfQix<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#185\">ServiceInfQixFooTest::testInfInfFoo<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#196\">ServiceInfQixFooTest::testInfQixFoo<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#207\">ServiceInfQixFooTest::testInfQixFooInf<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#218\">ServiceInfQixFooTest::testInfSepQixFoo<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#229\">ServiceInfQixFooTest::testInfSepQixSepFoo<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#240\">ServiceInfQixFooTest::testInfInfQixFoo<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#251\">ServiceInfQixFooTest::testInfSepQixInf<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#262\">ServiceInfQixFooTest::testInfSepQixQix<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#273\">ServiceInfQixFooTest::testInfSepQixInfQix<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#284\">ServiceInfQixFooTest::testInfSepQixInfFoo<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#295\">ServiceInfQixFooTest::testInfSepQixQixFoo<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#306\">ServiceInfQixFooTest::testInfSepQixInfQixFoo<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#317\">ServiceInfQixFooTest::testQixInfQixFoo<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#328\">ServiceInfQixFooTest::testInfSepFooInf<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#339\">ServiceInfQixFooTest::testInfSepFooQix<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#350\">ServiceInfQixFooTest::testInfSepFooFoo<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#361\">ServiceInfQixFooTest::testInfSepFooInfQix<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#372\">ServiceInfQixFooTest::testInfSepFooInfFoo<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#383\">ServiceInfQixFooTest::testInfSepFooQixFoo<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#394\">ServiceInfQixFooTest::testInfSepFooInfQixFoo<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#405\">ServiceInfQixFooTest::testQix<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#416\">ServiceInfQixFooTest::testQixInf<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#433\">ServiceInfQixFooTest::testQixQix<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#444\">ServiceInfQixFooTest::testQixFoo<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#455\">ServiceInfQixFooTest::testQixFooInf<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#466\">ServiceInfQixFooTest::testQixSepFoo<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#477\">ServiceInfQixFooTest::testQixInfQix<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#488\">ServiceInfQixFooTest::testQixInfFoo<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#499\">ServiceInfQixFooTest::testQixQixFoo<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#510\">ServiceInfQixFooTest::testQixQixFooInf<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#521\">ServiceInfQixFooTest::testQixSepFooInf<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#532\">ServiceInfQixFooTest::testQixSepFooQix<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#543\">ServiceInfQixFooTest::testQixSepFooFoo<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#554\">ServiceInfQixFooTest::testQixSepFooInfQix<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#565\">ServiceInfQixFooTest::testQixSepFooInfQixInf<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#576\">ServiceInfQixFooTest::testQixSepFooInfFoo<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#587\">ServiceInfQixFooTest::testQixSepFooQixFoo<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#598\">ServiceInfQixFooTest::testQixSepFooInfQixFoo<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#609\">ServiceInfQixFooTest::testQixSepFooInfQixFooInf<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#620\">ServiceInfQixFooTest::testFoo<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#637\">ServiceInfQixFooTest::testFooInf<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#648\">ServiceInfQixFooTest::testFooQix<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#659\">ServiceInfQixFooTest::testFooFoo<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#670\">ServiceInfQixFooTest::testFooInfQix<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#681\">ServiceInfQixFooTest::testFooInfFoo<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#692\">ServiceInfQixFooTest::testFooQixFoo<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#703\">ServiceInfQixFooTest::testFooInfQixFoo<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#714\">ServiceInfQixFooTest::testInfSepQixSepFooInf<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#725\">ServiceInfQixFooTest::testInfSepQixSepFooQix<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#736\">ServiceInfQixFooTest::testInfSepQixSepFooFoo<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#747\">ServiceInfQixFooTest::testInfSepQixSepFooInfQix<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#758\">ServiceInfQixFooTest::testInfSepQixSepFooInfFoo<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#769\">ServiceInfQixFooTest::testInfSepQixSepFooQixFoo<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#780\">ServiceInfQixFooTest::testInfSepQixSepFooInfQixFoo<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#791\">ServiceInfQixFooTest::testInfSepQixSepFooInfQixFooInf<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#802\">ServiceInfQixFooTest::testInfSepQixSepFooInfFooQix<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#813\">ServiceInfQixFooTest::testInfSepQixSepFooQixFooInf<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#824\">ServiceInfQixFooTest::testInfSepQixSepFooQixFooInfInf<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#835\">ServiceInfQixFooTest::testInfSepQixSepFooQixInfFoo<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#846\">ServiceInfQixFooTest::testInfSepQixSepFooFooQixInf<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#857\">ServiceInfQixFooTest::testInfSepQixSepFooFooInfQix<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#868\">ServiceInfQixFooTest::testInfSepQixSepFooFooInfQixInf<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#879\">ServiceInfQixFooTest::testDuplicateReduction<\/a>"],[100,1,"<a href=\"ServiceInfQixFooTest.php.html#903\">ServiceInfQixFooTest::testIntToString<\/a>"],[75,1,"<a href=\"ServiceInfQixFooTest.php.html#914\">ServiceInfQixFooTest::testExceptionType<\/a>"],[75,1,"<a href=\"ServiceInfQixFooTest.php.html#922\">ServiceInfQixFooTest::testExceptionNegative<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

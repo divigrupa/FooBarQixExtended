@@ -130,4 +130,11 @@ class FooBarTest extends Unit
         $this->assertEquals('FooQix', $this->fooBar->newRules(437));
         $this->assertEquals('BarQix', $this->fooBar->newRules(657));
     }
+
+    public function testNewRulesIfSameNumberRowsReturnCorrectly()
+    {
+        $this->assertEquals('FooFooFoo', $this->fooBar->newRules(333));
+        $this->assertEquals('BarBarBar', $this->fooBar->newRules(555));
+        $this->assertEquals('QixQixQix', $this->fooBar->newRules(777));
+    }
 }

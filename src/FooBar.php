@@ -21,6 +21,7 @@ class FooBar
         $multipliers = [
             3 => 'Foo',
             5 => 'Bar',
+            7 => 'Qix',
         ];
 
         foreach ($multipliers as $key => $name) {

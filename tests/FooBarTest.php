@@ -60,6 +60,21 @@ class FooBarTest extends Unit
     {
         $this->assertEquals('Qix', $this->fooBar->run(7));
     }
+
+    public function testCheckIfMultipleWithThreeAndFiveReturFoobar()
+    {
+        $this->assertEquals('FooBar', $this->fooBar->run(3 * 5));
+    }
+
+    public function testCheckIfMultipleWithFiveAndSevenReturBarqix()
+    {
+        $this->assertEquals('BarQix', $this->fooBar->run(5 * 7));
+    }
+
+    public function testCheckIfMultipleWithThreeFiveAndSevenReturnFoobarqix()
+    {
+        $this->assertEquals('FooBarQix', $this->fooBar->run(3 * 5 * 7));
+    }
     
     public function testCheckIfOneReturnString()
     {

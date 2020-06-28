@@ -24,14 +24,14 @@ class FooBarTest extends Unit
             '4',
             'Bar',
             'Foo',
-            '7',
+            'Qix',
             '8',
             'Foo',
             'Bar',
             '11',
             'Foo',
             '13',
-            '14',
+            'Qix',
             'FooBar'
         ];
 
@@ -56,6 +56,10 @@ class FooBarTest extends Unit
         $this->assertEquals('Bar', $this->fooBar->run(5));
     }
 
+    public function testCheckIfSevenReturnQix()
+    {
+        $this->assertEquals('Qix', $this->fooBar->run(7));
+    }
     
     public function testCheckIfOneReturnString()
     {

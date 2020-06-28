@@ -1,0 +1,18 @@
+{
+    "name": "home/divigroup-homework",
+    "description": "Homework for Divi Group vacancy",
+    "authors": [
+        {
+            "name": "Aigars (Garisons) Rogozovs",
+            "email": "admin@fury.lv"
+        }
+    ],
+    "require-dev": {
+        "codeception/codeception": "^4.1",
+        "codeception/module-phpbrowser": "^1.0.0",
+        "codeception/module-asserts": "^1.0.0"
+    },
+    "autoload": {
+        "classmap": ["src/"]
+    }
+}

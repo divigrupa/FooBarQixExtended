@@ -1,0 +1,17 @@
+bootstrap: bootstrap.php
+coverage:
+    enabled: true
+    include:
+        - src/*
+suites:
+    unit:
+        path: .
+settings:
+    shuffle: true
+    lint: true
+    colors: false
+paths:
+    tests: tests
+    output: tests/_output
+    support: tests/_support
+    data: tests

@@ -67,12 +67,12 @@ class FooBarTest extends Unit
         $this->assertEquals('Qix', $this->fooBar->run(7));
     }
 
-    public function testCheckIfMultipleWithThreeAndFiveReturFoobar()
+    public function testCheckIfMultipleWithThreeAndFiveReturnFoobar()
     {
         $this->assertEquals('FooBar', $this->fooBar->run(3 * 5));
     }
 
-    public function testCheckIfMultipleWithFiveAndSevenReturBarqix()
+    public function testCheckIfMultipleWithFiveAndSevenReturnBarqix()
     {
         $this->assertEquals('BarQix', $this->fooBar->run(5 * 7));
     }

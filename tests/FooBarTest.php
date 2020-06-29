@@ -46,6 +46,12 @@ class FooBarTest extends Unit
         $this->fooBar->run(-1);
     }
 
+    public function testCheckNegativeIntegerInNewrules()
+    {
+        $this->expectException(Exception::class);
+        $this->fooBar->newRules(-1);
+    }
+
     public function testCheckIfThreeReturnFoo()
     {
         $this->assertEquals('Foo', $this->fooBar->run(3));

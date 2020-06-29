@@ -127,27 +127,27 @@ class InfQixFooTest extends Unit
 
     public function testNewRulesIfEightReplacedWithInf()
     {
-        $this->assertEquals('Inf', $this->fooBar->newRules(8));
+        $this->assertEquals('InfInf', $this->fooBar->newRules(8));
     }
 
     public function testNewRulesIfPlainCombinationsReturnCorrectly()
     {
         $this->assertEquals('Foo; Qix', $this->fooBar->newRules(357));
-        $this->assertEquals('Foo', $this->fooBar->newRules(35));
+        $this->assertEquals('FooInf', $this->fooBar->newRules(35));
         $this->assertEquals('Foo; Qix', $this->fooBar->newRules(37));
         $this->assertEquals('Qix', $this->fooBar->newRules(57));
 
         $this->assertEquals('Qix; Foo', $this->fooBar->newRules(753));
         $this->assertEquals('Qix', $this->fooBar->newRules(75));
         $this->assertEquals('Qix; Foo', $this->fooBar->newRules(73));
-        $this->assertEquals('Foo', $this->fooBar->newRules(53));
+        $this->assertEquals('FooInf', $this->fooBar->newRules(53));
 
         $this->assertEquals('Foo; Qix', $this->fooBar->newRules(375));
     }
 
     public function testNewRulesIfMixedCombinationsReturnCorrectly()
     {
-        $this->assertEquals('Foo; Qix', $this->fooBar->newRules(1357));
+        $this->assertEquals('Foo; QixInf', $this->fooBar->newRules(1357));
         $this->assertEquals('Foo; Qix', $this->fooBar->newRules(132547999));
         $this->assertEquals('Foo', $this->fooBar->newRules(235));
         $this->assertEquals('Foo; Qix', $this->fooBar->newRules(437));
@@ -157,7 +157,7 @@ class InfQixFooTest extends Unit
     public function testNewRulesIfSameNumberRowsReturnCorrectly()
     {
         $this->assertEquals('Foo; Foo; Foo', $this->fooBar->newRules(333));
-        $this->assertEquals('Inf; Inf; Inf', $this->fooBar->newRules(888));
+        $this->assertEquals('Inf; Inf; InfInf', $this->fooBar->newRules(888));
         $this->assertEquals('Qix; Qix; Qix', $this->fooBar->newRules(777));
     }
 }

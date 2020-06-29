@@ -8,11 +8,13 @@ namespace FooBar;
 
 class FooBar
 {
+    private $filterOptions = [
+        'options' => ['min_range' => 1]
+    ];
+
     public function run($number = 1): string
     {
-        if ((is_int($number) || ctype_digit($number))
-            && (int) $number < 1
-        ) {
+        if (filter_var($number, FILTER_VALIDATE_INT, $this->filterOptions) == false) {
             throw new \Exception('Not positive integer');
         }
 
@@ -39,9 +41,7 @@ class FooBar
 
     public function newRules($number = 1): string
     {
-        if ((is_int($number) || ctype_digit($number))
-            && (int) $number < 1
-        ) {
+        if (filter_var($number, FILTER_VALIDATE_INT, $this->filterOptions) == false) {
             throw new \Exception('Not positive integer');
         }
 

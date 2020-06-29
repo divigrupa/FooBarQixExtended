@@ -57,9 +57,9 @@ class InfQixFoo
         ];
 
         $cleanedNumber = preg_replace("/[^378]/", '', $number);
-        $splittedNumbers = str_split($cleanedNumber);
+        $cleanedNumberArray = str_split($cleanedNumber);
 
-        foreach ($splittedNumbers as $splittedNumber) {
+        foreach ($cleanedNumberArray as $splittedNumber) {
             foreach ($multipliers as $key => $name) {
                 if ($splittedNumber == $key) {
                     $resultArray[] = $name;
@@ -67,13 +67,14 @@ class InfQixFoo
             }
         }
 
-        $resultArray = implode('; ', $resultArray);
+        $result = implode('; ', $resultArray);
 
-        foreach ($multipliers as $key => $name) {
-            $cleanedNumber = preg_replace("/$key/", $name, $cleanedNumber);
+        $splittedNumbers = str_split($number);
+        if (array_sum($splittedNumbers) % 8 == 0) {
+            $result .= 'Inf';
         }
 
-        $result = strlen($resultArray) < 1 ? $number : $resultArray;
+        $result = strlen($result) < 1 ? $number : $result;
 
         return $result;
     }

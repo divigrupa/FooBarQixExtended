@@ -1,0 +1,80 @@
+<?php
+
+/**
+ * Homework
+ * @link https://github.com/divigrupa/FooBarQixExtended
+ */
+
+namespace InfQixFoo;
+
+class InfQixFoo
+{
+    private $filterOptions = [
+        'options' => ['min_range' => 1]
+    ];
+
+    public function run($number = 1): string
+    {
+        if (filter_var($number, FILTER_VALIDATE_INT, $this->filterOptions) == false) {
+            throw new \Exception('Not positive integer');
+        }
+
+        $result = '';
+        $resultArray = [];
+
+        $multipliers = [
+            8 => 'Inf',
+            7 => 'Qix',
+            3 => 'Foo',
+        ];
+
+        foreach ($multipliers as $key => $name) {
+            if ($number % $key == 0) {
+                $resultArray[] = $name;
+            }
+        }
+
+        $resultArray = implode('; ', $resultArray);
+
+        $result = strlen($resultArray) < 1 ? $number : $resultArray;
+
+        return $result;
+    }
+
+    public function newRules($number = 1): string
+    {
+        if (filter_var($number, FILTER_VALIDATE_INT, $this->filterOptions) == false) {
+            throw new \Exception('Not positive integer');
+        }
+
+        $result = '';
+        $resultArray = [];
+
+        $multipliers = [
+            3 => 'Foo',
+            8 => 'Inf',
+            7 => 'Qix',
+        ];
+
+        $cleanedNumber = preg_replace("/[^378]/", '', $number);
+        $splittedNumbers = str_split($cleanedNumber);
+
+        foreach ($splittedNumbers as $splittedNumber) {
+            foreach ($multipliers as $key => $name) {
+                if ($splittedNumber == $key) {
+                    $resultArray[] = $name;
+                }
+            }
+        }
+
+        $resultArray = implode('; ', $resultArray);
+
+        foreach ($multipliers as $key => $name) {
+            $cleanedNumber = preg_replace("/$key/", $name, $cleanedNumber);
+        }
+
+        $result = strlen($resultArray) < 1 ? $number : $resultArray;
+
+        return $result;
+    }
+}

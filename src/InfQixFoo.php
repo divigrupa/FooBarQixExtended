@@ -13,7 +13,7 @@ class InfQixFoo
         'options' => ['min_range' => 1]
     ];
 
-    public function run($number = 1): string
+    public function showMultiples($number = 1): string
     {
         if (filter_var($number, FILTER_VALIDATE_INT, $this->filterOptions) == false) {
             throw new \Exception('Not positive integer');
@@ -41,7 +41,7 @@ class InfQixFoo
         return $result;
     }
 
-    public function newRules($number = 1): string
+    public function showOccurrences($number = 1): string
     {
         if (filter_var($number, FILTER_VALIDATE_INT, $this->filterOptions) == false) {
             throw new \Exception('Not positive integer');

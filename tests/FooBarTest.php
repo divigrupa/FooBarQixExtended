@@ -36,111 +36,111 @@ class FooBarTest extends Unit
         ];
 
         for ($i = 1; $i <= 15; $i++) {
-            $this->assertEquals($exceptResults[$i], $this->fooBar->run($i));
+            $this->assertEquals($exceptResults[$i], $this->fooBar->showMultiples($i));
         }
     }
 
     public function testCheckNegativeInteger()
     {
         $this->expectException(Exception::class);
-        $this->fooBar->run(-1);
+        $this->fooBar->showMultiples(-1);
     }
 
-    public function testCheckNegativeIntegerInNewrules()
+    public function testCheckNegativeIntegerInOccurrences()
     {
         $this->expectException(Exception::class);
-        $this->fooBar->newRules(-1);
+        $this->fooBar->showOccurrences(-1);
     }
 
     public function testCheckIfThreeReturnFoo()
     {
-        $this->assertEquals('Foo', $this->fooBar->run(3));
+        $this->assertEquals('Foo', $this->fooBar->showMultiples(3));
     }
 
     public function testCheckIfFiveReturnBar()
     {
-        $this->assertEquals('Bar', $this->fooBar->run(5));
+        $this->assertEquals('Bar', $this->fooBar->showMultiples(5));
     }
 
     public function testCheckIfSevenReturnQix()
     {
-        $this->assertEquals('Qix', $this->fooBar->run(7));
+        $this->assertEquals('Qix', $this->fooBar->showMultiples(7));
     }
 
     public function testCheckIfMultipleWithThreeAndFiveReturnFoobar()
     {
-        $this->assertEquals('FooBar', $this->fooBar->run(3 * 5));
+        $this->assertEquals('FooBar', $this->fooBar->showMultiples(3 * 5));
     }
 
     public function testCheckIfMultipleWithFiveAndSevenReturnBarqix()
     {
-        $this->assertEquals('BarQix', $this->fooBar->run(5 * 7));
+        $this->assertEquals('BarQix', $this->fooBar->showMultiples(5 * 7));
     }
 
     public function testCheckIfMultipleWithThreeFiveAndSevenReturnFoobarqix()
     {
-        $this->assertEquals('FooBarQix', $this->fooBar->run(3 * 5 * 7));
+        $this->assertEquals('FooBarQix', $this->fooBar->showMultiples(3 * 5 * 7));
     }
     
     public function testCheckIfOneReturnString()
     {
-        $this->assertEquals('string', gettype($this->fooBar->run(1)));
+        $this->assertEquals('string', gettype($this->fooBar->showMultiples(1)));
     }
     
-    public function testNewRulesWithExludedFromRules()
+    public function testOccurrencesWithExludedFromRules()
     {
         $numbers = [
             1, 2, 4, 6, 8, 9, 10, 11, 111, 999
         ];
 
         foreach ($numbers as $number) {
-            $this->assertEquals($number, $this->fooBar->newRules($number));
+            $this->assertEquals($number, $this->fooBar->showOccurrences($number));
         }
     }
 
-    public function testNewRulesIfThreeReplacedWithFoo()
+    public function testOccurrencesIfThreeReplacedWithFoo()
     {
-        $this->assertEquals('Foo', $this->fooBar->newRules(3));
+        $this->assertEquals('Foo', $this->fooBar->showOccurrences(3));
     }
 
-    public function testNewRulesIfFiveReplacedWithBar()
+    public function testOccurrencesIfFiveReplacedWithBar()
     {
-        $this->assertEquals('Bar', $this->fooBar->newRules(5));
+        $this->assertEquals('Bar', $this->fooBar->showOccurrences(5));
     }
 
-    public function testNewRulesIfSevenReplacedWithQix()
+    public function testOccurrencesIfSevenReplacedWithQix()
     {
-        $this->assertEquals('Qix', $this->fooBar->newRules(7));
+        $this->assertEquals('Qix', $this->fooBar->showOccurrences(7));
     }
 
-    public function testNewRulesIfPlainCombinationsReturnCorrectly()
+    public function testOccurrencesIfPlainCombinationsReturnCorrectly()
     {
-        $this->assertEquals('FooBarQix', $this->fooBar->newRules(357));
-        $this->assertEquals('FooBar', $this->fooBar->newRules(35));
-        $this->assertEquals('FooQix', $this->fooBar->newRules(37));
-        $this->assertEquals('BarQix', $this->fooBar->newRules(57));
+        $this->assertEquals('FooBarQix', $this->fooBar->showOccurrences(357));
+        $this->assertEquals('FooBar', $this->fooBar->showOccurrences(35));
+        $this->assertEquals('FooQix', $this->fooBar->showOccurrences(37));
+        $this->assertEquals('BarQix', $this->fooBar->showOccurrences(57));
 
-        $this->assertEquals('QixBarFoo', $this->fooBar->newRules(753));
-        $this->assertEquals('QixBar', $this->fooBar->newRules(75));
-        $this->assertEquals('QixFoo', $this->fooBar->newRules(73));
-        $this->assertEquals('BarFoo', $this->fooBar->newRules(53));
+        $this->assertEquals('QixBarFoo', $this->fooBar->showOccurrences(753));
+        $this->assertEquals('QixBar', $this->fooBar->showOccurrences(75));
+        $this->assertEquals('QixFoo', $this->fooBar->showOccurrences(73));
+        $this->assertEquals('BarFoo', $this->fooBar->showOccurrences(53));
 
-        $this->assertEquals('FooQixBar', $this->fooBar->newRules(375));
+        $this->assertEquals('FooQixBar', $this->fooBar->showOccurrences(375));
     }
 
-    public function testNewRulesIfMixedCombinationsReturnCorrectly()
+    public function testOccurrencesIfMixedCombinationsReturnCorrectly()
     {
-        $this->assertEquals('FooBarQix', $this->fooBar->newRules(1357));
-        $this->assertEquals('FooBarQix', $this->fooBar->newRules(132547999));
-        $this->assertEquals('FooBar', $this->fooBar->newRules(235));
-        $this->assertEquals('FooQix', $this->fooBar->newRules(437));
-        $this->assertEquals('BarQix', $this->fooBar->newRules(657));
+        $this->assertEquals('FooBarQix', $this->fooBar->showOccurrences(1357));
+        $this->assertEquals('FooBarQix', $this->fooBar->showOccurrences(132547999));
+        $this->assertEquals('FooBar', $this->fooBar->showOccurrences(235));
+        $this->assertEquals('FooQix', $this->fooBar->showOccurrences(437));
+        $this->assertEquals('BarQix', $this->fooBar->showOccurrences(657));
     }
 
-    public function testNewRulesIfSameNumberRowsReturnCorrectly()
+    public function testOccurrencesIfSameNumberRowsReturnCorrectly()
     {
-        $this->assertEquals('FooFooFoo', $this->fooBar->newRules(333));
-        $this->assertEquals('BarBarBar', $this->fooBar->newRules(555));
-        $this->assertEquals('QixQixQix', $this->fooBar->newRules(777));
+        $this->assertEquals('FooFooFoo', $this->fooBar->showOccurrences(333));
+        $this->assertEquals('BarBarBar', $this->fooBar->showOccurrences(555));
+        $this->assertEquals('QixQixQix', $this->fooBar->showOccurrences(777));
     }
 }

@@ -44,7 +44,7 @@ public function testNotNumbber()
 public function testFooBar()
     {
         $Object =  new FooBar();
-        $this -> assertEquals ("Foo, Bar" ,$Object->Checker(30));
+        $this -> assertEquals ("FooBar" ,$Object->Checker(30));
     } 
     
 public function testMultipleFoo()
@@ -73,10 +73,11 @@ public function testMultipleFooBar()
         for ($i =15; $i <=1500; $i=$i+15){
             if ($i%105==0)
             continue;
-        $this -> assertEquals ("Foo, Bar" ,$Object->Checker($i));
+        $this -> assertEquals ("FooBar" ,$Object->Checker($i));
     } 
 }
 
+//Step 2 tests
 public function testMultipleQix()
     {
         $Object =  new FooBar();
@@ -91,7 +92,7 @@ public function testMultipleFooBarQix()
     {
         $Object =  new FooBar();
         for ($i =105; $i <=1050; $i=$i+105){
-        $this -> assertEquals ("Foo, Bar, Qix" ,$Object->Checker($i));
+        $this -> assertEquals ("FooBarQix" ,$Object->Checker($i));
     } 
 }
 public function testMultipleFooQix()
@@ -100,7 +101,7 @@ public function testMultipleFooQix()
         for ($i =21; $i <=210; $i=$i+21){
                 if ($i%105==0)
                 continue;
-        $this -> assertEquals ("Foo, Qix" ,$Object->Checker($i));
+        $this -> assertEquals ("FooQix" ,$Object->Checker($i));
     } 
 }
 
@@ -110,9 +111,93 @@ public function testMultipleBarQix()
         for ($i =35; $i <=350; $i=$i+35){
                 if ($i%105==0)
                 continue;
-        $this -> assertEquals ("Bar, Qix" ,$Object->Checker($i));
+        $this -> assertEquals ("BarQix" ,$Object->Checker($i));
     } 
 }
 
+//Step 3 tests
+public function testNewFoo()
+    {
+        $Object =  new FooBar();
+        $this -> assertEquals ("Foo" ,$Object->FooBarAppend((398)));
+    } 
 
+public function testNewBar()
+    {
+        $Object =  new FooBar();
+        $this -> assertEquals ("Bar" ,$Object->FooBarAppend((586)));
+    } 
+
+public function testNewQix()
+    {
+        $Object =  new FooBar();
+        $this -> assertEquals ("Qix" ,$Object->FooBarAppend((787)));
+    } 
+
+public function testFooFoo()
+    {
+        $Object =  new FooBar();
+        $this -> assertEquals ("FooFoo" ,$Object->FooBarAppend((33)));
+    } 
+
+public function testBarBar()
+    {
+        $Object =  new FooBar();
+        $this -> assertEquals ("BarBar" ,$Object->FooBarAppend((25)));
+    } 
+
+public function testQixQix()
+    {
+        $Object =  new FooBar();
+        $this -> assertEquals ("QixQix" ,$Object->FooBarAppend((77)));
+    }  
+
+public function testFooQix()
+    {
+        $Object =  new FooBar();
+        $this -> assertEquals ("FooQix" ,$Object->FooBarAppend((27)));
+    }    
+
+public function testFooBarQix()
+    {
+        $Object =  new FooBar();
+        $this -> assertEquals ("FooBarQix" ,$Object->FooBarAppend((720)));
+    } 
+
+public function testFooBarFoo()
+    {
+        $Object =  new FooBar();
+        $this -> assertEquals ("FooBarFoo" ,$Object->FooBarAppend((30)));
+    }  
+ 
+public function testFooBarBar()
+    {
+        $Object =  new FooBar();
+        $this -> assertEquals ("FooBarBar" ,$Object->FooBarAppend((45)));
+    }    
+
+public function testBarQix()
+    {
+        $Object =  new FooBar();
+        $this -> assertEquals ("BarQix" ,$Object->FooBarAppend((170)));
+    }    
+    
+public function testFooBarQixFooBarQix()
+    {
+        $Object =  new FooBar();
+        $this -> assertEquals ("FooBarQixFooBarQix" ,$Object->FooBarAppend((735)));
+    } 
+
+public function testOthers()
+    {
+        $Object =  new FooBar();
+        $this -> assertEquals ("BarQixFoo" ,$Object->FooBarAppend((1330)));
+        $this -> assertEquals ("BarQixFooQix" ,$Object->FooBarAppend((9730)));
+        $this -> assertEquals ("QixFooBar" ,$Object->FooBarAppend((532)));
+        $this -> assertEquals ("FooFooBarQix" ,$Object->FooBarAppend((3537)));
+        $this -> assertEquals ("BarBarQix" ,$Object->FooBarAppend((755)));
+        $this -> assertEquals ("FooBarBarQix" ,$Object->FooBarAppend((4575)));
+        $this -> assertEquals ("QixFooBarQix" ,$Object->FooBarAppend((3577)));
+    }     
 }
+

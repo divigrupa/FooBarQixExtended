@@ -204,62 +204,62 @@ public function testOthers()
 public function testInf()
 {
         $Object =  new FooBar();
-        $this->assertEquals ("Inf " , $Object->InfQix(8));
+        $this->assertEquals ("Inf; " , $Object->InfQix(8));
 
 }  
 
 public function testInfQix()
 {
         $Object =  new FooBar();
-        $this->assertEquals ("Inf; Qix " , $Object->InfQix(56));
+        $this->assertEquals ("Inf; Qix; " , $Object->InfQix(56));
 
 }    
 public function testInfQixFoo()
 {
         $Object =  new FooBar();
-        $this->assertEquals ("Inf; Qix; Foo " , $Object->InfQix(168));
+        $this->assertEquals ("Inf; Qix; Foo; " , $Object->InfQix(168));
 
 }      
 
 public function testInfFoo()
 {
         $Object =  new FooBar();
-        $this->assertEquals ("Inf; Foo " , $Object->InfQix(24));
+        $this->assertEquals ("Inf; Foo; " , $Object->InfQix(24));
 
 }
 
 public function testInfQixFooInfQixFoo()
 {
         $Object =  new FooBar();
-        $this->assertEquals ("Inf; Qix; Foo InfQixFoo" , $Object->InfQixAppend(8736));
+        $this->assertEquals ("Inf; Qix; Foo; InfQixFooInf" , $Object->InfQixAppend(8736));
 
 }
 
 public function testFooInf()
 {
         $Object =  new FooBar();
-        $this->assertEquals ("Foo Inf" , $Object->InfQixAppend(18));
+        $this->assertEquals ("Foo; Inf" , $Object->InfQixAppend(18));
 
 }
 
 public function testInfFooInf()
 {
         $Object =  new FooBar();
-        $this->assertEquals ("Inf; Foo Inf" , $Object->InfQixAppend(408));
+        $this->assertEquals ("Inf; Foo; Inf" , $Object->InfQixAppend(408));
 
 }
 
 public function testQixFooInfFoo()
 {
         $Object =  new FooBar();
-        $this->assertEquals ("Qix; Foo FooInf" , $Object->InfQixAppend(3318));
+        $this->assertEquals ("Qix; Foo; FooInf" , $Object->InfQixAppend(3318));
 
 }
 
 public function testInfQixInfQix()
 {
         $Object =  new FooBar();
-        $this->assertEquals ("Inf; Qix QixInf" , $Object->InfQixAppend(784));
+        $this->assertEquals ("Inf; Qix; QixInf" , $Object->InfQixAppend(784));
 
 }
 
@@ -273,24 +273,41 @@ public function testDuplicates()
 public function testInfFooQixFooInf()
 {
         $Object =  new FooBar();
-        $this->assertEquals ("Inf; Foo QixFooInf" , $Object->InfQixAppend(777333888));
+        $this->assertEquals ("Inf; Foo; QixFooInf" , $Object->InfQixAppend(777333888));
 
 }
 
 public function testNewFooQix()
 {
         $Object =  new FooBar();
-        $this->assertEquals ("Foo Qix" , $Object->InfQixAppend(75));
+        $this->assertEquals ("Foo; Qix" , $Object->InfQixAppend(75));
 
 }
 
 public function testSameNumberRepeats()
 {
         $Object =  new FooBar();
-        $this->assertEquals ("Foo Foo" , $Object->InfQixAppend(3333));
-        $this->assertEquals ("Qix Qix" , $Object->InfQixAppend(7777));
-        $this->assertEquals ("Inf Inf" , $Object->InfQixAppend(8888));
+        $this->assertEquals ("Foo; Foo" , $Object->InfQixAppend(3333));
+        $this->assertEquals ("Qix; Qix" , $Object->InfQixAppend(7777));
+        $this->assertEquals ("Inf; InfInf" , $Object->InfQixAppend(8888));
 
+}
+
+// Step 5
+public function testNewRules()
+{
+        $Object =  new FooBar();
+        $this->assertEquals ("InfFooInf" , $Object->InfQixAppend(853));
+        $this->assertEquals ("Qix; Foo; InfQixInf" , $Object->InfQixAppend(987));
+        $this->assertEquals ("Inf; Inf" , $Object->InfQixAppend(152));
+        $this->assertEquals ("FooQixInf" , $Object->InfQixAppend(3751));
+
+}
+
+public function testAllConditions()
+{
+    $Object =  new FooBar();
+    $this->assertEquals ("Inf; Qix; Foo; QixFooInfInf" , $Object->InfQixAppend(27384));
 }
 }
 

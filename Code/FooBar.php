@@ -73,25 +73,25 @@ class FooBar {
             $Result = "";
                 
                 if ($Number % 3 == 0 && $Number % 8 == 0 && $Number % 7 ==0)
-                $Result = "Inf; Qix; Foo ";
+                $Result = "Inf; Qix; Foo; ";
             
                 elseif ($Number % 8 == 0 && $Number % 3==0)
-                $Result = "Inf; Foo ";
+                $Result = "Inf; Foo; ";
     
                 elseif ($Number % 8 == 0 && $Number % 7==0)
-                $Result = "Inf; Qix ";
+                $Result = "Inf; Qix; ";
     
                 elseif ($Number % 3 == 0 && $Number % 7==0)
-                $Result = "Qix; Foo ";
+                $Result = "Qix; Foo; ";
                 
                 elseif ($Number % 3 == 0)
-                $Result = "Foo ";
+                $Result = "Foo; ";
     
                 elseif ($Number % 8 == 0)
-                $Result = "Inf ";
+                $Result = "Inf; ";
     
                 elseif ($Number % 7 == 0)
-                $Result = "Qix ";
+                $Result = "Qix; ";
             
                 else 
                 $Result = "";
@@ -112,9 +112,11 @@ class FooBar {
         $Foo=true;
         $Inf=true;
         $Qix=true;
+        $Counter =0;
 
         for ($i=0; $i<count($DigitArray); $i++){ 
-                        
+            $Counter += $DigitArray[$i];            
+            
                             if ($DigitArray[$i]==3 && $Foo==true){
                                 $Foo=false;
                                 $Result .= "Foo";                                                     
@@ -129,6 +131,10 @@ class FooBar {
                                 $Result .= "Inf";
                             }
                         }
+
+        if ($Counter%8==0)             
+        $Result .= "Inf";     
+
     return $Result;
     }     
 }

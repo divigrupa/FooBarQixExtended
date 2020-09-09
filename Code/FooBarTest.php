@@ -1,71 +1,90 @@
 <?php
 require __DIR__ . '\FooBar.php';
+
 use FooBar;
 use PHPUnit\Framework\TestCase;
 
 class FooBarTest extends TestCase
 {
+    public function testBar()
+    {
+        $Object =  new FooBar();
+        $this->assertEquals("Bar", $Object->Checker(5));
+    }
+
     public function testFoo()
     {
         $Object =  new FooBar();
-        $this->assertEquals ("Bar", $Object->Checker(5));
-}
-
-public function testBar()
-{
-        $Object =  new FooBar();
-        $this->assertEquals ("Foo" , $Object->Checker(3));
-}
-
-public function testNegative()
-{
-        $Object =  new FooBar();
-        $this -> assertEquals ("" , $Object->Checker(-1));
-}
-
-public function testNotInteger()
-{
-        $Object =  new FooBar();
-        $this -> assertIsNotInt ($Object->Checker(4.321));
-}
-
-public function testNotNumbber()
-    {
-        $Object =  new FooBar();
-        $this -> assertEquals ("" ,$Object->Checker("asd"));
+        $this->assertEquals("Foo", $Object->Checker(3));
     }
 
-public function testFooBar()
+    public function testFooBar()
     {
         $Object =  new FooBar();
-        $this -> assertEquals ("Foo, Bar" ,$Object->Checker(30));
-    } 
+        $this->assertEquals("Foo, Bar", $Object->Checker(15));
+    }
 
-public function testMultipleFoo()
+    public function testIntegerToString()
     {
         $Object =  new FooBar();
-        for ($i =3; $i <=30; $i=$i+3){
-                if ($i%15==0)
-                continue;
-        $this -> assertEquals ("Foo" ,$Object->Checker($i));
-    } 
-}
+        $this->assertEquals(13, $Object->Checker(13));
+    }
 
-public function testMultipleBar()
+    public function testNegativeException()
     {
         $Object =  new FooBar();
-        for ($i =5; $i <=50; $i=$i+5){
-                if ($i%15==0)
-                continue;
-        $this -> assertEquals ("Bar" ,$Object->Checker($i));
-    } 
-}
+        $this->expectException(InvalidArgumentException::class);
+        $Object->Checker(-5);
+    }
 
-public function testMultipleFooBar()
+    public function testNotIntegerException()
     {
         $Object =  new FooBar();
-        for ($i =15; $i <=150; $i=$i+15){
-        $this -> assertEquals ("Foo, Bar" ,$Object->Checker($i));
-    } 
+        $this->expectException(InvalidArgumentException::class);
+        $Object->Checker(4.321);
+    }
+
+    public function testNotNumberException()
+    {
+        $Object =  new FooBar();
+        $this->expectException(InvalidArgumentException::class);
+        $Object->Checker("abc");
+    }
+
+    /**
+     * @dataProvider provider
+     */
+
+    public function testMultipleOccurences($expectedResult, $input)
+    {
+        $Object =  new FooBar();
+        $this->assertEquals($expectedResult, $Object->Checker($input));
+    }
+
+    public function provider()
+    {
+        return array(
+            array("Foo", 6),
+            array("Foo", 9),
+            array("Foo", 12),
+            array("Foo", 18),
+            array("Foo", 33),
+            array("Foo", 99),
+            array("Foo", 1503),
+            array("Bar", 10),
+            array("Bar", 20),
+            array("Bar", 25),
+            array("Bar", 35),
+            array("Bar", 50),
+            array("Bar", 560),
+            array("Bar", 9115),
+            array("Foo, Bar", 30),
+            array("Foo, Bar", 45),
+            array("Foo, Bar", 60),
+            array("Foo, Bar", 75),
+            array("Foo, Bar", 90),
+            array("Foo, Bar", 1515),
+            array("Foo, Bar", 2220),
+        );
+    }
 }
-} 

@@ -1,30 +1,28 @@
 <?php
-class FooBar {
 
-     function Checker($Number):string
+declare(strict_types=1);
+
+class FooBar
+{
+    public function Checker($Number): string
     {
-        try {
-        $Result = "";
-
-            if ($Number % 3 == 0 && $Number % 5 == 0)
-            $Result = "Foo, Bar";
-
-            elseif ($Number % 5 == 0)
-            $Result = "Bar";
-
-            elseif ($Number % 3 == 0)
-            $Result = "Foo";
-
-            else 
+        if (is_int($Number) && $Number > 0) {
             $Result = "";
 
-            return 
-            $Result ;
+            if ($Number % 3 == 0 && $Number % 5 == 0) {
+                $Result = "Foo, Bar";
+            } elseif ($Number % 5 == 0) {
+                $Result = "Bar";
+            } elseif ($Number % 3 == 0) {
+                $Result = "Foo";
+            } else {
+                $Result =strval($Number);
             }
 
-            catch (Exception $e){
             return
-            $Result = "";
-            }
+                $Result;
+        } else {
+            throw new InvalidArgumentException();
         }
-    } 
+    }
+}

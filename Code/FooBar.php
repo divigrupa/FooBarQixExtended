@@ -4,23 +4,19 @@ declare(strict_types=1);
 
 class FooBar
 {
-    public function Checker($Number): string
+    public function checker($number)
     {
-        if (is_int($Number) && $Number > 0) {
-            $Result = "";
-
-            if ($Number % 3 == 0 && $Number % 5 == 0) {
-                $Result = "Foo, Bar";
-            } elseif ($Number % 5 == 0) {
-                $Result = "Bar";
-            } elseif ($Number % 3 == 0) {
-                $Result = "Foo";
+        if (is_int($number) && $number > 0) {
+            if ($number % 3 == 0 && $number % 5 == 0) {
+                $result = "Foo, Bar";
+            } elseif ($number % 5 == 0) {
+                $result = "Bar";
+            } elseif ($number % 3 == 0) {
+                $result = "Foo";
             } else {
-                $Result =strval($Number);
+                $result = strval($number);
             }
-
-            return
-                $Result;
+            return $result;
         } else {
             throw new InvalidArgumentException();
         }

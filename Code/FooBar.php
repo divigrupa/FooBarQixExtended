@@ -6,19 +6,27 @@ class FooBar
 {
     public function checker($number)
     {
-        if (is_int($number) && $number > 0) {
-            if ($number % 3 == 0 && $number % 5 == 0) {
-                $result = "Foo, Bar";
-            } elseif ($number % 5 == 0) {
-                $result = "Bar";
-            } elseif ($number % 3 == 0) {
-                $result = "Foo";
-            } else {
-                $result = strval($number);
-            }
-            return $result;
-        } else {
+        $foo = "Foo";
+        $bar = "Bar";
+        $comma = ", ";
+
+        if (!is_int($number) || $number < 0) {
             throw new InvalidArgumentException();
+        } else {
+            switch ($number) {
+                case $number % 3 == 0 && $number % 5 == 0:
+                    $result = $foo . $comma . $bar;
+                    break;
+                case $number % 5 == 0:
+                    $result = $bar;
+                    break;
+                case $number % 3 == 0:
+                    $result = $foo;
+                    break;
+                default:
+                    $result = strval($number);
+            }
         }
+        return $result;
     }
 }

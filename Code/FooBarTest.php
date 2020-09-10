@@ -1,64 +1,62 @@
 <?php
+
+declare(strict_types=1);
+
 require __DIR__ . '\FooBar.php';
 
-use FooBar;
-use PHPUnit\Framework\TestCase;
-
-class FooBarTest extends TestCase
+class FooBarTest extends PHPUnit\Framework\TestCase
 {
     public function testBar()
     {
-        $Object =  new FooBar();
-        $this->assertEquals("Bar", $Object->Checker(5));
+        $object = new FooBar();
+        $this->assertEquals("Bar", $object->checker(5));
     }
 
     public function testFoo()
     {
-        $Object =  new FooBar();
-        $this->assertEquals("Foo", $Object->Checker(3));
+        $object = new FooBar();
+        $this->assertEquals("Foo", $object->checker(3));
     }
 
     public function testFooBar()
     {
-        $Object =  new FooBar();
-        $this->assertEquals("Foo, Bar", $Object->Checker(15));
+        $object = new FooBar();
+        $this->assertEquals("Foo, Bar", $object->checker(15));
     }
 
     public function testIntegerToString()
     {
-        $Object =  new FooBar();
-        $this->assertEquals(13, $Object->Checker(13));
+        $object = new FooBar();
+        $this->assertEquals("string", gettype($object->checker(13)));
     }
 
     public function testNegativeException()
     {
-        $Object =  new FooBar();
+        $object = new FooBar();
         $this->expectException(InvalidArgumentException::class);
-        $Object->Checker(-5);
+        $object->checker(-5);
     }
 
     public function testNotIntegerException()
     {
-        $Object =  new FooBar();
+        $object = new FooBar();
         $this->expectException(InvalidArgumentException::class);
-        $Object->Checker(4.321);
+        $object->checker(4.321);
     }
 
     public function testNotNumberException()
     {
-        $Object =  new FooBar();
+        $object = new FooBar();
         $this->expectException(InvalidArgumentException::class);
-        $Object->Checker("abc");
+        $object->checker("abc");
     }
-
     /**
      * @dataProvider provider
      */
-
-    public function testMultipleOccurences($expectedResult, $input)
+    public function testMultipleOccurrences($expectedResult, $input)
     {
-        $Object =  new FooBar();
-        $this->assertEquals($expectedResult, $Object->Checker($input));
+        $object = new FooBar();
+        $this->assertEquals($expectedResult, $object->checker($input));
     }
 
     public function provider()

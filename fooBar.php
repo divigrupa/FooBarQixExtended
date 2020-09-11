@@ -1,10 +1,12 @@
 <?php
-function checkFooBar($number){
+class fooBar
+{
+public function checkFooBar($number){
     //Check if a number is a positive integer
     if ((is_int($number) || ctype_digit($number)) && (int)$number > 0 ) { 
         //Check if a number is a multiple of 3
         if (($number % 3) == 0) {
-            echo " Foo ";
+            echo "Foo ";
         }
         //Check if a number is a multiple of 5
         if (($number % 5) == 0){
@@ -16,8 +18,7 @@ function checkFooBar($number){
         } 
     } else {
         echo "Number is not a positive integer";
-    }   
+    } 
+    }
 }
-checkFooBar();
-
 ?>

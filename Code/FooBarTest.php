@@ -72,9 +72,9 @@ class FooBarTest extends PHPUnit\Framework\TestCase
             array("Bar", 10),
             array("Bar", 20),
             array("Bar", 25),
-            array("Bar", 35),
+            array("Bar", 40),
             array("Bar", 50),
-            array("Bar", 560),
+            array("Bar", 565),
             array("Bar", 9115),
             array("Foo, Bar", 30),
             array("Foo, Bar", 45),
@@ -83,6 +83,33 @@ class FooBarTest extends PHPUnit\Framework\TestCase
             array("Foo, Bar", 90),
             array("Foo, Bar", 1515),
             array("Foo, Bar", 2220),
+            array("Foo, Bar, Qix", 840),
+            array("Foo, Bar, Qix", 1365),
+            array("Foo, Bar, Qix", 3570),
         );
+    }
+
+    public function testQix()
+    {
+        $object = new FooBar();
+        $this->assertEquals("Qix", $object->checker(7));
+    }
+
+    public function testFooQix()
+    {
+        $object = new FooBar();
+        $this->assertEquals("Foo, Qix", $object->checker(21));
+    }
+
+    public function testBarQix()
+    {
+        $object = new FooBar();
+        $this->assertEquals("Bar, Qix", $object->checker(35));
+    }
+
+    public function testFooBarQix()
+    {
+        $object = new FooBar();
+        $this->assertEquals("Foo, Bar, Qix", $object->checker(105));
     }
 }

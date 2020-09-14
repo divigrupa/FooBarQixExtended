@@ -20,6 +20,10 @@ class FooBar
             $resultArray[1] = "Bar";
         }
 
+        if ($number % 7 == 0) {
+            $resultArray[2] = "Qix";
+        }
+
         if (!empty($resultArray)) {
             $result = implode(", ", $resultArray);
         } else {

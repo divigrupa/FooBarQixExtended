@@ -6,27 +6,26 @@ class FooBar
 {
     public function checker($number)
     {
-        $foo = "Foo";
-        $bar = "Bar";
-        $comma = ", ";
+        $resultArray = array();
 
         if (!is_int($number) || $number < 0) {
             throw new InvalidArgumentException();
-        } else {
-            switch ($number) {
-                case $number % 3 == 0 && $number % 5 == 0:
-                    $result = $foo . $comma . $bar;
-                    break;
-                case $number % 5 == 0:
-                    $result = $bar;
-                    break;
-                case $number % 3 == 0:
-                    $result = $foo;
-                    break;
-                default:
-                    $result = strval($number);
-            }
         }
+
+        if ($number % 3 == 0) {
+            $resultArray[0] = "Foo";
+        }
+
+        if ($number % 5 == 0) {
+            $resultArray[1] = "Bar";
+        }
+
+        if (!empty($resultArray)) {
+            $result = implode(", ", $resultArray);
+        } else {
+            $result = strval($number);
+        }
+
         return $result;
     }
 }

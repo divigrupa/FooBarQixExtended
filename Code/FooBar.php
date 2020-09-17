@@ -31,4 +31,30 @@ class FooBar
 
         return $result;
     }
+
+    public function checkerWithAppend($number)
+    {
+        $result = $this->checker($number);
+
+        if (preg_match('~[0-9]~', $result)) {
+            $result = "";
+        }
+
+        $splittedNumbersArray = array_unique(str_split((string)$number));
+        $appendArray = array(
+            "Foo" => 3,
+            "Bar" => 5,
+            "Qix" => 7,
+        );
+
+        foreach ($splittedNumbersArray as $digits) {
+            foreach ($appendArray as $name => $multiplier) {
+                if ($digits == $multiplier) {
+                    $result .= $name;
+                }
+            }
+        }
+
+        return $result;
+    }
 }

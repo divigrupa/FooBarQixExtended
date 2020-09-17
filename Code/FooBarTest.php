@@ -112,4 +112,34 @@ class FooBarTest extends PHPUnit\Framework\TestCase
         $object = new FooBar();
         $this->assertEquals("Foo, Bar, Qix", $object->checker(105));
     }
+
+    public function testAppend()
+    {
+        $object = new FooBar();
+        $this->assertEquals("Foo, Bar, QixFooBarQix", $object->checkerWithAppend(3570));
+    }
+    /**
+     * @dataProvider appendProvider
+     */
+    public function testMultipleAppend($expectedResult, $input)
+    {
+        $object = new FooBar();
+        $this->assertEquals($expectedResult, $object->checkerWithAppend($input));
+    }
+
+    public function appendProvider()
+    {
+        return array(
+            array("FooFoo", 33),
+            array("BarBar", 55),
+            array("QixQix", 77),
+            array("Foo, QixBar", 2541),
+            array("QixFooBar", 3514),
+            array("FooQixBar", 37557353),
+            array("Bar, QixFooBar", 35),
+            array("BarBarFoo", 5035),
+            array("FooBarFoo", 513),
+            array("Foo, Bar, Qix", 210),
+        );
+    }
 }

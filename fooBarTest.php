@@ -2,36 +2,39 @@
 include (dirname(__FILE__) . "/../fooBar.php");
 use PHPUnit\Framework\TestCase;
 
-class fooBarTest extends TestCase
+class FooBarTest extends TestCase
 {
-    public function testFloat()
+     public function testFloatException()
     {
-        $number = new fooBar;
-        $this->assertIsNotInt($number->checkFooBar(3.2));
+        $number = new FooBar;
+        $this->expectException(Exception::class);
+        $number->checkFooBar(3.2);
     }
-    public function testNegative()
+    public function testNegativeException()
     {
-        $number = new fooBar;
-        $this->assertIsNotInt($number->checkFooBar(-7));
+        $number = new FooBar;
+        $this->expectException(Exception::class);
+        $number->checkFooBar(-7);
     }
-    public function testInvalidChar()
+    public function testInvalidCharException()
     {
-        $number = new fooBar;
-        $this->assertIsNotInt($number->checkFooBar("test"));
+        $number = new FooBar;
+        $this->expectException(Exception::class);
+        $number->checkFooBar("test");
     }
     public function testFooBar()
     {
-        $number = new fooBar;
-        $this->assertEquals($number->checkFooBar(15) , "Foo Bar");
+        $number = new FooBar;
+        $this->assertEquals($number->checkFooBar(15) , "FooBar");
     }
     public function testFoo()
     {
-        $number = new fooBar;
-        $this->assertEquals($number->checkFooBar(3) , "Foo ");
+        $number = new FooBar;
+        $this->assertEquals($number->checkFooBar(3) , "Foo");
     }
     public function testBar()
     {
-        $number = new fooBar;
+        $number = new FooBar;
         $this->assertEquals($number->checkFooBar(5) , "Bar");
     }
      public function testIntToStr()

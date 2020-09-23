@@ -34,6 +34,11 @@ class fooBarTest extends TestCase
         $number = new fooBar;
         $this->assertEquals($number->checkFooBar(5) , "Bar");
     }
+     public function testIntToStr()
+    {
+        $number = new FooBar();
+        $this->assertEquals("string", gettype($number->checkFooBar(7)));
+    }
 
 }
 

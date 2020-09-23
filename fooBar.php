@@ -12,15 +12,15 @@ class fooBar
             {
                 $result = "Foo ";
             }
-            //Check if a number is a multiple of 5
+            //Check if a number is a multiple of 5 and concatenate it
             if (($number % 5) == 0)
             {
                 $result .= "Bar";
             }
-            //Check if a number isn't a multiple of 3 or 5
+            //If a number isn't a multiple of 3 or 5 convert it to string
             if ((($number % 5) !== 0) && (($number % 3) !== 0))
             {
-                $result = "$number";
+                $result = strval($number);
             }
         }
         else

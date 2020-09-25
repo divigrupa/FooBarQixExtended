@@ -1,0 +1,8 @@
+{
+  "autoload": {
+    "classmap": ["service/"]
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9"
+  }
+}

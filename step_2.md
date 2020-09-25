@@ -1,10 +1,12 @@
+# Step 2
 
-Here is "Step 2" :
+Here is "Step 2":
 You made it in time, thanks!
 Clients have a good use of it, but are unhappy as Qix is missing!
 In the rush we forgot to give you **a last rule in bold**.
 
 It will take a number (positive integer) and provide:
+
 - "Foo" if this number is multiple of 3
 - "Bar" if this number is multiple of 5
 - **"Qix" if this number is multiple of 7**

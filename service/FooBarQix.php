@@ -36,6 +36,13 @@ final class FooBarQix
     private $_output;
 
     /**
+     * A multiplier to detect if the input is Qix
+     *
+     * @var integer
+     */
+    private $_qixMultiplier = 7;
+
+    /**
      * Constructor
      *
      * @param integer|string $input A positive integer (may be provided as a
@@ -56,13 +63,25 @@ final class FooBarQix
     private function _processInput(): void
     {
         $output = (string)$this->_input;
+        $fooMultiplier = $this->_fooMultiplier;
+        $barMultiplier = $this->_barMultiplier;
+        $qixMultiplier = $this->_qixMultiplier;
+        $fooBarMultiplier = $this->_fooMultiplier * $this->_barMultiplier;
 
-        if ($this->_input % ($this->_fooMultiplier * $this->_barMultiplier) === 0) {
+        if ($this->_input % ($fooBarMultiplier * $qixMultiplier) === 0) {
+            $output = "Foo, Bar, Qix";
+        } else if ($this->_input % $fooBarMultiplier === 0) {
             $output = "Foo, Bar";
-        } else if ($this->_input % $this->_fooMultiplier === 0) {
+        } else if ($this->_input % ($fooMultiplier * $qixMultiplier) === 0) {
+            $output = "Foo, Qix";
+        } else if ($this->_input % ($barMultiplier * $qixMultiplier) === 0) {
+            $output = "Bar, Qix";
+        } else if ($this->_input % $fooMultiplier === 0) {
             $output = "Foo";
-        } else if ($this->_input % $this->_barMultiplier ===0) {
+        } else if ($this->_input % $barMultiplier === 0) {
             $output = "Bar";
+        } else if ($this->_input % $qixMultiplier === 0) {
+            $output = "Qix";
         }
 
         $this->_output = $output;

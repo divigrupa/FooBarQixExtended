@@ -12,14 +12,14 @@ final class FooBarQix
      *
      * @var integer
      */
-    private $_barMultiplier = 5;
+    private $_bar = 5;
 
     /**
      * A multiplier to detect if the input is Foo
      *
      * @var integer
      */
-    private $_fooMultiplier = 3;
+    private $_foo = 3;
 
     /**
      * The input value that should be a positive integer
@@ -40,7 +40,17 @@ final class FooBarQix
      *
      * @var integer
      */
-    private $_qixMultiplier = 7;
+    private $_qix = 7;
+
+    /**
+     * Values mapping
+     *
+     * Keys are value of `$_foo`, `$_bar` and `$_qix` and values are string
+     * representation of them.
+     *
+     * @var array
+     */
+    private $_valuesMap;
 
     /**
      * Constructor
@@ -50,7 +60,13 @@ final class FooBarQix
      */
     private function __construct($input)
     {
+        // Initialise properties
         $this->_input = $input;
+        $this->_valuesMap = [
+            $this->_foo => "Foo", $this->_bar => "Bar", $this->_qix => "Qix"
+        ];
+
+        // Process the input
         $this->_validateInput();
         $this->_processInput();
     }
@@ -63,25 +79,25 @@ final class FooBarQix
     private function _processInput(): void
     {
         $output = (string)$this->_input;
-        $fooMultiplier = $this->_fooMultiplier;
-        $barMultiplier = $this->_barMultiplier;
-        $qixMultiplier = $this->_qixMultiplier;
-        $fooBarMultiplier = $this->_fooMultiplier * $this->_barMultiplier;
+        $fooBarMultiplier = $this->_foo * $this->_bar;
+        $strBar = $this->_valuesMap[$this->_bar];
+        $strFoo = $this->_valuesMap[$this->_foo];
+        $strQix = $this->_valuesMap[$this->_qix];
 
-        if ($this->_input % ($fooBarMultiplier * $qixMultiplier) === 0) {
-            $output = "Foo, Bar, Qix";
+        if ($this->_input % ($fooBarMultiplier * $this->_qix) === 0) {
+            $output = implode(", ", $this->_valuesMap);
         } else if ($this->_input % $fooBarMultiplier === 0) {
-            $output = "Foo, Bar";
-        } else if ($this->_input % ($fooMultiplier * $qixMultiplier) === 0) {
-            $output = "Foo, Qix";
-        } else if ($this->_input % ($barMultiplier * $qixMultiplier) === 0) {
-            $output = "Bar, Qix";
-        } else if ($this->_input % $fooMultiplier === 0) {
-            $output = "Foo";
-        } else if ($this->_input % $barMultiplier === 0) {
-            $output = "Bar";
-        } else if ($this->_input % $qixMultiplier === 0) {
-            $output = "Qix";
+            $output = "{$strFoo}, {$strBar}";
+        } else if ($this->_input % ($this->_foo * $this->_qix) === 0) {
+            $output = "{$strFoo}, {$strQix}";
+        } else if ($this->_input % ($this->_bar * $this->_qix) === 0) {
+            $output = "{$strBar}, {$strQix}";
+        } else if ($this->_input % $this->_foo === 0) {
+            $output = $strFoo;
+        } else if ($this->_input % $this->_bar === 0) {
+            $output = $strBar;
+        } else if ($this->_input % $this->_qix === 0) {
+            $output = $strQix;
         }
 
         $this->_output = $output;
@@ -126,12 +142,14 @@ final class FooBarQix
     /**
      * Detect if the input has certain characteristics
      *
-     * Transform input to "Foo" if it is divisible by `$_fooMultiplier`.
-     * Transform input to "Bar" if it is divisible by `$_barMultiplier`.
-     * Transform input to "Foo, Bar" if it is divisble by both
-     * `$_fooMultiplier` and `$_barMultiplier`.
-     * Output the provided integer as a string if it is divisible neither by
-     * `$_fooMultiplier` nor `$_barMultiplier`.
+     * Transform input to "Foo" if it is divisible by `$_foo`.
+     * Transform input to "Bar" if it is divisible by `$_bar`.
+     * Transform input to "Foo, Bar" if it is divisble by both `$_foo` and
+     * `$_bar`.
+     * Transform input to "Foo, Bar, Qix" if it is divisble by `$_foo`, `$_bar`
+     * and `$_qix`.
+     * Output the provided integer as a string if it is not divisible by
+     * `$_foo`, `$_bar` and `$_qix`.
      *
      * @param integer|string $input A positive integer (may be provided as a
      *                              string)

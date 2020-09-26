@@ -68,15 +68,16 @@ final class FooBarQix
 
         // Process the input
         $this->_validateInput();
-        $this->_processInput();
+        $this->_checkMultipliers();
+        $this->_checkOccurences();
     }
 
     /**
-     * Check if the input integer has certain characteristics
+     * Check if the input integer is divisible by Foo, Bar or Qix
      *
      * @return void
      */
-    private function _processInput(): void
+    private function _checkMultipliers(): void
     {
         $output = (string)$this->_input;
         $fooBarMultiplier = $this->_foo * $this->_bar;
@@ -98,6 +99,29 @@ final class FooBarQix
             $output = $strBar;
         } else if ($this->_input % $this->_qix === 0) {
             $output = $strQix;
+        }
+
+        $this->_output = $output;
+    }
+
+    /**
+     * Check if the input integer has occurences of `$_foo`, `$_bar` or `$_qix`
+     *
+     * For each occurence "Foo", "Bar" or "Qix" is added to the ouptu in the
+     * occurring order.
+     *
+     * @return void
+     */
+    private function _checkOccurences(): void
+    {
+        $output = $this->_output;
+
+        foreach (
+            array_map('intval', str_split((string) $this->_input)) as $digit
+        ) {
+            if (array_key_exists($digit, $this->_valuesMap)) {
+                $output .= ", {$this->_valuesMap[$digit]}";
+            }
         }
 
         $this->_output = $output;
@@ -142,14 +166,16 @@ final class FooBarQix
     /**
      * Detect if the input has certain characteristics
      *
-     * Transform input to "Foo" if it is divisible by `$_foo`.
-     * Transform input to "Bar" if it is divisible by `$_bar`.
-     * Transform input to "Foo, Bar" if it is divisble by both `$_foo` and
-     * `$_bar`.
-     * Transform input to "Foo, Bar, Qix" if it is divisble by `$_foo`, `$_bar`
-     * and `$_qix`.
-     * Output the provided integer as a string if it is not divisible by
-     * `$_foo`, `$_bar` and `$_qix`.
+     * Transform input if it is divisible by `$_foo`, `$_bar` or `$_qix` (
+     * output value for the multipliers are "Foo", "Bar", "Qix" respectively);
+     * if the integer has more than one multiplier, output for them should be
+     * ordered in the same ascending order - "Foo", "Bar", "Qix".
+     * Then the input should be checked if the provided integer contains
+     * `$_foo`, `$_bar` or `$_qix`. For each occurence "Foo", "Bar" or "Qix"
+     * respectively should be added to the output in the occurring order.
+     * Output the provided integer as a string if it neither is divisible by
+     * `$_foo`, `$_bar` and `$_qix` nor it contains `$_foo`, `$_bar` or
+     * `$_qix`.
      *
      * @param integer|string $input A positive integer (may be provided as a
      *                              string)

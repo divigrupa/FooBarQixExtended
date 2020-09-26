@@ -123,7 +123,7 @@ final class FooBarQixTest extends PHPUnit\Framework\TestCase
     public function testValueHasMultipliersAndContainsBarAndQix(): void
     {
         $this->assertSame("Bar, Qix, Qix, Bar", FooBarQix::process(175));
-        $this->assertSame("Bar, Qix, Bar, Qix, Bar", FooBarQix::process(1575));
+        $this->assertSame("Bar, Qix, Bar, Qix, Bar", FooBarQix::process(15785));
     }
 
     /**
@@ -326,6 +326,7 @@ final class FooBarQixTest extends PHPUnit\Framework\TestCase
     public function testValueOnlyContainsFoo(): void
     {
         $this->assertSame("31, Foo", FooBarQix::process(31));
+        $this->assertSame("123, Foo", FooBarQix::process(123));
     }
 
     /**
@@ -381,10 +382,10 @@ final class FooBarQixTest extends PHPUnit\Framework\TestCase
         $this->assertSame("Foo", FooBarQix::process("12"));
         $this->assertSame("Bar", FooBarQix::process("20"));
         $this->assertSame("Qix", FooBarQix::process("28"));
-        $this->assertSame("Foo, Bar", FooBarQix::process("30"));
-        $this->assertSame("Foo, Qix", FooBarQix::process("63"));
+        $this->assertSame("Foo, Bar", FooBarQix::process("90"));
+        $this->assertSame("Foo, Qix", FooBarQix::process("84"));
         $this->assertSame("Bar, Qix", FooBarQix::process("140"));
-        $this->assertSame("Foo, Bar, Qix", FooBarQix::process("315"));
+        $this->assertSame("Foo, Bar, Qix", FooBarQix::process("420"));
         $this->assertSame("Foo, Bar, Foo, Bar", FooBarQix::process("345"));
         $this->assertSame("13571, Foo, Bar, Qix", FooBarQix::process("13571"));
     }

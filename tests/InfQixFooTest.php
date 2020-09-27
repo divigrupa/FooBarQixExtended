@@ -387,4 +387,11 @@ final class InfQixFooTest extends PHPUnit\Framework\TestCase
         $this->assertSame("Foo; Inf; Qix; Foo", InfQixFoo::process("873"));
         $this->assertSame("2837; Inf; Foo; Qix", InfQixFoo::process("2837"));
     }
+
+    public function testSumOfAllValueDigitsIsDivisibleBy8(): void
+    {
+        $this->assertSame("Inf; InfInf", InfQixFoo::process(8));
+        $this->assertSame("17; QixInf", InfQixFoo::process(17));
+        $this->assertSame("26Inf", InfQixFoo::process(26));
+    }
 }

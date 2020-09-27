@@ -72,16 +72,16 @@ final class InfQixFooTest extends PHPUnit\Framework\TestCase
     public function testValueHasMultipliersAndContainsInfQixAndFoo(): void
     {
         $this->assertSame(
-            "Inf; Qix; Foo; Inf; Qix; Foo",
-            InfQixFoo::process(8736)
-        );
-        $this->assertSame(
-            "Inf; Qix; Foo; Qix; Foo; Inf",
-            InfQixFoo::process(27384)
-        );
-        $this->assertSame(
             "Inf; Qix; Foo; Foo; Foo; Qix; Inf",
             InfQixFoo::process(33768)
+        );
+        $this->assertSame(
+            "Inf; Qix; Foo; Foo; Qix; Inf",
+            InfQixFoo::process(35784)
+        );
+        $this->assertSame(
+            "Inf; Qix; Foo; Inf; Foo; Qix",
+            InfQixFoo::process(68376)
         );
     }
 
@@ -136,8 +136,8 @@ final class InfQixFooTest extends PHPUnit\Framework\TestCase
      */
     public function testValueOnlyHasMultiplierAndContainsInf(): void
     {
-        $this->assertSame("Inf; Inf", InfQixFoo::process(8));
-        $this->assertSame("Inf; Inf; Inf", InfQixFoo::process(88));
+        $this->assertSame("Inf; Inf", InfQixFoo::process(128));
+        $this->assertSame("Inf; Inf; Inf", InfQixFoo::process(488));
     }
 
     /**
@@ -280,8 +280,8 @@ final class InfQixFooTest extends PHPUnit\Framework\TestCase
      */
     public function testValueOnlyContainsInfAndQix(): void
     {
-        $this->assertSame("178; Qix; Inf", InfQixFoo::process(178));
-        $this->assertSame("187; Inf; Qix", InfQixFoo::process(187));
+        $this->assertSame("278; Qix; Inf", InfQixFoo::process(278));
+        $this->assertSame("487; Inf; Qix", InfQixFoo::process(487));
         $this->assertSame("787; Qix; Inf; Qix", InfQixFoo::process(787));
     }
 
@@ -339,8 +339,8 @@ final class InfQixFooTest extends PHPUnit\Framework\TestCase
      */
     public function testValueOnlyContainsQix(): void
     {
-        $this->assertSame("17; Qix", InfQixFoo::process(17));
-        $this->assertSame("277; Qix; Qix", InfQixFoo::process(277));
+        $this->assertSame("47; Qix", InfQixFoo::process(47));
+        $this->assertSame("577; Qix; Qix", InfQixFoo::process(577));
     }
 
     /**
@@ -354,7 +354,7 @@ final class InfQixFooTest extends PHPUnit\Framework\TestCase
     public function testValueOnlyContainsFoo(): void
     {
         $this->assertSame("13; Foo", InfQixFoo::process(13));
-        $this->assertSame("233; Foo; Foo", InfQixFoo::process(233));
+        $this->assertSame("313; Foo; Foo", InfQixFoo::process(313));
     }
 
     /**

@@ -15,13 +15,6 @@ class FooBarQix
     private $_input;
 
     /**
-     * A string that shows if the input has certain characteristics
-     *
-     * @var string
-     */
-    private $_output;
-
-    /**
      * Values mapping
      *
      * An array of values mapping between properties `$intA` and `$strA`,
@@ -51,6 +44,13 @@ class FooBarQix
      * @var integer|string
      */
     protected $intC = 7;
+
+    /**
+     * A string that shows if the input has certain characteristics
+     *
+     * @var string
+     */
+    protected $output;
 
     /**
      * A string to glue together output parts
@@ -86,7 +86,7 @@ class FooBarQix
      * @param integer|string $input A positive integer (may be provided as a
      *                              string)
      */
-    private function __construct($input)
+    protected function __construct($input)
     {
         // Initialise properties
         $this->_input = $input;
@@ -128,7 +128,7 @@ class FooBarQix
             $output = $this->strC;
         }
 
-        $this->_output = $output;
+        $this->output = $output;
     }
 
     /**
@@ -141,17 +141,15 @@ class FooBarQix
      */
     private function _checkOccurrences(): void
     {
-        $output = $this->_output;
+        $output = $this->output;
 
-        foreach (
-            array_map('intval', str_split((string) $this->_input)) as $digit
-        ) {
+        foreach ($this->inputDigitsAsArray() as $digit) {
             if (array_key_exists($digit, $this->_valuesMap)) {
                 $output .= "{$this->separator}{$this->_valuesMap[$digit]}";
             }
         }
 
-        $this->_output = $output;
+        $this->output = $output;
     }
 
     /**
@@ -181,13 +179,23 @@ class FooBarQix
     }
 
     /**
+     * Get an array whose values are digits of the input integer
+     *
+     * @return array
+     */
+    protected function inputDigitsAsArray(): array
+    {
+        return array_map('intval', str_split((string) $this->_input));
+    }
+
+    /**
      * String representation of an object
      *
      * @return string
      */
     public function __toString(): string
     {
-        return $this->_output;
+        return $this->output;
     }
 
     /**

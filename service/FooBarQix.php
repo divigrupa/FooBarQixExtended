@@ -1,26 +1,12 @@
 <?php declare(strict_types=1);
 
 /**
- * Process an input to provide an output based on
+ * Process an input to provide an output based on charasteristics of the input
  *
  * @author Edgars Andersons <Edgars@gaitenis.id.lv>
  */
-final class FooBarQix
+class FooBarQix
 {
-    /**
-     * A multiplier to detect if the input is Bar
-     *
-     * @var integer
-     */
-    private $_bar = 5;
-
-    /**
-     * A multiplier to detect if the input is Foo
-     *
-     * @var integer
-     */
-    private $_foo = 3;
-
     /**
      * The input value that should be a positive integer
      *
@@ -36,21 +22,63 @@ final class FooBarQix
     private $_output;
 
     /**
-     * A multiplier to detect if the input is Qix
-     *
-     * @var integer
-     */
-    private $_qix = 7;
-
-    /**
      * Values mapping
      *
-     * Keys are value of `$_foo`, `$_bar` and `$_qix` and values are string
-     * representation of them.
+     * An array of values mapping between properties `$intA` and `$strA`,
+     * `$intB` and `$strB`, `$intC` and `$strC`.
      *
      * @var array
      */
     private $_valuesMap;
+
+    /**
+     * The first multiplier and occurrence integer
+     *
+     * @var integer
+     */
+    protected $intA = 3;
+
+    /**
+     * The second multiplier and occurrence integer
+     *
+     * @var integer|string
+     */
+    protected $intB = 5;
+
+    /**
+     * The third multiplier and occurrence integer
+     *
+     * @var integer|string
+     */
+    protected $intC = 7;
+
+    /**
+     * A string to glue together output parts
+     *
+     * @var string
+     */
+    protected $separator = ', ';
+
+    /**
+     * String representation of the property `$intA`
+     *
+     * @var string
+     */
+    protected $strA = "Foo";
+
+    /**
+     * String representation of the property `$intB`
+     *
+     * @var string
+     */
+    protected $strB = "Bar";
+
+    /**
+     * String representation of the property `$intC`
+     *
+     * @var string
+     */
+    protected $strC = "Qix";
 
     /**
      * Constructor
@@ -63,13 +91,15 @@ final class FooBarQix
         // Initialise properties
         $this->_input = $input;
         $this->_valuesMap = [
-            $this->_foo => "Foo", $this->_bar => "Bar", $this->_qix => "Qix"
+            $this->intA => $this->strA,
+            $this->intB => $this->strB,
+            $this->intC => $this->strC
         ];
 
         // Process the input
         $this->_validateInput();
         $this->_checkMultipliers();
-        $this->_checkOccurences();
+        $this->_checkOccurrences();
     }
 
     /**
@@ -79,40 +109,37 @@ final class FooBarQix
      */
     private function _checkMultipliers(): void
     {
-        $output = (string)$this->_input;
-        $fooBarMultiplier = $this->_foo * $this->_bar;
-        $strBar = $this->_valuesMap[$this->_bar];
-        $strFoo = $this->_valuesMap[$this->_foo];
-        $strQix = $this->_valuesMap[$this->_qix];
+        $intABMultiplier = $this->intA * $this->intB;
+        $output = (string) $this->_input;
 
-        if ($this->_input % ($fooBarMultiplier * $this->_qix) === 0) {
-            $output = implode(", ", $this->_valuesMap);
-        } else if ($this->_input % $fooBarMultiplier === 0) {
-            $output = "{$strFoo}, {$strBar}";
-        } else if ($this->_input % ($this->_foo * $this->_qix) === 0) {
-            $output = "{$strFoo}, {$strQix}";
-        } else if ($this->_input % ($this->_bar * $this->_qix) === 0) {
-            $output = "{$strBar}, {$strQix}";
-        } else if ($this->_input % $this->_foo === 0) {
-            $output = $strFoo;
-        } else if ($this->_input % $this->_bar === 0) {
-            $output = $strBar;
-        } else if ($this->_input % $this->_qix === 0) {
-            $output = $strQix;
+        if ($this->_input % ($intABMultiplier * $this->intC) === 0) {
+            $output = implode($this->separator, $this->_valuesMap);
+        } else if ($this->_input % $intABMultiplier === 0) {
+            $output = "{$this->strA}{$this->separator}{$this->strB}";
+        } else if ($this->_input % ($this->intA * $this->intC) === 0) {
+            $output = "{$this->strA}{$this->separator}{$this->strC}";
+        } else if ($this->_input % ($this->intB * $this->intC) === 0) {
+            $output = "{$this->strB}{$this->separator}{$this->strC}";
+        } else if ($this->_input % $this->intA === 0) {
+            $output = $this->strA;
+        } else if ($this->_input % $this->intB === 0) {
+            $output = $this->strB;
+        } else if ($this->_input % $this->intC === 0) {
+            $output = $this->strC;
         }
 
         $this->_output = $output;
     }
 
     /**
-     * Check if the input integer has occurences of `$_foo`, `$_bar` or `$_qix`
+     * Check if the input has occurences of `$intA`, `$intB` or `$intC`
      *
-     * For each occurence "Foo", "Bar" or "Qix" is added to the ouptu in the
-     * occurring order.
+     * For each occurence the corresponding value of `$strA`, `$strB` or
+     * `$strC` is added to the ouput in the occurring order.
      *
      * @return void
      */
-    private function _checkOccurences(): void
+    private function _checkOccurrences(): void
     {
         $output = $this->_output;
 
@@ -120,7 +147,7 @@ final class FooBarQix
             array_map('intval', str_split((string) $this->_input)) as $digit
         ) {
             if (array_key_exists($digit, $this->_valuesMap)) {
-                $output .= ", {$this->_valuesMap[$digit]}";
+                $output .= "{$this->separator}{$this->_valuesMap[$digit]}";
             }
         }
 
@@ -164,18 +191,43 @@ final class FooBarQix
     }
 
     /**
-     * Detect if the input has certain characteristics
+     * Process the input value that is provided from the command line
      *
-     * Transform input if it is divisible by `$_foo`, `$_bar` or `$_qix` (
-     * output value for the multipliers are "Foo", "Bar", "Qix" respectively);
-     * if the integer has more than one multiplier, output for them should be
-     * ordered in the same ascending order - "Foo", "Bar", "Qix".
+     * @param integer $argc The number of arguments passed to the script
+     *                      {@link
+     *                      https://www.php.net/manual/en/reserved.variables.argc.php
+     *                      `$argc`}
+     * @param array   $argv An array of arguments passed to the script
+     *                      {@link
+     *                      https://www.php.net/manual/en/reserved.variables.argv.php
+     *                      `$argv`}
+     *
+     * @return void
+     */
+    public static function command($argc, $argv)
+    {
+        if ($argc) {
+            echo (
+                $argc < 2
+                    ? "Please provide one argument that is a positive integer!"
+                    : static::process($argv[1])
+            ) . PHP_EOL;
+        }
+    }
+
+    /**
+     * Detect if the input has certain characteristics and transform it
+     *
+     * Transform input if it is divisible by `$intA`, `$intB` or `$intC`;
+     * output for the each of multipliers are value of `$strA`, `$strB` and
+     * `$strC` respectively in ascending order.
      * Then the input should be checked if the provided integer contains
-     * `$_foo`, `$_bar` or `$_qix`. For each occurence "Foo", "Bar" or "Qix"
-     * respectively should be added to the output in the occurring order.
+     * `$intA`, `$intB` or `$intC`. For each occurence value of `$strA`,
+     * `$strB` and `$strC` respectively should be added to the output in the
+     * occurring order.
      * Output the provided integer as a string if it neither is divisible by
-     * `$_foo`, `$_bar` and `$_qix` nor it contains `$_foo`, `$_bar` or
-     * `$_qix`.
+     * `$intA`, `$intB` and `$intC` nor it contains `$intA`, `$intB` or
+     * `$intC`.
      *
      * @param integer|string $input A positive integer (may be provided as a
      *                              string)
@@ -184,15 +236,8 @@ final class FooBarQix
      */
     public static function process($input): string
     {
-        return (string)new self($input);
+        return (string) new static($input);
     }
 }
 
-// Process a value that is provided from the command line
-if ($argc) {
-    echo (
-        $argc < 2
-            ? "Please provide one argument that is a positive integer!"
-            : FooBarQix::process($argv[1])
-    ) . PHP_EOL;
-}
+FooBarQix::command($argc, $argv);

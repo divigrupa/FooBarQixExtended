@@ -211,6 +211,8 @@ class FooBarQix
      *                      `$argv`}
      *
      * @return void
+     *
+     * @codeCoverageIgnore
      */
     public static function command($argc, $argv)
     {

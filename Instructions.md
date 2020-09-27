@@ -27,7 +27,9 @@ To run the unit tests:
 - run the tests for *FooBarQix* service:
   `./vendor/bin/phpunit tests/FooBarQixTest.php`.
 - run the tests for *InfQixFoo* service:
-  `./vendor/bin/phpunit tests/InfQixFooTest.php`.
+  `./vendor/bin/phpunit tests/InfQixFooTest.php`;
+- run all the tests with a short code coverage report (note that it may be necessary to install *Xdebug*):
+  `./vendor/bin/phpunit tests --coverage-filter service --coverage-text`.
 
 Easier way (if *Docker* is already installed) to run the unit tests is using *Docker*:
 
@@ -38,4 +40,6 @@ Easier way (if *Docker* is already installed) to run the unit tests is using *Do
   - `docker-compose run --rm php ./vendor/bin/phpunit tests/FooBarQixTest.php`
   - to run the tests only for *FooBarQix* service;
   - `docker-compose run --rm php ./vendor/bin/phpunit tests/FooBarQixTest.php`
-    to run the tests only for *InfQixFoo* service.
+    to run the tests only for *InfQixFoo* service;
+  - `docker-compose run --rm php ./vendor/bin/phpunit tests --coverage-filter service --coverage-text`
+    to run all the tests with a short code coverage report.

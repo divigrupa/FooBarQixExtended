@@ -326,7 +326,7 @@ final class FooBarQixTest extends PHPUnit\Framework\TestCase
     public function testValueOnlyContainsFoo(): void
     {
         $this->assertSame("31, Foo", FooBarQix::process(31));
-        $this->assertSame("123, Foo", FooBarQix::process(123));
+        $this->assertSame("233, Foo, Foo", FooBarQix::process(233));
     }
 
     /**

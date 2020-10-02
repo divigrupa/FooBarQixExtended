@@ -8,19 +8,16 @@ require_once 'vendor/autoload.php';
  */
 final class InfQixFoo extends FooBarQix
 {
-    protected $intA = 8;
+    protected array $changeMap = [8 => 'Inf', 7 => 'Qix', 3 => 'Foo'];
 
-    protected $intB = 7;
+    /**
+     * An integer to check if the sum of input digits is divisible by.
+     *
+     * @var integer
+     */
+    private $_divisor = 8;
 
-    protected $intC = 3;
-
-    protected $separator = '; ';
-
-    protected $strA = "Inf";
-
-    protected $strB = "Qix";
-
-    protected $strC = "Foo";
+    protected string $separator = '; ';
 
     protected function __construct($input)
     {
@@ -35,8 +32,10 @@ final class InfQixFoo extends FooBarQix
      */
     private function _checkDivisibilityOfSumOfInputDigits(): void
     {
-        if (array_sum($this->inputDigitsAsArray()) % $this->intA === 0) {
-            $this->output .= $this->strA;
+        if (array_sum($this->inputDigitsAsArray()) % $this->_divisor === 0) {
+            $this->output .= isset($this->changeMap[$this->_divisor])
+                ? $this->changeMap[$this->_divisor]
+                : (string) $this->_divisor;
         }
     }
 

@@ -1,7 +1,13 @@
 <?php declare(strict_types=1);
+require_once 'vendor/autoload.php';
+
+use \drupol\phpermutations\Generators\Combinations;
 
 /**
  * Process an input to provide an output based on charasteristics of the input
+ *
+ * Input should be transformed if it has certain characteristics (for example,
+ * it is divisible by or it contains specific integers etc.).
  *
  * @author Edgars Andersons <Edgars@gaitenis.id.lv>
  */
@@ -10,75 +16,38 @@ class FooBarQix
     /**
      * The input value that should be a positive integer
      *
+     * The input integer may be provided as a string as well.
+     *
      * @var integer|string
      */
     private $_input;
 
     /**
-     * Values mapping
+     * An array that defines what transformations should be made based on input
      *
-     * An array of values mapping between properties `$intA` and `$strA`,
-     * `$intB` and `$strB`, `$intC` and `$strC`.
+     * Array's keys are integers that are used to determine characteristics of
+     * the input and values are strings that should be added to the output if
+     * the input has features based on the key integer.
+     * Items in the array must be provided in the order their value should be
+     * appended to the output if the input is divisible by them.
      *
      * @var array
      */
-    private $_valuesMap;
-
-    /**
-     * The first multiplier and occurrence integer
-     *
-     * @var integer
-     */
-    protected $intA = 3;
-
-    /**
-     * The second multiplier and occurrence integer
-     *
-     * @var integer|string
-     */
-    protected $intB = 5;
-
-    /**
-     * The third multiplier and occurrence integer
-     *
-     * @var integer|string
-     */
-    protected $intC = 7;
+    protected array $changeMap = [3 => 'Foo', 5 => 'Bar', 7 => 'Qix'];
 
     /**
      * A string that shows if the input has certain characteristics
      *
      * @var string
      */
-    protected $output;
+    protected string $output;
 
     /**
-     * A string to glue together output parts
+     * A string that is used sto join together output parts
      *
      * @var string
      */
-    protected $separator = ', ';
-
-    /**
-     * String representation of the property `$intA`
-     *
-     * @var string
-     */
-    protected $strA = "Foo";
-
-    /**
-     * String representation of the property `$intB`
-     *
-     * @var string
-     */
-    protected $strB = "Bar";
-
-    /**
-     * String representation of the property `$intC`
-     *
-     * @var string
-     */
-    protected $strC = "Qix";
+    protected string $separator = ', ';
 
     /**
      * Constructor
@@ -90,11 +59,6 @@ class FooBarQix
     {
         // Initialise properties
         $this->_input = $input;
-        $this->_valuesMap = [
-            $this->intA => $this->strA,
-            $this->intB => $this->strB,
-            $this->intC => $this->strC
-        ];
 
         // Process the input
         $this->_validateInput();
@@ -109,33 +73,47 @@ class FooBarQix
      */
     private function _checkMultipliers(): void
     {
-        $intABMultiplier = $this->intA * $this->intB;
+        $detectionValues = array_keys($this->changeMap);
         $output = (string) $this->_input;
 
-        if ($this->_input % ($intABMultiplier * $this->intC) === 0) {
-            $output = implode($this->separator, $this->_valuesMap);
-        } else if ($this->_input % $intABMultiplier === 0) {
-            $output = "{$this->strA}{$this->separator}{$this->strB}";
-        } else if ($this->_input % ($this->intA * $this->intC) === 0) {
-            $output = "{$this->strA}{$this->separator}{$this->strC}";
-        } else if ($this->_input % ($this->intB * $this->intC) === 0) {
-            $output = "{$this->strB}{$this->separator}{$this->strC}";
-        } else if ($this->_input % $this->intA === 0) {
-            $output = $this->strA;
-        } else if ($this->_input % $this->intB === 0) {
-            $output = $this->strB;
-        } else if ($this->_input % $this->intC === 0) {
-            $output = $this->strC;
+        // Get combinations of `$changeMap` keys of length starting from count
+        // of items in the array `$changeMap`.
+        for ($count = count($this->changeMap); $count > 0; $count --) {
+            $combinations = new Combinations($detectionValues, $count);
+
+            foreach ($combinations->generator() as $combination) {
+                // Check if the input is divisible by the product of the
+                // current combination's members.
+                if ($this->_input % array_product($combination) === 0) {
+                    // If the input is divisible by all members of
+                    // `$combination`, output is generated from the values of
+                    // `$changeMap` whose keys are the same as the numbers in
+                    // the current combination.
+                    // Output parts are glued together using `$separator` in
+                    // the order they are provided in `$changeMap`.
+                    $output = implode(
+                        $this->separator,
+                        array_intersect_key(
+                            $this->changeMap,
+                            array_combine($combination, $combination)
+                        )
+                    );
+
+                    // The largest possible combination of multipliers has been
+                    // found, stop both loops.
+                    break 2;
+                }
+            }
         }
 
         $this->output = $output;
     }
 
     /**
-     * Check if the input has occurences of `$intA`, `$intB` or `$intC`
+     * Check if the input has occurences of `$changeMap` keys
      *
-     * For each occurence the corresponding value of `$strA`, `$strB` or
-     * `$strC` is added to the ouput in the occurring order.
+     * For each occurence the corresponding `$changeMap` value is added to the
+     * ouput in the occurring order.
      *
      * @return void
      */
@@ -144,8 +122,8 @@ class FooBarQix
         $output = $this->output;
 
         foreach ($this->inputDigitsAsArray() as $digit) {
-            if (array_key_exists($digit, $this->_valuesMap)) {
-                $output .= "{$this->separator}{$this->_valuesMap[$digit]}";
+            if (array_key_exists($digit, $this->changeMap)) {
+                $output .= "{$this->separator}{$this->changeMap[$digit]}";
             }
         }
 
@@ -228,16 +206,14 @@ class FooBarQix
     /**
      * Detect if the input has certain characteristics and transform it
      *
-     * Transform input if it is divisible by `$intA`, `$intB` or `$intC`;
+     * Transform input if it is divisible by keys of `$changeMap`;
      * output for the each of multipliers are value of `$strA`, `$strB` and
      * `$strC` respectively in ascending order.
-     * Then the input should be checked if the provided integer contains
-     * `$intA`, `$intB` or `$intC`. For each occurence value of `$strA`,
-     * `$strB` and `$strC` respectively should be added to the output in the
-     * occurring order.
+     * Then the input should be checked if the provided integer contains any
+     * key of $changeMap. For each occurence the corresponding value is added
+     * to the output in the occurring order.
      * Output the provided integer as a string if it neither is divisible by
-     * `$intA`, `$intB` and `$intC` nor it contains `$intA`, `$intB` or
-     * `$intC`.
+     * nor it contains keys of `$changeMap`.
      *
      * @param integer|string $input A positive integer (may be provided as a
      *                              string)

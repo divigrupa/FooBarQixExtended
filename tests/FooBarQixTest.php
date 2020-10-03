@@ -7,59 +7,14 @@
  *
  * @SuppressWarnings(PHPMD.StaticAccess)
  */
-final class FooBarQixTest extends PHPUnit\Framework\TestCase
+final class FooBarQixTest extends CommonServiceTestCase
 {
     /**
-     * Test an invalid input - a negative integer
+     * Name of the class to be tested
      *
-     * A valid input is positive integer.
-     *
-     * @return void
+     * @var string
      */
-    public function testNegativeIntegerIsNotAValidInput(): void
-    {
-        $this->expectException(InvalidArgumentException::class);
-        FooBarQix::process(-1);
-    }
-
-    /**
-     * Test an invalid input - a zero
-     *
-     * A valid input is positive integer.
-     *
-     * @return void
-     */
-    public function testZeroIsNotAValidInput(): void
-    {
-        $this->expectException(InvalidArgumentException::class);
-        FooBarQix::process(0);
-    }
-
-    /**
-     * Test an invalid input - a float
-     *
-     * A valid input is positive integer.
-     *
-     * @return void
-     */
-    public function testFloatIsNotAValidInput(): void
-    {
-        $this->expectException(InvalidArgumentException::class);
-        FooBarQix::process(1.2);
-    }
-
-    /**
-     * Test an invalid input - a string that doesn't represent positive integer
-     *
-     * A valid input is positive integer.
-     *
-     * @return void
-     */
-    public function testNonintegerStringIsNotAValidInput(): void
-    {
-        $this->expectException(InvalidArgumentException::class);
-        FooBarQix::process("string");
-    }
+    protected string $className = 'FooBarQix';
 
     /**
      * Test the given values if they are completely Foo, Bar and Qix
@@ -69,7 +24,7 @@ final class FooBarQixTest extends PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function testValueHasMultipliersAndContainsFooBarAndQix(): void
+    final public function testValueHasMultipliersAndContainsFooBarAndQix(): void
     {
         $this->assertSame(
             "Foo, Bar, Qix, Qix, Foo, Bar",
@@ -92,7 +47,7 @@ final class FooBarQixTest extends PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function testValueHasMultipliersAndContainsFooAndBar(): void
+    final public function testValueHasMultipliersAndContainsFooAndBar(): void
     {
         $this->assertSame("Foo, Bar, Foo, Bar", FooBarQix::process(135));
         $this->assertSame("Foo, Bar, Foo, Foo, Bar", FooBarQix::process(1335));
@@ -106,7 +61,7 @@ final class FooBarQixTest extends PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function testValueHasMultipliersAndContainsFooAndQix(): void
+    final public function testValueHasMultipliersAndContainsFooAndQix(): void
     {
         $this->assertSame("Foo, Qix, Qix, Foo", FooBarQix::process(273));
         $this->assertSame("Foo, Qix, Foo, Qix", FooBarQix::process(378));
@@ -120,7 +75,7 @@ final class FooBarQixTest extends PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function testValueHasMultipliersAndContainsBarAndQix(): void
+    final public function testValueHasMultipliersAndContainsBarAndQix(): void
     {
         $this->assertSame("Bar, Qix, Qix, Bar", FooBarQix::process(175));
         $this->assertSame("Bar, Qix, Bar, Qix, Bar", FooBarQix::process(15785));
@@ -133,7 +88,7 @@ final class FooBarQixTest extends PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function testValueHasMultiplierAndContainsFoo(): void
+    final public function testValueOnlyHasMultiplierAndContainsFoo(): void
     {
         $this->assertSame("Foo, Foo", FooBarQix::process(36));
         $this->assertSame("Foo, Foo, Foo", FooBarQix::process(33));
@@ -146,7 +101,7 @@ final class FooBarQixTest extends PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function testValueHasMultiplierAndContainsBar(): void
+    final public function testValueHasMultiplierAndContainsBar(): void
     {
         $this->assertSame("Bar, Bar", FooBarQix::process(50));
         $this->assertSame("Bar, Bar, Bar", FooBarQix::process(55));
@@ -159,7 +114,7 @@ final class FooBarQixTest extends PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function testValueHasMultiplierAndContainsQix(): void
+    final public function testValueHasMultiplierAndContainsQix(): void
     {
         $this->assertSame("Qix, Qix", FooBarQix::process(217));
         $this->assertSame("Qix, Qix, Qix", FooBarQix::process(77));
@@ -172,7 +127,7 @@ final class FooBarQixTest extends PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function testValueOnlyHasMultipliersFooBarAndQix(): void
+    final public function testValueOnlyHasMultipliersFooBarAndQix(): void
     {
         $this->assertSame("Foo, Bar, Qix", FooBarQix::process(210));
     }
@@ -185,7 +140,7 @@ final class FooBarQixTest extends PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function testValueOnlyHasMultipliersFooAndBar(): void
+    final public function testValueOnlyHasMultipliersFooAndBar(): void
     {
         $this->assertSame("Foo, Bar", FooBarQix::process(60));
     }
@@ -198,7 +153,7 @@ final class FooBarQixTest extends PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function testValueOnlyHasMultipliersFooAndQix(): void
+    final public function testValueOnlyHasMultipliersFooAndQix(): void
     {
         $this->assertSame("Foo, Qix", FooBarQix::process(42));
     }
@@ -211,22 +166,9 @@ final class FooBarQixTest extends PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function testValueOnlyHasMultipliersBarAndQix(): void
+    final public function testValueOnlyHasMultipliersBarAndQix(): void
     {
         $this->assertSame("Bar, Qix", FooBarQix::process(280));
-    }
-
-    /**
-     * Test the given value if it only is divisible by Foo
-     *
-     * The integer must neither contain Foo, Bar and Qix nor be divisible by
-     * Bar and Qix.
-     *
-     * @return void
-     */
-    public function testValueOnlyHasMultiplierFoo(): void
-    {
-        $this->assertSame("Foo", FooBarQix::process(6));
     }
 
     /**
@@ -237,22 +179,9 @@ final class FooBarQixTest extends PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function testValueOnlyHasMultiplierBar(): void
+    final public function testValueOnlyHasMultiplierBar(): void
     {
         $this->assertSame("Bar", FooBarQix::process(10));
-    }
-
-    /**
-     * Test the given value if it only is divisible by Qix
-     *
-     * The integer must neither contain Foo, Bar and Qix nor be divisible by
-     * Foo and Bar.
-     *
-     * @return void
-     */
-    public function testValueOnlyHasMultiplierQix(): void
-    {
-        $this->assertSame("Qix", FooBarQix::process(14));
     }
 
     /**
@@ -262,7 +191,7 @@ final class FooBarQixTest extends PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function testValueOnlyContainsFooBarAndQix(): void
+    final public function testValueOnlyContainsFooBarAndQix(): void
     {
         $this->assertSame("34567, Foo, Bar, Qix", FooBarQix::process(34567));
         $this->assertSame("456731, Bar, Qix, Foo", FooBarQix::process(456731));
@@ -280,7 +209,7 @@ final class FooBarQixTest extends PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function testValueOnlyContainsFooAndBar(): void
+    final public function testValueOnlyContainsFooAndBar(): void
     {
         $this->assertSame("352, Foo, Bar", FooBarQix::process(352));
         $this->assertSame("53, Bar, Foo", FooBarQix::process(53));
@@ -295,7 +224,7 @@ final class FooBarQixTest extends PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function testValueOnlyContainsFooAndQix(): void
+    final public function testValueOnlyContainsFooAndQix(): void
     {
         $this->assertSame("37, Foo, Qix", FooBarQix::process(37));
         $this->assertSame("73, Qix, Foo", FooBarQix::process(73));
@@ -309,24 +238,10 @@ final class FooBarQixTest extends PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function testValueOnlyContainsBarAndQix(): void
+    final public function testValueOnlyContainsBarAndQix(): void
     {
         $this->assertSame("571, Bar, Qix", FooBarQix::process(571));
         $this->assertSame("754, Qix, Bar", FooBarQix::process(754));
-    }
-
-    /**
-     * Test the given value if it only contains Foo
-     *
-     * The integer must neither be divisible by Foo, Bar and Qix nor contain
-     * Bar and Qix.
-     *
-     * @return void
-     */
-    public function testValueOnlyContainsFoo(): void
-    {
-        $this->assertSame("31, Foo", FooBarQix::process(31));
-        $this->assertSame("233, Foo, Foo", FooBarQix::process(233));
     }
 
     /**
@@ -337,7 +252,7 @@ final class FooBarQixTest extends PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function testValueOnlyContainsBar(): void
+    final public function testValueOnlyContainsBar(): void
     {
         $this->assertSame("52, Bar", FooBarQix::process(52));
     }
@@ -350,25 +265,24 @@ final class FooBarQixTest extends PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function testValueOnlyContainsQix(): void
+    final public function testValueOnlyContainsQix(): void
     {
         $this->assertSame("71, Qix", FooBarQix::process(71));
     }
 
     /**
-     * Test an input when it is not detected as nor contains Foo, Bar and Qix
+     * Test the given value if it only contains Foo
      *
-     * Test if the given integer is not divisible by Foo, Bar and Qix and it
-     * does not contain Foo, Bar and Qix.
+     * The integer must neither be divisible by Foo, Bar and Qix nor contain
+     * Bar and Qix.
      *
      * @return void
      */
-    public function testValueIsNotFooBarQix(): void
+    final public function testValueOnlyContainsFoo(): void
     {
-        $input = 1;
-        $output = FooBarQix::process($input);
-        $this->assertIsString($output);
-        $this->assertEquals($input, $output);
+        $this->assertSame("13, Foo", FooBarQix::process(13));
+        $this->assertSame("31, Foo", FooBarQix::process(31));
+        $this->assertSame("313, Foo, Foo", FooBarQix::process(313));
     }
 
     /**
@@ -376,7 +290,7 @@ final class FooBarQixTest extends PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function testInputCanBeString(): void
+    final public function testInputCanBeString(): void
     {
         $this->assertSame("2", FooBarQix::process("2"));
         $this->assertSame("Foo", FooBarQix::process("12"));

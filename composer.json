@@ -1,6 +1,6 @@
 {
   "autoload": {
-    "classmap": ["service/"]
+    "classmap": ["service/", "tests/"]
   },
   "require-dev": {
     "phpunit/phpunit": "^9"

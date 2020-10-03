@@ -1,0 +1,11 @@
+{
+  "autoload": {
+    "classmap": ["service/", "tests/"]
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9"
+  },
+  "require": {
+    "drupol/phpermutations": "^1.4"
+  }
+}

@@ -11,7 +11,7 @@ use \drupol\phpermutations\Generators\Combinations;
  *
  * @author Edgars Andersons <Edgars@gaitenis.id.lv>
  */
-class FooBarQix
+final class FooBarQix
 {
     /**
      * The input value that should be a positive integer
@@ -33,21 +33,21 @@ class FooBarQix
      *
      * @var array
      */
-    protected array $changeMap = [3 => 'Foo', 5 => 'Bar', 7 => 'Qix'];
+    private array $_changeMap = [3 => 'Foo', 5 => 'Bar', 7 => 'Qix'];
 
     /**
      * A string that shows if the input has certain characteristics
      *
      * @var string
      */
-    protected string $output;
+    private string $_output;
 
     /**
      * A string that is used sto join together output parts
      *
      * @var string
      */
-    protected string $separator = ', ';
+    private string $_separator = ', ';
 
     /**
      * Constructor
@@ -55,30 +55,38 @@ class FooBarQix
      * @param integer|string $input A positive integer (may be provided as a
      *                              string)
      */
-    protected function __construct($input)
+    public function __construct($input, $changeMap = [], $separator = null)
     {
         // Initialise properties
         $this->_input = $input;
+        $this->_changeMap = $changeMap ?: $this->_changeMap;
+        $this->_separator = $separator ?: $this->_separator;
 
         // Process the input
         $this->_validateInput();
-        $this->_checkMultipliers();
-        $this->_checkOccurrences();
+        $this->_output = implode(
+            $this->_separator,
+            array_filter(
+                [$this->_checkMultipliers(), $this->_checkOccurrences()],
+                'strlen'  // To remove empty strings from the array
+                // https://www.php.net/manual/en/function.array-filter.php#111091
+            )
+        );
     }
 
     /**
      * Check if the input integer is divisible by Foo, Bar or Qix
      *
-     * @return void
+     * @return string The transformed input
      */
-    private function _checkMultipliers(): void
+    final private function _checkMultipliers(): string
     {
-        $detectionValues = array_keys($this->changeMap);
+        $detectionValues = array_keys($this->_changeMap);
         $output = (string) $this->_input;
 
         // Get combinations of `$changeMap` keys of length starting from count
         // of items in the array `$changeMap`.
-        for ($count = count($this->changeMap); $count > 0; $count --) {
+        for ($count = count($this->_changeMap); $count > 0; $count --) {
             $combinations = new Combinations($detectionValues, $count);
 
             foreach ($combinations->generator() as $combination) {
@@ -92,9 +100,9 @@ class FooBarQix
                     // Output parts are glued together using `$separator` in
                     // the order they are provided in `$changeMap`.
                     $output = implode(
-                        $this->separator,
+                        $this->_separator,
                         array_intersect_key(
-                            $this->changeMap,
+                            $this->_changeMap,
                             array_combine($combination, $combination)
                         )
                     );
@@ -106,7 +114,7 @@ class FooBarQix
             }
         }
 
-        $this->output = $output;
+        return $output;
     }
 
     /**
@@ -115,19 +123,20 @@ class FooBarQix
      * For each occurence the corresponding `$changeMap` value is added to the
      * ouput in the occurring order.
      *
-     * @return void
+     * @return string The transformed input
      */
-    private function _checkOccurrences(): void
+    final private function _checkOccurrences(): string
     {
-        $output = $this->output;
+        $output = '';
 
         foreach ($this->inputDigitsAsArray() as $digit) {
-            if (array_key_exists($digit, $this->changeMap)) {
-                $output .= "{$this->separator}{$this->changeMap[$digit]}";
+            if (array_key_exists($digit, $this->_changeMap)) {
+                $output .= ($output ? $this->_separator : '')
+                    . $this->_changeMap[$digit];
             }
         }
 
-        $this->output = $output;
+        return $output;
     }
 
     /**
@@ -139,7 +148,7 @@ class FooBarQix
      *
      * @throws InvalidArgumentException
      */
-    private function _validateInput(): void
+    final private function _validateInput(): void
     {
         $validatedInput = filter_var(
             $this->_input,
@@ -161,7 +170,7 @@ class FooBarQix
      *
      * @return array
      */
-    protected function inputDigitsAsArray(): array
+    final public function inputDigitsAsArray(): array
     {
         return array_map('intval', str_split((string) $this->_input));
     }
@@ -171,36 +180,9 @@ class FooBarQix
      *
      * @return string
      */
-    public function __toString(): string
+    final public function __toString(): string
     {
-        return $this->output;
-    }
-
-    /**
-     * Process the input value that is provided from the command line
-     *
-     * @param integer $argc The number of arguments passed to the script
-     *                      {@link
-     *                      https://www.php.net/manual/en/reserved.variables.argc.php
-     *                      `$argc`}
-     * @param array   $argv An array of arguments passed to the script
-     *                      {@link
-     *                      https://www.php.net/manual/en/reserved.variables.argv.php
-     *                      `$argv`}
-     *
-     * @return void
-     *
-     * @codeCoverageIgnore
-     */
-    public static function command($argc, $argv)
-    {
-        if ($argc) {
-            echo (
-                $argc < 2
-                    ? "Please provide one argument that is a positive integer!"
-                    : static::process($argv[1])
-            ) . PHP_EOL;
-        }
+        return $this->_output;
     }
 
     /**
@@ -220,10 +202,8 @@ class FooBarQix
      *
      * @return string
      */
-    public static function process($input): string
+    final public static function process($input): string
     {
         return (string) new static($input);
     }
 }
-
-FooBarQix::command($argc, $argv);

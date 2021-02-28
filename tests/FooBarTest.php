@@ -55,28 +55,28 @@ class FooBarTest extends TestCase
     {
         $object = new FooBar();
 
-        $this->assertEquals("FooBar", $object->run(30));
+        $this->assertEquals("Foo, Bar", $object->run(30));
     }
 
     public function testFooQixOutput(): void
     {
         $object = new FooBar();
 
-        $this->assertEquals("FooQix", $object->run(21));
+        $this->assertEquals("Foo, Qix", $object->run(21));
     }
 
     public function testBarQixOutput(): void
     {
         $object = new FooBar();
 
-        $this->assertEquals("BarQix", $object->run(35));
+        $this->assertEquals("Bar, Qix", $object->run(35));
     }
 
     public function testFooBarQixOutput(): void
     {
         $object = new FooBar();
 
-        $this->assertEquals("FooBarQix", $object->run(105));
+        $this->assertEquals("Foo, Bar, Qix", $object->run(105));
     }
 
 

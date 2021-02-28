@@ -9,11 +9,11 @@ class FooBar
 
         $result = '';
 
-        if($num % 3 == 0) $result .= 'Foo';
-        if($num % 5 == 0) $result .= 'Bar';
-        if($num % 7 == 0) $result .= 'Qix';
+        if ($num % 3 == 0) $result .= ($result ? ', ' : '') . 'Foo';
+        if ($num % 5 == 0) $result .= ($result ? ', ' : '') . 'Bar';
+        if ($num % 7 == 0) $result .= ($result ? ', ' : '') . 'Qix';
 
-        if(!$result) $result = (string) $num;
+        if (!$result) $result = (string)$num;
 
         return $result;
     }

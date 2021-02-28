@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-class FooBar
+class FooBarQix
 {
     public function run($num): string
     {

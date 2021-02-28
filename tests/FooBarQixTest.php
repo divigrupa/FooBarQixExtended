@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
 
-class FooBarTest extends TestCase
+class FooBarQixTest extends TestCase
 {
     public function testIsNumber(): void
     {
-        $object = new FooBar();
+        $object = new FooBarQix();
 
         $this->expectException(InvalidArgumentException::class);
         $object->run('5');
@@ -16,7 +16,7 @@ class FooBarTest extends TestCase
 
     public function testIsInteger(): void
     {
-        $object = new FooBar();
+        $object = new FooBarQix();
 
         $this->expectException(InvalidArgumentException::class);
         $object->run(1.1);
@@ -24,7 +24,7 @@ class FooBarTest extends TestCase
 
     public function testIsPositive(): void
     {
-        $object = new FooBar();
+        $object = new FooBarQix();
 
         $this->expectException(InvalidArgumentException::class);
         $object->run(-3);
@@ -32,49 +32,49 @@ class FooBarTest extends TestCase
 
     public function testFooOutput(): void
     {
-        $object = new FooBar();
+        $object = new FooBarQix();
 
         $this->assertEquals("Foo", $object->run(3));
     }
 
     public function testBarOutput(): void
     {
-        $object = new FooBar();
+        $object = new FooBarQix();
 
         $this->assertEquals("Bar", $object->run(55));
     }
 
     public function testQixOutput(): void
     {
-        $object = new FooBar();
+        $object = new FooBarQix();
 
         $this->assertEquals("Qix", $object->run(14));
     }
 
     public function testFooBarOutput(): void
     {
-        $object = new FooBar();
+        $object = new FooBarQix();
 
         $this->assertEquals("Foo, Bar", $object->run(30));
     }
 
     public function testFooQixOutput(): void
     {
-        $object = new FooBar();
+        $object = new FooBarQix();
 
         $this->assertEquals("Foo, Qix", $object->run(21));
     }
 
     public function testBarQixOutput(): void
     {
-        $object = new FooBar();
+        $object = new FooBarQix();
 
         $this->assertEquals("Bar, Qix", $object->run(35));
     }
 
     public function testFooBarQixOutput(): void
     {
-        $object = new FooBar();
+        $object = new FooBarQix();
 
         $this->assertEquals("Foo, Bar, Qix", $object->run(105));
     }
@@ -83,7 +83,7 @@ class FooBarTest extends TestCase
 
     public function testOtherOutput(): void
     {
-        $object = new FooBar();
+        $object = new FooBarQix();
 
         $this->assertIsString($object->run(7));
     }

@@ -15,7 +15,9 @@ class InfQixFoo
 
         $numStr = (string)$num;
 
+        $digitSum = 0;
         for ($i = 0; $i < strlen($numStr); $i++) {
+            $digitSum += $numStr[$i];
             switch ($numStr[$i]) {
                 case '3':
                     $result .= 'Foo';
@@ -28,6 +30,8 @@ class InfQixFoo
                     break;
             }
         }
+
+        if($digitSum % 8 == 0) $result .= 'Inf';
 
         if (!$result) $result = $numStr;
 

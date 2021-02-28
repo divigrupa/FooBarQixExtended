@@ -67,7 +67,6 @@ class InfQixFooTest extends TestCase
     }
 
 
-
     public function testOccuranceOneOutput(): void
     {
         $object = new InfQixFoo();
@@ -103,9 +102,18 @@ class InfQixFooTest extends TestCase
         $this->assertEquals("Foo", $object->run(131));
         $this->assertEquals("Inf; FooInf", $object->run(480));
         $this->assertEquals("Qix; FooQix", $object->run(147));
-        $this->assertEquals("InfInfInf", $object->run(88));
+        $this->assertEquals("QixQixQix", $object->run(77));
         $this->assertEquals("QixFooQix", $object->run(2317));
         $this->assertEquals("FooFooQix", $object->run(325170));
+    }
+
+    public function testDigitSumOutput(): void
+    {
+        $object = new InfQixFoo();
+
+        $this->assertEquals("Inf", $object->run(422));
+        $this->assertEquals("QixInf", $object->run(71));
+        $this->assertEquals("InfInfInfInf", $object->run(88));
     }
 
 }

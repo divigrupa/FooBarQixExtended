@@ -55,28 +55,28 @@ class FooBarQixTest extends TestCase
     {
         $object = new FooBarQix();
 
-        $this->assertEquals("FooBar", $object->run(60));
+        $this->assertEquals("Foo, Bar", $object->run(60));
     }
 
     public function testFooQixOutput(): void
     {
         $object = new FooBarQix();
 
-        $this->assertEquals("FooQix", $object->run(21));
+        $this->assertEquals("Foo, Qix", $object->run(21));
     }
 
     public function testBarQixOutput(): void
     {
         $object = new FooBarQix();
 
-        $this->assertEquals("BarQix", $object->run(140));
+        $this->assertEquals("Bar, Qix", $object->run(140));
     }
 
     public function testFooBarQixOutput(): void
     {
         $object = new FooBarQix();
 
-        $this->assertEquals("FooBarQix", $object->run(210));
+        $this->assertEquals("Foo, Bar, Qix", $object->run(210));
     }
 
 
@@ -123,11 +123,11 @@ class FooBarQixTest extends TestCase
 
         $this->assertEquals("BarBarFoo", $object->run(5630));
         $this->assertEquals("Foo", $object->run(131));
-        $this->assertEquals("FooBarBar", $object->run(150));
-        $this->assertEquals("FooQixQix", $object->run(147));
+        $this->assertEquals("Foo, BarBar", $object->run(150));
+        $this->assertEquals("Foo, QixQix", $object->run(147));
         $this->assertEquals("BarFooBar", $object->run(6305));
         $this->assertEquals("QixFooQix", $object->run(2317));
-        $this->assertEquals("FooBarFooBarQix", $object->run(325170));
+        $this->assertEquals("Foo, BarFooBarQix", $object->run(325170));
     }
 
 }

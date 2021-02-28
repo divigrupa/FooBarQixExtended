@@ -9,11 +9,27 @@ class FooBarQix
 
         $result = '';
 
-        if ($num % 3 == 0) $result .= ($result ? ', ' : '') . 'Foo';
-        if ($num % 5 == 0) $result .= ($result ? ', ' : '') . 'Bar';
-        if ($num % 7 == 0) $result .= ($result ? ', ' : '') . 'Qix';
+        if ($num % 3 == 0) $result .= 'Foo';
+        if ($num % 5 == 0) $result .= 'Bar';
+        if ($num % 7 == 0) $result .= 'Qix';
 
-        if (!$result) $result = (string)$num;
+        $numStr = (string)$num;
+
+        for ($i = 0; $i < strlen($numStr); $i++) {
+            switch ($numStr[$i]) {
+                case '3':
+                    $result .= 'Foo';
+                    break;
+                case '5':
+                    $result .= 'Bar';
+                    break;
+                case '7':
+                    $result .= 'Qix';
+                    break;
+            }
+        }
+
+        if (!$result) $result = $numStr;
 
         return $result;
     }

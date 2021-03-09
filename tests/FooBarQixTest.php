@@ -2,132 +2,139 @@
 
 declare(strict_types=1);
 
+namespace Divi\Test;
+
+use \InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 
 class FooBarQixTest extends TestCase
 {
     public function testIsNumber(): void
     {
-        $object = new FooBarQix();
-
         $this->expectException(InvalidArgumentException::class);
-        $object->run('5');
+        $object = new FooBarQix('5');
     }
 
     public function testIsInteger(): void
     {
-        $object = new FooBarQix();
-
         $this->expectException(InvalidArgumentException::class);
-        $object->run(1.1);
+        $object = new FooBarQix(1.1);
     }
 
     public function testIsPositive(): void
     {
-        $object = new FooBarQix();
-
         $this->expectException(InvalidArgumentException::class);
-        $object->run(-3);
+        $object = new FooBarQix(-3);
     }
 
     public function testFooOutput(): void
     {
-        $object = new FooBarQix();
-
-        $this->assertEquals("Foo", $object->run(9));
+        $object = new FooBarQix(9);
+        $this->assertEquals("Foo", $object->run());
     }
 
     public function testBarOutput(): void
     {
-        $object = new FooBarQix();
-
-        $this->assertEquals("Bar", $object->run(10));
+        $object = new FooBarQix(10);
+        $this->assertEquals("Bar", $object->run());
     }
 
     public function testQixOutput(): void
     {
-        $object = new FooBarQix();
-
-        $this->assertEquals("Qix", $object->run(14));
+        $object = new FooBarQix(14);
+        $this->assertEquals("Qix", $object->run());
     }
 
     public function testFooBarOutput(): void
     {
-        $object = new FooBarQix();
-
-        $this->assertEquals("Foo, Bar", $object->run(60));
+        $object = new FooBarQix(60);
+        $this->assertEquals("Foo, Bar", $object->run());
     }
 
     public function testFooQixOutput(): void
     {
-        $object = new FooBarQix();
-
-        $this->assertEquals("Foo, Qix", $object->run(21));
+        $object = new FooBarQix(21);
+        $this->assertEquals("Foo, Qix", $object->run());
     }
 
     public function testBarQixOutput(): void
     {
-        $object = new FooBarQix();
-
-        $this->assertEquals("Bar, Qix", $object->run(140));
+        $object = new FooBarQix(140);
+        $this->assertEquals("Bar, Qix", $object->run());
     }
 
     public function testFooBarQixOutput(): void
     {
-        $object = new FooBarQix();
-
-        $this->assertEquals("Foo, Bar, Qix", $object->run(210));
+        $object = new FooBarQix(210);
+        $this->assertEquals("Foo, Bar, Qix", $object->run());
     }
 
 
     public function testOtherOutput(): void
     {
-        $object = new FooBarQix();
-
-        $this->assertIsString($object->run(1));
-        $this->assertEquals("1", $object->run(1));
+        $object = new FooBarQix(1);
+        $this->assertIsString($object->run());
+        $this->assertEquals("1", $object->run());
     }
 
 
 
     public function testOccuranceOneOutput(): void
     {
-        $object = new FooBarQix();
+        $object = new FooBarQix(131);
+        $this->assertEquals("Foo", $object->run());
 
-        $this->assertEquals("Foo", $object->run(131));
-        $this->assertEquals("Bar", $object->run(151));
-        $this->assertEquals("Qix", $object->run(1471));
+        $object = new FooBarQix(151);
+        $this->assertEquals("Bar", $object->run());
+
+        $object = new FooBarQix(1471);
+        $this->assertEquals("Qix", $object->run());
     }
 
     public function testOccuranceTwoOutput(): void
     {
-        $object = new FooBarQix();
+        $object = new FooBarQix(6352);
+        $this->assertEquals("FooBar", $object->run());
 
-        $this->assertEquals("FooBar", $object->run(6352));
-        $this->assertEquals("BarFoo", $object->run(5632));
-        $this->assertEquals("FooQix", $object->run(2327));
+        $object = new FooBarQix(5632);
+        $this->assertEquals("BarFoo", $object->run());
+
+        $object = new FooBarQix(2327);
+        $this->assertEquals("FooQix", $object->run());
     }
 
     public function testOccuranceThreeOutput(): void
     {
-        $object = new FooBarQix();
+        $object = new FooBarQix(325172);
+        $this->assertEquals("FooBarQix", $object->run());
 
-        $this->assertEquals("FooBarQix", $object->run(325172));
-        $this->assertEquals("BarFooQix", $object->run(523172));
+        $object = new FooBarQix(523172);
+        $this->assertEquals("BarFooQix", $object->run());
     }
 
 
     public function testMultiplesAndOccurancesOutput(): void
     {
-        $object = new FooBarQix();
+        $object = new FooBarQix(5630);
+        $this->assertEquals("BarBarFoo", $object->run());
 
-        $this->assertEquals("BarBarFoo", $object->run(5630));
-        $this->assertEquals("Foo", $object->run(131));
-        $this->assertEquals("Foo, BarBar", $object->run(150));
-        $this->assertEquals("Foo, QixQix", $object->run(147));
-        $this->assertEquals("BarFooBar", $object->run(6305));
-        $this->assertEquals("QixFooQix", $object->run(2317));
-        $this->assertEquals("Foo, BarFooBarQix", $object->run(325170));
+        $object = new FooBarQix(131);
+        $this->assertEquals("Foo", $object->run());
+
+        $object = new FooBarQix(150);
+        $this->assertEquals("Foo, BarBar", $object->run());
+
+        $object = new FooBarQix(147);
+        $this->assertEquals("Foo, QixQix", $object->run());
+
+        $object = new FooBarQix(6305);
+        $this->assertEquals("BarFooBar", $object->run());
+
+        $object = new FooBarQix(2317);
+        $this->assertEquals("QixFooQix", $object->run());
+
+        $object = new FooBarQix(325170);
+        $this->assertEquals("Foo, BarFooBarQix", $object->run());
     }
 
 }

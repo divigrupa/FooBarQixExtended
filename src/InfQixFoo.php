@@ -1,40 +1,88 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
+
+namespace Divi\Test;
 
 class InfQixFoo
 {
-    public function run($num): string
+    private $num = '';
+
+    private $result = '';
+
+    private $digitSum = 0;
+
+    public function __construct($num)
     {
-        if (!is_int($num)) throw new InvalidArgumentException(sprintf('"%s" is not integer', $num));
-        if ($num <= 0) throw new InvalidArgumentException(sprintf('"%s" is not positive integer', $num));
+        $this->num = $num;
+        new FooValidator($num);
+    }
 
-        $result = '';
+    public function run(): string
+    {
+        return (string) $this->checkMultiples()
+            ->checkOccurances()
+            ->checkSum()
+            ->checkEmpty();
+    }
 
-        if ($num % 8 == 0) $result .= ($result ? '; ' : '') . 'Inf';
-        if ($num % 7 == 0) $result .= ($result ? '; ' : '') . 'Qix';
-        if ($num % 3 == 0) $result .= ($result ? '; ' : '') . 'Foo';
+    private function checkMultiples()
+    {
+        return $this->checkMultiple(8, 'Inf')
+            ->checkMultiple(7, 'Qix')
+            ->checkMultiple(3, 'Foo');
+    }
 
-        $numStr = (string)$num;
+    private function checkMultiple($multiple, $append)
+    {
+        if ($this->num % $multiple == 0) {
+            $this->result .= ($this->result ? '; ' : '') . $append;
+        }
+        return $this;
+    }
 
-        $digitSum = 0;
-        for ($i = 0; $i < strlen($numStr); $i++) {
-            $digitSum += $numStr[$i];
-            switch ($numStr[$i]) {
-                case '3':
-                    $result .= 'Foo';
-                    break;
-                case '8':
-                    $result .= 'Inf';
-                    break;
-                case '7':
-                    $result .= 'Qix';
-                    break;
-            }
+    private function checkOccurances()
+    {
+        $arrStr = str_split((string) $this->num);
+        array_walk($arrStr, array($this, 'checkAllDigits'));
+        return $this;
+    }
+
+    private function checkAllDigits($sym)
+    {
+        $this->digitSum += $sym;
+        $this->checkDigit($sym, '3', 'Foo');
+        $this->checkDigit($sym, '8', 'Inf');
+        $this->checkDigit($sym, '7', 'Qix');
+    }
+
+    private function checkDigit($sym, $digit, $append)
+    {
+        if ($sym == $digit) {
+            $this->result .= $append;
+        }
+    }
+
+    private function checkSum()
+    {
+        if ($this->digitSum % 8 == 0) {
+            $this->result .= 'Inf';
         }
 
-        if($digitSum % 8 == 0) $result .= 'Inf';
+        return $this;
+    }
 
-        if (!$result) $result = $numStr;
 
-        return $result;
+    private function checkEmpty()
+    {
+        if (!$this->result) {
+            $this->result = (string) $this->num;
+        }
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->result;
     }
 }

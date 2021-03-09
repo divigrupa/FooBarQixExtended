@@ -1,36 +1,74 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
+
+namespace Divi\Test;
 
 class FooBarQix
 {
-    public function run($num): string
+    private $num = '';
+
+    private $result = '';
+
+    public function __construct($num)
     {
-        if (!is_int($num)) throw new InvalidArgumentException(sprintf('"%s" is not integer', $num));
-        if ($num <= 0) throw new InvalidArgumentException(sprintf('"%s" is not positive integer', $num));
+        $this->num = $num;
+        new FooValidator($num);
+    }
 
-        $result = '';
+    public function run(): string
+    {
+        return (string) $this->checkMultiples()
+            ->checkOccurances()
+            ->checkEmpty();
+    }
 
-        if ($num % 3 == 0) $result .= ($result ? ', ' : '') . 'Foo';
-        if ($num % 5 == 0) $result .= ($result ? ', ' : '') . 'Bar';
-        if ($num % 7 == 0) $result .= ($result ? ', ' : '') . 'Qix';
+    private function checkMultiples()
+    {
+        return $this->checkMultiple(3, 'Foo')
+            ->checkMultiple(5, 'Bar')
+            ->checkMultiple(7, 'Qix');
+    }
 
-        $numStr = (string)$num;
-
-        for ($i = 0; $i < strlen($numStr); $i++) {
-            switch ($numStr[$i]) {
-                case '3':
-                    $result .= 'Foo';
-                    break;
-                case '5':
-                    $result .= 'Bar';
-                    break;
-                case '7':
-                    $result .= 'Qix';
-                    break;
-            }
+    private function checkMultiple($multiple, $append)
+    {
+        if ($this->num % $multiple == 0) {
+            $this->result .= ($this->result ? ', ' : '') . $append;
         }
+        return $this;
+    }
 
-        if (!$result) $result = $numStr;
+    private function checkOccurances()
+    {
+        $arrStr = str_split((string) $this->num);
+        array_walk($arrStr, array($this, 'checkAllDigits'));
+        return $this;
+    }
 
-        return $result;
+    private function checkAllDigits($sym)
+    {
+        $this->checkDigit($sym, '3', 'Foo');
+        $this->checkDigit($sym, '5', 'Bar');
+        $this->checkDigit($sym, '7', 'Qix');
+    }
+
+    private function checkDigit($sym, $digit, $append)
+    {
+        if ($sym == $digit) {
+            $this->result .= $append;
+        }
+    }
+
+    private function checkEmpty()
+    {
+        if (!$this->result) {
+            $this->result = (string) $this->num;
+        }
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->result;
     }
 }

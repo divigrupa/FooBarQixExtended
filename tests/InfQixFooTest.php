@@ -2,118 +2,146 @@
 
 declare(strict_types=1);
 
+namespace Divi\Test;
+
+use \InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
+
 
 class InfQixFooTest extends TestCase
 {
     public function testIsNumber(): void
     {
-        $object = new InfQixFoo();
-
         $this->expectException(InvalidArgumentException::class);
-        $object->run('5');
+        $object = new InfQixFoo('5');
+        $object->run();
     }
 
     public function testIsInteger(): void
     {
-        $object = new InfQixFoo();
-
         $this->expectException(InvalidArgumentException::class);
-        $object->run(1.1);
+        $object = new InfQixFoo(1.1);
+        $object->run();
     }
 
     public function testIsPositive(): void
     {
-        $object = new InfQixFoo();
-
         $this->expectException(InvalidArgumentException::class);
-        $object->run(-3);
+        $object = new InfQixFoo(-3);
+        $object->run();
     }
 
     public function testOneOutput(): void
     {
-        $object = new InfQixFoo();
+        $object = new InfQixFoo(9);
+        $this->assertEquals("Foo", $object->run());
 
-        $this->assertEquals("Foo", $object->run(9));
-        $this->assertEquals("10", $object->run(10));
-        $this->assertEquals("Qix", $object->run(14));
-        $this->assertEquals("Inf", $object->run(160));
+        $object = new InfQixFoo(10);
+        $this->assertEquals("10", $object->run());
+
+        $object = new InfQixFoo(14);
+        $this->assertEquals("Qix", $object->run());
+
+        $object = new InfQixFoo(160);
+        $this->assertEquals("Inf", $object->run());
     }
 
 
     public function testTwoOutput(): void
     {
-        $object = new InfQixFoo();
+        $object = new InfQixFoo(160);
+        $this->assertEquals("Inf", $object->run());
 
-        $this->assertEquals("Inf", $object->run(160));
-        $this->assertEquals("Qix; Foo", $object->run(21));
-        $this->assertEquals("Inf; Qix", $object->run(56));
+        $object = new InfQixFoo(21);
+        $this->assertEquals("Qix; Foo", $object->run());
+
+        $object = new InfQixFoo(56);
+        $this->assertEquals("Inf; Qix", $object->run());
     }
 
     public function testThreeOutput(): void
     {
-        $object = new InfQixFoo();
-
-        $this->assertEquals("Inf; Qix; Foo", $object->run(504));
+        $object = new InfQixFoo(504);
+        $this->assertEquals("Inf; Qix; Foo", $object->run());
     }
 
 
     public function testOtherOutput(): void
     {
-        $object = new InfQixFoo();
-
-        $this->assertIsString($object->run(1));
-        $this->assertEquals("1", $object->run(1));
+        $object = new InfQixFoo(1);
+        $this->assertIsString($object->run());
+        $this->assertEquals("1", $object->run());
     }
 
 
     public function testOccuranceOneOutput(): void
     {
-        $object = new InfQixFoo();
+        $object = new InfQixFoo(131);
+        $this->assertEquals("Foo", $object->run());
 
-        $this->assertEquals("Foo", $object->run(131));
-        $this->assertEquals("Inf", $object->run(181));
-        $this->assertEquals("Qix", $object->run(1471));
+        $object = new InfQixFoo(181);
+        $this->assertEquals("Inf", $object->run());
+
+        $object = new InfQixFoo(1471);
+        $this->assertEquals("Qix", $object->run());
     }
 
     public function testOccuranceTwoOutput(): void
     {
-        $object = new InfQixFoo();
+        $object = new InfQixFoo(6382);
+        $this->assertEquals("FooInf", $object->run());
 
-        $this->assertEquals("FooInf", $object->run(6382));
-        $this->assertEquals("InfFoo", $object->run(6632));
-        $this->assertEquals("FooQix", $object->run(2327));
+        $object = new InfQixFoo(6632);
+        $this->assertEquals("InfFoo", $object->run());
+
+        $object = new InfQixFoo(2327);
+        $this->assertEquals("FooQix", $object->run());
     }
 
     public function testOccuranceThreeOutput(): void
     {
-        $object = new InfQixFoo();
+        $object = new InfQixFoo(328172);
+        $this->assertEquals("FooInfQix", $object->run());
 
-        $this->assertEquals("FooInfQix", $object->run(328172));
-        $this->assertEquals("InfFooQix", $object->run(823174));
+        $object = new InfQixFoo(823174);
+        $this->assertEquals("InfFooQix", $object->run());
     }
 
 
     public function testMultiplesAndOccurancesOutput(): void
     {
-        $object = new InfQixFoo();
+        $object = new InfQixFoo(8630);
+        $this->assertEquals("InfFoo", $object->run());
 
-        $this->assertEquals("InfFoo", $object->run(8630));
-        $this->assertEquals("Foo", $object->run(131));
-        $this->assertEquals("Inf; FooInf", $object->run(480));
-        $this->assertEquals("Qix; FooQix", $object->run(147));
-        $this->assertEquals("QixQixQix", $object->run(77));
-        $this->assertEquals("QixFooQix", $object->run(2317));
-        $this->assertEquals("FooFooQix", $object->run(325170));
+        $object = new InfQixFoo(131);
+        $this->assertEquals("Foo", $object->run());
+
+        $object = new InfQixFoo(480);
+        $this->assertEquals("Inf; FooInf", $object->run());
+
+        $object = new InfQixFoo(147);
+        $this->assertEquals("Qix; FooQix", $object->run());
+
+        $object = new InfQixFoo(77);
+        $this->assertEquals("QixQixQix", $object->run());
+
+        $object = new InfQixFoo(2317);
+        $this->assertEquals("QixFooQix", $object->run());
+
+        $object = new InfQixFoo(325170);
+        $this->assertEquals("FooFooQix", $object->run());
     }
 
     public function testDigitSumOutput(): void
     {
-        $object = new InfQixFoo();
+        $object = new InfQixFoo(422);
+        $this->assertEquals("Inf", $object->run());
 
-        $this->assertEquals("Inf", $object->run(422));
-        $this->assertEquals("QixInf", $object->run(71));
-        $this->assertEquals("InfInfInfInf", $object->run(88));
+        $object = new InfQixFoo(71);
+        $this->assertEquals("QixInf", $object->run());
+
+        $object = new InfQixFoo(88);
+        $this->assertEquals("InfInfInfInf", $object->run());
     }
 
 }

@@ -1,0 +1,19 @@
+{
+    "name": "marisrusins/divigrupa-homework",
+    "description": "Homework to vacancy in the company Divi Grupa",
+    "authors": [
+        {
+            "name": "mrusins",
+            "email": "m.rusins@gmail.com"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Tests\\": "tests/"
+        }
+    }
+}

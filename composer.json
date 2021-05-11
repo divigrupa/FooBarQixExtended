@@ -1,0 +1,20 @@
+{
+  "name": "reinis/foo-bar-qix-extended",
+  "description": "DI coding task",
+  "authors": [
+    {
+      "name": "Reinis Danne",
+      "email": "rei4dan@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "FooBar\\": "app/",
+      "Test\\": "tests/"
+    }
+  },
+  "require-dev": {
+    "codeception/codeception": "^4.1",
+    "codeception/module-asserts": "^1.0.0"
+  }
+}

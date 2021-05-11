@@ -11,6 +11,7 @@ class FooBarQixService
     private array $map = [
         3 => 'Foo',
         5 => 'Bar',
+        7 => 'Qix',
     ];
 
     public function get(int $number): string

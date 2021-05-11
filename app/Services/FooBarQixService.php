@@ -6,7 +6,7 @@ namespace FooBar\Services;
 
 use InvalidArgumentException;
 
-class FooBarService
+class FooBarQixService
 {
     private array $map = [
         3 => 'Foo',

@@ -58,8 +58,14 @@ class FooBarQixTest extends Unit
         $expected = 'FooBarQix';
 
         $this->assertEquals($expected, $this->fooBarQixService->get(0));
-        $this->assertEquals($expected, $this->fooBarQixService->get(504));
         $this->assertEquals($expected, $this->fooBarQixService->get(1325476));
+    }
+
+    public function testFooQixBar(): void
+    {
+        $expected = 'FooQixBar';
+
+        $this->assertEquals($expected, $this->fooBarQixService->get(504));
     }
 
     public function testFooBar(): void

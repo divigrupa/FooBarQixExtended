@@ -16,6 +16,11 @@ class FooBarQixService
 
     public function get(int $number): string
     {
+        return $this->getMultiples($number);
+    }
+
+    public function getMultiples(int $number): string
+    {
         if ($number < 0) {
             throw new InvalidArgumentException("Expected positive integer");
         }
@@ -33,5 +38,10 @@ class FooBarQixService
         }
 
         return $result;
+    }
+
+    public function getOccurrences(int $number): string
+    {
+        return '';
     }
 }

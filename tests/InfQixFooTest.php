@@ -12,74 +12,36 @@ class InfQixFooTest extends Unit
 {
     protected InfQixFooService $infQixFooService;
 
-    public function testInf(): void
+    public function testMultiples(): void
     {
-        $expected = 'Inf';
-
-        self::assertEquals($expected, $this->infQixFooService->get(16));
-        self::assertEquals($expected, $this->infQixFooService->get(58));
+        self::assertEquals('Inf', $this->infQixFooService->get(16));
+        self::assertEquals('Qix', $this->infQixFooService->get(14));
+        self::assertEquals('Foo', $this->infQixFooService->get(9));
+        self::assertEquals('Inf; Qix', $this->infQixFooService->get(56));
+        self::assertEquals('Inf; Foo', $this->infQixFooService->get(24));
+        self::assertEquals('Inf; Qix; Foo', $this->infQixFooService->get(504));
+        self::assertEquals('Inf; Qix; Foo', $this->infQixFooService->get(0));
     }
 
-    public function testQix(): void
+    public function testOccurrences(): void
     {
-        $expected = 'Qix';
-
-        self::assertEquals($expected, $this->infQixFooService->get(14));
-        self::assertEquals($expected, $this->infQixFooService->get(17));
+        self::assertEquals('Inf', $this->infQixFooService->get(58));
+        self::assertEquals('Qix', $this->infQixFooService->get(17));
+        self::assertEquals('Foo', $this->infQixFooService->get(13));
+        self::assertEquals('Inf; Qix', $this->infQixFooService->get(817));
+        self::assertEquals('Inf; Foo', $this->infQixFooService->get(83));
+        self::assertEquals('Inf; Qix; Foo', $this->infQixFooService->get(8713));
     }
 
-    public function testFoo(): void
+    public function testMultiplesAndOccurrences(): void
     {
-        $expected = 'Foo';
-
-        self::assertEquals($expected, $this->infQixFooService->get(9));
-        self::assertEquals($expected, $this->infQixFooService->get(13));
-    }
-
-    public function testInfQix(): void
-    {
-        $expected = 'Inf; Qix';
-
-        self::assertEquals($expected, $this->infQixFooService->get(56));
-        self::assertEquals($expected, $this->infQixFooService->get(176));
-    }
-
-    public function testInfFoo(): void
-    {
-        $expected = 'Inf; Foo';
-
-        self::assertEquals($expected, $this->infQixFooService->get(24));
-        self::assertEquals($expected, $this->infQixFooService->get(32));
-    }
-
-    public function testInfQixFoo(): void
-    {
-        $expected = 'Inf; Qix; Foo';
-
-        self::assertEquals($expected, $this->infQixFooService->get(504));
-        self::assertEquals($expected, $this->infQixFooService->get(392));
-        self::assertEquals($expected, $this->infQixFooService->get(736));
-    }
-
-    public function testInfFooQix(): void
-    {
-        $expected = 'Inf; Foo; Qix';
-
-        self::assertEquals($expected, $this->infQixFooService->get(72));
-    }
-
-    public function testQixFooInf(): void
-    {
-        $expected = 'Qix; Foo; Inf';
-
-        self::assertEquals($expected, $this->infQixFooService->get(84));
-    }
-
-    public function testFooInfQixFoo(): void
-    {
-        $expected = 'Foo; Inf; Qix; Foo';
-
-        self::assertEquals($expected, $this->infQixFooService->get(873));
+        self::assertEquals('Inf; Inf', $this->infQixFooService->get(128));
+        self::assertEquals('Inf; Qix', $this->infQixFooService->get(176));
+        self::assertEquals('Inf; Foo', $this->infQixFooService->get(32));
+        self::assertEquals('Foo; Inf', $this->infQixFooService->get(498));
+        self::assertEquals('Inf; Qix; Foo', $this->infQixFooService->get(392));
+        self::assertEquals('Foo; Inf; Qix; Foo', $this->infQixFooService->get(873));
+        self::assertEquals('Inf; Qix; Foo; Inf; Qix', $this->infQixFooService->get(4872));
     }
 
     public function testDigitSumIsMultipleOfEight(): void
@@ -89,7 +51,7 @@ class InfQixFooTest extends Unit
         self::assertEquals('1254426521Inf', $this->infQixFooService->getFull(1254426521));
     }
 
-    public function testNumber(): void
+    public function testNoTransformation(): void
     {
         self::assertEquals('2', $this->infQixFooService->get(2));
         self::assertEquals('11', $this->infQixFooService->get(11));

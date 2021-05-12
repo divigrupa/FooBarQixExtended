@@ -84,9 +84,9 @@ class InfQixFooTest extends Unit
 
     public function testDigitSumIsMultipleOfEight(): void
     {
-        self::assertEquals('Inf; QixInf', $this->infQixFooService->get(12544));
-        self::assertEquals('Inf; Qix; FooInf', $this->infQixFooService->get(736));
-        self::assertEquals('1254426521Inf', $this->infQixFooService->get(1254426521));
+        self::assertEquals('Inf; QixInf', $this->infQixFooService->getFull(12544));
+        self::assertEquals('Inf; Qix; FooInf', $this->infQixFooService->getFull(736));
+        self::assertEquals('1254426521Inf', $this->infQixFooService->getFull(1254426521));
     }
 
     public function testNumber(): void

@@ -97,7 +97,7 @@ class BaseNumberMapperService
         return $result;
     }
 
-    protected function getDigitSumMultiples(int $number, array $map): array
+    private function getDigitSumMultiples(int $number, array $map): array
     {
         $result = [];
 

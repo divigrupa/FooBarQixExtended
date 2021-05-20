@@ -57,7 +57,7 @@ class FooBarQixTest extends TestCase
         $fooBarQixCollection->addMultiples(new Qix());
 
         $fooBarQixService = new FooBarQixService($fooBarQixCollection);
-        $this->assertTrue('' === $fooBarQixService->execute(8462));
+        $this->assertTrue('8462' === $fooBarQixService->execute(8462));
         $this->assertTrue('Qix,Foo' === $fooBarQixService->execute(743));
         $this->assertTrue('Foo,Bar,Foo,Bar,Foo,Bar' === $fooBarQixService->execute(12345435));
         $this->assertTrue('Bar,Qix,Foo' === $fooBarQixService->execute(65743));

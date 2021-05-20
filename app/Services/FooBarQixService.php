@@ -20,7 +20,9 @@ class FooBarQixService
         $multiples = $this->multipleService->execute($positiveInteger);
         $occurrences = $this->occurrenceService->execute($positiveInteger);
 
-        if ($multiples === '') {
+        if ($multiples === '' && $occurrences === '') {
+            return (string)$positiveInteger;
+        } else if ($multiples === '') {
             return $occurrences;
         } else if ($occurrences === '') {
             return $multiples;

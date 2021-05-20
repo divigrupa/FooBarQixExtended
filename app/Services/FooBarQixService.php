@@ -7,6 +7,7 @@ use App\Models\Bar;
 use App\Models\Foo;
 
 use App\Models\MultipleCollection;
+use App\Models\Qix;
 
 class FooBarQixService
 {
@@ -17,6 +18,7 @@ class FooBarQixService
         $this->multipleCollection = new MultipleCollection();
         $this->multipleCollection->addMultiples(new Foo());
         $this->multipleCollection->addMultiples(new Bar());
+        $this->multipleCollection->addMultiples(new Qix());
     }
 
 

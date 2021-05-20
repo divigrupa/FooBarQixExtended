@@ -15,14 +15,12 @@ $fooBarQixCollection = new FooBarQixCollection();
 $fooBarQixCollection->addMultiples(new Foo());
 $fooBarQixCollection->addMultiples(new Bar());
 $fooBarQixCollection->addMultiples(new Qix());
-
 $fooBarQixService = new FooBarQixService($fooBarQixCollection);
 
 $infQixFooCollection = new FooBarQixCollection();
 $infQixFooCollection->addMultiples(new Inf());
 $infQixFooCollection->addMultiples(new Qix());
 $infQixFooCollection->addMultiples(new Foo());
-
 $infQixFooService = new InfQixFooService($infQixFooCollection);
 
 
@@ -37,3 +35,5 @@ if (!$validateInput->validate($userInput)) {
 echo $fooBarQixService->execute($userInput);
 echo PHP_EOL;
 echo $infQixFooService->execute($userInput);
+echo PHP_EOL;
+echo $infQixFooService->addEnd($userInput, new Inf());

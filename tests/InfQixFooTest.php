@@ -60,4 +60,20 @@ class InfQixFooTest extends TestCase
         $this->assertTrue('Foo;Qix;Foo;Inf' === $infQixFooService->execute(657438));
         $this->assertTrue('Foo;Qix' === $infQixFooService->execute(447));
     }
+
+    public function testAddEnd(): void
+    {
+        $infQixFooCollection = new FooBarQixCollection();
+        $infQixFooCollection->addMultiples(new Inf());
+        $infQixFooCollection->addMultiples(new Qix());
+        $infQixFooCollection->addMultiples(new Foo());
+        $condition = new Inf();
+
+        $infQixFooService = new InfQixFooService($infQixFooCollection);
+        $this->assertTrue('Inf;Qix;FooInf' === $infQixFooService->addEnd(1232, $condition));
+        $this->assertTrue('Inf;Foo' === $infQixFooService->addEnd(23456, $condition));
+        $this->assertTrue('2222Inf' === $infQixFooService->addEnd(2222, $condition));
+        $this->assertTrue('FooInf' === $infQixFooService->addEnd(431, $condition));
+        $this->assertTrue('QixInf' === $infQixFooService->addEnd(71, $condition));
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\FooBarQix;
 use App\Models\FooBarQixCollection;
 
 class InfQixFooService
@@ -28,6 +29,16 @@ class InfQixFooService
             return $multiples;
         }
         return $multiples . ';' . $occurrences;
+    }
+
+    public function addEnd(int $positiveInteger, FooBarQix $condition): string
+    {
+        $end = '';
+        $output = $this->execute($positiveInteger);
+        if (array_sum(str_split($positiveInteger)) % $condition->multipleOf() === 0) {
+            $end = $condition->name();
+        }
+        return $output . $end;
     }
 
 

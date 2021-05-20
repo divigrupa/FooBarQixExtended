@@ -13,6 +13,7 @@ use PHPUnit\Framework\TestCase;
 
 class FooBarQixTest extends TestCase
 {
+
     public function testMultiples(): void
     {
         $fooBarQixCollection = new FooBarQixCollection();
@@ -30,6 +31,7 @@ class FooBarQixTest extends TestCase
         $this->assertTrue('Bar,Qix' === $multipleService->execute(35));
         $this->assertTrue('Foo,Bar,Qix' === $multipleService->execute(105));
     }
+
 
     public function testOccurrences(): void
     {

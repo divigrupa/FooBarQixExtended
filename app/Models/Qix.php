@@ -1,7 +1,7 @@
 <?php
 namespace App\Models;
 
-class Qix implements Multiple
+class Qix implements FooBarQix
 {
     const MULTIPLE_OF = 7;
     const NAME = 'Qix';

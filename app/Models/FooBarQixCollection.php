@@ -2,11 +2,11 @@
 
 namespace App\Models;
 
-class MultipleCollection
+class FooBarQixCollection
 {
     private array $multiples;
 
-    public function addMultiples(Multiple $multiple): void
+    public function addMultiples(FooBarQix $multiple): void
     {
         $this->multiples[] = $multiple;
     }

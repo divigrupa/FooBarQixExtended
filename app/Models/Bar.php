@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-class Bar implements Multiple
+class Bar implements FooBarQix
 {
     const MULTIPLE_OF = 5;
     const NAME = 'Bar';

@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-interface Multiple
+interface FooBarQix
 {
     public function multipleOf(): int;
 

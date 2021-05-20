@@ -2,37 +2,29 @@
 
 namespace App\Services;
 
-
-use App\Models\Bar;
-use App\Models\Foo;
-
-use App\Models\MultipleCollection;
-use App\Models\Qix;
+use App\Models\FooBarQixCollection;
 
 class FooBarQixService
 {
-    private MultipleCollection $multipleCollection;
+    private MultipleService $multipleService;
+    private OccurrenceService $occurrenceService;
 
-    public function __construct()
+    public function __construct(FooBarQixCollection $fooBarQixCollection)
     {
-        $this->multipleCollection = new MultipleCollection();
-        $this->multipleCollection->addMultiples(new Foo());
-        $this->multipleCollection->addMultiples(new Bar());
-        $this->multipleCollection->addMultiples(new Qix());
+        $this->multipleService = new MultipleService($fooBarQixCollection);
+        $this->occurrenceService = new OccurrenceService($fooBarQixCollection);
     }
-
 
     public function execute(int $positiveInteger): string
     {
-        $message = [];
-        foreach ($this->multipleCollection->multiples() as $multiple) {
-            if ($positiveInteger % $multiple->multipleOf() === 0) {
-                $message[] = $multiple->name();
-            }
+        $multiples = $this->multipleService->execute($positiveInteger);
+        $occurrences = $this->occurrenceService->execute($positiveInteger);
+
+        if ($multiples === '') {
+            return $occurrences;
+        } else if ($occurrences === '') {
+            return $multiples;
         }
-        if (count($message) < 1) {
-            return (string)$positiveInteger;
-        }
-        return implode(',', $message);
+        return $multiples . ',' . $occurrences;
     }
 }

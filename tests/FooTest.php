@@ -1,7 +1,7 @@
 <?php
 
 use App\Models\Foo;
-use App\Models\Multiple;
+use App\Models\FooBarQix;
 use PHPUnit\Framework\TestCase;
 
 class FooTest extends TestCase
@@ -9,7 +9,7 @@ class FooTest extends TestCase
     public function testImplementation(): void
     {
         $foo = new Foo();
-        $this->assertInstanceOf(Multiple::class, $foo);
+        $this->assertInstanceOf(FooBarQix::class, $foo);
     }
 
     public function testMultipleOf(): void

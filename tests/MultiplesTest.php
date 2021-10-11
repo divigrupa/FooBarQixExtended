@@ -3,6 +3,7 @@
 namespace Tests;
 
 use App\Services\FooBarQixService;
+use App\Services\InfQixFooService;
 use PHPUnit\Framework\TestCase;
 
 class FooBarTest extends TestCase

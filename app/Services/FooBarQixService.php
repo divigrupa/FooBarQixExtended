@@ -11,7 +11,7 @@ class FooBarQixService
         7 => "Qix"
     ];
 
-    public function calculate(int $givenNumber)
+    public function getMultiples(int $givenNumber): string
     {
         $result = [];
         foreach(self::RETURN_VALUES as $key => $value)

@@ -97,4 +97,10 @@ class FooBarTest extends TestCase
         $this->assertEquals('Inf; Qix; Foo', (new InfQixFooService)->getMultiples(168));
         $this->assertEquals('Inf; Qix; Foo', (new InfQixFooService)->getMultiples(10920));
     }
+
+    public function testIfAllDigitsSumIsMultipleOfEight()
+    {
+        $this->assertEquals('Inf; Qix; FooInf', (new InfQixFooService)->getMultiples(18786936));
+        $this->assertEquals('Inf; FooInf', (new InfQixFooService)->getMultiples(860424));
+    }
 }

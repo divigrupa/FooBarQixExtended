@@ -89,4 +89,10 @@ class OccurrencesTest extends TestCase
         $this->assertEquals('Inf; Qix; Foo', (new InfQixFooService)->getOccurrences(873));
         $this->assertEquals('Inf; Qix; Foo', (new InfQixFooService)->getOccurrences(392758));
     }
+
+    public function testIfAllDigitsSumIsMultipleOfEight()
+    {
+        $this->assertEquals('Inf; Qix; FooInf', (new InfQixFooService)->getMultiples(18786936));
+        $this->assertEquals('InfInf', (new InfQixFooService)->getMultiples(860424));
+    }
 }

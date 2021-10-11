@@ -2,43 +2,43 @@
 
 namespace Tests;
 
-use App\Services\FooBarService;
+use App\Services\FooBarQixService;
 use PHPUnit\Framework\TestCase;
 
 class FooBarTest extends TestCase
 {
     public function testIfReturnsFoo()
     {
-        $this->assertEquals('Foo', (new FooBarService)->calculate(3));
+        $this->assertEquals('Foo', (new FooBarQixService)->calculate(3));
     }
 
     public function testIfReturnsBar()
     {
-        $this->assertEquals('Bar', (new FooBarService)->calculate(5));
+        $this->assertEquals('Bar', (new FooBarQixService)->calculate(5));
     }
 
     public function testIfReturnsFooBar()
     {
-        $this->assertEquals('Foo, Bar', (new FooBarService)->calculate(15));
+        $this->assertEquals('Foo, Bar', (new FooBarQixService)->calculate(15));
     }
 
     public function testIfReturnsQix()
     {
-        $this->assertEquals('Qix', (new FooBarService)->calculate(7));
+        $this->assertEquals('Qix', (new FooBarQixService)->calculate(7));
     }
 
     public function testIfReturnsFooQix()
     {
-        $this->assertEquals('Foo, Qix', (new FooBarService)->calculate(21));
+        $this->assertEquals('Foo, Qix', (new FooBarQixService)->calculate(21));
     }
 
     public function testIfReturnsBarQix()
     {
-        $this->assertEquals('Bar, Qix', (new FooBarService)->calculate(35));
+        $this->assertEquals('Bar, Qix', (new FooBarQixService)->calculate(35));
     }
 
     public function testIfReturnsFooBarQix()
     {
-        $this->assertEquals('Foo, Bar, Qix', (new FooBarService)->calculate(105));
+        $this->assertEquals('Foo, Bar, Qix', (new FooBarQixService)->calculate(105));
     }
 }

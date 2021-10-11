@@ -2,12 +2,13 @@
 
 namespace App\Services;
 
-class FooBarService
+class FooBarQixService
 {
     private const RETURN_VALUES = 
     [
         3 => "Foo",
-        5 => "Bar"
+        5 => "Bar",
+        7 => "Qix"
     ];
 
     public function calculate(int $givenNumber)

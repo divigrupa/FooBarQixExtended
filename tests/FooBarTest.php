@@ -21,4 +21,24 @@ class FooBarTest extends TestCase
     {
         $this->assertEquals('Foo, Bar', (new FooBarService)->calculate(15));
     }
+
+    public function testIfReturnsQix()
+    {
+        $this->assertEquals('Qix', (new FooBarService)->calculate(7));
+    }
+
+    public function testIfReturnsFooQix()
+    {
+        $this->assertEquals('Foo, Qix', (new FooBarService)->calculate(21));
+    }
+
+    public function testIfReturnsBarQix()
+    {
+        $this->assertEquals('Bar, Qix', (new FooBarService)->calculate(35));
+    }
+
+    public function testIfReturnsFooBarQix()
+    {
+        $this->assertEquals('Foo, Bar, Qix', (new FooBarService)->calculate(105));
+    }
 }

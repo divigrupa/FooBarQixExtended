@@ -1,0 +1,1 @@
+{"version":1,"defects":{"Tests\\FooBarTest::testIfReturnsFoo":4,"Tests\\FooBarTest::testIfReturnsBar":4},"times":{"Tests\\FooBarTest::testIfReturnsFoo":0.1,"Tests\\FooBarTest::testIfReturnsBar":0}}

@@ -13,8 +13,8 @@ class OccurrencesTest extends TestCase
         $this->assertEquals("Foo", (new FooBarQixService)->getOccurrences(234));
         $this->assertEquals("Foo", (new FooBarQixService)->getOccurrences(343));
 
-        $this->assertEquals("Foo", (new InfQixFooService)->getOccurrences(2364));
-        $this->assertEquals("Foo", (new InfQixFooService)->getOccurrences(223));
+        $this->assertEquals("Foo", (new InfQixFooService(2364))->getOccurrences());
+        $this->assertEquals("Foo", (new InfQixFooService(223))->getOccurrences());
     }
 
     public function testIfReturnsBar()
@@ -28,8 +28,8 @@ class OccurrencesTest extends TestCase
         $this->assertEquals("Qix", (new FooBarQixService)->getOccurrences(4997));
         $this->assertEquals("Qix", (new FooBarQixService)->getOccurrences(27766));
 
-        $this->assertEquals('Qix', (new InfQixFooService)->getOccurrences(794));
-        $this->assertEquals('Qix', (new InfQixFooService)->getOccurrences(2222277));
+        $this->assertEquals('Qix', (new InfQixFooService(794))->getOccurrences());
+        $this->assertEquals('Qix', (new InfQixFooService(222277))->getOccurrences());
     }
 
     public function testIfReturnsFooBar()
@@ -61,38 +61,38 @@ class OccurrencesTest extends TestCase
 
     public function testIfReturnsInf()
     {
-        $this->assertEquals('Inf', (new InfQixFooService)->getOccurrences(8));
-        $this->assertEquals('Inf', (new InfQixFooService)->getOccurrences(8229));
+        $this->assertEquals('Inf', (new InfQixFooService(8))->getOccurrences());
+        $this->assertEquals('Inf', (new InfQixFooService(8229))->getOccurrences());
 
     }
 
     public function testIfReturnsInfQuix()
     {
-        $this->assertEquals('Inf; Qix', (new InfQixFooService)->getOccurrences(798));
-        $this->assertEquals('Inf; Qix', (new InfQixFooService)->getOccurrences(77258));
+        $this->assertEquals('Inf; Qix', (new InfQixFooService(7998))->getOccurrences());
+        $this->assertEquals('Inf; Qix', (new InfQixFooService(77258))->getOccurrences());
     }
 
     public function testIfReturnsInfFoo()
     {
-        $this->assertEquals('Inf; Foo', (new InfQixFooService)->getOccurrences(3388));
-        $this->assertEquals('Inf; Foo', (new InfQixFooService)->getOccurrences(89243));
+        $this->assertEquals('Inf; Foo', (new InfQixFooService(3388))->getOccurrences());
+        $this->assertEquals('Inf; Foo', (new InfQixFooService(89243))->getOccurrences());
     }
 
     public function testIfReturnQixFoo()
     {
-        $this->assertEquals('Qix; Foo', (new InfQixFooService)->getOccurrences(7773));
-        $this->assertEquals('Qix; Foo', (new InfQixFooService)->getOccurrences(32697));
+        $this->assertEquals('Qix; Foo', (new InfQixFooService(773))->getOccurrences());
+        $this->assertEquals('Qix; Foo', (new InfQixFooService(32697))->getOccurrences());
     }
 
     public function testIfReturnInfQixFoo()
     {
-        $this->assertEquals('Inf; Qix; Foo', (new InfQixFooService)->getOccurrences(873));
-        $this->assertEquals('Inf; Qix; Foo', (new InfQixFooService)->getOccurrences(392758));
+        $this->assertEquals('Inf; Qix; Foo', (new InfQixFooService(873))->getOccurrences());
+        $this->assertEquals('Inf; Qix; Foo', (new InfQixFooService(392758))->getOccurrences());
     }
 
     public function testIfAllDigitsSumIsMultipleOfEight()
     {
-        $this->assertEquals('Inf; Qix; FooInf', (new InfQixFooService)->getMultiples(18786936));
-        $this->assertEquals('InfInf', (new InfQixFooService)->getMultiples(860424));
+        $this->assertEquals('Inf; Qix; FooInf', (new InfQixFooService(18786936))->getOccurrences());
+        $this->assertEquals('InfInf', (new InfQixFooService(860424))->getOccurrences());
     }
 }

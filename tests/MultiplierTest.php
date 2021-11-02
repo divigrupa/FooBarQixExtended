@@ -95,6 +95,21 @@ class MultiplierTest extends TestCase{
 
     }
 
+    public function test_InfQixFooGetIsSumMultipleOf(){
+
+        $result = new MultipliersCollection([
+            new Multiplier('inf', 8),
+            new Multiplier('qix', 7),
+            new Multiplier('foo', 3)
+        ], ';');
+
+        $result = $result->getIsSumMultipleOf(26);
+
+        $this->assertEquals('inf', $result);
+
+
+    }
+
 
 
 }

@@ -56,6 +56,17 @@ class MultipliersCollection
     }
 
 
+    public function getIsSumMultipleOf(int $number, Multiplier $multiplier) : string{
+
+        $numberSplt = str_split($number.'');
+        $result = 0;
+        foreach ($numberSplt as $item){
+            $result+=$item;
+        }
+        return $result%$multiplier->getMultiple() == 0 ? $multiplier->getText() : '';
+
+    }
+
 
 
 }

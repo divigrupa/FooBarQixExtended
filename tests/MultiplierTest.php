@@ -103,7 +103,7 @@ class MultiplierTest extends TestCase{
             new Multiplier('foo', 3)
         ], ';');
 
-        $result = $result->getIsSumMultipleOf(26);
+        $result = $result->getIsSumMultipleOf(26, (new Multiplier('inf', 8)));
 
         $this->assertEquals('inf', $result);
 

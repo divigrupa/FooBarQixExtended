@@ -30,7 +30,13 @@ class InfQixFooService{
         $number = (int)readline('Input number: ');
 
         echo $this->multipliers->getCompatibles($number) . PHP_EOL; // shows multiples
-        echo $this->multipliers->getCompatiblesIfAppends($number) . PHP_EOL; //shows occurrences
+        echo $this->multipliers->getCompatiblesIfAppends($number). PHP_EOL; //shows occurrences
+        echo $this->multipliers->getIsSumMultipleOf($number, (new Multiplier('inf', 8))). PHP_EOL;
+        // ^ ^ ^  shows whether sum of all digits is multiple of $multiple->getMultiple or not ^ ^ ^
+
+
+
+
 
     }
 

@@ -21,6 +21,7 @@ class Multiplier
 
     public function isCompatible(int $number): ?string
     {
+        return $number % $this->multiple === 0 ? $this->text : NULL;
     }
 
     public function getMultiple(): int

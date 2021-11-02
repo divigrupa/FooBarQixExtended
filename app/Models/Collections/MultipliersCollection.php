@@ -21,6 +21,17 @@ class MultipliersCollection
 
     public function getCompatibles(int $number): string
     {
+        $compatibles = [];
+
+        foreach ($this->multipliers as $multiplier) {
+            if ($multiplier->isCompatible($number) !== NULL) {
+
+                $compatibles[] = $multiplier->isCompatible($number);
+
+            }
+        }
+
+        return $compatibles ? implode(', ', $compatibles) : (string)$number;
     }
 
 

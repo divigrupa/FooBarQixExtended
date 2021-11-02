@@ -7,8 +7,8 @@ use App\Models\Multiplier;
 class MultipliersCollection
 {
     private array $multipliers = [];
-
-    public function __construct(array $multipliers)
+    private string $delimeter;
+    public function __construct(array $multipliers, string $delimeter = ', ')
     {
         foreach ($multipliers as $multiplier) {
 
@@ -17,6 +17,7 @@ class MultipliersCollection
             }
 
         }
+        $this->delimeter = $delimeter;
     }
 
     public function getCompatibles(int $number): string
@@ -31,7 +32,7 @@ class MultipliersCollection
             }
         }
 
-        return $compatibles ? implode(', ', $compatibles) : (string)$number;
+        return $compatibles ? implode($this->delimeter, $compatibles) : (string)$number;
     }
 
     public function getCompatiblesIfAppends(int $number): string{
@@ -50,7 +51,7 @@ class MultipliersCollection
             }
         }
 
-        return $result ? implode(', ', $result) : $number;
+        return $result ? implode($this->delimeter, $result) : $number;
 
     }
 

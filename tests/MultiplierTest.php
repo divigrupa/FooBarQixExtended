@@ -54,6 +54,28 @@ class MultiplierTest extends TestCase{
 
     }
 
+    public function test_getCompatiblesIfAppends(){
+
+        $result = new MultipliersCollection([
+            new Multiplier('foo', 3),
+            new Multiplier('bar', 5),
+            new Multiplier('qix', 7)
+        ]);
+        $result = $result->getCompatiblesIfAppends(357);
+
+        $this->assertEquals('foo, bar, qix', $result);
+
+        $result = new MultipliersCollection([
+            new Multiplier('foo', 3),
+            new Multiplier('bar', 5),
+            new Multiplier('qix', 7)
+        ]);
+        $result = $result->getCompatiblesIfAppends(1);
+
+        $this->assertEquals('1', $result);
+
+    }
+
 
 
 }

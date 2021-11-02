@@ -34,5 +34,9 @@ class MultipliersCollection
         return $compatibles ? implode(', ', $compatibles) : (string)$number;
     }
 
+    public function getCompatiblesIfAppends(int $number): string
+    {
+    }
+
 
 }

@@ -50,6 +50,15 @@ class MultiplierTest extends TestCase{
 
         $this->assertEquals('1', $result);
 
+        $result = new MultipliersCollection([
+            new Multiplier('inf', 8),
+            new Multiplier('qix', 7),
+            new Multiplier('foo', 3)
+        ], ';');
+        $result = $result->getCompatibles(168);
+
+        $this->assertEquals('inf;qix;foo', $result);
+
 
 
     }
@@ -73,6 +82,16 @@ class MultiplierTest extends TestCase{
         $result = $result->getCompatiblesIfAppends(1);
 
         $this->assertEquals('1', $result);
+
+        $result = new MultipliersCollection([
+            new Multiplier('inf', 8),
+            new Multiplier('qix', 7),
+            new Multiplier('foo', 3)
+        ], ';');
+        $result = $result->getCompatiblesIfAppends(64);
+
+        $this->assertEquals('64', $result);
+
 
     }
 

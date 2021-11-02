@@ -15,3 +15,4 @@ $multipliers = new MultipliersCollection([
 $number = (int)readline('Input number: ');
 
 echo $multipliers->getCompatibles($number) . PHP_EOL; // shows multiples
+echo $multipliers->getCompatiblesIfAppends($number) . PHP_EOL; //shows occurrences

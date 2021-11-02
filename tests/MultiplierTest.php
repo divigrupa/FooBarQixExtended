@@ -16,6 +16,8 @@ class MultiplierTest extends TestCase{
         $this->assertEquals('bar', $result);
         $result = (new Multiplier('bar', 5))->isCompatible(1);
         $this->assertEquals(NULL, $result);
+        $result = (new Multiplier('qix', 7))->isCompatible(14);
+        $this->assertEquals('qix', $result);
     }
 
 
@@ -24,14 +26,16 @@ class MultiplierTest extends TestCase{
         $result = new MultipliersCollection([
             new Multiplier('foo', 3),
             new Multiplier('bar', 5),
+            new Multiplier('qix', 7)
         ]);
-        $result = $result->getCompatibles(15);
+        $result = $result->getCompatibles(105);
 
-        $this->assertEquals('foo, bar', $result);
+        $this->assertEquals('foo, bar, qix', $result);
 
         $result = new MultipliersCollection([
             new Multiplier('foo', 3),
             new Multiplier('bar', 5),
+            new Multiplier('qix', 7)
         ]);
         $result = $result->getCompatibles(10);
 
@@ -40,10 +44,12 @@ class MultiplierTest extends TestCase{
         $result = new MultipliersCollection([
             new Multiplier('foo', 3),
             new Multiplier('bar', 5),
+            new Multiplier('qix', 7)
         ]);
         $result = $result->getCompatibles(1);
 
         $this->assertEquals('1', $result);
+
 
 
     }

@@ -8,8 +8,8 @@ require_once 'vendor/autoload.php';
 $multipliers = new MultipliersCollection([
 
     new Multiplier('foo', 3),
-    new Multiplier('bar', 5)
-
+    new Multiplier('bar', 5),
+    new Multiplier('qix', 7)
 ]);
 
 $number = (int)readline('Input number: ');

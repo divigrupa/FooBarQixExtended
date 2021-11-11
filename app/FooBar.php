@@ -17,20 +17,31 @@ class FooBar
 
     public function numberText(int $number): string
     {
-        if ($number % 3 == 0 && $number % 5 == 0 && $number % 7 == 0) {
-            return "{$this->multipleOfThree}, {$this->multipleOfFive}, {$this->multipleOfSeven}";
-        } else if ($number % 3 == 0 && $number % 5 == 0) {
-            return "{$this->multipleOfThree}, {$this->multipleOfFive}";
-        } else if ($number % 3 == 0 && $number % 7 == 0) {
-            return "{$this->multipleOfThree}, {$this->multipleOfSeven}";
-        } else if ($number % 5 == 0 && $number % 7 == 0) {
-            return "{$this->multipleOfFive}, {$this->multipleOfSeven}";
-        } else if ($number % 3 == 0) {
-            return $this->multipleOfThree;
-        } else if ($number % 5 == 0) {
-            return $this->multipleOfFive;
-        } else {
-            return $this->multipleOfSeven;
+        $result = [];
+
+        $splitNumbers = str_split((string)$number);
+
+        foreach ($splitNumbers as $digit) {
+            if ($digit == 3) {
+                $result[] = $this->multipleOfThree;
+            }
+            if ($digit == 5) {
+                $result[] = $this->multipleOfFive;
+            }
+            if ($digit == 7) {
+                $result[] = $this->multipleOfSeven;
+            }
         }
+        if ($number % 3 == 0) {
+            $result[] = $this->multipleOfThree;
+        }
+        if ($number % 5 == 0) {
+            $result[] = $this->multipleOfFive;
+        }
+        if ($number % 7 == 0) {
+            $result[] = $this->multipleOfSeven;
+        }
+
+        return implode(", ", $result);
     }
 }

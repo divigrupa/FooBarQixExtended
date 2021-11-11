@@ -2,7 +2,7 @@
 
 namespace App;
 
-class FooBar
+class FooBarQix
 {
     private string $multipleOfThree;
     private string $multipleOfFive;

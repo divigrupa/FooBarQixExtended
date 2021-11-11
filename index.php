@@ -1,6 +1,6 @@
 <?php
 
-use App\FooBar;
+use App\FooBarQix;
 
 require_once 'vendor/autoload.php';
 
@@ -8,6 +8,6 @@ $multipleOfThree = 'Foo';
 $multipleOfFive = 'Bar';
 $multipleOfSeven = 'Qix';
 
-$fooBar = new FooBar($multipleOfThree, $multipleOfFive, $multipleOfSeven);
+$fooBarQix = new FooBarQix($multipleOfThree, $multipleOfFive, $multipleOfSeven);
 
-echo $fooBar->numberText((int)readline("Enter number: ")) . PHP_EOL;
+echo $fooBarQix->numberText((int)readline("Enter number: ")) . PHP_EOL;

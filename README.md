@@ -8,7 +8,7 @@ This code Kata is an extended version of https://github.com/arolla/Craft_Your_Sk
 3. Read task of this step
 4. Start by creating Unit tests
 5. Watch as tests fail
-6. Create commit
+6. Create comm
 7. Write an implementation
 8. Happily watch as all tests pass or modify tests
 9. Refactor code (if needed)

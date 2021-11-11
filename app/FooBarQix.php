@@ -17,31 +17,32 @@ class FooBarQix implements Combinations
 
     public function numberText(int $number): string
     {
-        $result = [];
+        $occurrences = [];
+        $multiples = [];
 
         $splitNumbers = str_split((string)$number);
 
         foreach ($splitNumbers as $digit) {
             if ($digit == 3) {
-                $result[] = $this->lowestNumber;
+                $occurrences[] = $this->lowestNumber;
             }
             if ($digit == 5) {
-                $result[] = $this->midNumber;
+                $occurrences[] = $this->midNumber;
             }
             if ($digit == 7) {
-                $result[] = $this->highestNumber;
+                $occurrences[] = $this->highestNumber;
             }
         }
         if ($number % 3 == 0) {
-            $result[] = $this->lowestNumber;
+            $multiples[] = $this->lowestNumber;
         }
         if ($number % 5 == 0) {
-            $result[] = $this->midNumber;
+            $multiples[] = $this->midNumber;
         }
         if ($number % 7 == 0) {
-            $result[] = $this->highestNumber;
+            $multiples[] = $this->highestNumber;
         }
 
-        return implode(", ", $result);
+        return implode("", $occurrences) . implode(", ", $multiples);
     }
 }

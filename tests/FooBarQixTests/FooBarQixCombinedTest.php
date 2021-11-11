@@ -9,63 +9,63 @@ class FooBarQixCombinedTest extends TestCase
 {
     public function test_is_result_foo_foo()
     {
-        $result = 'Foo, Foo';
+        $result = 'FooFoo';
 
         $this->assertEquals($result, (new FooBarQix('Qix', 'Bar', 'Foo'))->numberText(3));
     }
 
     public function test_is_result_bar_bar()
     {
-        $result = 'Bar, Bar';
+        $result = 'BarBar';
 
         $this->assertEquals($result, (new FooBarQix('Qix', 'Bar', 'Foo'))->numberText(5));
     }
 
     public function test_is_result_qix_qix()
     {
-        $result = 'Qix, Qix';
+        $result = 'QixQix';
 
         $this->assertEquals($result, (new FooBarQix('Qix', 'Bar', 'Foo'))->numberText(7));
     }
 
     public function test_is_result_foo_qix()
     {
-        $result = 'Foo, Qix';
+        $result = 'FooQix';
 
         $this->assertEquals($result, (new FooBarQix('Qix', 'Bar', 'Foo'))->numberText(203));
     }
 
     public function test_is_result_qix_foo()
     {
-        $result = 'Qix, Foo';
+        $result = 'QixFoo';
 
         $this->assertEquals($result, (new FooBarQix('Qix', 'Bar', 'Foo'))->numberText(27));
     }
 
     public function test_is_result_bar_foo()
     {
-        $result = 'Bar, Foo';
+        $result = 'BarFoo';
 
         $this->assertEquals($result, (new FooBarQix('Qix', 'Bar', 'Foo'))->numberText(51));
     }
 
     public function test_is_result_bar_qix()
     {
-        $result = 'Bar, Qix';
+        $result = 'BarQix';
 
         $this->assertEquals($result, (new FooBarQix('Qix', 'Bar', 'Foo'))->numberText(56));
     }
 
     public function test_is_result_foo_bar()
     {
-        $result = 'Foo, Bar';
+        $result = 'FooBar';
 
         $this->assertEquals($result, (new FooBarQix('Qix', 'Bar', 'Foo'))->numberText(130));
     }
 
     public function test_is_result_qix_bar()
     {
-        $result = 'Qix, Bar';
+        $result = 'QixBar';
 
         $this->assertEquals($result, (new FooBarQix('Qix', 'Bar', 'Foo'))->numberText(170));
     }

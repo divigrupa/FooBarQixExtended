@@ -33,7 +33,7 @@ class InfQixFooOccurrencesTest extends TestCase
 
     public function test_is_result_foo_qix()
     {
-        $result = 'Foo, Qix';
+        $result = 'FooQix';
 
         $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(37));
         $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(137));
@@ -41,7 +41,7 @@ class InfQixFooOccurrencesTest extends TestCase
 
     public function test_is_result_qix_foo()
     {
-        $result = 'Qix, Foo';
+        $result = 'QixFoo';
 
         $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(73));
         $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(173));
@@ -49,7 +49,7 @@ class InfQixFooOccurrencesTest extends TestCase
 
     public function test_is_result_inf_foo()
     {
-        $result = 'Inf, Foo';
+        $result = 'InfFoo';
 
         $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(83));
         $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(283));
@@ -57,7 +57,7 @@ class InfQixFooOccurrencesTest extends TestCase
 
     public function test_is_result_foo_inf()
     {
-        $result = 'Foo, Inf';
+        $result = 'FooInf';
 
         $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(38));
         $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(538));
@@ -65,7 +65,7 @@ class InfQixFooOccurrencesTest extends TestCase
 
     public function test_is_result_inf_qix()
     {
-        $result = 'Inf, Qix';
+        $result = 'InfQix';
 
         $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(187));
         $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(487));
@@ -73,7 +73,7 @@ class InfQixFooOccurrencesTest extends TestCase
 
     public function test_is_result_qix_inf()
     {
-        $result = 'Qix, Inf';
+        $result = 'QixInf';
 
         $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(178));
         $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(278));

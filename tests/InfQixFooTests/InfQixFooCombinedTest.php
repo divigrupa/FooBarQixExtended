@@ -10,63 +10,63 @@ class InfQixFooCombinedTest extends TestCase
 {
     public function test_is_result_foo_foo()
     {
-        $result = 'Foo, Foo';
+        $result = 'FooFoo';
 
         $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(3));
     }
 
     public function test_is_result_inf_inf()
     {
-        $result = 'Inf, Inf';
+        $result = 'InfInf';
 
         $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(8));
     }
 
     public function test_is_result_qix_qix()
     {
-        $result = 'Qix, Qix';
+        $result = 'QixQix';
 
         $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(7));
     }
 
     public function test_is_result_foo_qix()
     {
-        $result = 'Foo, Qix';
+        $result = 'FooQix';
 
         $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(203));
     }
 
     public function test_is_result_qix_foo()
     {
-        $result = 'Qix, Foo';
+        $result = 'QixFoo';
 
         $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(27));
     }
 
     public function test_is_result_inf_foo()
     {
-        $result = 'Inf, Foo';
+        $result = 'InfFoo';
 
         $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(18));
     }
 
     public function test_is_result_foo_inf()
     {
-        $result = 'Foo, Inf';
+        $result = 'FooInf';
 
         $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(32));
     }
 
     public function test_is_result_inf_qix()
     {
-        $result = 'Inf, Qix';
+        $result = 'InfQix';
 
         $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(28));
     }
 
     public function test_is_result_qix_inf()
     {
-        $result = 'Qix, Inf';
+        $result = 'QixInf';
 
         $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(176));
     }

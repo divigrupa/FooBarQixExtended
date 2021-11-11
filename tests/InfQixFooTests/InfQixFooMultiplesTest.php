@@ -33,7 +33,7 @@ class InfQixFooMultiplesTest extends TestCase
 
     public function test_is_result_inf_foo()
     {
-        $result = 'Inf, Foo';
+        $result = 'Inf; Foo';
 
         $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(24));
         $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(96));
@@ -41,7 +41,7 @@ class InfQixFooMultiplesTest extends TestCase
 
     public function test_is_result_qix_foo()
     {
-        $result = 'Qix, Foo';
+        $result = 'Qix; Foo';
 
         $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(21));
         $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(42));
@@ -49,7 +49,7 @@ class InfQixFooMultiplesTest extends TestCase
 
     public function test_is_result_inf_qix()
     {
-        $result = 'Inf, Qix';
+        $result = 'Inf; Qix';
 
         $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(56));
         $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(112));
@@ -57,7 +57,7 @@ class InfQixFooMultiplesTest extends TestCase
 
     public function test_is_result_inf_qix_foo()
     {
-        $result = 'Inf, Qix, Foo';
+        $result = 'Inf; Qix; Foo';
 
         $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(504));
         $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(2016));

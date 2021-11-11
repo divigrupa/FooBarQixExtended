@@ -25,7 +25,7 @@ class FooBarQixOccurrencesTest extends TestCase
 
     public function test_is_result_foo_qix()
     {
-        $result = 'Foo, Qix';
+        $result = 'FooQix';
 
         $this->assertEquals($result, (new FooBarQix('Qix', 'Bar', 'Foo'))->numberText(37));
         $this->assertEquals($result, (new FooBarQix('Qix', 'Bar', 'Foo'))->numberText(137));
@@ -33,7 +33,7 @@ class FooBarQixOccurrencesTest extends TestCase
 
     public function test_is_result_qix_foo()
     {
-        $result = 'Qix, Foo';
+        $result = 'QixFoo';
 
         $this->assertEquals($result, (new FooBarQix('Qix', 'Bar', 'Foo'))->numberText(73));
         $this->assertEquals($result, (new FooBarQix('Qix', 'Bar', 'Foo'))->numberText(173));
@@ -41,7 +41,7 @@ class FooBarQixOccurrencesTest extends TestCase
 
     public function test_is_result_bar_foo()
     {
-        $result = 'Bar, Foo';
+        $result = 'BarFoo';
 
         $this->assertEquals($result, (new FooBarQix('Qix', 'Bar', 'Foo'))->numberText(53));
         $this->assertEquals($result, (new FooBarQix('Qix', 'Bar', 'Foo'))->numberText(253));
@@ -49,7 +49,7 @@ class FooBarQixOccurrencesTest extends TestCase
 
     public function test_is_result_bar_qix()
     {
-        $result = 'Bar, Qix';
+        $result = 'BarQix';
 
         $this->assertEquals($result, (new FooBarQix('Qix', 'Bar', 'Foo'))->numberText(157));
         $this->assertEquals($result, (new FooBarQix('Qix', 'Bar', 'Foo'))->numberText(457));

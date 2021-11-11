@@ -1,1 +1,1 @@
-{"version":1,"defects":{"FooBarTest::test_is_result_foo":4,"FooBarTest::test_is_result_bar":4,"FooBarTest::test_is_result_foo_bar":4},"times":{"FooBarTest::test_is_result_foo":0.001,"FooBarTest::test_is_result_bar":0,"FooBarTest::test_is_result_foo_bar":0}}
+{"version":1,"defects":{"FooBarTest::test_is_result_foo":4,"FooBarTest::test_is_result_bar":4,"FooBarTest::test_is_result_foo_bar":4},"times":{"FooBarTest::test_is_result_foo":0.02,"FooBarTest::test_is_result_bar":0,"FooBarTest::test_is_result_foo_bar":0}}

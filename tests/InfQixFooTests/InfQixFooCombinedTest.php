@@ -15,13 +15,6 @@ class InfQixFooCombinedTest extends TestCase
         $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(3));
     }
 
-    public function test_is_result_inf_inf()
-    {
-        $result = 'InfInf';
-
-        $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(8));
-    }
-
     public function test_is_result_qix_qix()
     {
         $result = 'QixQix';

@@ -43,6 +43,12 @@ class InfQixFoo implements Combinations
             $multiples[] = $this->lowestNumber;
         }
 
-        return implode("", $occurrences) . implode("; ", $multiples);
+        $multipleOccurrences = implode("", $occurrences) . implode("; ", $multiples);
+
+        if (array_sum($splitNumbers) % 8 == 0) {
+            return $multipleOccurrences . $this->highestNumber;
+        } else {
+            return $multipleOccurrences;
+        }
     }
 }

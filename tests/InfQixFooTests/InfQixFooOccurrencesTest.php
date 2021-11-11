@@ -19,7 +19,7 @@ class InfQixFooOccurrencesTest extends TestCase
     {
         $result = 'Qix';
 
-        $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(17));
+        $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(67));
         $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(47));
     }
 
@@ -60,14 +60,14 @@ class InfQixFooOccurrencesTest extends TestCase
         $result = 'FooInf';
 
         $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(38));
-        $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(538));
+        $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(638));
     }
 
     public function test_is_result_inf_qix()
     {
         $result = 'InfQix';
 
-        $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(187));
+        $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(587));
         $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(487));
     }
 
@@ -75,7 +75,7 @@ class InfQixFooOccurrencesTest extends TestCase
     {
         $result = 'QixInf';
 
-        $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(178));
+        $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(478));
         $this->assertEquals($result, (new InfQixFoo('Inf', 'Qix', 'Foo'))->numberText(278));
     }
 }

@@ -3,7 +3,7 @@
 
 namespace Tests\InfQixFooTests;
 
-use App\FooBarQix;
+use App\InfQixFoo;
 use PHPUnit\Framework\TestCase;
 
 class InfQixFooCombinedTest extends TestCase

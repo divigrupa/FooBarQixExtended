@@ -2,17 +2,17 @@
 
 namespace App;
 
-class FooBarQix implements Combinations
+class InfQixFoo implements Combinations
 {
-    private string $lowestNumber;
-    private string $midNumber;
     private string $highestNumber;
+    private string $midNumber;
+    private string $lowestNumber;
 
     public function __construct(string $highestNumber, string $midNumber, string $lowestNumber)
     {
-        $this->lowestNumber = $lowestNumber;
-        $this->midNumber = $midNumber;
         $this->highestNumber = $highestNumber;
+        $this->midNumber = $midNumber;
+        $this->lowestNumber = $lowestNumber;
     }
 
     public function numberText(int $number): string
@@ -25,21 +25,21 @@ class FooBarQix implements Combinations
             if ($digit == 3) {
                 $result[] = $this->lowestNumber;
             }
-            if ($digit == 5) {
+            if ($digit == 7) {
                 $result[] = $this->midNumber;
             }
-            if ($digit == 7) {
+            if ($digit == 8) {
                 $result[] = $this->highestNumber;
             }
         }
-        if ($number % 3 == 0) {
-            $result[] = $this->lowestNumber;
-        }
-        if ($number % 5 == 0) {
-            $result[] = $this->midNumber;
+        if ($number % 8 == 0) {
+            $result[] = $this->highestNumber;
         }
         if ($number % 7 == 0) {
-            $result[] = $this->highestNumber;
+            $result[] = $this->midNumber;
+        }
+        if ($number % 3 == 0) {
+            $result[] = $this->lowestNumber;
         }
 
         return implode(", ", $result);

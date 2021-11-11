@@ -2,7 +2,7 @@
 
 namespace Tests\InfQixFooTests;
 
-use App\FooBarQix;
+use App\InfQixFoo;
 use PHPUnit\Framework\TestCase;
 
 class InfQixFooMultiplesTest extends TestCase

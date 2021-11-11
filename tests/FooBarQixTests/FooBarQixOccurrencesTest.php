@@ -1,5 +1,7 @@
 <?php
 
+namespace Tests\FooBarQixTests;
+
 use App\FooBarQix;
 use PHPUnit\Framework\TestCase;
 

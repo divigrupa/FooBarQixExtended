@@ -7,7 +7,7 @@
     testdox="true">
 
   <testsuites>
-    <testsuite name="Unit">
+    <testsuite name="Unit tests">
       <directory>tests</directory>
     </testsuite>
   </testsuites>

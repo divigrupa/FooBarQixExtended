@@ -5,6 +5,7 @@
       "Tests\\": "tests/"
     }
   },
+
   "require": {
     "phpunit/phpunit": "^9.5"
   }

@@ -5,6 +5,6 @@ class Service
 {
     public function checkIfMultiple(int $number): string
     {
-        return '';
+        return '...';
     }
 }

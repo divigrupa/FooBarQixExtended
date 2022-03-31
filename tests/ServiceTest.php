@@ -40,6 +40,41 @@ class ServiceTest extends TestCase
         $this->assertSame('4', $stepOne->checkIfMultiple(4));
         $this->assertSame('8', $stepOne->checkIfMultiple(8));
         $this->assertSame('22', $stepOne->checkIfMultiple(22));
-        $this->assertSame('773', $stepOne->checkIfMultiple(773));
+    }
+
+    public function testMultipleOfSevenShouldReturnQix()
+    {
+        $stepOne = new Service();
+        $this->assertSame('Qix', $stepOne->checkIfMultiple(7));
+        $this->assertSame('Qix', $stepOne->checkIfMultiple(14));
+        $this->assertSame('Qix', $stepOne->checkIfMultiple(77));
+        $this->assertSame('Qix', $stepOne->checkIfMultiple(539));
+    }
+
+    public function testMultipleOfThreeAndSevenShouldReturnFooQix()
+    {
+        $stepOne = new Service();
+        $this->assertSame('Foo, Qix', $stepOne->checkIfMultiple(21));
+        $this->assertSame('Foo, Qix', $stepOne->checkIfMultiple(147));
+        $this->assertSame('Foo, Qix', $stepOne->checkIfMultiple(441));
+        $this->assertSame('Foo, Qix', $stepOne->checkIfMultiple(21609));
+    }
+
+    public function testMultipleOfFiveAndSevenShouldReturnBarQix()
+    {
+        $stepOne = new Service();
+        $this->assertSame('Bar, Qix', $stepOne->checkIfMultiple(35));
+        $this->assertSame('Bar, Qix', $stepOne->checkIfMultiple(245));
+        $this->assertSame('Bar, Qix', $stepOne->checkIfMultiple(1225));
+        $this->assertSame('Bar, Qix', $stepOne->checkIfMultiple(60025));
+    }
+
+    public function testMultipleOfThreeFiveAndSevenShouldReturnFooBarQix()
+    {
+        $stepOne = new Service();
+        $this->assertSame('Foo, Bar, Qix', $stepOne->checkIfMultiple(105));
+        $this->assertSame('Foo, Bar, Qix', $stepOne->checkIfMultiple(525));
+        $this->assertSame('Foo, Bar, Qix', $stepOne->checkIfMultiple(1575));
+        $this->assertSame('Foo, Bar, Qix', $stepOne->checkIfMultiple(11025));
     }
 }

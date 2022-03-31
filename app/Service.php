@@ -5,22 +5,24 @@ class Service
 {
     public function checkIfMultiple(int $number): string
     {
-        $foo = 3;
-        $resultFoo = 'Foo';
+        $options = [
+            'Foo' => 3,
+            'Bar' => 5,
+            'Qix' => 7
+        ];
 
-        $bar = 5;
-        $resultBar = 'Bar';
-
-        if($number % $foo === 0 && $number % $bar === 0){
-            $result = $resultFoo . $resultBar;
-        } elseif ($number % $foo === 0){
-            $result = $resultFoo;
-        } elseif ($number % $bar === 0){
-            $result = $resultBar;
-        } else{
-            $result = $number;
+        $result = '';
+        foreach ($options as $key => $value){
+            if($number % $value === 0){
+                $result .= $key;
+            }
         }
 
-        return $result;
+        if(strlen($result) === 0){
+            return $number;
+        } else{
+            return $result;
+        }
+
     }
 }

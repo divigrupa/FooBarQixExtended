@@ -40,6 +40,6 @@ class ServiceTest extends TestCase
         $this->assertSame('4', $stepOne->checkIfMultiple(4));
         $this->assertSame('8', $stepOne->checkIfMultiple(8));
         $this->assertSame('22', $stepOne->checkIfMultiple(22));
-        $this->assertSame('777', $stepOne->checkIfMultiple(773));
+        $this->assertSame('773', $stepOne->checkIfMultiple(773));
     }
 }

@@ -12,7 +12,7 @@ class Service
         $resultBar = 'Bar';
 
         if($number % $foo === 0 && $number % $bar === 0){
-            $result = $resultFoo . ', ' . $resultBar;
+            $result = $resultFoo . $resultBar;
         } elseif ($number % $foo === 0){
             $result = $resultFoo;
         } elseif ($number % $bar === 0){

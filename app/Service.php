@@ -25,4 +25,10 @@ class Service
         }
 
     }
+    public function checkIfContainsMultiple(int $number): string
+    {
+        return '';
+    }
+
+
 }

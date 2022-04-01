@@ -513,4 +513,16 @@ class ServiceInfQixFooTest extends TestCase
         $this->assertSame('Inf; Qix; Foo; Foo; Inf; Qix', $stepFour->verifyNumberIsInfQixFoo(38472));
     }
 
+    /**
+     * STEP 5: CHECK IF SUM OF ALL DIGITS IS MULTIPLE OF 8 (INF)
+    */
+    public function testSumOfAllDigitsIsMultipleOfEight()
+    {
+        $stepFive = new ServiceInfQixFoo();
+        $this->assertSame('Inf; Qix; Foo; Foo; Inf; QixInf', $stepFive->sumOfAllDigits(38472));
+        $this->assertSame('Inf; Qix; Foo; Foo; Qix', $stepFive->sumOfAllDigits(5376));
+        $this->assertSame('Inf; InfInf', $stepFive->sumOfAllDigits(8));
+        $this->assertSame('38471', $stepFive->sumOfAllDigits(38471));
+    }
+
 }

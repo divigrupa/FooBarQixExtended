@@ -40,5 +40,9 @@ class Service
         return $result;
     }
 
+    public function verifyNumber(int $number): string
+    {
+        return '';
+    }
 
 }

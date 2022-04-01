@@ -142,7 +142,7 @@ class ServiceTest extends TestCase
         $this->assertSame('FooQixBarFooQix', $stepThreeA->checkIfContainsMultiple(370053117));
         $this->assertSame('BarFooQix', $stepThreeA->checkIfContainsMultiple(5311700));
         $this->assertSame('BarQixFoo', $stepThreeA->checkIfContainsMultiple(5117003));
-        $this->assertSame('BarQixFooFooQix', $stepThreeA->checkIfContainsMultiple(3111703307));
+        $this->assertSame('BarQixFooFooQix', $stepThreeA->checkIfContainsMultiple(5111703307));
         $this->assertSame('QixFooBar', $stepThreeA->checkIfContainsMultiple(7035));
         $this->assertSame('QixBarFoo', $stepThreeA->checkIfContainsMultiple(70511113));
         $this->assertSame('QixBarFooFooQixBar', $stepThreeA->checkIfContainsMultiple(705311131715));

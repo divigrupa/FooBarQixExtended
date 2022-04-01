@@ -3,16 +3,16 @@ namespace App;
 
 class Service
 {
+    private array $options = [
+        'Foo' => 3,
+        'Bar' => 5,
+        'Qix' => 7
+    ];
+
     public function checkIfMultiple(int $number): string
     {
-        $options = [
-            'Foo' => 3,
-            'Bar' => 5,
-            'Qix' => 7
-        ];
-
         $result = '';
-        foreach ($options as $key => $value){
+        foreach ($this->options as $key => $value){
             if($number % $value === 0){
                 $result .= $key;
             }
@@ -23,11 +23,21 @@ class Service
         } else{
             return $result;
         }
-
     }
+
     public function checkIfContainsMultiple(int $number): string
     {
-        return '';
+        $result = '';
+        $digits = str_split($number, 1);
+
+        foreach ($digits as $digit){
+            if(in_array($digit, $this->options)){
+                $key = array_search($digit, $this->options);
+                $result .= $key;
+            }
+        }
+
+        return $result;
     }
 
 

@@ -42,7 +42,10 @@ class Service
 
     public function verifyNumber(int $number): string
     {
-        return '';
+        $result = $this->checkIfMultiple($number);
+        $result .= $this->checkIfContainsMultiple($number);
+
+        return $result;
     }
 
 }

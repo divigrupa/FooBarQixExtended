@@ -324,10 +324,10 @@ class ServiceTest extends TestCase
         $this->assertSame('FooBarFoo', $stepThreeB->verifyNumber(30));
     }
     /* multiple 3-7 contains 3 */
-    public function testMultipleOfThreeAndWithThreeShouldReturnFooQixAppendFoo()
+    public function testMultipleOfThreeAndSevenWithThreeShouldReturnFooQixAppendFoo()
     {
         $stepThreeB = new Service();
-        $this->assertSame('FooQixBar', $stepThreeB->verifyNumber(231));
+        $this->assertSame('FooQixFoo', $stepThreeB->verifyNumber(231));
     }
     /* multiple 5-7 contains 3 */
     public function testMultipleOfFiveAndSevenWithThreeShouldReturnBarQixAppendFoo()
@@ -407,7 +407,7 @@ class ServiceTest extends TestCase
     {
         $stepThreeB = new Service();
         $this->assertSame('FooBarFooQix', $stepThreeB->verifyNumber(13710));
-        $this->assertSame('FooBarQixQixFoo', $stepThreeB->verifyNumber(17310));
+        $this->assertSame('FooBarQixFoo', $stepThreeB->verifyNumber(17310));
     }
     /* multiple 3-5 contains 5-7 */
     public function testMultipleOfThreeAndFiveWithFiveAndSevenShouldReturnFooBarAppendBarQix()
@@ -453,7 +453,7 @@ class ServiceTest extends TestCase
     {
         $stepThreeB = new Service();
         $this->assertSame('FooQixFooBarQix', $stepThreeB->verifyNumber(357));
-        $this->assertSame('FooQixBarQixBarFoo', $stepThreeB->verifyNumber(7539));
+        $this->assertSame('FooQixQixBarFoo', $stepThreeB->verifyNumber(7539));
     }
 
     ###############################################################################################
@@ -475,7 +475,7 @@ class ServiceTest extends TestCase
     public function testMultipleOfFiveAndSevenWithFiveAndSevenShouldReturnBarQixAppendBarQix()
     {
         $stepThreeB = new Service();
-        $this->assertSame('BarQixBarQix', $stepThreeB->verifyNumber(8057));
+        $this->assertSame('BarQixBarQixBar', $stepThreeB->verifyNumber(5705));
         $this->assertSame('BarQixQixBar', $stepThreeB->verifyNumber(175));
     }
     /* multiple 5-7 contains 3-5-7 */

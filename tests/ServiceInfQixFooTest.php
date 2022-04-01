@@ -94,7 +94,7 @@ class ServiceInfQixFooTest extends TestCase
         $stepFour = new ServiceInfQixFoo();
         $this->assertSame('Qix', $stepFour->checkIfContainsMultiple(17));
         $this->assertSame('Qix; Qix', $stepFour->checkIfContainsMultiple(77));
-        $this->assertSame('Qix; Qix; Qix', $stepFour->checkIfContainsMultiple(7877));
+        $this->assertSame('Qix; Qix; Qix', $stepFour->checkIfContainsMultiple(7677));
     }
     /* contains 3 */
     public function testNumberContainsThreeShouldReturnFoo()
@@ -102,7 +102,7 @@ class ServiceInfQixFooTest extends TestCase
         $stepFour = new ServiceInfQixFoo();
         $this->assertSame('Foo', $stepFour->checkIfContainsMultiple(13));
         $this->assertSame('Foo; Foo', $stepFour->checkIfContainsMultiple(33));
-        $this->assertSame('Foo; Foo; Foo', $stepFour->checkIfContainsMultiple(343883));
+        $this->assertSame('Foo; Foo; Foo', $stepFour->checkIfContainsMultiple(343663));
     }
     /* contains 8-7 */
     public function testNumberContainsEightAndSevenShouldReturnInfQix()
@@ -119,7 +119,7 @@ class ServiceInfQixFooTest extends TestCase
         $stepFour = new ServiceInfQixFoo();
         $this->assertSame('Foo; Inf', $stepFour->checkIfContainsMultiple(38));
         $this->assertSame('Inf; Foo', $stepFour->checkIfContainsMultiple(8036));
-        $this->assertSame('Inf; Foo; Inf', $stepFour->checkIfContainsMultiple(883448));
+        $this->assertSame('Inf; Inf; Foo; Inf', $stepFour->checkIfContainsMultiple(883448));
         $this->assertSame('Inf; Foo; Foo', $stepFour->checkIfContainsMultiple(822303));
     }
     /* contains 7-3 */
@@ -238,7 +238,7 @@ class ServiceInfQixFooTest extends TestCase
     {
         $stepFour = new ServiceInfQixFoo();
         $this->assertSame('Qix; Foo; Inf', $stepFour->verifyNumberIsInfQixFoo(308));
-        $this->assertSame('Qix; Inf; Foo', $stepFour->verifyNumberIsInfQixFoo(283));
+        $this->assertSame('Qix; Inf; Foo; Foo', $stepFour->verifyNumberIsInfQixFoo(833));
     }
     /* multiple 7 contains 7-3 */
     public function testMultipleOfSevenContainsSevenAndThreeShouldReturnQixAppendQixFoo()
@@ -496,7 +496,7 @@ class ServiceInfQixFooTest extends TestCase
     {
         $stepFour = new ServiceInfQixFoo();
         $this->assertSame('Inf; Qix; Foo; Foo; Inf; Inf', $stepFour->verifyNumberIsInfQixFoo(36288));
-        $this->assertSame('Inf; Qix; Foo; Inf; Foo', $stepFour->verifyNumberIsInfQixFoo(958032));
+        $this->assertSame('Inf; Qix; Foo; Foo; Inf', $stepFour->verifyNumberIsInfQixFoo(399168));
     }
     /* multiple 8-7-3 contains 7-3 */
     public function testMultipleOfEightSevenAndThreeContainsSevenAndThreeShouldReturnInfQixFooAppendQixFoo()
@@ -509,9 +509,8 @@ class ServiceInfQixFooTest extends TestCase
     public function testMultipleOfEightSevenAndThreeContainsEightSevenAndThreeShouldReturnInfQixFooAppendInfQixFoo()
     {
         $stepFour = new ServiceInfQixFoo();
-        $this->assertSame('Inf; Qix; Foo; Foo; Qix; Inf', $stepFour->verifyNumberIsFooInfQix(37968));
-        $this->assertSame('Inf; Qix; Foo; Foo; Inf; Qix', $stepFour->verifyNumberIsFooInfQix(38472));
-        $this->assertSame('Inf; Qix; Foo; Foo; Qix; Inf; Inf', $stepFour->verifyNumberIsFooInfQix());
+        $this->assertSame('Inf; Qix; Foo; Foo; Qix; Inf', $stepFour->verifyNumberIsInfQixFoo(37968));
+        $this->assertSame('Inf; Qix; Foo; Foo; Inf; Qix', $stepFour->verifyNumberIsInfQixFoo(38472));
     }
 
 }

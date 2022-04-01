@@ -49,6 +49,19 @@ class ServiceInfQixFoo
         $result = $this->checkIfMultiple($number) . '; ';
         $result .= $this->checkIfContainsMultiple($number);
 
-        return $result;
+        return rtrim($result, '; ');
+    }
+
+    public function sumOfAllDigits(int $number): string
+    {
+        $multiple = $this->infQixFoo['Inf'];
+        $digits = str_split($number, 1);
+        $sum = array_sum($digits);
+
+        if($sum % $multiple === 0){
+            return $this->verifyNumberIsInfQixFoo($number) . array_search($multiple, $this->infQixFoo);
+        } else{
+            return $this->verifyNumberIsInfQixFoo($number);
+        }
     }
 }

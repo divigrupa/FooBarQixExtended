@@ -522,7 +522,7 @@ class ServiceInfQixFooTest extends TestCase
         $this->assertSame('Inf; Qix; Foo; Foo; Inf; QixInf', $stepFive->sumOfAllDigits(38472));
         $this->assertSame('Inf; Qix; Foo; Foo; Qix', $stepFive->sumOfAllDigits(5376));
         $this->assertSame('Inf; InfInf', $stepFive->sumOfAllDigits(8));
-        $this->assertSame('38471', $stepFive->sumOfAllDigits(38471));
+        $this->assertSame('112106', $stepFive->sumOfAllDigits(112106));
     }
 
 }

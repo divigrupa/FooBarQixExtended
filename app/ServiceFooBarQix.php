@@ -47,7 +47,7 @@ class ServiceFooBarQix
         $result = $this->checkIfMultiple($number) . ', ';
         $result .= $this->checkIfContainsMultiple($number);
 
-        return $result;
+        return rtrim($result, ', ');
     }
 
 }

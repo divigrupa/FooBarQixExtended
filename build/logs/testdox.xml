@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfEightShouldReturnInf" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of eight should return inf" status="0" time="0.00189" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfSevenShouldReturnQix" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of seven should return qix" status="0" time="0.0002297" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfThreeShouldReturnFoo" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of three should return foo" status="0" time="0.0001588" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfEightAndSevenShouldReturnInfQix" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of eight and seven should return inf qix" status="0" time="0.0001025" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfEightAndThreeShouldReturnInfFoo" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of eight and three should return inf foo" status="0" time="0.0001907" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfSevenAndThreeShouldReturnQixFoo" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of seven and three should return qix foo" status="0" time="0.0001679" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfEightSevenAndThreeShouldReturnInfQixFoo" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of eight seven and three should return inf qix foo" status="0" time="0.0001052" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleShouldReturnNumber" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple should return number" status="0" time="0.000105" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testNumberContainsEightShouldReturnInf" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Number contains eight should return inf" status="0" time="0.000372" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testNumberContainsSevenShouldReturnQix" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Number contains seven should return qix" status="0" time="0.0001939" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testNumberContainsThreeShouldReturnFoo" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Number contains three should return foo" status="0" time="0.0001611" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testNumberContainsEightAndSevenShouldReturnInfQix" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Number contains eight and seven should return inf qix" status="0" time="0.0002088" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testNumberContainsEightAndThreeShouldReturnInfFoo" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Number contains eight and three should return inf foo" status="0" time="0.0001242" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testNumberContainsSevenAndThreeShouldReturnQixFoo" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Number contains seven and three should return qix foo" status="0" time="0.0002056" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testNumberContainsThreeEightAndSevenShouldReturnFooInfQix" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Number contains three eight and seven should return foo inf qix" status="0" time="0.0003311" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfEightContainsThreeShouldReturnInfAppendFoo" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of eight contains three should return inf append foo" status="0" time="0.000191" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfEightContainsSevenShouldReturnInfAppendQix" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of eight contains seven should return inf append qix" status="0" time="0.0001682" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfEightContainsEightShouldReturnInfAppendInf" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of eight contains eight should return inf append inf" status="0" time="0.0001617" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfEightContainsEightAndSevenShouldReturnInfAppendInfQix" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of eight contains eight and seven should return inf append inf qix" status="0" time="0.0001101" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfEightContainsEightAndThreeShouldReturnInfAppendInfFoo" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of eight contains eight and three should return inf append inf foo" status="0" time="0.0002499" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfEightContainsSevenAndThreeShouldReturnInfAppendQixFoo" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of eight contains seven and three should return inf append qix foo" status="0" time="0.0001805" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfEightContainsEightSevenAndThreeShouldReturnInfAppendInfQixFoo" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of eight contains eight seven and three should return inf append inf qix foo" status="0" time="0.0001724" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfSevenContainsEightShouldReturnQixAppendInf" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of seven contains eight should return qix append inf" status="0" time="0.0001035" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfSevenContainsSevenShouldReturnQixAppendQix" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of seven contains seven should return qix append qix" status="0" time="0.0001528" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfSevenContainsThreeShouldReturnQixAppendFoo" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of seven contains three should return qix append foo" status="0" time="0.0001532" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfSevenContainsEightAndSevenShouldReturnQixAppendInfQix" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of seven contains eight and seven should return qix append inf qix" status="0" time="0.0001203" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfSevenContainsEightAndThreeShouldReturnQixAppendFooInf" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of seven contains eight and three should return qix append foo inf" status="0" time="0.0001241" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfSevenContainsSevenAndThreeShouldReturnQixAppendQixFoo" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of seven contains seven and three should return qix append qix foo" status="0" time="0.0001132" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfSevenContainsThreeEightAndSevenShouldReturnQixAppendInfQixFoo" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of seven contains three eight and seven should return qix append inf qix foo" status="0" time="0.0002061" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfThreeContainsEightShouldReturnFooAppendInf" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of three contains eight should return foo append inf" status="0" time="0.0001024" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfThreeContainsSevenShouldReturnFooAppendQix" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of three contains seven should return foo append qix" status="0" time="0.0001158" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfThreeContainsTreeShouldReturnFooAppendFoo" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of three contains tree should return foo append foo" status="0" time="0.0001017" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfThreeContainsEightAndSevenShouldReturnFooAppendInfQix" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of three contains eight and seven should return foo append inf qix" status="0" time="9.36E-5" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfThreeContainsEightAndTreeShouldReturnFooAppendInfFoo" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of three contains eight and tree should return foo append inf foo" status="0" time="0.0018573" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfThreeContainsSevenAndThreeShouldReturnFooAppendQixFoo" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of three contains seven and three should return foo append qix foo" status="0" time="0.0001519" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfThreeContainsEightSevenAndThreeShouldReturnFooAppendInfQixFoo" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of three contains eight seven and three should return foo append inf qix foo" status="0" time="0.0002644" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfEightAndSevenContainsEightShouldReturnInfQixAppendInf" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of eight and seven contains eight should return inf qix append inf" status="0" time="0.0001437" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfEightAndThreeContainsEightShouldReturnInfFooAppendInf" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of eight and three contains eight should return inf foo append inf" status="0" time="9.44E-5" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfSevenAndThreeContainsEightShouldReturnQixFooAppendInf" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of seven and three contains eight should return qix foo append inf" status="0" time="9.6E-5" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfEightSevenAndThreeContainsEightShouldReturnInfQixFooAppendInf" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of eight seven and three contains eight should return inf qix foo append inf" status="0" time="0.000189" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfEightAndSevenContainsSevenShouldReturnInfQixAppendQix" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of eight and seven contains seven should return inf qix append qix" status="0" time="9.83E-5" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfEightAndThreeContainsSevenShouldReturnInfFooAppendQix" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of eight and three contains seven should return inf foo append qix" status="0" time="0.0001057" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfSevenAndThreeContainsSevenShouldReturnQixFooAppendQix" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of seven and three contains seven should return qix foo append qix" status="0" time="9.75E-5" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfEightSevenAndThreeContainsSevenShouldReturnInfQixFooAppendQix" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of eight seven and three contains seven should return inf qix foo append qix" status="0" time="9.25E-5" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfEightAndSevenContainsThreeShouldReturnInfQixAppendFoo" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of eight and seven contains three should return inf qix append foo" status="0" time="0.000212" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfEightAndThreeContainsThreeShouldReturnInfFooAppendFoo" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of eight and three contains three should return inf foo append foo" status="0" time="0.0001635" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfSevenAndThreeContainsThreeShouldReturnQixFooAppendFoo" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of seven and three contains three should return qix foo append foo" status="0" time="0.0001897" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfEightSevenAndThreeContainsThreeShouldReturnInfQixFooAppendFoo" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of eight seven and three contains three should return inf qix foo append foo" status="0" time="0.000169" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfEightAndSevenContainsEightAndSevenShouldReturnInfQixAppendInfQix" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of eight and seven contains eight and seven should return inf qix append inf qix" status="0" time="0.0001869" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfEightAndSevenContainsEightAndThreeShouldReturnInfQixAppendInfFoo" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of eight and seven contains eight and three should return inf qix append inf foo" status="0" time="0.0001906" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfEightAndSevenContainsSevenAndThreeShouldReturnInfQixAppendQixFoo" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of eight and seven contains seven and three should return inf qix append qix foo" status="0" time="0.0002004" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfEightAndSevenContainsEightSevenAndThreeShouldReturnInfQixAppendInfQixFoo" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of eight and seven contains eight seven and three should return inf qix append inf qix foo" status="0" time="0.0001137" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfEightAndThreeContainsEightAndSevenShouldReturnInfFooAppendInfQix" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of eight and three contains eight and seven should return inf foo append inf qix" status="0" time="0.0001032" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfEightAndThreeContainsEightAndThreeShouldReturnInfFooAppendInfFoo" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of eight and three contains eight and three should return inf foo append inf foo" status="0" time="0.0001764" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfEightAndThreeContainsSevenAndThreeShouldReturnInfFooAppendQixFoo" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of eight and three contains seven and three should return inf foo append qix foo" status="0" time="0.0001759" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfEightAndThreeContainsEightSevenAndTreeShouldReturnInfFooAppendInfQixFoo" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of eight and three contains eight seven and tree should return inf foo append inf qix foo" status="0" time="0.0001746" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfSevenAndThreeContainsEightAndSevenShouldReturnQixFooAppendInfQix" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of seven and three contains eight and seven should return qix foo append inf qix" status="0" time="0.0001887" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfSevenAndThreeContainsEightAndThreeShouldReturnQixFooAppendInfFoo" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of seven and three contains eight and three should return qix foo append inf foo" status="0" time="0.0001878" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfSevenAndThreeContainsSevenAndThreeShouldReturnQixFooAppendQixFoo" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of seven and three contains seven and three should return qix foo append qix foo" status="0" time="0.000205" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfSevenAndThreeContainsEightSevenAndThreeShouldReturnQixFooAppendInfQixFoo" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of seven and three contains eight seven and three should return qix foo append inf qix foo" status="0" time="0.0002017" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfEightSevenAndThreeContainsEightAndSevenShouldReturnInfQixFooAppendInfQix" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of eight seven and three contains eight and seven should return inf qix foo append inf qix" status="0" time="0.0001952" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfEightSevenAndThreeContainsEightAndThreeShouldReturnInfQixFooAppendInfFoo" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of eight seven and three contains eight and three should return inf qix foo append inf foo" status="0" time="0.0001564" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfEightSevenAndThreeContainsSevenAndThreeShouldReturnInfQixFooAppendQixFoo" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of eight seven and three contains seven and three should return inf qix foo append qix foo" status="0" time="0.0001089" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testMultipleOfEightSevenAndThreeContainsEightSevenAndThreeShouldReturnInfQixFooAppendInfQixFoo" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Multiple of eight seven and three contains eight seven and three should return inf qix foo append inf qix foo" status="0" time="0.0001338" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="Tests\ServiceInfQixFooTest" methodName="testSumOfAllDigitsIsMultipleOfEight" prettifiedClassName="Service Inf Qix Foo (Tests\ServiceInfQixFoo)" prettifiedMethodName="Sum of all digits is multiple of eight" status="0" time="0.0001394" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+</tests>

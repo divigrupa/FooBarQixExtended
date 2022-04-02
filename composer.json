@@ -1,0 +1,15 @@
+{
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/",
+      "Tests\\": "tests/"
+    }
+  },
+
+  "require": {
+    "phpunit/phpunit": "^9.5"
+  },
+  "require-dev": {
+    "phpunit/php-code-coverage": "^9.2"
+  }
+}

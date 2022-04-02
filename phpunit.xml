@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit
+    bootstrap="vendor/autoload.php"
+    colors="true"
+    stopOnFailure="false"
+    cacheResult="false"
+    testdox="true">
+
+  <coverage
+      cacheDirectory="build/phpunit/cache"
+      includeUncoveredFiles="true"
+      processUncoveredFiles="true"
+      pathCoverage="false"
+      ignoreDeprecatedCodeUnits="true"
+      disableCodeCoverageIgnore="true">
+
+      <include>
+          <directory suffix=".php">app</directory>
+          <file>app/ServiceFooBarQix.php</file>
+          <file>app/ServiceInfQixFoo.php</file>
+      </include>
+
+      <report>
+          <clover outputFile="clover.xml"/>
+          <html outputDirectory="build/html-coverage" lowUpperBound="50" highLowerBound="90"/>
+          <php outputFile="coverage.php"/>
+          <text outputFile="coverage.txt" showUncoveredFiles="false" showOnlySummary="true"/>
+          <xml outputDirectory="build/xml-coverage"/>
+      </report>
+  </coverage>
+
+  <testsuites>
+    <testsuite name="FooBarQix">
+      <file>app/ServiceFooBarQix.php</file>
+      <directory>tests</directory>
+    </testsuite>
+    <testsuite name="InfQixFoo">
+      <file>app/ServiceInfQixFoo.php</file>
+      <directory>tests</directory>
+    </testsuite>
+  </testsuites>
+
+    <logging>
+        <junit outputFile="build/logs/junit.xml"/>
+        <teamcity outputFile="build/logs/teamcity.txt"/>
+        <testdoxHtml outputFile="build/logs/testdox.html"/>
+        <testdoxText outputFile="build/logs/testdox.txt"/>
+        <testdoxXml outputFile="build/logs/testdox.xml"/>
+        <text outputFile="build/logs/logfile.txt"/>
+    </logging>
+
+
+</phpunit>

@@ -1,0 +1,266 @@
+
+##teamcity[testCount count='65' flowId='16559']
+
+##teamcity[testSuiteStarted name='Tests\ServiceInfQixFooTest' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfEightShouldReturnInf' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfEightShouldReturnInf' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfEightShouldReturnInf' duration='2' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfSevenShouldReturnQix' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfSevenShouldReturnQix' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfSevenShouldReturnQix' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfThreeShouldReturnFoo' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfThreeShouldReturnFoo' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfThreeShouldReturnFoo' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfEightAndSevenShouldReturnInfQix' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfEightAndSevenShouldReturnInfQix' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfEightAndSevenShouldReturnInfQix' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfEightAndThreeShouldReturnInfFoo' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfEightAndThreeShouldReturnInfFoo' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfEightAndThreeShouldReturnInfFoo' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfSevenAndThreeShouldReturnQixFoo' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfSevenAndThreeShouldReturnQixFoo' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfSevenAndThreeShouldReturnQixFoo' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfEightSevenAndThreeShouldReturnInfQixFoo' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfEightSevenAndThreeShouldReturnInfQixFoo' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfEightSevenAndThreeShouldReturnInfQixFoo' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleShouldReturnNumber' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleShouldReturnNumber' flowId='16559']
+
+##teamcity[testFinished name='testMultipleShouldReturnNumber' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testNumberContainsEightShouldReturnInf' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testNumberContainsEightShouldReturnInf' flowId='16559']
+
+##teamcity[testFinished name='testNumberContainsEightShouldReturnInf' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testNumberContainsSevenShouldReturnQix' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testNumberContainsSevenShouldReturnQix' flowId='16559']
+
+##teamcity[testFinished name='testNumberContainsSevenShouldReturnQix' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testNumberContainsThreeShouldReturnFoo' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testNumberContainsThreeShouldReturnFoo' flowId='16559']
+
+##teamcity[testFinished name='testNumberContainsThreeShouldReturnFoo' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testNumberContainsEightAndSevenShouldReturnInfQix' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testNumberContainsEightAndSevenShouldReturnInfQix' flowId='16559']
+
+##teamcity[testFinished name='testNumberContainsEightAndSevenShouldReturnInfQix' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testNumberContainsEightAndThreeShouldReturnInfFoo' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testNumberContainsEightAndThreeShouldReturnInfFoo' flowId='16559']
+
+##teamcity[testFinished name='testNumberContainsEightAndThreeShouldReturnInfFoo' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testNumberContainsSevenAndThreeShouldReturnQixFoo' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testNumberContainsSevenAndThreeShouldReturnQixFoo' flowId='16559']
+
+##teamcity[testFinished name='testNumberContainsSevenAndThreeShouldReturnQixFoo' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testNumberContainsThreeEightAndSevenShouldReturnFooInfQix' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testNumberContainsThreeEightAndSevenShouldReturnFooInfQix' flowId='16559']
+
+##teamcity[testFinished name='testNumberContainsThreeEightAndSevenShouldReturnFooInfQix' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfEightContainsThreeShouldReturnInfAppendFoo' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfEightContainsThreeShouldReturnInfAppendFoo' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfEightContainsThreeShouldReturnInfAppendFoo' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfEightContainsSevenShouldReturnInfAppendQix' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfEightContainsSevenShouldReturnInfAppendQix' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfEightContainsSevenShouldReturnInfAppendQix' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfEightContainsEightShouldReturnInfAppendInf' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfEightContainsEightShouldReturnInfAppendInf' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfEightContainsEightShouldReturnInfAppendInf' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfEightContainsEightAndSevenShouldReturnInfAppendInfQix' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfEightContainsEightAndSevenShouldReturnInfAppendInfQix' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfEightContainsEightAndSevenShouldReturnInfAppendInfQix' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfEightContainsEightAndThreeShouldReturnInfAppendInfFoo' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfEightContainsEightAndThreeShouldReturnInfAppendInfFoo' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfEightContainsEightAndThreeShouldReturnInfAppendInfFoo' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfEightContainsSevenAndThreeShouldReturnInfAppendQixFoo' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfEightContainsSevenAndThreeShouldReturnInfAppendQixFoo' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfEightContainsSevenAndThreeShouldReturnInfAppendQixFoo' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfEightContainsEightSevenAndThreeShouldReturnInfAppendInfQixFoo' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfEightContainsEightSevenAndThreeShouldReturnInfAppendInfQixFoo' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfEightContainsEightSevenAndThreeShouldReturnInfAppendInfQixFoo' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfSevenContainsEightShouldReturnQixAppendInf' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfSevenContainsEightShouldReturnQixAppendInf' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfSevenContainsEightShouldReturnQixAppendInf' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfSevenContainsSevenShouldReturnQixAppendQix' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfSevenContainsSevenShouldReturnQixAppendQix' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfSevenContainsSevenShouldReturnQixAppendQix' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfSevenContainsThreeShouldReturnQixAppendFoo' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfSevenContainsThreeShouldReturnQixAppendFoo' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfSevenContainsThreeShouldReturnQixAppendFoo' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfSevenContainsEightAndSevenShouldReturnQixAppendInfQix' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfSevenContainsEightAndSevenShouldReturnQixAppendInfQix' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfSevenContainsEightAndSevenShouldReturnQixAppendInfQix' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfSevenContainsEightAndThreeShouldReturnQixAppendFooInf' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfSevenContainsEightAndThreeShouldReturnQixAppendFooInf' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfSevenContainsEightAndThreeShouldReturnQixAppendFooInf' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfSevenContainsSevenAndThreeShouldReturnQixAppendQixFoo' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfSevenContainsSevenAndThreeShouldReturnQixAppendQixFoo' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfSevenContainsSevenAndThreeShouldReturnQixAppendQixFoo' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfSevenContainsThreeEightAndSevenShouldReturnQixAppendInfQixFoo' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfSevenContainsThreeEightAndSevenShouldReturnQixAppendInfQixFoo' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfSevenContainsThreeEightAndSevenShouldReturnQixAppendInfQixFoo' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfThreeContainsEightShouldReturnFooAppendInf' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfThreeContainsEightShouldReturnFooAppendInf' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfThreeContainsEightShouldReturnFooAppendInf' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfThreeContainsSevenShouldReturnFooAppendQix' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfThreeContainsSevenShouldReturnFooAppendQix' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfThreeContainsSevenShouldReturnFooAppendQix' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfThreeContainsTreeShouldReturnFooAppendFoo' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfThreeContainsTreeShouldReturnFooAppendFoo' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfThreeContainsTreeShouldReturnFooAppendFoo' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfThreeContainsEightAndSevenShouldReturnFooAppendInfQix' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfThreeContainsEightAndSevenShouldReturnFooAppendInfQix' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfThreeContainsEightAndSevenShouldReturnFooAppendInfQix' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfThreeContainsEightAndTreeShouldReturnFooAppendInfFoo' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfThreeContainsEightAndTreeShouldReturnFooAppendInfFoo' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfThreeContainsEightAndTreeShouldReturnFooAppendInfFoo' duration='2' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfThreeContainsSevenAndThreeShouldReturnFooAppendQixFoo' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfThreeContainsSevenAndThreeShouldReturnFooAppendQixFoo' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfThreeContainsSevenAndThreeShouldReturnFooAppendQixFoo' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfThreeContainsEightSevenAndThreeShouldReturnFooAppendInfQixFoo' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfThreeContainsEightSevenAndThreeShouldReturnFooAppendInfQixFoo' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfThreeContainsEightSevenAndThreeShouldReturnFooAppendInfQixFoo' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfEightAndSevenContainsEightShouldReturnInfQixAppendInf' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfEightAndSevenContainsEightShouldReturnInfQixAppendInf' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfEightAndSevenContainsEightShouldReturnInfQixAppendInf' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfEightAndThreeContainsEightShouldReturnInfFooAppendInf' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfEightAndThreeContainsEightShouldReturnInfFooAppendInf' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfEightAndThreeContainsEightShouldReturnInfFooAppendInf' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfSevenAndThreeContainsEightShouldReturnQixFooAppendInf' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfSevenAndThreeContainsEightShouldReturnQixFooAppendInf' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfSevenAndThreeContainsEightShouldReturnQixFooAppendInf' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfEightSevenAndThreeContainsEightShouldReturnInfQixFooAppendInf' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfEightSevenAndThreeContainsEightShouldReturnInfQixFooAppendInf' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfEightSevenAndThreeContainsEightShouldReturnInfQixFooAppendInf' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfEightAndSevenContainsSevenShouldReturnInfQixAppendQix' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfEightAndSevenContainsSevenShouldReturnInfQixAppendQix' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfEightAndSevenContainsSevenShouldReturnInfQixAppendQix' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfEightAndThreeContainsSevenShouldReturnInfFooAppendQix' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfEightAndThreeContainsSevenShouldReturnInfFooAppendQix' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfEightAndThreeContainsSevenShouldReturnInfFooAppendQix' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfSevenAndThreeContainsSevenShouldReturnQixFooAppendQix' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfSevenAndThreeContainsSevenShouldReturnQixFooAppendQix' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfSevenAndThreeContainsSevenShouldReturnQixFooAppendQix' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfEightSevenAndThreeContainsSevenShouldReturnInfQixFooAppendQix' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfEightSevenAndThreeContainsSevenShouldReturnInfQixFooAppendQix' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfEightSevenAndThreeContainsSevenShouldReturnInfQixFooAppendQix' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfEightAndSevenContainsThreeShouldReturnInfQixAppendFoo' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfEightAndSevenContainsThreeShouldReturnInfQixAppendFoo' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfEightAndSevenContainsThreeShouldReturnInfQixAppendFoo' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfEightAndThreeContainsThreeShouldReturnInfFooAppendFoo' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfEightAndThreeContainsThreeShouldReturnInfFooAppendFoo' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfEightAndThreeContainsThreeShouldReturnInfFooAppendFoo' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfSevenAndThreeContainsThreeShouldReturnQixFooAppendFoo' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfSevenAndThreeContainsThreeShouldReturnQixFooAppendFoo' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfSevenAndThreeContainsThreeShouldReturnQixFooAppendFoo' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfEightSevenAndThreeContainsThreeShouldReturnInfQixFooAppendFoo' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfEightSevenAndThreeContainsThreeShouldReturnInfQixFooAppendFoo' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfEightSevenAndThreeContainsThreeShouldReturnInfQixFooAppendFoo' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfEightAndSevenContainsEightAndSevenShouldReturnInfQixAppendInfQix' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfEightAndSevenContainsEightAndSevenShouldReturnInfQixAppendInfQix' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfEightAndSevenContainsEightAndSevenShouldReturnInfQixAppendInfQix' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfEightAndSevenContainsEightAndThreeShouldReturnInfQixAppendInfFoo' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfEightAndSevenContainsEightAndThreeShouldReturnInfQixAppendInfFoo' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfEightAndSevenContainsEightAndThreeShouldReturnInfQixAppendInfFoo' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfEightAndSevenContainsSevenAndThreeShouldReturnInfQixAppendQixFoo' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfEightAndSevenContainsSevenAndThreeShouldReturnInfQixAppendQixFoo' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfEightAndSevenContainsSevenAndThreeShouldReturnInfQixAppendQixFoo' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfEightAndSevenContainsEightSevenAndThreeShouldReturnInfQixAppendInfQixFoo' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfEightAndSevenContainsEightSevenAndThreeShouldReturnInfQixAppendInfQixFoo' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfEightAndSevenContainsEightSevenAndThreeShouldReturnInfQixAppendInfQixFoo' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfEightAndThreeContainsEightAndSevenShouldReturnInfFooAppendInfQix' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfEightAndThreeContainsEightAndSevenShouldReturnInfFooAppendInfQix' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfEightAndThreeContainsEightAndSevenShouldReturnInfFooAppendInfQix' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfEightAndThreeContainsEightAndThreeShouldReturnInfFooAppendInfFoo' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfEightAndThreeContainsEightAndThreeShouldReturnInfFooAppendInfFoo' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfEightAndThreeContainsEightAndThreeShouldReturnInfFooAppendInfFoo' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfEightAndThreeContainsSevenAndThreeShouldReturnInfFooAppendQixFoo' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfEightAndThreeContainsSevenAndThreeShouldReturnInfFooAppendQixFoo' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfEightAndThreeContainsSevenAndThreeShouldReturnInfFooAppendQixFoo' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfEightAndThreeContainsEightSevenAndTreeShouldReturnInfFooAppendInfQixFoo' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfEightAndThreeContainsEightSevenAndTreeShouldReturnInfFooAppendInfQixFoo' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfEightAndThreeContainsEightSevenAndTreeShouldReturnInfFooAppendInfQixFoo' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfSevenAndThreeContainsEightAndSevenShouldReturnQixFooAppendInfQix' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfSevenAndThreeContainsEightAndSevenShouldReturnQixFooAppendInfQix' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfSevenAndThreeContainsEightAndSevenShouldReturnQixFooAppendInfQix' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfSevenAndThreeContainsEightAndThreeShouldReturnQixFooAppendInfFoo' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfSevenAndThreeContainsEightAndThreeShouldReturnQixFooAppendInfFoo' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfSevenAndThreeContainsEightAndThreeShouldReturnQixFooAppendInfFoo' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfSevenAndThreeContainsSevenAndThreeShouldReturnQixFooAppendQixFoo' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfSevenAndThreeContainsSevenAndThreeShouldReturnQixFooAppendQixFoo' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfSevenAndThreeContainsSevenAndThreeShouldReturnQixFooAppendQixFoo' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfSevenAndThreeContainsEightSevenAndThreeShouldReturnQixFooAppendInfQixFoo' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfSevenAndThreeContainsEightSevenAndThreeShouldReturnQixFooAppendInfQixFoo' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfSevenAndThreeContainsEightSevenAndThreeShouldReturnQixFooAppendInfQixFoo' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfEightSevenAndThreeContainsEightAndSevenShouldReturnInfQixFooAppendInfQix' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfEightSevenAndThreeContainsEightAndSevenShouldReturnInfQixFooAppendInfQix' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfEightSevenAndThreeContainsEightAndSevenShouldReturnInfQixFooAppendInfQix' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfEightSevenAndThreeContainsEightAndThreeShouldReturnInfQixFooAppendInfFoo' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfEightSevenAndThreeContainsEightAndThreeShouldReturnInfQixFooAppendInfFoo' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfEightSevenAndThreeContainsEightAndThreeShouldReturnInfQixFooAppendInfFoo' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfEightSevenAndThreeContainsSevenAndThreeShouldReturnInfQixFooAppendQixFoo' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfEightSevenAndThreeContainsSevenAndThreeShouldReturnInfQixFooAppendQixFoo' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfEightSevenAndThreeContainsSevenAndThreeShouldReturnInfQixFooAppendQixFoo' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testMultipleOfEightSevenAndThreeContainsEightSevenAndThreeShouldReturnInfQixFooAppendInfQixFoo' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testMultipleOfEightSevenAndThreeContainsEightSevenAndThreeShouldReturnInfQixFooAppendInfQixFoo' flowId='16559']
+
+##teamcity[testFinished name='testMultipleOfEightSevenAndThreeContainsEightSevenAndThreeShouldReturnInfQixFooAppendInfQixFoo' duration='0' flowId='16559']
+
+##teamcity[testStarted name='testSumOfAllDigitsIsMultipleOfEight' locationHint='php_qn:///home/banibai/FooBarQixExtended/tests/ServiceInfQixFooTest.php::\Tests\ServiceInfQixFooTest::testSumOfAllDigitsIsMultipleOfEight' flowId='16559']
+
+##teamcity[testFinished name='testSumOfAllDigitsIsMultipleOfEight' duration='0' flowId='16559']
+
+##teamcity[testSuiteFinished name='Tests\ServiceInfQixFooTest' flowId='16559']

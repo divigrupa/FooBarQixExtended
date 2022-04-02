@@ -20,11 +20,7 @@ class ServiceFooBarQix
             }
         }
 
-        if(strlen($result) === 0){
-            return $number;
-        } else{
-            return rtrim($result, ', ');
-        }
+        return (strlen($result) === 0) ? $number : rtrim($result, ', ');
     }
 
     public function checkIfContainsMultiple(int $number): string

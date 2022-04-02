@@ -1,0 +1,67 @@
+Service Inf Qix Foo (Tests\ServiceInfQixFoo)
+ [x] Multiple of eight should return inf
+ [x] Multiple of seven should return qix
+ [x] Multiple of three should return foo
+ [x] Multiple of eight and seven should return inf qix
+ [x] Multiple of eight and three should return inf foo
+ [x] Multiple of seven and three should return qix foo
+ [x] Multiple of eight seven and three should return inf qix foo
+ [x] Multiple should return number
+ [x] Number contains eight should return inf
+ [x] Number contains seven should return qix
+ [x] Number contains three should return foo
+ [x] Number contains eight and seven should return inf qix
+ [x] Number contains eight and three should return inf foo
+ [x] Number contains seven and three should return qix foo
+ [x] Number contains three eight and seven should return foo inf qix
+ [x] Multiple of eight contains three should return inf append foo
+ [x] Multiple of eight contains seven should return inf append qix
+ [x] Multiple of eight contains eight should return inf append inf
+ [x] Multiple of eight contains eight and seven should return inf append inf qix
+ [x] Multiple of eight contains eight and three should return inf append inf foo
+ [x] Multiple of eight contains seven and three should return inf append qix foo
+ [x] Multiple of eight contains eight seven and three should return inf append inf qix foo
+ [x] Multiple of seven contains eight should return qix append inf
+ [x] Multiple of seven contains seven should return qix append qix
+ [x] Multiple of seven contains three should return qix append foo
+ [x] Multiple of seven contains eight and seven should return qix append inf qix
+ [x] Multiple of seven contains eight and three should return qix append foo inf
+ [x] Multiple of seven contains seven and three should return qix append qix foo
+ [x] Multiple of seven contains three eight and seven should return qix append inf qix foo
+ [x] Multiple of three contains eight should return foo append inf
+ [x] Multiple of three contains seven should return foo append qix
+ [x] Multiple of three contains tree should return foo append foo
+ [x] Multiple of three contains eight and seven should return foo append inf qix
+ [x] Multiple of three contains eight and tree should return foo append inf foo
+ [x] Multiple of three contains seven and three should return foo append qix foo
+ [x] Multiple of three contains eight seven and three should return foo append inf qix foo
+ [x] Multiple of eight and seven contains eight should return inf qix append inf
+ [x] Multiple of eight and three contains eight should return inf foo append inf
+ [x] Multiple of seven and three contains eight should return qix foo append inf
+ [x] Multiple of eight seven and three contains eight should return inf qix foo append inf
+ [x] Multiple of eight and seven contains seven should return inf qix append qix
+ [x] Multiple of eight and three contains seven should return inf foo append qix
+ [x] Multiple of seven and three contains seven should return qix foo append qix
+ [x] Multiple of eight seven and three contains seven should return inf qix foo append qix
+ [x] Multiple of eight and seven contains three should return inf qix append foo
+ [x] Multiple of eight and three contains three should return inf foo append foo
+ [x] Multiple of seven and three contains three should return qix foo append foo
+ [x] Multiple of eight seven and three contains three should return inf qix foo append foo
+ [x] Multiple of eight and seven contains eight and seven should return inf qix append inf qix
+ [x] Multiple of eight and seven contains eight and three should return inf qix append inf foo
+ [x] Multiple of eight and seven contains seven and three should return inf qix append qix foo
+ [x] Multiple of eight and seven contains eight seven and three should return inf qix append inf qix foo
+ [x] Multiple of eight and three contains eight and seven should return inf foo append inf qix
+ [x] Multiple of eight and three contains eight and three should return inf foo append inf foo
+ [x] Multiple of eight and three contains seven and three should return inf foo append qix foo
+ [x] Multiple of eight and three contains eight seven and tree should return inf foo append inf qix foo
+ [x] Multiple of seven and three contains eight and seven should return qix foo append inf qix
+ [x] Multiple of seven and three contains eight and three should return qix foo append inf foo
+ [x] Multiple of seven and three contains seven and three should return qix foo append qix foo
+ [x] Multiple of seven and three contains eight seven and three should return qix foo append inf qix foo
+ [x] Multiple of eight seven and three contains eight and seven should return inf qix foo append inf qix
+ [x] Multiple of eight seven and three contains eight and three should return inf qix foo append inf foo
+ [x] Multiple of eight seven and three contains seven and three should return inf qix foo append qix foo
+ [x] Multiple of eight seven and three contains eight seven and three should return inf qix foo append inf qix foo
+ [x] Sum of all digits is multiple of eight
+

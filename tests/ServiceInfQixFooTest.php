@@ -2,8 +2,28 @@
 
 namespace Tests;
 
+/** Following part until the Class and after the class, is implemented for the Code coverage report.
+* For testing purposes, the code outside the Class should be commented out.
+*/
+require '../vendor/autoload.php';
+require '../app/ServiceInfQixFoo.php';
+
 use App\ServiceInfQixFoo;
 use PHPUnit\Framework\TestCase;
+use SebastianBergmann\CodeCoverage\Filter;
+use SebastianBergmann\CodeCoverage\Driver\Selector;
+use SebastianBergmann\CodeCoverage\CodeCoverage;
+use SebastianBergmann\CodeCoverage\Report\Html\Facade as HtmlReport;
+
+$filter = new Filter;
+$filter->includeFile('app/ServiceInfQixFoo.php');
+
+$coverage = new CodeCoverage(
+    (new Selector)->forLineCoverage($filter),
+    $filter
+);
+
+$coverage->start('ServiceInfQixFoo');
 
 class ServiceInfQixFooTest extends TestCase
 {
@@ -526,3 +546,6 @@ class ServiceInfQixFooTest extends TestCase
     }
 
 }
+
+$coverage->stop();
+(new HtmlReport)->process($coverage, '../build/coverage');

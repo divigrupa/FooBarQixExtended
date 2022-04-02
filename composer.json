@@ -8,5 +8,8 @@
 
   "require": {
     "phpunit/phpunit": "^9.5"
+  },
+  "require-dev": {
+    "phpunit/php-code-coverage": "^9.2"
   }
 }

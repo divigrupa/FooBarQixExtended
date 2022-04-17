@@ -96,19 +96,19 @@ test('if multiple of 3/7 and contains 3/7, returns "Foo, Qix, Foo, Qix"', functi
     $conditions = [3 => 'Foo', 5 => 'Bar', 7 => 'Qix'];
     $testObject = new FooBarQix($conditions);
     expect($testObject->multipleNumberOccurrence($number))->toBe('Foo, Qix, Foo, Qix');
-})->with([273, 378, 1743, 2037, 3087]);
+})->with([378, 2037, 3087, 3171, 3276]);
 
 test('if multiple of 5/7 and contains 5/7, returns "Bar, Qix, Bar, Qix"', function ($number) {
     $conditions = [3 => 'Foo', 5 => 'Bar', 7 => 'Qix'];
     $testObject = new FooBarQix($conditions);
     expect($testObject->multipleNumberOccurrence($number))->toBe('Bar, Qix, Bar, Qix');
-})->with([175, 875, 1715, 2275, 4725]);
+})->with([5740, 50470, 51170, 52780, 54670]);
 
 test('if multiple of 3/5/7 and contains 3/5/7, returns "Foo, Bar, Qix, Foo, Bar, Qix"', function ($number) {
     $conditions = [3 => 'Foo', 5 => 'Bar', 7 => 'Qix'];
     $testObject = new FooBarQix($conditions);
     expect($testObject->multipleNumberOccurrence($number))->toBe('Foo, Bar, Qix, Foo, Bar, Qix');
-})->with([3570, 30576, 35070, 35700, 135870]);
+})->with([3570, 35070, 35700, 135870, 350070]);
 
 test('if multiple of 3/5/7 and contains 3/7/5, returns "Foo, Bar, Qix, Foo, Qix, Bar"', function ($number) {
     $conditions = [3 => 'Foo', 5 => 'Bar', 7 => 'Qix'];
@@ -139,6 +139,3 @@ test('if multiple of 3/5/7 and contains 7/5/3, returns "Foo, Bar, Qix, Qix, Bar,
     $testObject = new FooBarQix($conditions);
     expect($testObject->multipleNumberOccurrence($number))->toBe('Foo, Bar, Qix, Qix, Bar, Foo');
 })->with([75390, 187530, 275310, 475230, 705390]);
-
-
-

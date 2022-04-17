@@ -24,6 +24,33 @@ class FooBarQix
                 $this->output[] = $value;
             }
         }
+        return $this->resultHandler($number);
+    }
+
+    public function numberOccurrence(int $number): string
+    {
+        $this->validate($number);
+        $splitNumber = str_split($number);
+
+        foreach ($splitNumber as $digit) {
+            foreach ($this->conditions as $key => $value) {
+                if ((int)$digit === (int)$key) {
+                    $this->output[] = $value;
+                }
+            }
+        }
+        return $this->resultHandler($number);
+    }
+
+    public function multipleNumberOccurrence($number): string
+    {
+        $this->multiple($number);
+        $this->numberOccurrence($number);
+        return $this->resultHandler($number);
+    }
+
+    private function resultHandler($number)
+    {
         if (empty($this->output)) {
             return $number;
         }

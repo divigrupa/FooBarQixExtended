@@ -27,3 +27,24 @@ $conditions = [3 => 'Foo', 5 => 'Bar'];
 $testObject = new FooBarQix($conditions);
 expect($testObject->multiple($number))->toBe('Foo, Bar');
 })->with([15, 30, 60, 90, 120]);
+
+// step2
+test('if multiple, return value is Qix', function ($number) {
+    $conditions = [3 => 'Foo', 5 => 'Bar', 7 => 'Qix'];
+    $testObject = new FooBarQix($conditions);;
+    expect($testObject->multiple($number))->toBe('Qix');
+})->with([7, 14, 28, 91, 98]);
+
+test('if multiple, return value is "Foo, Bar, Qix"', function ($number) {
+    $conditions = [3 => 'Foo', 5 => 'Bar', 7 => 'Qix'];
+    $testObject = new FooBarQix($conditions);
+    expect($testObject->multiple($number))->toBe('Foo, Bar, Qix');
+})->with([105, 210, 315, 420, 525]);
+
+// validate input
+it('returns exception', function ($number) {
+    $conditions = [3 => 'Foo', 7 => 'Qix', 8 => 'Inf'];
+    $testObject = new FooBarQix($conditions);
+    $testObject->validate($number);
+})->with(['4', -14, -51, 'A', "Hello!"])
+    ->throws(InvalidArgumentException::class);

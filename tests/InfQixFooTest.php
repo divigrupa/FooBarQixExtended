@@ -15,7 +15,7 @@ it('returns string', function ($number) {
     $conditions = [8 => 'Inf', 7 => 'Qix', 3 => 'Foo'];
     $testObject = new InfQixFoo($conditions);
     expect($testObject->getResult($number))->toBe("$number");
-})->with([4, 11, 13, 29, 47]);
+})->with([4, 11, 19, 29, 46]);
 
 // testing for multiples, excluding occurrence
 it('is multiple of 8, returns "Inf"', function ($number) {
@@ -41,7 +41,7 @@ it('contains 8, returns "Inf"', function ($number) {
     $conditions = [8 => 'Inf', 7 => 'Qix', 3 => 'Foo'];
     $testObject = new InfQixFoo($conditions);
     expect($testObject->getResult($number))->toBe("Inf");
-})->with([58, 82, 148, 187, 428]);
+})->with([58, 82, 148, 185, 428]);
 
 it('contains 7, returns "Qix"', function ($number) {
     $conditions = [8 => 'Inf', 7 => 'Qix', 3 => 'Foo'];
@@ -71,7 +71,7 @@ it('contains 3/7/7/8, returns "Foo; Qix; Qix; Inf"', function ($number) {
     $conditions = [8 => 'Inf', 7 => 'Qix', 3 => 'Foo'];
     $testObject = new InfQixFoo($conditions);
     expect($testObject->getResult($number))->toBe("Foo; Qix; Qix; Inf");
-})->with([30778, 34778, 37678, 37738, 37978]);
+})->with([30778, 34778, 37678, 37718, 37978]);
 
 // looking for multiples and occurrence in the given number
 it('is multiple of 8, contains 8, returns "Inf; Inf"', function ($number) {
@@ -96,13 +96,13 @@ it('is multiple 8/7, contains 8/7, returns "Inf; Qix; Inf; Qix"', function ($num
     $conditions = [8 => 'Inf', 7 => 'Qix', 3 => 'Foo'];
     $testObject = new InfQixFoo($conditions);
     expect($testObject->getResult($number))->toBe('Inf; Qix; Inf; Qix');
-})->with([4872, 8176, 8792, 11872, 18704]);
+})->with([8176, 8792, 11872, 18704, 87416]);
 
 it('is multiple 8/3, contains 3/8, returns "Inf; Foo; Foo; Inf"', function ($number) {
     $conditions = [8 => 'Inf', 7 => 'Qix', 3 => 'Foo'];
     $testObject = new InfQixFoo($conditions);
     expect($testObject->getResult($number))->toBe('Inf; Foo; Foo; Inf');
-})->with([3080, 3248, 3584, 4368, 6384]);
+})->with([384, 1368, 2328, 3048, 3648]);
 
 it('is multiple 7/3, contains 3/7, returns "Qix; Foo; Foo; Qix"', function ($number) {
     $conditions = [8 => 'Inf', 7 => 'Qix', 3 => 'Foo'];
@@ -140,8 +140,8 @@ it('is multiple of 8/7/3, contains 3/7/8, returns "Inf; Qix; Foo; Foo; Qix; Inf"
     expect($testObject->getResult($number))->toBe('Inf; Qix; Foo; Foo; Qix; Inf');
 })->with([35784, 37800, 37128, 37968, 137928]);
 
-it('is multiple of 8/7/3, contains 3/8/7, returns "Inf; Qix; Foo; Foo; Inf; Q!ix"', function ($number) {
+it('is multiple of 8/7/3, contains 3/8/7, returns "Inf; Qix; Foo; Foo; Inf; Qix"', function ($number) {
     $conditions = [8 => 'Inf', 7 => 'Qix', 3 => 'Foo'];
     $testObject = new InfQixFoo($conditions);
-    expect($testObject->getResult($number))->toBe('Inf; Qix; Foo; Foo; Inf; Q!ix');
+    expect($testObject->getResult($number))->toBe('Inf; Qix; Foo; Foo; Inf; Qix');
 })->with([38472, 38976, 130872, 235872, 328272]);

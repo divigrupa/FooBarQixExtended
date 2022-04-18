@@ -145,3 +145,52 @@ it('is multiple of 8/7/3, contains 3/8/7, returns "Inf; Qix; Foo; Foo; Inf; Qix"
     $testObject = new InfQixFoo($conditions);
     expect($testObject->getResult($number))->toBe('Inf; Qix; Foo; Foo; Inf; Qix');
 })->with([38472, 38976, 130872, 235872, 328272]);
+
+// testing if sum of number digits is multiple of 8
+test('sum is multiple of 8, returns "(number)Inf"', function ($number) {
+    $conditions = [8 => 'Inf', 7 => 'Qix', 3 => 'Foo'];
+    $testObject = new InfQixFoo($conditions);
+    expect($testObject->getResult($number))->toBe("$number" . 'Inf');
+})->with([26, 44, 62, 116, 125]);
+
+it('is multiple of 8/7/3, contains 3/7/8, sum is multiple of 8, returns "Inf; Qix; Foo; Foo; Qix; InfInf"',
+    function ($number) {
+    $conditions = [8 => 'Inf', 7 => 'Qix', 3 => 'Foo'];
+    $testObject = new InfQixFoo($conditions);
+    expect($testObject->getResult($number))->toBe('Inf; Qix; Foo; Foo; Qix; InfInf');
+})->with([370608, 367080, 322728, 317184, 307608]);
+
+it('is multiple of 8/7/3, contains 3/8/7, sum is multiple of 8, returns "Inf; Qix; Foo; Foo; Inf; QixInf"',
+    function ($number) {
+    $conditions = [8 => 'Inf', 7 => 'Qix', 3 => 'Foo'];
+    $testObject = new InfQixFoo($conditions);
+    expect($testObject->getResult($number))->toBe('Inf; Qix; Foo; Foo; Inf; QixInf');
+})->with([3028704, 3827040, 3847200, 3872400, 3986976]);
+
+it('is multiple of 8/7/3, contains 7/3/8, sum is multiple of 8, returns "Inf; Qix; Foo; Qix; Foo; InfInf"',
+    function ($number) {
+    $conditions = [8 => 'Inf', 7 => 'Qix', 3 => 'Foo'];
+    $testObject = new InfQixFoo($conditions);
+    expect($testObject->getResult($number))->toBe('Inf; Qix; Foo; Qix; Foo; InfInf');
+})->with([27384, 73248, 738024, 736008, 732480, 1731408]);
+
+it('is multiple of 8/7/3, contains 7/8/3, sum is multiple of 8, returns "Inf; Qix; Foo; Qix; Inf; FooInf"',
+    function ($number) {
+    $conditions = [8 => 'Inf', 7 => 'Qix', 3 => 'Foo'];
+    $testObject = new InfQixFoo($conditions);
+    expect($testObject->getResult($number))->toBe('Inf; Qix; Foo; Qix; Inf; FooInf');
+})->with([780360, 1217832, 1278312, 1718304, 1782312]);
+
+it('is multiple of 8/7/3, contains 8/3/7, sum is multiple of 8, returns "Inf; Qix; Foo; Inf; Foo; QixInf"',
+    function ($number) {
+    $conditions = [8 => 'Inf', 7 => 'Qix', 3 => 'Foo'];
+    $testObject = new InfQixFoo($conditions);
+    expect($testObject->getResult($number))->toBe('Inf; Qix; Foo; Inf; Foo; QixInf');
+})->with([830760, 823704, 832272, 1831704, 1832712]);
+
+it('is multiple of 8/7/3, contains 8/7/3, sum is multiple of 8, returns "Inf; Qix; Foo; Inf; Qix; FooInf"',
+    function ($number) {
+    $conditions = [8 => 'Inf', 7 => 'Qix', 3 => 'Foo'];
+    $testObject = new InfQixFoo($conditions);
+    expect($testObject->getResult($number))->toBe('Inf; Qix; Foo; Inf; Qix; FooInf');
+})->with([8736, 87360, 827232, 873600, 8047032]);

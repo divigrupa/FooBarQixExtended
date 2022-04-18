@@ -21,7 +21,7 @@ class InfQixFoo
         $this->validate($number);
         $this->multiple($number);
         $this->numberOccurrence($number);
-        return $this->resultHandler($number);
+        return $this->resultHandler($number) . $this->numberDigitSum($number);
     }
 
     private function multiple(int $number): void
@@ -59,5 +59,15 @@ class InfQixFoo
         if (!is_int($number) || !($number > 0)) {
             throw new InvalidArgumentException();
         }
+    }
+
+    private function numberDigitSum(int $number): string
+    {
+        $splitNumber = str_split($number);
+        $sumOfNumber = array_sum($splitNumber);
+        if ($sumOfNumber % 8 === 0) {
+            return 'Inf';
+        }
+        return '';
     }
 }

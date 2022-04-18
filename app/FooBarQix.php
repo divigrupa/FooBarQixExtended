@@ -42,14 +42,14 @@ class FooBarQix
         return $this->resultHandler($number);
     }
 
-    public function multipleNumberOccurrence($number): string
+    public function multipleNumberOccurrence(int $number): string
     {
         $this->multiple($number);
         $this->numberOccurrence($number);
         return $this->resultHandler($number);
     }
 
-    private function resultHandler($number)
+    private function resultHandler(int $number): string
     {
         if (empty($this->output)) {
             return $number;
@@ -57,7 +57,7 @@ class FooBarQix
         return implode($this->separator, $this->output);
     }
 
-    public function validate($number)
+    public function validate($number):void
     {
         if (!is_int($number) || !($number > 0)) {
             throw new InvalidArgumentException();

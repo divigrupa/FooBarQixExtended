@@ -45,5 +45,51 @@ class FooBarQixTest extends TestCase
             'returns_Foo_Bar_Qix_for_multiples_of_3_5_7_where_num_1575' => ['Foo, Bar, Qix', 1575],
         ];
     }
+
+    /**
+     * @test
+     * @dataProvider appendedLetters
+     */
+    public function it_appends_string_depending_on_numbers($expectedResult, $numberToConvert)
+    {
+        $this->assertSame($expectedResult, FooBarQix::appendStringBasedOnNumbers($numberToConvert));
+    }
+
+    public function appendedLetters()
+    {
+        return [
+            'returns_Foo_Foo_if_number_is_33' => ['Foo, Foo', 33],
+            'returns_Bar_Bar_if_number_is_5005' => ['Bar, Bar', 5005],
+            'returns_Foo_Bar_Foo_if_number_is_312503' => ['Foo, Bar, Foo', 312503],
+            'returns_Foo_Bar_Qix_if_number_is_357' => ['Foo, Bar, Qix', 357],
+            'returns_Qix_Bar_Qix_Foo_if_number_is_704573' => ['Qix, Bar, Qix, Foo', 704573],
+            'returns_Bar_Foo_Qix_Bar_if_number_is_503725' => ['Bar, Foo, Qix, Bar', 503725],
+            'returns_Qix_Qix_Qix_Bar_Foo_if_number_is_727753' => ['Qix, Qix, Qix, Bar, Foo', 727753],
+            'returns_Qix_Bar_Foo_Qix_Foo_Qix_if_number_is_357' => ['Qix, Bar, Foo, Qix, Foo, Qix', 72536737]
+        ];
+    }
+
+    /**
+     * @test
+     * @dataProvider conversionsAndAppends
+     */
+    public function it_converts_and_appends_string($expectedResult, $numberToConvert)
+    {
+        $this->assertSame($expectedResult, FooBarQix::convertAndAppend($numberToConvert));
+    }
+
+    public function conversionsAndAppends()
+    {
+        return [
+            'returns_Bar_Bar_if_number_is_95' => ['Bar, Bar', 95],
+            'returns_Qix_Foo_Foo_if_number_is_133' => ['Qix, Foo, Foo', 133],
+            'returns_Foo_Foo_Foo_if_number_is_33' => ['Foo, Foo, Foo', 33],
+            'returns_Foo_Bar_Bar_if_number_is_165' => ['Foo, Bar, Bar', 165],
+            'returns_Foo_Qix_Foo_Bar_Qix_if_number_is_3507' => ['Foo, Qix, Foo, Bar, Qix', 3507],
+            'returns_Bar_Bar_Qix_Foo_Bar_if_number_is_57305' => ['Bar, Bar, Qix, Foo, Bar', 57305],
+            'not_multiple_of_any_if_number_137' => ['137, Foo, Qix', 137],
+            'not_multiple_of_any_if_number_263' => ['263, Foo', 263],
+        ];
+    }
 }
 

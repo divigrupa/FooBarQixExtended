@@ -24,4 +24,28 @@ class FooBarQix
 
         return $res ?: (string) $num;
     }
+
+    public static function appendStringBasedOnNumbers($numberToConvert): string
+    {
+        $res = '';
+
+        foreach (str_split($numberToConvert) as $number) {
+            if (array_key_exists($number, self::$definitions)) {
+                $res .= $res ? self::$separator . self::$definitions[$number] : self::$definitions[$number];
+            }
+        }
+        return $res;
+    }
+
+    public static function convertAndAppend($numberToConvert): string
+    {
+        $res = self::convert($numberToConvert);
+
+        foreach (str_split($numberToConvert) as $number) {
+            if (array_key_exists($number, self::$definitions)) {
+                $res .= self::$separator . self::$definitions[$number];
+            }
+        }
+        return $res;
+    }
 }

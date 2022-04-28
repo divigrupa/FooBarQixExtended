@@ -24,11 +24,18 @@ class FooBarQixTest extends TestCase
 
     }
 
-    public function test35FooBar(): void
+    public function test7Qix(): void
     {
-        $step1 = new FooBarQix;
+        $step2 = new FooBarQix;
 
-        $this->assertSame('Foo, Bar', $step1->isMultiple(15));
+        $this->assertSame('Qix', $step2->isMultiple(7));
+    }
+
+    public function test357FooBarQix(): void
+    {
+        $step2 = new FooBarQix;
+
+        $this->assertSame('Foo, Bar, Qix', $step2->isMultiple(105));
     }
 }
 

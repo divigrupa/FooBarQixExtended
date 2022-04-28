@@ -7,27 +7,31 @@ use App\FooBarQix;
 
 class FooBarQixTest extends TestCase
 {
-    /** @test */
-    public function it_checks_whether_returns_Foo_for_multiples_of_3()
+    /**
+     * @test
+     * @dataProvider conversions
+     */
+    public function it_checks_if_values_are_converted_correctly($expectedResult, $numberToConvert)
     {
-        $this->assertSame('Foo', FooBarQix::convert(3));
+        $this->assertSame($expectedResult, FooBarQix::convert($numberToConvert));
     }
 
-    /** @test */
-    public function it_checks_whether_returns_Bar_for_multiples_of_5()
+    public function conversions()
     {
-        $this->assertSame('Bar', FooBarQix::convert(5));
-    }
-
-    /** @test */
-    public function it_checks_whether_returns_FooBar_for_multiples_of_3_and_5()
-    {
-        $this->assertSame('Foo, Bar', FooBarQix::convert(15));
-    }
-
-    /** @test */
-    public function it_checks_whether_returns_number_as_string_if_not_a_multiple_of_any()
-    {
-        $this->assertSame('4', FooBarQix::convert(4));
+        return [
+            'returns_Foo_for_multiples_of_3_where_num_3' => ['Foo', 3],
+            'returns_Foo_for_multiples_of_3_where_num_33' => ['Foo', 33],
+            'returns_Foo_for_multiples_of_3_where_num_66' => ['Foo', 66],
+            'returns_Bar_for_multiples_of_5_where_num_5' => ['Bar', 5],
+            'returns_Bar_for_multiples_of_5_where_num_25' => ['Bar', 25],
+            'returns_Bar_for_multiples_of_5_where_num_55' => ['Bar', 55],
+            'returns_Foo_and_Bar_for_multiples_of_3_and_5_where_num_15' => ['Foo, Bar', 15],
+            'returns_Foo_and_Bar_for_multiples_of_3_and_5_where_num_60' => ['Foo, Bar', 60],
+            'returns_Foo_and_Bar_for_multiples_of_3_and_5_where_num_120' => ['Foo, Bar', 120],
+            'returns_string_if_not_a_multiple_of_any_where_num_4' => ['4', 4],
+            'returns_string_if_not_a_multiple_of_any_where_num_19' => ['19', 19],
+            'returns_string_if_not_a_multiple_of_any_where_num_107' => ['107', 107],
+        ];
     }
 }
+

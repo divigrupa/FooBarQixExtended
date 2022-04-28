@@ -5,6 +5,7 @@ namespace Tests;
 require 'vendor/autoload.php';
 
 use App\FooBarQix;
+use App\InfQixFoo;
 use PHPUnit\Framework\TestCase;
 
 class FooBarQixTest extends TestCase
@@ -46,42 +47,42 @@ class FooBarQixTest extends TestCase
     {
         $step3 = new FooBarQix;
 
-        $this->assertSame('3Foo', $step3->ifContainsMultiple(3));
+        $this->assertSame('Foo', $step3->ifContainsMultiple(3));
     }
 
     public function testContains5Bar(): void
     {
         $step3 = new FooBarQix;
 
-        $this->assertSame('5Bar', $step3->ifContainsMultiple(5));
+        $this->assertSame('Bar', $step3->ifContainsMultiple(5));
     }
 
     public function testContains7Qix(): void
     {
         $step3 = new FooBarQix;
 
-        $this->assertSame('7Qix', $step3->ifContainsMultiple(7));
+        $this->assertSame('Qix', $step3->ifContainsMultiple(7));
     }
 
     public function testContains35FooBar(): void
     {
         $step3 = new FooBarQix;
 
-        $this->assertSame('35FooBar', $step3->ifContainsMultiple(35));
+        $this->assertSame('FooBar', $step3->ifContainsMultiple(35));
     }
 
     public function testContains57BarQix(): void
     {
         $step3 = new FooBarQix;
 
-        $this->assertSame('57BarQix', $step3->ifContainsMultiple(57));
+        $this->assertSame('BarQix', $step3->ifContainsMultiple(57));
     }
 
     public function testContains73QixFoo(): void
     {
         $step3 = new FooBarQix;
 
-        $this->assertSame('73QixFoo', $step3->ifContainsMultiple(73));
+        $this->assertSame('QixFoo', $step3->ifContainsMultiple(73));
     }
 
 
@@ -91,51 +92,136 @@ class FooBarQixTest extends TestCase
     {
         $step3 = new FooBarQix;
 
-        $this->assertSame('Foo 3Foo', $step3->isMultipleAndContainsMultiple(3));
+        $this->assertSame('Foo Foo', $step3->isMultipleAndContainsMultiple(3));
     }
 
     public function testBoth5(): void
     {
         $step3 = new FooBarQix;
 
-        $this->assertSame('Bar 5Bar', $step3->isMultipleAndContainsMultiple(5));
+        $this->assertSame('Bar Bar', $step3->isMultipleAndContainsMultiple(5));
     }
 
     public function testBoth7(): void
     {
         $step3 = new FooBarQix;
 
-        $this->assertSame('Qix 7Qix', $step3->isMultipleAndContainsMultiple(7));
+        $this->assertSame('Qix Qix', $step3->isMultipleAndContainsMultiple(7));
     }
 
     public function testBoth30(): void
     {
         $step3 = new FooBarQix;
 
-        $this->assertSame('Foo, Bar 30Foo', $step3->isMultipleAndContainsMultiple(30));
+        $this->assertSame('Foo, Bar Foo', $step3->isMultipleAndContainsMultiple(30));
     }
 
     public function testBoth35(): void
     {
         $step3 = new FooBarQix;
 
-        $this->assertSame('Bar, Qix 35FooBar', $step3->isMultipleAndContainsMultiple(35));
+        $this->assertSame('Bar, Qix FooBar', $step3->isMultipleAndContainsMultiple(35));
     }
 
     public function testBoth21(): void
     {
         $step3 = new FooBarQix;
 
-        $this->assertSame('Foo, Qix 21', $step3->isMultipleAndContainsMultiple(21));
+        $this->assertSame('Foo, Qix', $step3->isMultipleAndContainsMultiple(21));
     }
 
     public function testBoth735(): void
     {
         $step3 = new FooBarQix;
 
-        $this->assertSame('Foo, Bar, Qix 735QixFooBar', $step3->isMultipleAndContainsMultiple(735));
+        $this->assertSame('Foo, Bar, Qix QixFooBar', $step3->isMultipleAndContainsMultiple(735));
     }
 
+
+    // Tests to check multiple for InfQixFoo
+
+    public function test3FooSecond(): void
+    {
+        $step4 = new InfQixFoo;
+
+        $this->assertSame('Foo', $step4->isMultiple(3));
+    }
+
+    public function test7QixSecond(): void
+    {
+        $step4 = new InfQixFoo;
+
+        $this->assertSame('Qix', $step4->isMultiple(7));
+    }
+
+    public function test8Inf(): void
+    {
+        $step4 = new InfQixFoo;
+
+        $this->assertSame('Inf', $step4->isMultiple(8));
+    }
+
+    public function test56Inf(): void
+    {
+        $step4 = new InfQixFoo;
+
+        $this->assertSame('Inf; Qix', $step4->isMultiple(56));
+    }
+
+    public function test24Inf(): void
+    {
+        $step4 = new InfQixFoo;
+
+        $this->assertSame('Inf; Foo', $step4->isMultiple(24));
+    }
+
+
+    // Tests check if contains multiple InfQixFoo
+
+    public function testContains8Inf(): void
+    {
+        $step4 = new InfQixFoo;
+
+        $this->assertSame('Inf', $step4->ifContainsMultiple(8));
+    }
+
+    public function testContains7QixSecond(): void
+    {
+        $step4 = new InfQixFoo;
+
+        $this->assertSame('Qix', $step4->ifContainsMultiple(7));
+    }
+
+    public function testContains3FooSecond(): void
+    {
+        $step4 = new InfQixFoo;
+
+        $this->assertSame('Foo', $step4->ifContainsMultiple(3));
+    }
+
+    public function testContains287(): void
+    {
+        $step4 = new InfQixFoo;
+
+        $this->assertSame('InfQix', $step4->ifContainsMultiple(287));
+    }
+
+    public function testContains238(): void
+    {
+        $step4 = new InfQixFoo;
+
+        $this->assertSame('FooInf', $step4->ifContainsMultiple(238));
+    }
+
+
+    // Test for both functionalities InfQixFoo
+
+    public function testBoth378(): void
+    {
+        $step3 = new FooBarQix;
+
+        $this->assertSame('Inf, Qix, Foo FooQixInf', $step3->isMultipleAndContainsMultiple(378));
+    }
 }
 
 

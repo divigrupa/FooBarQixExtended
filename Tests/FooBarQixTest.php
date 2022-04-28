@@ -4,6 +4,7 @@ namespace Tests;
 
 require 'vendor/autoload.php';
 
+use App\FooBarQix;
 use PHPUnit\Framework\TestCase;
 
 class FooBarQixTest extends TestCase

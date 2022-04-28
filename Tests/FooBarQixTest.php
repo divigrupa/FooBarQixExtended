@@ -9,6 +9,8 @@ use PHPUnit\Framework\TestCase;
 
 class FooBarQixTest extends TestCase
 {
+    // Tests check if is multiple
+
     public function test3Foo(): void
     {
         $step1 = new FooBarQix;
@@ -21,7 +23,6 @@ class FooBarQixTest extends TestCase
         $step1 = new FooBarQix;
 
         $this->assertSame('Bar', $step1->isMultiple(5));
-
     }
 
     public function test7Qix(): void
@@ -37,6 +38,104 @@ class FooBarQixTest extends TestCase
 
         $this->assertSame('Foo, Bar, Qix', $step2->isMultiple(105));
     }
+
+
+    //Tests check if contains multiple
+
+    public function testContains3Foo(): void
+    {
+        $step3 = new FooBarQix;
+
+        $this->assertSame('3Foo', $step3->ifContainsMultiple(3));
+    }
+
+    public function testContains5Bar(): void
+    {
+        $step3 = new FooBarQix;
+
+        $this->assertSame('5Bar', $step3->ifContainsMultiple(5));
+    }
+
+    public function testContains7Qix(): void
+    {
+        $step3 = new FooBarQix;
+
+        $this->assertSame('7Qix', $step3->ifContainsMultiple(7));
+    }
+
+    public function testContains35FooBar(): void
+    {
+        $step3 = new FooBarQix;
+
+        $this->assertSame('35FooBar', $step3->ifContainsMultiple(35));
+    }
+
+    public function testContains57BarQix(): void
+    {
+        $step3 = new FooBarQix;
+
+        $this->assertSame('57BarQix', $step3->ifContainsMultiple(57));
+    }
+
+    public function testContains73QixFoo(): void
+    {
+        $step3 = new FooBarQix;
+
+        $this->assertSame('73QixFoo', $step3->ifContainsMultiple(73));
+    }
+
+
+    // Tests to check if both functionalities work together
+
+    public function testBoth3(): void
+    {
+        $step3 = new FooBarQix;
+
+        $this->assertSame('Foo 3Foo', $step3->isMultipleAndContainsMultiple(3));
+    }
+
+    public function testBoth5(): void
+    {
+        $step3 = new FooBarQix;
+
+        $this->assertSame('Bar 5Bar', $step3->isMultipleAndContainsMultiple(5));
+    }
+
+    public function testBoth7(): void
+    {
+        $step3 = new FooBarQix;
+
+        $this->assertSame('Qix 7Qix', $step3->isMultipleAndContainsMultiple(7));
+    }
+
+    public function testBoth30(): void
+    {
+        $step3 = new FooBarQix;
+
+        $this->assertSame('Foo, Bar 30Foo', $step3->isMultipleAndContainsMultiple(30));
+    }
+
+    public function testBoth35(): void
+    {
+        $step3 = new FooBarQix;
+
+        $this->assertSame('Bar, Qix 35FooBar', $step3->isMultipleAndContainsMultiple(35));
+    }
+
+    public function testBoth21(): void
+    {
+        $step3 = new FooBarQix;
+
+        $this->assertSame('Foo, Qix 21', $step3->isMultipleAndContainsMultiple(21));
+    }
+
+    public function testBoth735(): void
+    {
+        $step3 = new FooBarQix;
+
+        $this->assertSame('Foo, Bar, Qix 735QixFooBar', $step3->isMultipleAndContainsMultiple(735));
+    }
+
 }
 
 

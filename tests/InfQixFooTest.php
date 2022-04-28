@@ -73,7 +73,7 @@ class InfQixFooTest extends TestCase
     public function conversionsAndAppends()
     {
         return [
-            'returns_Foo_Foo_if_number_is_37' => ['Foo; Foo', 37],
+            'not_multiple_of_any_if_number_is_37' => ['37; Foo; Qix', 37],
             'returns_Inf_Inf_if_number_is_80' => ['Inf; Inf', 80],
             'returns_Qix_Foo_Foo_if_number_is_133' => ['Qix; Foo; Foo', 133],
             'returns_Foo_Foo_Foo_if_number_is_33' => ['Foo; Foo; Foo', 33],
@@ -82,8 +82,8 @@ class InfQixFooTest extends TestCase
             'returns_Foo_Inf_Foo_Qix_if_number_is_9837' => ['Foo; Inf; Foo; Qix', 9837],
             'returns_Qix_Qix_Inf_Foo_if_number_is_75803' => ['Qix; Qix; Inf; Foo', 75803],
             'returns_Inf_Qix_Inf_Foo_Inf_Inf_Inf_if_number_is_83888' => ['Inf; Qix; Inf; Foo; Inf; Inf; Inf', 83888],
-            'not_multiple_of_any_if_number_137' => ['137, Foo, Qix', 137],
-            'not_multiple_of_any_if_number_263' => ['263, Foo', 263],
+            'not_multiple_of_any_if_number_137' => ['137; Foo; Qix', 137],
+            'not_multiple_of_any_if_number_263' => ['263; Foo', 263],
         ];
     }
 }

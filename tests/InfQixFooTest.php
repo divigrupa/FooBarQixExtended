@@ -86,4 +86,24 @@ class InfQixFooTest extends TestCase
             'not_multiple_of_any_if_number_263' => ['263; Foo', 263],
         ];
     }
+
+    /**
+     * @test
+     * @dataProvider appendingInfAtTheEnd
+     */
+    public function it_checks_if_Inf_is_appended_correctly_at_the_end($expectedResult, $numberToConvert)
+    {
+        $this->assertSame($expectedResult, InfQixFoo::sumMultipleOfEight($numberToConvert));
+    }
+
+    public function appendingInfAtTheEnd()
+    {
+        return [
+            'appends_Inf_if_sum_of_numbers_multiple_8_where_num_987' => ['Qix; Foo; Inf; QixInf', 987],
+            'appends_Inf_if_sum_of_numbers_multiple_8_where_num_9995' => ['9995Inf', 9995],
+            'appends_Inf_if_sum_of_numbers_multiple_8_where_num_394' => ['394; FooInf', 394],
+            'appends_Inf_if_sum_of_numbers_multiple_8_where_num_8888' => ['Inf; Inf; Inf; Inf; InfInf', 8888],
+            'appends_Inf_if_sum_of_numbers_multiple_8_where_num_78037' => ['78037; Qix; Inf; Foo; Qix', 78037]
+        ];
+    }
 }

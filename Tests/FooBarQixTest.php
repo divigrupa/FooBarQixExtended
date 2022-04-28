@@ -214,14 +214,32 @@ class FooBarQixTest extends TestCase
     }
 
 
-    // Test for both functionalities InfQixFoo
+    // Tests for both functionalities InfQixFoo
 
     public function testBoth378(): void
     {
-        $step3 = new InfQixFoo;
+        $step4 = new InfQixFoo;
 
-        $this->assertSame('Qix; Foo FooQixInf', $step3->isMultipleAndContainsMultiple(378));
+        $this->assertSame('Qix; Foo FooQixInf', $step4->isMultipleAndContainsMultiple(378));
     }
+
+
+    // Tests to check all functionality
+
+    public function testIs8(): void
+    {
+        $step5 = new InfQixFoo;
+
+        $this->assertSame('Qix FooInf', $step5->sumAll8(35));
+    }
+
+    public function testIsNot8(): void
+    {
+        $step5 = new InfQixFoo;
+
+        $this->assertSame('Qix Qix', $step5->sumAll8(70));
+    }
+
 }
 
 

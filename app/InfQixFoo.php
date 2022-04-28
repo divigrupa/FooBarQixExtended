@@ -59,4 +59,14 @@ class InfQixFoo
     {
         return chop($this->isMultiple($number) . " " . $this->ifContainsMultiple($number));
     }
+
+    public function sumAll8(int $number): string
+    {
+        $splitNumbers = str_split($number);
+        if (array_sum($splitNumbers) == 8) {
+            return $this->isMultipleAndContainsMultiple($number) . "Inf";
+        } else {
+            return $this->isMultipleAndContainsMultiple($number);
+        }
+    }
 }

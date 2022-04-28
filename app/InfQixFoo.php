@@ -48,4 +48,14 @@ class InfQixFoo
         }
         return $res;
     }
+
+    public static function sumMultipleOfEight($numberToConvert): string
+    {
+        $res = self::convertAndAppend($numberToConvert);
+        $split = str_split(self::convertAndAppend($numberToConvert));
+        if (array_sum($split) % 8 === 0) {
+            $res .= 'Inf';
+        }
+        return $res;
+    }
 }

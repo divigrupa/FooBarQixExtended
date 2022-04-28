@@ -6,7 +6,8 @@ class FooBarQix
 {
     public static array $definitions = [
         3 => 'Foo',
-        5 => 'Bar'
+        5 => 'Bar',
+        7 => 'Qix'
     ];
 
     public static string $separator = ', ';

@@ -218,9 +218,9 @@ class FooBarQixTest extends TestCase
 
     public function testBoth378(): void
     {
-        $step3 = new FooBarQix;
+        $step3 = new InfQixFoo;
 
-        $this->assertSame('Inf, Qix, Foo FooQixInf', $step3->isMultipleAndContainsMultiple(378));
+        $this->assertSame('Qix; Foo FooQixInf', $step3->isMultipleAndContainsMultiple(378));
     }
 }
 

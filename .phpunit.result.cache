@@ -1,0 +1,1 @@
+{"version":1,"defects":{"Tests\\FooBarQixTest::test3Foo":4,"Tests\\FooBarQixTest::test5Bar":4,"Tests\\FooBarQixTest::test35FooBar":4},"times":{"Tests\\FooBarQixTest::test3Foo":0.055,"Tests\\FooBarQixTest::test5Bar":0.002,"Tests\\FooBarQixTest::test35FooBar":0}}

@@ -2,7 +2,7 @@
 
 namespace Tests;
 
-
+use App\FooBarQix;
 use PHPUnit\Framework\TestCase;
 
 class FooBarQixTest extends TestCase
@@ -29,9 +29,9 @@ class FooBarQixTest extends TestCase
     {
         $stepOne = new FooBarQix();
 
-        $this->assertSame('Foo,Bar', $stepOne->multiple(15));
-        $this->assertSame('Foo,Bar', $stepOne->multiple(45));
-        $this->assertSame('Foo,Bar', $stepOne->multiple(150));
+        $this->assertSame('Foo, Bar', $stepOne->multiple(15));
+        $this->assertSame('Foo, Bar', $stepOne->multiple(45));
+        $this->assertSame('Foo, Bar', $stepOne->multiple(150));
     }
 
     public function testReturnStringIfNotMultiple()

@@ -2,6 +2,7 @@
 
 namespace Tests;
 
+use App\InfQixFoo;
 use PHPUnit\Framework\TestCase;
 
 class InfQixFooTest extends TestCase
@@ -89,7 +90,7 @@ class InfQixFooTest extends TestCase
         $this->assertSame('Inf; Inf; Inf', $stepFour->occurrence(812848));
     }
 
-    public function checkOccurrenceOfNumberThreeAndSeven()
+    public function testCheckOccurrenceOfNumberThreeAndSeven()
     {
         $stepFour = new InfQixFoo();
 
@@ -98,7 +99,7 @@ class InfQixFooTest extends TestCase
         $this->assertSame('Foo; Foo; Qix; Foo', $stepFour->occurrence(1323713));
     }
 
-    public function checkOccurrenceOfNumberThreeAndEight()
+    public function testCheckOccurrenceOfNumberThreeAndEight()
     {
         $stepFour = new InfQixFoo();
 
@@ -107,7 +108,7 @@ class InfQixFooTest extends TestCase
         $this->assertSame('Foo; Foo; Inf; Foo', $stepFour->occurrence(2303813));
     }
 
-    public function checkOccurrenceOfNumberSevenAndEight()
+    public function testCheckOccurrenceOfNumberSevenAndEight()
     {
         $stepFour = new InfQixFoo();
 
@@ -116,13 +117,13 @@ class InfQixFooTest extends TestCase
         $this->assertSame('Inf; Qix; Inf; Inf', $stepFour->occurrence(817288));
     }
 
-    public function checkOccurrenceOfNumberThreeAndSevenAndEight()
+    public function testCheckOccurrenceOfNumberThreeAndSevenAndEight()
     {
         $stepFour = new InfQixFoo();
 
         $this->assertSame('Foo; Qix; Inf', $stepFour->occurrence(31708));
         $this->assertSame('Inf; Qix; Foo; Qix; Inf', $stepFour->occurrence(80763718));
-        $this->assertSame('Qix, Foo; Qix; Inf; Foo', $stepFour->occurrence(70317893));
+        $this->assertSame('Qix; Foo; Qix; Inf; Foo', $stepFour->occurrence(70317893));
     }
 
     public function testChecksForMultipleAndOccurrenceOfNumberThree()

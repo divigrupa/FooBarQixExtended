@@ -12,7 +12,7 @@ Class FooBarQix
 
     public function multiple(int $number): string
     {
-        $result =[];
+        $result = [];
 
         foreach ($this->multiplesAndOccurrences as $key => $multiple)
         {

@@ -38,9 +38,9 @@ class FooBarQixTest extends TestCase
     {
         $stepOne = new FooBarQix();
 
-        $this->assertSame('2', $stepOne->multiple(2));
-        $this->assertSame('4', $stepOne->multiple(4));
-        $this->assertSame('16', $stepOne->multiple(16));
+        $this->assertSame('2', $stepOne->multipleOrAndOccurrence(2));
+        $this->assertSame('4', $stepOne->multipleOrAndOccurrence(4));
+        $this->assertSame('16', $stepOne->multipleOrAndOccurrence(16));
     }
 
     public function testMultipleOfSeven()

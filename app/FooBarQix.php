@@ -29,4 +29,18 @@ Class FooBarQix
             return implode(', ',$result);
         }
     }
+
+    public function occurrence(int $number): string
+    {
+        $result =[];
+
+        foreach(str_split($number) as $digit)
+        {
+            if(in_array($digit, $this->multiples))
+            {
+                $result[] = array_search($digit, $this->multiples);
+            }
+        }
+        return implode(', ',$result);
+    }
 }

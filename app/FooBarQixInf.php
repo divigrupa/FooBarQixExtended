@@ -48,13 +48,7 @@ abstract class FooBarQixInf
         {
             $result[] = $this->occurrence($number);
         }
-
-        if(count($result) < 1)
-        {
-            return (string)$number;
-        } else {
-            return $this->implodeToString($result);
-        }
+        return count($result) < 1 ? (string)$number : $this->implodeToString($result);
     }
 
     public function implodeToString(array $result): string

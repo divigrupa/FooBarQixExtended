@@ -17,11 +17,8 @@ class InfQixFoo extends FooBarQixInf
         $multiple = 8;
         $sumOfDigits = array_sum(str_split($number));
 
-        if($sumOfDigits % $multiple === 0)
-        {
-           return $this->multipleOrAndOccurrence($number) . array_search($multiple, $this->multiplesAndOccurrences);
-        } else {
-            return $this->multipleOrAndOccurrence($number);
-        }
+        return $sumOfDigits % $multiple === 0 ?
+            $this->multipleOrAndOccurrence($number) . array_search($multiple, $this->multiplesAndOccurrences) :
+            $this->multipleOrAndOccurrence($number);
     }
 }

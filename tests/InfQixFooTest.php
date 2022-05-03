@@ -194,7 +194,7 @@ class InfQixFooTest extends TestCase
         $stepFive = new InfQixFoo();
 
         $this->assertSame('Inf; QixInf', $stepFive->sumOfAllDigitsMultiple(224));
-        $this->assertSame('InfInf', $stepFive->sumOfAllDigitsMultiple(2248));
+        $this->assertSame('Inf; InfInf', $stepFive->sumOfAllDigitsMultiple(2248));
         $this->assertSame('Inf; Qix; Foo; Inf', $stepFive->sumOfAllDigitsMultiple(168));
     }
 }

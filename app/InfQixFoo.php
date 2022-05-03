@@ -11,4 +11,17 @@ class InfQixFoo extends FooBarQixInf
     ];
 
     protected string $separator = '; ';
+
+    public function sumOfAllDigitsMultiple(int $number): string
+    {
+        $multiple = 8;
+        $sumOfDigits = array_sum(str_split($number));
+
+        if($sumOfDigits % $multiple === 0)
+        {
+           return $this->multipleOrAndOccurrence($number) . array_search($multiple, $this->multiplesAndOccurrences);
+        } else {
+            return $this->multipleOrAndOccurrence($number);
+        }
+    }
 }

@@ -141,4 +141,66 @@ class FooBarQixTest extends TestCase
         $this->assertSame('Qix, Foo, Bar, Qix, Foo', $stepThree->occurrence(71352763));
         $this->assertSame('Bar, Qix, Foo, Bar, Qix, Bar', $stepThree->occurrence(157235175));
     }
+
+    public function testChecksForMultipleAndOccurrenceOfNumberThree()
+    {
+        $stepThree = new FooBarQix();
+
+        $this->assertSame('Foo', $stepThree->multipleOrAndOccurrence(103));
+        $this->assertSame('Foo, Foo', $stepThree->multipleOrAndOccurrence(3));
+        $this->assertSame('Foo, Foo, Foo, Foo', $stepThree->multipleOrAndOccurrence(333));
+    }
+
+    public function testChecksForMultipleAndOccurrenceOfNumberFive()
+    {
+        $stepThree = new FooBarQix();
+
+        $this->assertSame('Bar, Bar', $stepThree->multipleOrAndOccurrence(5));
+        $this->assertSame('Bar, Bar', $stepThree->multipleOrAndOccurrence(95));
+        $this->assertSame('Bar, Bar, Bar', $stepThree->multipleOrAndOccurrence(55));
+    }
+
+    public function testChecksForMultipleAndOccurrenceOfNumberSeven()
+    {
+        $stepThree = new FooBarQix();
+
+        $this->assertSame('Qix', $stepThree->multipleOrAndOccurrence(107));
+        $this->assertSame('Qix, Qix', $stepThree->multipleOrAndOccurrence(7));
+        $this->assertSame('Qix, Qix, Qix', $stepThree->multipleOrAndOccurrence(77));
+    }
+
+    public function testChecksForMultipleAndOccurrenceOfNumbersThreeAndFive()
+    {
+        $stepThree = new FooBarQix();
+
+        $this->assertSame('Foo, Bar, Bar', $stepThree->multipleOrAndOccurrence(15));
+        $this->assertSame('Foo, Bar', $stepThree->multipleOrAndOccurrence(60));
+    }
+
+    public function testChecksForMultipleAndOccurrenceOfNumbersThreeAndSeven()
+    {
+        $stepThree = new FooBarQix();
+
+        $this->assertSame('Foo, Qix', $stepThree->multipleOrAndOccurrence(21));
+        $this->assertSame('Foo, Qix', $stepThree->multipleOrAndOccurrence(37));
+        $this->assertSame('Foo, Qix, Foo', $stepThree->multipleOrAndOccurrence(63));
+    }
+
+    public function testChecksForMultipleAndOccurrenceOfNumbersFiveAndSeven()
+    {
+        $stepThree = new FooBarQix();
+
+        $this->assertSame('Bar, Qix, Qix', $stepThree->multipleOrAndOccurrence(70));
+        $this->assertSame('Bar, Qix, Qix, Bar', $stepThree->multipleOrAndOccurrence(175));
+        $this->assertSame('Bar, Qix, Bar', $stepThree->multipleOrAndOccurrence(245));
+    }
+
+    public function testChecksForMultipleAndOccurrenceOfNumbersTheeAndFiveAndSeven()
+    {
+        $stepThree = new FooBarQix();
+
+        $this->assertSame('Bar, Qix, Foo, Bar', $stepThree->multipleOrAndOccurrence(35));
+        $this->assertSame('Foo, Bar, Qix, Bar', $stepThree->multipleOrAndOccurrence(105));
+        $this->assertSame('Foo, Bar, Qix, Qix, Foo, Bar', $stepThree->multipleOrAndOccurrence(735));
+    }
 }

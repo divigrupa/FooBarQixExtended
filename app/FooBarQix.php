@@ -32,7 +32,7 @@ Class FooBarQix
 
     public function occurrence(int $number): string
     {
-        $result =[];
+        $result = [];
 
         foreach(str_split($number) as $digit)
         {

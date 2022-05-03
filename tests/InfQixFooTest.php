@@ -188,4 +188,13 @@ class InfQixFooTest extends TestCase
         $this->assertSame('Inf; Qix; Foo; Inf; Inf', $stepFour->multipleOrAndOccurrence(1848));
         $this->assertSame('Inf; Qix; Foo; Foo; Inf', $stepFour->multipleOrAndOccurrence(3528));
     }
+
+    public function testIfSumOfAllDigitsIsMultipleOfEight()
+    {
+        $stepFive = new InfQixFoo();
+
+        $this->assertSame('Inf; QixInf', $stepFive->sumOfAllDigitsMultiple(224));
+        $this->assertSame('InfInf', $stepFive->sumOfAllDigitsMultiple(2248));
+        $this->assertSame('Inf; Qix; Foo; Inf', $stepFive->sumOfAllDigitsMultiple(168));
+    }
 }

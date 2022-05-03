@@ -78,4 +78,67 @@ class FooBarQixTest extends TestCase
         $this->assertSame('Foo, Bar, Qix', $stepTwo->multiple(420));
         $this->assertSame('Foo, Bar, Qix', $stepTwo->multiple(630));
     }
+
+    public function testCheckOccurrenceOfNumberThree()
+    {
+        $stepThree = new FooBarQix();
+
+        $this->assertSame('Foo', $stepThree->occurrence(31));
+        $this->assertSame('Foo, Foo', $stepThree->occurrence(313));
+        $this->assertSame('Foo, Foo, Foo', $stepThree->occurrence(313213));
+    }
+
+    public function testCheckOccurrenceOfNumberFive()
+    {
+        $stepThree = new FooBarQix();
+
+        $this->assertSame('Bar', $stepThree->occurrence(51));
+        $this->assertSame('Bar, Bar', $stepThree->occurrence(515));
+        $this->assertSame('Bar, Bar, Bar', $stepThree->occurrence(5152115));
+    }
+
+    public function testCheckOccurrenceOfNumberSeven()
+    {
+        $stepThree = new FooBarQix();
+
+        $this->assertSame('Qix', $stepThree->occurrence(17));
+        $this->assertSame('Qix, Qix', $stepThree->occurrence(177));
+        $this->assertSame('Qix, Qix, Qix', $stepThree->occurrence(177127));
+    }
+
+    public function testCheckOccurrenceOfNumbersThreeAndFive()
+    {
+        $stepThree = new FooBarQix();
+
+        $this->assertSame('Foo, Bar', $stepThree->occurrence(135));
+        $this->assertSame('Foo, Bar, Bar', $stepThree->occurrence(31525));
+        $this->assertSame('Bar, Foo, Bar', $stepThree->occurrence(1523125));
+    }
+
+    public function testCheckOccurrenceOfNumbersThreeAndSeven()
+    {
+        $stepThree = new FooBarQix();
+
+        $this->assertSame('Foo, Qix', $stepThree->occurrence(1317));
+        $this->assertSame('Foo, Qix, Qix, Foo', $stepThree->occurrence(371273));
+        $this->assertSame('Foo, Foo, Qix, Foo', $stepThree->occurrence(1323713));
+    }
+
+    public function testCheckOccurrenceOfNumbersFiveAndSeven()
+    {
+        $stepThree = new FooBarQix();
+
+        $this->assertSame('Bar, Qix', $stepThree->occurrence(517));
+        $this->assertSame('Bar, Qix, Qix', $stepThree->occurrence(52717));
+        $this->assertSame('Bar, Bar, Qix, Qix, Bar', $stepThree->occurrence(51571725));
+    }
+
+    public function testCheckOccurrenceOfNumbersThreeAndFiveAndSeven()
+    {
+        $stepThree = new FooBarQix();
+
+        $this->assertSame('Foo, Bar, Qix', $stepThree->occurrence(31527));
+        $this->assertSame('Qix, Foo, Bar, Qix, Foo', $stepThree->occurrence(71352763));
+        $this->assertSame('Bar, Qix, Foo, Bar, Qix, Bar', $stepThree->occurrence(157235175));
+    }
 }

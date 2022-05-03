@@ -4,26 +4,29 @@ namespace App;
 
 Class FooBarQix
 {
-    private int $multipleFirst = 3;
-    private string $multipleResultFirst = 'Foo';
-    private int $multipleSecond = 5;
-    private string $multipleResultSecond = 'Bar';
+    private array $multiples = [
+        "Foo" => 3,
+        "Bar" => 5,
+        "Qix" => 7
+    ];
 
     public function multiple(int $number): string
     {
-        if($number % ($this->multipleFirst * $this->multipleSecond) === 0)
+        $result =[];
+
+        foreach ($this->multiples as $key => $multiple)
         {
-            $result = "$this->multipleResultFirst, $this->multipleResultSecond";
-        } else if($number % $this->multipleFirst === 0)
-        {
-            $result = $this->multipleResultFirst;
-        } else if($number % $this->multipleSecond === 0)
-        {
-            $result = $this->multipleResultSecond;
+            if($number % $multiple === 0)
+            {
+                $result[] = $key;
+            }
         }
-        else {
-            $result = (string)$number;
+
+        if(count($result) < 1)
+        {
+            return (string)$number;
+        }else {
+            return implode(', ',$result);
         }
-        return $result;
     }
 }

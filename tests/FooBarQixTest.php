@@ -49,7 +49,7 @@ class FooBarQixTest extends TestCase
 
         $this->assertSame('Qix', $stepTwo->multiple(7));
         $this->assertSame('Qix', $stepTwo->multiple(28));
-        $this->assertSame('Qix', $stepTwo->multiple(42));
+        $this->assertSame('Qix', $stepTwo->multiple(56));
     }
 
     public function testMultipleOfThreeAndSeven()

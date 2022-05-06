@@ -12,6 +12,7 @@ $input = new Input(readline("Enter positive integer: "));
 $conditions = [
     new Condition(3, "Foo"),
     new Condition(5, "Bar"),
+    new Condition(7, "Qix")
     ];
 
 $application = new Application($input, $conditions);

@@ -19,7 +19,7 @@ class FooBarQixTests extends TestCase {
         $this->assertEquals(false, $resultTwo);
     }
 
-    public function testResultMultiplesFoo() {
+    public function testResultMultipleFoo() {
         $input = new Input(9);
         $conditions = [new Condition(3, "Foo")];
 
@@ -30,7 +30,7 @@ class FooBarQixTests extends TestCase {
         $this->assertEquals('Foo', $application->getResult());
     }
 
-    public function testResultMultiplesBar() {
+    public function testResultMultipleBar() {
         $input = new Input(20);
         $conditions = [new Condition(5, "Bar")];
 
@@ -41,23 +41,39 @@ class FooBarQixTests extends TestCase {
         $this->assertEquals('Bar', $application->getResult());
     }
 
-    public function testResultForAllConditions() {
-        $input = new Input(15);
-        $conditionsForMultiples = [
-            new Condition(3, "Foo"),
-            new Condition(5, "Bar"),
-        ];
+    public function testResultMultipleQix() {
+        $input = new Input(7);
+        $conditions = [new Condition(7, "Qix")];
 
-        $application = new Application($input, $conditionsForMultiples);
+        $application = new Application($input, $conditions);
 
         $application->verificationForMultiple();
 
-        $this->assertEquals('Foo, Bar', $application->getResult());
+        $this->assertEquals('Qix', $application->getResult());
+    }
+
+    public function testResultForAllConditions() {
+        $input = new Input(105);
+        $conditions = [
+            new Condition(3, "Foo"),
+            new Condition(5, "Bar"),
+            new Condition(7, "Qix")
+        ];
+
+        $application = new Application($input, $conditions);
+
+        $application->verificationForMultiple();
+
+        $this->assertEquals('Foo, Bar, Qix', $application->getResult());
     }
 
     public function testReturnedValueIsString() {
         $input = new Input(13);
-        $conditions = [new Condition(3, "Foo"), new Condition(5, "Bar")];
+        $conditions = [
+            new Condition(3, "Foo"),
+            new Condition(5, "Bar"),
+            new Condition(7, "Qix")
+        ];
 
         $application = new Application($input, $conditions);
 

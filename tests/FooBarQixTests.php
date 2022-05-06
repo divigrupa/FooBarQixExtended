@@ -61,7 +61,7 @@ class FooBarQixTests extends TestCase {
 
         $application = new Application($input, $conditions);
 
-        $application->verificationForMultiples();
+        $application->verificationForMultiple();
 
         $this->assertIsString($application->getResult());
         $this->assertEquals('13', $application->getResult());

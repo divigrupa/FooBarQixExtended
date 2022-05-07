@@ -32,7 +32,7 @@ class InfQixFoo extends FooBarQix
 
     public function sumAllDigits($number): string
     {
-        return (array_sum((array)str_split($number))) ? 'Inf' : '';
+        return (array_sum((array)str_split($number)) % 8 === 0) ? 'Inf' : '';
     }
 
     public function addSumAllDigitsEnd($number): string

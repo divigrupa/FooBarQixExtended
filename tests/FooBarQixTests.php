@@ -52,6 +52,39 @@ class FooBarQixTests extends TestCase {
         $this->assertEquals('Qix', $application->getResult());
     }
 
+    public function testResultContainsFoo() {
+        $input = new Input(13);
+        $conditions = [new Condition(3, "Foo")];
+
+        $application = new Application($input, $conditions);
+
+        $application->verificationForContains($conditions);
+
+        $this->assertEquals('13, Foo', $application->getResult());
+    }
+
+    public function testResultContainsBar() {
+        $input = new Input(59);
+        $conditions = [new Condition(5, "Bar")];
+
+        $application = new Application($input, $conditions);
+
+        $application->verificationForContains($conditions);
+
+        $this->assertEquals('59, Bar', $application->getResult());
+    }
+
+    public function testResultContainsQix() {
+        $input = new Input(17);
+        $conditions = [new Condition(7, "Qix")];
+
+        $application = new Application($input, $conditions);
+
+        $application->verificationForContains($conditions);
+
+        $this->assertEquals('17, Qix', $application->getResult());
+    }
+
     public function testResultForAllConditions() {
         $input = new Input(105);
         $conditions = [
@@ -63,8 +96,9 @@ class FooBarQixTests extends TestCase {
         $application = new Application($input, $conditions);
 
         $application->verificationForMultiple();
+        $application->verificationForContains();
 
-        $this->assertEquals('Foo, Bar, Qix', $application->getResult());
+        $this->assertEquals('Foo, Bar, Qix, Bar', $application->getResult());
     }
 
     public function testReturnedValueIsString() {

@@ -12,7 +12,7 @@ class InfQixFoo extends FooBarQix
 
     protected string $separator = '; ';
 
-    public function answerInf($number)
+    public function answerInf($number): string
     {
         if ($number % 168 === 0) {
             return "Inf; Qix; Foo";
@@ -28,6 +28,16 @@ class InfQixFoo extends FooBarQix
         }
 
         return $number;
+    }
+
+    public function sumAllDigits($number): string
+    {
+        return (array_sum((array)str_split($number))) ? 'Inf' : '';
+    }
+
+    public function addSumAllDigitsEnd($number): string
+    {
+        return $this->occurrences($number) . $this->sumAllDigits($number);
     }
 
 }

@@ -66,4 +66,18 @@ class InfQixFooTest extends TestCase
         $this->assertEquals("3; Foo; 8; Inf; 9; 1; 2; 8; Inf; 7; Qix", $result2);
 
     }
+
+    public function testReturnAddSumAllDigitsEnd()
+    {
+        $foobar = new InfQixFoo();
+
+        $result1 = $foobar->addSumAllDigitsEnd(3733);
+
+        $this->assertEquals("3; Foo; 7; Qix; 3; Foo; 3; FooInf", $result1);
+
+        $result2 = $foobar->addSumAllDigitsEnd(6873);
+
+        $this->assertEquals("6; 8; Inf; 7; Qix; 3; FooInf", $result2);
+
+    }
 }

@@ -101,6 +101,29 @@ class FooBarQixTests extends TestCase {
         $this->assertEquals('Foo, Bar, Qix, Bar', $application->getResult());
     }
 
+    public function testResultInfQixFooService() {
+        $input = new Input(438);
+        $conditionsForMultiples = [
+            new Condition(8, "Inf"),
+            new Condition(7, "Qix"),
+            new Condition(3, "Foo")
+        ];
+
+        $conditionsForContains = [
+            new Condition(3, "Foo"),
+            new Condition(8, "Inf"),
+            new Condition(7, "Qix"),
+        ];
+
+        $application = new Application($input, ";", $conditionsForMultiples);
+
+        $application->verificationForMultiple();
+        $application->verificationForContains($conditionsForContains);
+
+        $this->assertEquals('Foo; Foo; Inf', $application->getResult());
+    }
+
+
     public function testReturnedValueIsString() {
         $input = new Input(13);
         $conditions = [

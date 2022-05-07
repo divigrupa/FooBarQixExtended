@@ -31,5 +31,6 @@ if ($input->checkIfPositiveInteger() === false) {
 
 $application->verificationForMultiple();
 $application->verificationForContains($conditionsForContains);
+$application->checkIfSumIsMultipleOf(new Condition(8, "Inf"));
 
 echo $application->getResult() . PHP_EOL;

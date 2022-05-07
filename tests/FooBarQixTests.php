@@ -141,7 +141,7 @@ class FooBarQixTests extends TestCase {
 
         $application->verificationForMultiple();
         $application->verificationForContains($conditionsForContains);
-        $application->checkIfSumIsMultipleOf();
+        $application->checkIfSumIsMultipleOf(new Condition(8, "Inf"));
 
         $this->assertEquals('Inf; Foo; Inf; Inf; InfInf', $application->getResult());
     }

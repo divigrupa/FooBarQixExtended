@@ -35,6 +35,11 @@ class Application {
         }
     }
 
+    public function checkIfSumIsMultipleOf(Condition $condition): void {
+        $sum = array_sum(str_split($this->input->getInput(), 1));
+        if ($sum /  $condition->getCondition() == round($sum / $condition->getCondition())) $this->result .= $condition->getReturnIfTrue();
+    }
+
     public function getResult(): string {
         if (empty($this->result)) return strval($this->input->getInput());
         return trim($this->result, "$this->separator ");

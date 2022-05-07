@@ -10,6 +10,8 @@ class FooBarQix
         7 => 'Qix'
     ];
 
+    protected string $separator = ', ';
+
     public function answer($number)
     {
         if ($number % 105 === 0) {
@@ -36,10 +38,10 @@ class FooBarQix
         $out = [];
 
         foreach(str_split($number) as $v) {
-            $out[] = array_key_exists($v, $this->set) ? $v . ", " . $this->set[$v] : $v;
+            $out[] = array_key_exists($v, $this->set) ? $v . $this->separator . $this->set[$v] : $v;
         }
 
-        return implode(', ', $out);
+        return implode($this->separator, $out);
     }
 
     public function answerOrOccurrences($number)

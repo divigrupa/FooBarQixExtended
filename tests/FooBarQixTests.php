@@ -123,6 +123,28 @@ class FooBarQixTests extends TestCase {
         $this->assertEquals('Foo; Foo; Inf', $application->getResult());
     }
 
+    public function testIfAllDigitSumIsMultipleOfSomething() {
+        $input = new Input(888);
+        $conditionsForMultiples = [
+            new Condition(8, "Inf"),
+            new Condition(7, "Qix"),
+            new Condition(3, "Foo")
+        ];
+
+        $conditionsForContains = [
+            new Condition(3, "Foo"),
+            new Condition(8, "Inf"),
+            new Condition(7, "Qix"),
+        ];
+
+        $application = new Application($input, ";", $conditionsForMultiples);
+
+        $application->verificationForMultiple();
+        $application->verificationForContains($conditionsForContains);
+        $application->checkIfSumIsMultipleOf();
+
+        $this->assertEquals('Inf; Foo; Inf; Inf; InfInf', $application->getResult());
+    }
 
     public function testReturnedValueIsString() {
         $input = new Input(13);

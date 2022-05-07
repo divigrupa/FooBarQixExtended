@@ -21,6 +21,18 @@ class Application {
         }
     }
 
+    public function verificationForContains(): void {
+        if (empty($this->result)) $this->result .= $this->input->getInput();
+        $inputValue = str_split($this->input->getInput(), 1);
+        foreach ($inputValue as $oneInt) {
+            foreach ($this->conditionsForMultiple as $condition) {
+                if ($oneInt == $condition->getCondition()) {
+                    $this->result .= ", " . $condition->getReturnIfTrue();
+                }
+            }
+        }
+    }
+
     public function getResult(): string {
         if (empty($this->result)) return strval($this->input->getInput());
         return trim($this->result, ", ");

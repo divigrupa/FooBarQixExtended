@@ -23,5 +23,6 @@ if($input->checkIfPositiveInteger() === false) {
 }
 
 $application->verificationForMultiple();
+$application->verificationForContains();
 
 echo $application->getResult() . PHP_EOL;

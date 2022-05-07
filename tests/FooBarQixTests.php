@@ -23,7 +23,7 @@ class FooBarQixTests extends TestCase {
         $input = new Input(9);
         $conditions = [new Condition(3, "Foo")];
 
-        $application = new Application($input, $conditions);
+        $application = new Application($input, ",", $conditions);
 
         $application->verificationForMultiple();
 
@@ -34,7 +34,7 @@ class FooBarQixTests extends TestCase {
         $input = new Input(20);
         $conditions = [new Condition(5, "Bar")];
 
-        $application = new Application($input, $conditions);
+        $application = new Application($input, ",", $conditions);
 
         $application->verificationForMultiple();
 
@@ -45,7 +45,7 @@ class FooBarQixTests extends TestCase {
         $input = new Input(7);
         $conditions = [new Condition(7, "Qix")];
 
-        $application = new Application($input, $conditions);
+        $application = new Application($input, ",", $conditions);
 
         $application->verificationForMultiple();
 
@@ -56,7 +56,7 @@ class FooBarQixTests extends TestCase {
         $input = new Input(13);
         $conditions = [new Condition(3, "Foo")];
 
-        $application = new Application($input, $conditions);
+        $application = new Application($input, ",", $conditions);
 
         $application->verificationForContains($conditions);
 
@@ -67,7 +67,7 @@ class FooBarQixTests extends TestCase {
         $input = new Input(59);
         $conditions = [new Condition(5, "Bar")];
 
-        $application = new Application($input, $conditions);
+        $application = new Application($input, ",", $conditions);
 
         $application->verificationForContains($conditions);
 
@@ -78,7 +78,7 @@ class FooBarQixTests extends TestCase {
         $input = new Input(17);
         $conditions = [new Condition(7, "Qix")];
 
-        $application = new Application($input, $conditions);
+        $application = new Application($input, ",", $conditions);
 
         $application->verificationForContains($conditions);
 
@@ -93,10 +93,10 @@ class FooBarQixTests extends TestCase {
             new Condition(7, "Qix")
         ];
 
-        $application = new Application($input, $conditions);
+        $application = new Application($input, ",", $conditions);
 
         $application->verificationForMultiple();
-        $application->verificationForContains();
+        $application->verificationForContains($conditions);
 
         $this->assertEquals('Foo, Bar, Qix, Bar', $application->getResult());
     }
@@ -109,7 +109,7 @@ class FooBarQixTests extends TestCase {
             new Condition(7, "Qix")
         ];
 
-        $application = new Application($input, $conditions);
+        $application = new Application($input, ",", $conditions);
 
         $application->verificationForMultiple();
 

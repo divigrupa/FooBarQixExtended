@@ -15,7 +15,7 @@ $conditions = [
     new Condition(7, "Qix")
     ];
 
-$application = new Application($input, $conditions);
+$application = new Application($input, ",", $conditions);
 
 if($input->checkIfPositiveInteger() === false) {
     echo "Invalid input" . PHP_EOL;
@@ -23,6 +23,6 @@ if($input->checkIfPositiveInteger() === false) {
 }
 
 $application->verificationForMultiple();
-$application->verificationForContains();
+$application->verificationForContains($conditions);
 
 echo $application->getResult() . PHP_EOL;

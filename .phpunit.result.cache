@@ -1,0 +1,1 @@
+{"version":1,"defects":{"FooBarTest::testReturnFoo":4,"FooBarTest::testReturnBar":4,"FooBarTest::testReturnFooBar":4},"times":{"FooBarTest::testReturnFoo":0.001,"FooBarTest::testReturnBar":0,"FooBarTest::testReturnFooBar":0}}

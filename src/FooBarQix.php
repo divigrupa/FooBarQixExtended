@@ -4,6 +4,12 @@ namespace App;
 
 class FooBarQix
 {
+    protected array $set = [
+        3 => 'Foo',
+        5 => 'Bar',
+        7 => 'Qix'
+    ];
+
     public function answer($number)
     {
         if ($number % 105 === 0) {
@@ -24,4 +30,21 @@ class FooBarQix
 
         return $number;
     }
+
+    public function occurrences($number): string
+    {
+        $out = [];
+
+        foreach(str_split($number) as $v) {
+            $out[] = array_key_exists($v, $this->set) ? $v . ", " . $this->set[$v] : $v;
+        }
+
+        return implode(', ', $out);
+    }
+
+    public function answerOrOccurrences($number)
+    {
+        return (count(str_split($number)) > 1) ? $this->occurrences($number) : $this->answer($number);
+    }
+
 }

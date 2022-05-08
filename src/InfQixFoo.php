@@ -18,10 +18,10 @@ class InfQixFoo extends FooBarQix
 
         foreach ($this->set as $key => $value) {
 
-            if ($number % $leastCommonMultiple == 0) {
+            if ($number % $leastCommonMultiple === 0) {
                 return implode($this->separator, $this->set);
             }
-            if ($number % $key == 0) {
+            if ($number % $key === 0) {
                 return $value;
             }
         }

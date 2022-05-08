@@ -14,19 +14,17 @@ class InfQixFoo extends FooBarQix
 
     public function answerInf($number): string
     {
-        if ($number % 168 === 0) {
-            return "Inf; Qix; Foo";
-        }
-        if ($number % 8 === 0) {
-            return "Inf";
-        }
-        if ($number % 7 === 0) {
-            return "Qix";
-        }
-        if ($number % 3 === 0) {
-            return "Foo";
-        }
+        $leastCommonMultiple = array_product(array_flip($this->set));
 
+        foreach ($this->set as $key => $value) {
+
+            if ($number % $leastCommonMultiple == 0) {
+                return implode($this->separator, $this->set);
+            }
+            if ($number % $key == 0) {
+                return $value;
+            }
+        }
         return $number;
     }
 

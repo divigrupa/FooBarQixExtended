@@ -64,6 +64,7 @@ class Step1Test extends TestCase
     private function assert_invalid_input($input){
         $this->assertSame([
             'success'=>false,
+            'input'=>$input,
             'error'=>'Input must be a positive integer'
         ], $this->multiples_service->multiples($input));
     }
@@ -112,7 +113,8 @@ class Step1Test extends TestCase
             foreach ($input_values as $input_value){
                 $this->assertSame([
                     'success'=>true,
-                    'result'=>$multiplier['output']
+                    'input'=>$input_value,
+                    'result'=>[$multiplier['output']]
                 ], $this->multiples_service->multiples($input_value));
             }
         }
@@ -137,20 +139,28 @@ class Step1Test extends TestCase
         $lowest_common_multiple = $this->multipliers[0]['multiplier'] * $this->multipliers[1]['multiplier'];
 
         $result = $this->multiples_service->multiples($lowest_common_multiple);
+        $sorted_outputs = collect($this->multipliers)
+            ->sortBy('multiplier')
+            ->pluck('output')
+            ->toArray();
         //Assert that result starts with the first two outputs
         $this->assertSame(true, $result['success']);
-        $this->assertSame($this->multipliers[0]['output'], $result['result'][0]);
-        $this->assertSame($this->multipliers[1]['output'], $result['result'][1]);
+        $this->assertSame($lowest_common_multiple, $result['input']);
+        $this->assertSame($sorted_outputs[0], $result['result'][0]);
+        $this->assertSame($sorted_outputs[1], $result['result'][1]);
 
 
         //All multipliers
         //Arrange. Sort expected outputs by their multiplier
         $sorted_outputs = collect($this->multipliers)
             ->sortBy('multiplier')
-            ->pluck('output');  //Take only the expected outputs from the array
+            ->pluck('output')
+            ->toArray();  //Take only the expected outputs from the array
+
 
         $this->assertSame([
             'success'=>true,
+            'input'=>0,
             'result'=> $sorted_outputs
         ], $this->multiples_service->multiples(0)); //Zero is multiple of every multiplier (0 x 3 = 0, 0 x 5 = 0)
     }
@@ -181,6 +191,7 @@ class Step1Test extends TestCase
         foreach ($no_transformation_multiples as $no_transformation_multiple){
             $this->assertSame([
                 'success'=>true,
+                'input'=>$no_transformation_multiple,
                 'result'=> (string)$no_transformation_multiple
             ], $this->multiples_service->multiples($no_transformation_multiple));
         }

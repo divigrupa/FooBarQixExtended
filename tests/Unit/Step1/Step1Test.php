@@ -34,6 +34,10 @@ class Step1Test extends TestCase
                 'multiplier' => 3,
                 'output' => 'Foo'
             ],
+            [
+                'multiplier' => 7,
+                'output' => 'Qix'
+            ],
         ];
 
         //Create the service to use its functions

@@ -1,0 +1,23 @@
+{
+    "name": "work/foo-bar-qix-extended",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app",
+            "Tests\\": "tests"
+        }
+    },
+    "authors": [
+        {
+            "name": "Juris B",
+            "email": "juris.bumaniss@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "pestphp/pest": "^1.21"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}

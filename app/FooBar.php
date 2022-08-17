@@ -43,10 +43,8 @@ class FooBar
         }
 
 
-        if(!$transformedString == ''){
-            return trim($transformedString);
-        }
-        return trim($stringOfNumbers);
+
+        return trim($stringOfNumbers . $transformedString);
 
     }
 }

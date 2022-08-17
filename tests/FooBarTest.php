@@ -28,8 +28,20 @@ test('test case: "7 Qix"', function () {
     expect($fizzBuzz->start())->toEqual('7 Qix');
 });
 
-test('test case: natural order "105 Foo, Bar, Qix"', function () {
+test('test case: natural order "105 Qix; Foo; Bar"', function () {
     $fizzBuzz = new FooBar(105);
-    expect($fizzBuzz->start())->toEqual('105 Foo Bar Qix');
+    expect($fizzBuzz->start())->toEqual('105 Foo; Bar; Qix');
 });
+
+test('test case: natural order with Inf "280 Inf; Qix; Foo"', function () {
+    $fizzBuzz = new FooBar(280);
+    expect($fizzBuzz->start())->toEqual('280 Inf; Qix; Foo');
+});
+
+test('test case: "8 Inf"', function () {
+    $fizzBuzz = new FooBar(8);
+    expect($fizzBuzz->start())->toEqual('8 Inf');
+});
+
+
 

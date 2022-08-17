@@ -33,9 +33,9 @@ test('test case: natural order "105 Qix; Bar; Foo"', function () {
     expect($fizzBuzz->start())->toEqual('105 Qix; Bar; Foo');
 });
 
-test('test case: natural order with Inf "168 Inf; Qix; Foo"', function () {
+test('test case: natural order with Inf "168 Inf; Qix; FooInf"', function () {
     $fizzBuzz = new FooBar(168);
-    expect($fizzBuzz->start())->toEqual('168 Inf; Qix; Foo');
+    expect($fizzBuzz->start())->toEqual('168 Inf; Qix; FooInf');
 });
 
 test('test case: "8 Inf"', function () {
@@ -43,10 +43,6 @@ test('test case: "8 Inf"', function () {
     expect($fizzBuzz->start())->toEqual('8 Inf');
 });
 
-test('test case: sum of digit is multiple of 8 "168 Inf"', function () {
-    $fizzBuzz = new FooBar(168);
-    expect($fizzBuzz->start())->toEqual('168 Inf; Qix; FooInf');
-});
 
 
 

@@ -1,7 +1,11 @@
-<?php
+<?php  declare(strict_types=1);
 
 
 namespace App;
+
+
+
+
 
 class FooBar
 {
@@ -9,31 +13,43 @@ class FooBar
     private int $numStart;
     private int $fooNumber = 3;
     private int $barNumber = 5;
+    private int $qixNumber = 7;
     private string $foo = 'Foo';
     private string $bar = 'Bar';
+    private string $qix = 'Qix';
 
 
     public function __construct(int $numEnd)
     {
         $this->numEnd = $numEnd;
-        $this->numStart =$numEnd;
+        $this->numStart = $numEnd;
     }
 
     public function start(): string
     {
-        $returnString = '';
+        $stringOfNumbers = '';
+        $transformedString = '';
+
         for ($i = $this->numStart; $i <= $this->numEnd; $i++) {
             if ($i % $this->fooNumber == 0) {
-                $returnString .= $this->foo . ' ';
-            } elseif ($i % $this->barNumber == 0) {
-                $returnString .= $this->bar . ' ';
-            } else {
-                $returnString .= $i . ' ';
+                $transformedString .= $this->foo . ' ';
+            } if ($i % $this->barNumber == 0) {
+               $transformedString .= $this->bar . ' ';
+            } if ($i % $this->qixNumber == 0) {
+                $transformedString .= $this->qix . ' ';
             }
+            $stringOfNumbers .= $i . ' ';
+
         }
-        return trim($returnString);
+
+
+        if(!$transformedString == ''){
+            return trim($transformedString);
+        }
+        return trim($stringOfNumbers);
+
     }
-
-
-
 }
+
+
+

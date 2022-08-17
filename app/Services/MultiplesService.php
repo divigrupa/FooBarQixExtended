@@ -21,6 +21,10 @@ class MultiplesService
                 'multiplier' => 3,
                 'output' => 'Foo'
             ],
+            [
+                'multiplier' => 7,
+                'output' => 'Qix'
+            ],
         ]);
     }
 

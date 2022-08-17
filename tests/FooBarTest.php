@@ -18,3 +18,8 @@ test('test case: "Bar"', function () {
     expect($fizzBuzz->start())->toEqual('Bar');
 });
 
+test('test case: "Qix"', function () {
+    $fizzBuzz = new FooBar(7);
+    expect($fizzBuzz->start())->toEqual('Qix');
+});
+

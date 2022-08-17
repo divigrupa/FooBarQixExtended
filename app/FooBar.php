@@ -49,7 +49,6 @@ class FooBar
 
 
         $explode = array_reverse(explode(' ',$transformedString));
-
         $implode = implode(' ', $explode);
         return $stringOfNumbers . ltrim(str_replace(' ', '; ',$implode),';');
 

@@ -43,5 +43,10 @@ test('test case: "8 Inf"', function () {
     expect($fizzBuzz->start())->toEqual('8 Inf');
 });
 
+test('test case: sum of digit is multiple of 8 "168 Inf"', function () {
+    $fizzBuzz = new FooBar(168);
+    expect($fizzBuzz->start())->toEqual('168 Inf; Qix; FooInf');
+});
+
 
 

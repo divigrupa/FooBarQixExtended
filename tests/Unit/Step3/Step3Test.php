@@ -9,21 +9,12 @@ use Tests\TestCase;
 class Step3Test extends TestCase
 {
 
-    const MAX_INT = 9223372036854775807;    //Upper limit of integer data type
-    private $number_range;  //Inputs that get filtered and rejected before passing them through the service
     private $digits;   //Different multipliers and their expected outputs according to the requirements
     private $occurrences_service; //The class instance that will produce the actual output
 
     public function setUp() : void
     {
         parent::setUp();
-
-        //Set up ranges of numbers to work with
-        $this->number_range = array_merge(
-            range(0,30),                                        //Low range
-            range(4611686018427387888,4611686018427387933),     //Mid range
-            range(self::MAX_INT - 30,self::MAX_INT)             //High range
-        );
 
         $this->digits = [
             [
@@ -138,7 +129,7 @@ class Step3Test extends TestCase
             [
                 'success'=>true,
                 'input'=>$input_number,
-                'result'=>$outputs_mix
+                'result'=>array_values($outputs_mix)
             ],
             $this->occurrences_service->occurrences($input_number)    //Actual when concatenating each digit into a single number
         );
@@ -153,7 +144,7 @@ class Step3Test extends TestCase
             [
                 'success'=>true,
                 'input'=>$input_number,
-                'result'=>$reverse_outputs_mix
+                'result'=>array_values($reverse_outputs_mix)
             ],
             $this->occurrences_service->occurrences($input_number)    //Actual when concatenating each digit into a single number
         );
@@ -170,7 +161,7 @@ class Step3Test extends TestCase
     public function no_transformation_test(){
 
         //Create an array of numbers that have no digits for transformation
-        $no_transformation_numbers = collect($this->number_range);
+        $no_transformation_numbers = collect(range(0,100));
         foreach ($this->digits as $digit){
 
             //Reject the numbers that when converted to array contain the current digit
@@ -260,7 +251,7 @@ class Step3Test extends TestCase
             [
                 'success'=>true,
                 'input'=>$input_number,
-                'result'=>$expected_output
+                'result'=>array_values($expected_output)
             ],
             $this->occurrences_service->occurrences($input_number)
         );

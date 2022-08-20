@@ -18,7 +18,8 @@ class MultiplesAndOccurrencesTest extends TestCase
 
         //Create the service to use its functions
         $this->integrated_number_service = new IntegratedNumberService();
-        $this->multipliers = $this->integrated_number_service->multiples_service->multipliers;
+        $this->multipliers = collect($this->integrated_number_service->multiples_service->multipliers)
+            ->sortBy('multiplier');
         $this->digits = $this->integrated_number_service->occurrences_service->digits;
     }
 
@@ -61,7 +62,7 @@ class MultiplesAndOccurrencesTest extends TestCase
     {
         //Find a starting value that will always be multiple for all multipliers
         $multiplier_product = $this->multipliers[0]['multiplier'];
-        for ($i = 1; $i<count($this->multipliers) -1; $i++){
+        for ($i = 1; $i<count($this->multipliers); $i++){
             $multiplier_product *= $this->multipliers[$i]['multiplier'];
         }
 

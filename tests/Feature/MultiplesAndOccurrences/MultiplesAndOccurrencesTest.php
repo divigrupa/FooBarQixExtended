@@ -51,7 +51,8 @@ class MultiplesAndOccurrencesTest extends TestCase
     }
 
     /**
-     * Provide an invalid integer and expect an error message
+     * Create an integer that has is a multiple of all the multipliers and contains all
+     * the necessary digits. Pass it to new service and compare output with expected result.
      *
      * @test
      * @return void

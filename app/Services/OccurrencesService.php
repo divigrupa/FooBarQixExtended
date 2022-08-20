@@ -31,14 +31,13 @@ class OccurrencesService extends NumberService
      * returns an array of all the transformations if any were present.
      * Also validates that input number is a positive integer.
      */
-    public function occurrences($input_number){
+    public function occurrences($input_number, $validate = true){
 
-        //Validate
-        if(!$this->is_input_valid($input_number)) return [
-            'success' => false,
-            'input'=>$input_number,
-            'error' => 'Input must be a positive integer'
-        ];
+        //If validate marker is left true, then do input number validation
+        if($validate){
+            $validator_response = $this->validate($input_number);
+            if($validator_response) return $validator_response;
+        }
 
         //Split input number into digits
         $input_digits = str_split((string)$input_number);

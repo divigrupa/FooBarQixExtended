@@ -32,14 +32,13 @@ class MultiplesService extends NumberService
      * values associated with the strings. If input number is not a multiple,
      * then return the input number as a string
      */
-    public function multiples($input_number){
+    public function multiples($input_number, $validate = true){
 
-        //Validate
-        if(!$this->is_input_valid($input_number)) return [
-            'success' => false,
-            'input'=>$input_number,
-            'error' => 'Input must be a positive integer'
-        ];
+        //If validate marker is left true, then do input number validation
+        if($validate){
+            $validator_response = $this->validate($input_number);
+            if($validator_response) return $validator_response;
+        }
 
         //Sort multipliers
         $sorted_multipliers =  $this->multipliers->sortBy('multiplier');

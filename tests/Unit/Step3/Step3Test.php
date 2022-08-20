@@ -181,10 +181,6 @@ class Step3Test extends TestCase
      */
     public function mixed_digits_and_no_transformation_test(){
 
-        //Create an array of numbers that have no digits for transformation
-        $input_number = 3075;
-        $rand = rand(0,count($this->digits) - 1);
-
         //Create digits that have no transformation
         $no_transformation_digits = collect(range(0,9));
         //Reject numbers that are already digits that have defined transformations

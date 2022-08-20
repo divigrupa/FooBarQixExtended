@@ -16,23 +16,9 @@ class Step3Test extends TestCase
     {
         parent::setUp();
 
-        $this->digits = [
-            [
-                'digit' => 5,
-                'output' => 'Bar'
-            ],
-            [
-                'digit' => 3,
-                'output' => 'Foo'
-            ],
-            [
-                'digit' => 7,
-                'output' => 'Qix'
-            ],
-        ];
-
         //Create the service to use its functions
         $this->occurrences_service = new OccurrencesService();
+        $this->digits = $this->occurrences_service->digits;
     }
 
 

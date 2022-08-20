@@ -7,7 +7,7 @@ namespace App\Services;
 class OccurrencesService extends NumberService
 {
 
-    private $digits;   //Key value pairs with digit values and their associated output
+    public $digits;   //Key value pairs with digit values and their associated output
 
     function __construct(){
         $this->digits = collect([

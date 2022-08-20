@@ -4,9 +4,7 @@
 namespace App\Services;
 
 
-use function PHPUnit\Framework\isEmpty;
-
-class MultiplesService
+class MultiplesService extends NumberService
 {
 
     private $multipliers;   //Key value pairs with multiplier values and their associated output
@@ -75,14 +73,5 @@ class MultiplesService
             'result' => (string)$input_number,
         ];
 
-    }
-
-    /*
-     * Checks if input is of type integer and positive
-     */
-    private function is_input_valid($input_number){
-        if(gettype($input_number) != 'integer') return false;
-        if($input_number < 0) return false;
-        return true;
     }
 }

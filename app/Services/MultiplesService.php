@@ -7,7 +7,7 @@ namespace App\Services;
 class MultiplesService extends NumberService
 {
 
-    private $multipliers;   //Key value pairs with multiplier values and their associated output
+    public $multipliers;   //Key value pairs with multiplier values and their associated output
 
     function __construct(){
         $this->multipliers = collect([

@@ -25,23 +25,9 @@ class Step1Test extends TestCase
             range(self::MAX_INT - 30,self::MAX_INT)             //High range
         );
 
-        $this->multipliers = [
-            [
-                'multiplier' => 5,
-                'output' => 'Bar'
-            ],
-            [
-                'multiplier' => 3,
-                'output' => 'Foo'
-            ],
-            [
-                'multiplier' => 7,
-                'output' => 'Qix'
-            ],
-        ];
-
         //Create the service to use its functions
         $this->multiples_service = new MultiplesService();
+        $this->multipliers = $this->multiples_service->multipliers;
     }
 
 

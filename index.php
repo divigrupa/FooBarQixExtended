@@ -58,9 +58,9 @@ else {
 	echo '<br/>';
 	
 	try {
-		$n = 1873;
+		$n = 1043;
 		var_dump($n);
-		var_dump(apiPostCallFunction('infQixFoo', [$n]));
+		var_dump(apiPostCallFunction('infQixFoo', [$n], 1));
 	}
 	catch (ExceptionWithValue $e) {
 		echo get_class($e) . ': '; 
@@ -104,11 +104,22 @@ function apiInfQixFoo(int $n)
 	if ($n % 3 == 0) $a[] = 'Foo';
 	
 	$s = strval($n);
+	$digitsSum = 0;
+	
 	for ($i=0; $i<strlen($s); $i++) {
-		if ($s[$i] == '3') $a[] = 'Foo';
-		else if ($s[$i] == '8') $a[] = 'Inf';
-		else if ($s[$i] == '7') $a[] = 'Qix';
+		$d = $s[$i];
+		
+		if ($d == '3') $a[] = 'Foo';
+		else if ($d == '8') $a[] = 'Inf';
+		else if ($d == '7') $a[] = 'Qix';
+		
+		if (ServiceCall::$version >= 2) $digitsSum += intval($d);
 	}		
+	
+	if (ServiceCall::$version >= 2 && $digitsSum % 8 == 0) {
+		$n = count($a);
+		$n ? $a[$n-1] .= 'Inf' : $a[] = 'Inf';
+	}
 	
 	return implode('; ', $a);
 }

@@ -67,14 +67,22 @@ class FooBarQixTest extends TestCase
 		
 		$this->assertTrue( self::infQixFoo(1378) == 'Foo; Qix; Inf' );			
 		$this->assertTrue( self::infQixFoo(1873) == 'Inf; Qix; Foo' );			
+		
+		// v2
+		$this->assertTrue( self::infQixFoo(44, 1) == '' );			
+		$this->assertTrue( self::infQixFoo(44, 2) == 'Inf' );			
+		$this->assertTrue( self::infQixFoo(1043, 1) == 'Qix; Foo' );			
+		$this->assertTrue( self::infQixFoo(1043, 2) == 'Qix; FooInf' );			
+	
 	}
+	
 	
 	static function fooBarQix(int $n, int $version=1) { 
 		return apiPostCallFunction('fooBarQix', [$n], $version); 
 	}
 
-	static function infQixFoo(int $n) { 
-		return apiPostCallFunction('infQixFoo', [$n]); 
+	static function infQixFoo(int $n, int $version=1) { 
+		return apiPostCallFunction('infQixFoo', [$n], $version); 
 	}
 	
 }

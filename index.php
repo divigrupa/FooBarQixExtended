@@ -33,8 +33,34 @@ if (getallheaders()['Content-Type'] == 'application/json') {
 	echo json_encode($r);
 }
 else {	
+	// find number which has all digits and multiples
+	$n = '873';
+	for ($i=0; $i<1000; $i++) {
+		$v = intval($n . str_pad($i, 3, '0', STR_PAD_LEFT));
+		if ($v % 168 == 0) echo $v.' ';
+	}
+	echo '<br/>';
+	
+	// find number which has all digits and no multiples
+	$i = 1;
+	$found = 0;
+	while (true) {
+		$s = strval($i);
+		if (strpos($s, '8') !== false && strpos($s, '7') !== false && strpos($s, '3')  !== false && 
+				$i % 8 > 0 && $i % 7 > 0 && $i % 3 > 0) {
+			echo $i.' ';
+			$found++;
+			if ($found == 10) break;
+		}
+		
+		$i++;	
+	}	
+	echo '<br/>';
+	
 	try {
-		var_dump(apiPostCallFunction('fooBarQix', [3], 2));
+		$n = 1873;
+		var_dump($n);
+		var_dump(apiPostCallFunction('infQixFoo', [$n]));
 	}
 	catch (ExceptionWithValue $e) {
 		echo get_class($e) . ': '; 
@@ -57,14 +83,34 @@ function apiFooBarQix(int $n)
 	
 	if (ServiceCall::$version >= 2) {
 		$s = ''.$n;
-		for ($i=0; $i<strlen($s); $i++) {
+		for ($i=0; $i<strlen($s); $i++) {			
 			if ($s[$i] == '3') $a[] = 'Foo';
-			if ($s[$i] == '5') $a[] = 'Bar';
-			if ($s[$i] == '7') $a[] = 'Qix';
+			else if ($s[$i] == '5') $a[] = 'Bar';
+			else if ($s[$i] == '7') $a[] = 'Qix';
 		}		
 	}
 	
 	return implode(', ', $a);
+}
+
+
+function apiInfQixFoo(int $n)
+{
+	if (!($n >= 0)) throw new ExceptionWithValue('n < 0');
+	
+	$a = [];
+	if ($n % 8 == 0) $a[] = 'Inf';
+	if ($n % 7 == 0) $a[] = 'Qix';
+	if ($n % 3 == 0) $a[] = 'Foo';
+	
+	$s = strval($n);
+	for ($i=0; $i<strlen($s); $i++) {
+		if ($s[$i] == '3') $a[] = 'Foo';
+		else if ($s[$i] == '8') $a[] = 'Inf';
+		else if ($s[$i] == '7') $a[] = 'Qix';
+	}		
+	
+	return implode('; ', $a);
 }
 
 

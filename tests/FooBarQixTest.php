@@ -42,8 +42,39 @@ class FooBarQixTest extends TestCase
 	}
 	
 	
+	public function testInfQixFoo(): void
+	{	
+		$this->assertTrue( self::infQixFoo(16) == 'Inf' );
+		$this->assertTrue( self::infQixFoo(14) == 'Qix' );
+		$this->assertTrue( self::infQixFoo(6) == 'Foo' );
+				
+		$this->assertTrue( self::infQixFoo(8) == 'Inf; Inf' );
+		$this->assertTrue( self::infQixFoo(8*7) == 'Inf; Qix' );
+		$this->assertTrue( self::infQixFoo(7*3) == 'Qix; Foo' );
+		$this->assertTrue( self::infQixFoo(8*7*3) == 'Inf; Qix; Foo; Inf' );
+		$this->assertTrue( self::infQixFoo(8*7*3*3) == 'Inf; Qix; Foo' );
+		$this->assertTrue( self::infQixFoo(2) == '' );	
+	
+		// has all digits and multiples:
+		
+		$this->assertTrue( self::infQixFoo(873096) == 'Inf; Qix; Foo; Inf; Qix; Foo' );
+		$this->assertTrue( self::infQixFoo(873432) == 'Inf; Qix; Foo; Inf; Qix; Foo; Foo' );
+		$this->assertTrue( self::infQixFoo(873768) == 'Inf; Qix; Foo; Inf; Qix; Foo; Qix; Inf' );
+		$this->assertTrue( self::infQixFoo(873936) == 'Inf; Qix; Foo; Inf; Qix; Foo; Foo' );	
+	
+	
+		// has all digits and no multiples:
+		
+		$this->assertTrue( self::infQixFoo(1378) == 'Foo; Qix; Inf' );			
+		$this->assertTrue( self::infQixFoo(1873) == 'Inf; Qix; Foo' );			
+	}
+	
 	static function fooBarQix(int $n, int $version=1) { 
 		return apiPostCallFunction('fooBarQix', [$n], $version); 
+	}
+
+	static function infQixFoo(int $n) { 
+		return apiPostCallFunction('infQixFoo', [$n]); 
 	}
 	
 }

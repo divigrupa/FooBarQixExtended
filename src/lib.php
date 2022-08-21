@@ -1,10 +1,11 @@
 <?php
 
-function apiPostCallFunction(string $function, array $args=null)
+function apiPostCallFunction(string $function, array $args=null, int $version=1)
 {	 
  	$r = httpRequest('POST', Config::$values['apiUrl'], [
 		'function' => $function,
-		'args' => $args != null ? $args : []
+		'args' => $args != null ? $args : [],
+		'version' => $version
 	]);
 	 
 	if (!isset($r['result'])) throw new ExceptionWithValue($r, 'apiCall');

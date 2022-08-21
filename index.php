@@ -32,7 +32,7 @@ if (getallheaders()['Content-Type'] == 'application/json') {
 }
 else {	
 	try {
-		var_dump(apiPostCallFunction('fooBarQix', [12]));
+		var_dump(apiPostCallFunction('fooBarQix', [15*7]));
 	}
 	catch (ExceptionWithValue $e) {
 		echo get_class($e) . ': '; 
@@ -50,7 +50,8 @@ function apiFooBarQix(int $n)
 	
 	$a = [];
 	if ($n % 3 == 0) $a[] = 'Foo';
-	if ($n % 5 == 0) $a[] = 'Bar';	
+	if ($n % 5 == 0) $a[] = 'Bar';
+	if ($n % 7 == 0) $a[] = 'Qix';
 	
 	return implode(', ', $a);
 }

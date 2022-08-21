@@ -16,6 +16,11 @@ class FooBarQixTest extends TestCase
 		$this->assertTrue( self::fooBarQix(15) == 'Foo, Bar' );
 		$this->assertTrue( self::fooBarQix(2) == '' );	
 		
+		$this->assertTrue( self::fooBarQix(7) == 'Qix');
+		$this->assertTrue( self::fooBarQix(21) == 'Foo, Qix');
+		$this->assertTrue( self::fooBarQix(35) == 'Bar, Qix');
+		$this->assertTrue( self::fooBarQix(15*7) == 'Foo, Bar, Qix');
+		
 		$ev = null;
 		try { apiPostCallFunction('fooBarQix', ['a']); } catch (ExceptionWithValue $e) { $ev = $e; }		
 		$this->assertTrue( $ev != null && $ev->type == 'wrongJson' );

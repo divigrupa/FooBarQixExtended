@@ -1,8 +1,9 @@
 <?php
 
 
-namespace App\Services;
+namespace App\Services\MultiplesServices;
 
+use App\Services\NumberService;
 
 class MultiplesService extends NumberService
 {
@@ -10,20 +11,12 @@ class MultiplesService extends NumberService
     public $multipliers;   //Key value pairs with multiplier values and their associated output
 
     function __construct(){
-        $this->multipliers = collect([
+        $this->multipliers = array_values(collect([
             [
-                'multiplier' => 5,
-                'output' => 'Bar'
-            ],
-            [
-                'multiplier' => 3,
-                'output' => 'Foo'
-            ],
-            [
-                'multiplier' => 7,
-                'output' => 'Qix'
-            ],
-        ]);
+                'multiplier' => 1,
+                'output' => 'A'
+            ]
+        ])->toArray());
     }
 
 
@@ -41,7 +34,7 @@ class MultiplesService extends NumberService
         }
 
         //Sort multipliers
-        $sorted_multipliers =  $this->multipliers->sortBy('multiplier');
+        $sorted_multipliers = collect($this->multipliers);
 
         //If input number is 0 then return all outputs without calculation
         if($input_number == 0) return [

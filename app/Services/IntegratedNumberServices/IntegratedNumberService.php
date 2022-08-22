@@ -1,9 +1,11 @@
 <?php
 
 
-namespace App\Services;
+namespace App\Services\IntegratedNumberServices;
 
-
+use App\Services\NumberService;
+use App\Services\MultiplesServices\MultiplesService;
+use App\Services\OccurrencesServices\OccurrencesService;
 
 class IntegratedNumberService extends NumberService
 {

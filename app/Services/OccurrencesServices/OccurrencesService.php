@@ -1,8 +1,9 @@
 <?php
 
 
-namespace App\Services;
+namespace App\Services\OccurrencesServices;
 
+use App\Services\NumberService;
 
 class OccurrencesService extends NumberService
 {
@@ -12,17 +13,9 @@ class OccurrencesService extends NumberService
     function __construct(){
         $this->digits = collect([
             [
-                'digit' => 5,
-                'output' => 'Bar'
-            ],
-            [
-                'digit' => 3,
-                'output' => 'Foo'
-            ],
-            [
-                'digit' => 7,
-                'output' => 'Qix'
-            ],
+                'digit' => 1,
+                'output' => 'A'
+            ]
         ]);
     }
 

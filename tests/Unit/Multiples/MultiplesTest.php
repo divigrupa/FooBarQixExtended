@@ -1,28 +1,32 @@
 <?php
 
-namespace Tests\Unit\Step1;
+namespace Tests\Unit\Multiples;
 
-use App\Services\MultiplesService;
+use App\Services\MultiplesServices\MultiplesService;
 use Facade\Ignition\Support\Packagist\Package;
 use Tests\TestCase;
 
-class Step1Test extends TestCase
+class MultiplesTest extends TestCase
 {
 
-    const MAX_INT = 9223372036854775807;    //Upper limit of integer data type
-    private $number_range;  //Inputs that get filtered and rejected before passing them through the service
-    private $multipliers;   //Different multipliers and their expected outputs according to the requirements
-    private $multiples_service; //The class instance that will produce the actual output
+    protected $number_range;  //Inputs that get filtered and rejected before passing them through the service
+    protected $multipliers;   //Different multipliers and their expected outputs according to the requirements
+    protected $multiples_service; //The class instance that will produce the actual output
 
     public function setUp() : void
     {
         parent::setUp();
 
         //Set up ranges of numbers to work with
+        $middle_range = (integer)floor(PHP_INT_MAX / 2);
+        $number_range_size = 20;
         $this->number_range = array_merge(
-            range(0,30),                                        //Low range
-            range(4611686018427387888,4611686018427387933),     //Mid range
-            range(self::MAX_INT - 30,self::MAX_INT)             //High range
+            range(0,$number_range_size),                                   //Low range
+            range(
+                $middle_range - ($number_range_size / 2),
+                $middle_range + ($number_range_size / 2)
+            ),                                                                  //Mid range
+            range(PHP_INT_MAX - $number_range_size,PHP_INT_MAX)       //High range
         );
 
         //Create the service to use its functions
@@ -123,22 +127,23 @@ class Step1Test extends TestCase
     {
 
 
-        //First two multipliers
+        if(count($this->multipliers) >= 2){
+            //First two multipliers
 
-        //Lowest_common multiple is multiple of both multipliers (5 x 3 = 15, 5 x 3 = 15)
-        $lowest_common_multiple = $this->multipliers[0]['multiplier'] * $this->multipliers[1]['multiplier'];
+            //Lowest_common multiple is multiple of both multipliers (5 x 3 = 15, 5 x 3 = 15)
+            $lowest_common_multiple = $this->multipliers[0]['multiplier'] * $this->multipliers[1]['multiplier'];
 
-        $result = $this->multiples_service->multiples($lowest_common_multiple);
-        $sorted_outputs = collect($this->multipliers)
-            ->sortBy('multiplier')
-            ->pluck('output')
-            ->toArray();
-        //Assert that result starts with the first two outputs
-        $this->assertSame(true, $result['success']);
-        $this->assertSame($lowest_common_multiple, $result['input']);
-        $this->assertSame($sorted_outputs[0], $result['result'][0]);
-        $this->assertSame($sorted_outputs[1], $result['result'][1]);
-
+            $result = $this->multiples_service->multiples($lowest_common_multiple);
+            $sorted_outputs = collect($this->multipliers)
+                ->sortBy('multiplier')
+                ->pluck('output')
+                ->toArray();
+            //Assert that result starts with the first two outputs
+            $this->assertSame(true, $result['success']);
+            $this->assertSame($lowest_common_multiple, $result['input']);
+            $this->assertSame($sorted_outputs[0], $result['result'][0]);
+            $this->assertSame($sorted_outputs[1], $result['result'][1]);
+        }
 
         //All multipliers
         //Arrange. Sort expected outputs by their multiplier
@@ -167,7 +172,27 @@ class Step1Test extends TestCase
     public function no_transformation_test()
     {
 
-        //Arrange. Filter out the numbers that are multiples of described multipliers
+        //If one of the multipliers is 1, then there are no numbers without transformations to them
+
+        $is_multiplier_one_present = false;
+        $expected_output = null;
+        foreach ($this->multipliers as $multiplier){
+            if($multiplier['multiplier'] == 1) {
+                $is_multiplier_one_present = true;
+                $expected_output = $multiplier['output'];
+                break;
+            }
+        }
+        if($is_multiplier_one_present){
+            $service_output = $this->multiples_service->multiples(1);
+            $this->assertSame(true, $service_output['success']);
+            $this->assertSame(1, $service_output['input']);
+            $this->assertContains($expected_output, $service_output['result']);
+            return;
+        }
+
+
+        //If multiplier 1 isn't present, then filter out multiples from number range
 
         $no_transformation_multiples = collect($this->number_range);
         foreach ($this->multipliers as $multiplier){

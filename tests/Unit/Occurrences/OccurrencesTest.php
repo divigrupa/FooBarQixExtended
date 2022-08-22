@@ -1,16 +1,15 @@
 <?php
 
-namespace Tests\Unit\Step3;
+namespace Tests\Unit\Occurrences;
 
-use App\Services\OccurrencesService;
-use Facade\Ignition\Support\Packagist\Package;
+use App\Services\OccurrencesServices\OccurrencesService;
 use Tests\TestCase;
 
-class Step3Test extends TestCase
+class OccurrencesTest extends TestCase
 {
 
-    private $digits;   //Different multipliers and their expected outputs according to the requirements
-    private $occurrences_service; //The class instance that will produce the actual output
+    protected $digits;   //Different multipliers and their expected outputs according to the requirements
+    protected $occurrences_service; //The class instance that will produce the actual output
 
     public function setUp() : void
     {

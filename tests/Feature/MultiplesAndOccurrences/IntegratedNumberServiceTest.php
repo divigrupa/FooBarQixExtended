@@ -2,11 +2,10 @@
 
 namespace Tests\Feature\MultiplesAndOccurrences;
 
-use App\Services\IntegratedNumberService;
-use Facade\Ignition\Support\Packagist\Package;
+use App\Services\IntegratedNumberServices\IntegratedNumberService;
 use Tests\TestCase;
 
-class MultiplesAndOccurrencesTest extends TestCase
+class IntegratedNumberServiceTest extends TestCase
 {
     private $integrated_number_service; //The class instance that will produce the actual output
     private $multipliers;

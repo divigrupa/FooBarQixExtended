@@ -99,7 +99,7 @@ class IntegratedNumberServiceTest extends TestCase
         );
     }
 
-    private function contains_all_transform_digits($number){
+    protected function contains_all_transform_digits($number){
 
         $digits_in_number = str_split((string)$number);
 

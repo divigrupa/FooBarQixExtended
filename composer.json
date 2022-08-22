@@ -1,0 +1,23 @@
+{
+    "name": "vendor/foobar",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app",
+            "Tests\\": "tests"
+        }
+    },
+    "authors": [
+        {
+            "name": "laumags",
+            "email": "laumadz@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "pestphp/pest": "^1.21"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}

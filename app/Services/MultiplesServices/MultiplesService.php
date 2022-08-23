@@ -9,6 +9,7 @@ class MultiplesService extends NumberService
 {
 
     public $multipliers;   //Key value pairs with multiplier values and their associated output
+    public $separator;   //String of characters to use as glue if the array needs to be converted to string
 
     function __construct(){
         $this->multipliers = array_values(collect([
@@ -37,10 +38,12 @@ class MultiplesService extends NumberService
         $sorted_multipliers = collect($this->multipliers);
 
         //If input number is 0 then return all outputs without calculation
+        $output = $sorted_multipliers->pluck('output')->toArray();
+        if($this->separator) $output = join($this->separator, $output);
         if($input_number == 0) return [
             'success'=> true,
             'input'=>$input_number,
-            'result'=>$sorted_multipliers->pluck('output')->toArray()
+            'result'=>$output
         ];
 
 
@@ -48,10 +51,13 @@ class MultiplesService extends NumberService
         $output = [];   //Array for storing the outputs when searching for multipliers
 
         foreach ($sorted_multipliers as $multiplier){
-            if(!($input_number % $multiplier['multiplier'])) array_push($output,$multiplier['output']);
+            if(!($input_number % $multiplier['multiplier']))
+                array_push($output, $multiplier['output']);
         }
 
+
         //If there were any multipliers that were suitable, return the array containing outputs
+        if($this->separator) $output = join($this->separator, $output);
         if(!empty($output)) return [
             'success'=>true,
             'input'=>$input_number,

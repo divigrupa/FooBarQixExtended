@@ -12,6 +12,7 @@ class MultiplesTest extends TestCase
     protected $number_range;  //Inputs that get filtered and rejected before passing them through the service
     protected $multipliers;   //Different multipliers and their expected outputs according to the requirements
     protected $multiples_service; //The class instance that will produce the actual output
+    protected $separator;
 
     public function setUp() : void
     {
@@ -104,11 +105,13 @@ class MultiplesTest extends TestCase
 
 
             //Act. Assert that output matches for each input value
+            $output = [$multiplier['output']];
+            if($this->separator) $output = join($this->separator, $output);
             foreach ($input_values as $input_value){
                 $this->assertSame([
                     'success'=>true,
                     'input'=>$input_value,
-                    'result'=>[$multiplier['output']]
+                    'result'=>$output
                 ], $this->multiples_service->multiples($input_value));
             }
         }
@@ -133,30 +136,37 @@ class MultiplesTest extends TestCase
             //Lowest_common multiple is multiple of both multipliers (5 x 3 = 15, 5 x 3 = 15)
             $lowest_common_multiple = $this->multipliers[0]['multiplier'] * $this->multipliers[1]['multiplier'];
 
-            $result = $this->multiples_service->multiples($lowest_common_multiple);
             $sorted_outputs = collect($this->multipliers)
                 ->sortBy('multiplier')
                 ->pluck('output')
                 ->toArray();
+
             //Assert that result starts with the first two outputs
+            $result = $this->multiples_service->multiples($lowest_common_multiple);
+            if($this->separator) {
+                $result_array = explode("; ",$result['result']);
+            }
+            else{
+                $result_array = $result['result'];
+            }
             $this->assertSame(true, $result['success']);
-            $this->assertSame($lowest_common_multiple, $result['input']);
-            $this->assertSame($sorted_outputs[0], $result['result'][0]);
-            $this->assertSame($sorted_outputs[1], $result['result'][1]);
+            $this->assertSame($sorted_outputs[0], $result_array[0]);
+            $this->assertSame($sorted_outputs[1], $result_array[1]);
         }
 
         //All multipliers
         //Arrange. Sort expected outputs by their multiplier
-        $sorted_outputs = collect($this->multipliers)
+        $result = collect($this->multipliers)
             ->sortBy('multiplier')
             ->pluck('output')
             ->toArray();  //Take only the expected outputs from the array
 
 
+        if($this->separator) $result = join($this->separator, $result);
         $this->assertSame([
             'success'=>true,
             'input'=>0,
-            'result'=> $sorted_outputs
+            'result'=> $result
         ], $this->multiples_service->multiples(0)); //Zero is multiple of every multiplier (0 x 3 = 0, 0 x 5 = 0)
     }
 
@@ -184,10 +194,14 @@ class MultiplesTest extends TestCase
             }
         }
         if($is_multiplier_one_present){
+
             $service_output = $this->multiples_service->multiples(1);
+
+            $result_array = $service_output['result'];
+            if($this->separator) $result_array = explode("; ", $result_array);
             $this->assertSame(true, $service_output['success']);
             $this->assertSame(1, $service_output['input']);
-            $this->assertContains($expected_output, $service_output['result']);
+            $this->assertContains($expected_output, $result_array);
             return;
         }
 

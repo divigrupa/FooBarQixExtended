@@ -6,9 +6,6 @@ use App\Services\IntegratedNumberServices\FooBarQixIntegratedNumberService;
 
 class FooBarQixIntegratedNumberServiceTest extends IntegratedNumberServiceTest
 {
-    private $integrated_number_service; //The class instance that will produce the actual output
-    private $multipliers;
-    private $digits;
 
     public function setUp(): void
     {

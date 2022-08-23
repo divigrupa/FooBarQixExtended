@@ -10,6 +10,7 @@ class OccurrencesTest extends TestCase
 
     protected $digits;   //Different multipliers and their expected outputs according to the requirements
     protected $occurrences_service; //The class instance that will produce the actual output
+    protected $separator;
 
     public function setUp() : void
     {
@@ -63,11 +64,13 @@ class OccurrencesTest extends TestCase
         //Iterate over each digit and compare if the output matches the defined key value pairs
         foreach ($this->digits as $digit){
 
+            $expected_result = [$digit['output']];
+            if($this->separator) $expected_result = $digit['output'];
             $this->assertSame(
                 [
                     'success'=>true,
                     'input'=>$digit['digit'],
-                    'result'=>[$digit['output']]    //Expected one output element in array
+                    'result'=>$expected_result    //Expected one output element in array
                 ],
                 $this->occurrences_service->occurrences($digit['digit'])    //Actual
             );
@@ -79,15 +82,17 @@ class OccurrencesTest extends TestCase
 
             $input_number = $digit['digit'] * 111;
 
+            $expected_result = [    //Expected three output elements in array
+                $digit['output'],
+                $digit['output'],
+                $digit['output']
+            ];
+            if($this->separator) $expected_result = join($this->separator, $expected_result);
             $this->assertSame(
                 [
                     'success'=>true,
                     'input'=>$input_number,
-                    'result'=>[             //Expected three output elements in array
-                        $digit['output'],
-                        $digit['output'],
-                        $digit['output']
-                    ]
+                    'result'=>$expected_result
                 ],
                 $this->occurrences_service->occurrences($input_number)    //Actual
             );
@@ -107,21 +112,24 @@ class OccurrencesTest extends TestCase
 
         //Number and its expected output when combining digits from first to last
         $digits_mix = collect($this->digits)->pluck('digit')->toArray();
-        $outputs_mix = collect($this->digits)->pluck('output')->toArray();
+        $outputs_mix = array_values(collect($this->digits)->pluck('output')->toArray());
+        if($this->separator) $outputs_mix = join($this->separator, $outputs_mix);
 
         $input_number = (int)collect($digits_mix)->join('');    //Convert array to integer
         $this->assertSame(
             [
                 'success'=>true,
                 'input'=>$input_number,
-                'result'=>array_values($outputs_mix)
+                'result'=>$outputs_mix
             ],
             $this->occurrences_service->occurrences($input_number)    //Actual when concatenating each digit into a single number
         );
 
         //Number and its expected output when combining digits from last to first
         $reverse_digits_mix = collect($digits_mix)->reverse();
-        $reverse_outputs_mix = collect($outputs_mix)->reverse()->toArray();
+        $reverse_outputs_mix = array_values(collect($this->digits)->pluck('output')->reverse()->toArray());
+
+        if($this->separator) $reverse_outputs_mix = join($this->separator, $reverse_outputs_mix);
 
         $input_number = (int)collect($reverse_digits_mix)->join('');    //Convert array to integer
 
@@ -129,7 +137,7 @@ class OccurrencesTest extends TestCase
             [
                 'success'=>true,
                 'input'=>$input_number,
-                'result'=>array_values($reverse_outputs_mix)
+                'result'=>$reverse_outputs_mix
             ],
             $this->occurrences_service->occurrences($input_number)    //Actual when concatenating each digit into a single number
         );
@@ -156,13 +164,16 @@ class OccurrencesTest extends TestCase
             });
         }
 
+        if($this->separator) $expected_result = '';
+        else $expected_result = [];
+
         //Go through each number that has no digits for transformation and compare output
         foreach ($no_transformation_numbers as $no_transformation_number){
             $this->assertSame(
                 [
                     'success'=>true,
                     'input'=>$no_transformation_number,
-                    'result'=>[]
+                    'result'=>$expected_result
                 ], //No output if number has no defined digits for transformation
                 $this->occurrences_service->occurrences($no_transformation_number)
             );
@@ -228,11 +239,14 @@ class OccurrencesTest extends TestCase
         //Convert input number to integer
         $input_number = (integer)collect($input_number)->join('');
 
+        $expected_result = array_values($expected_output);
+        if($this->separator) $expected_result = join($this->separator, $expected_result);
+
         $this->assertSame(
             [
                 'success'=>true,
                 'input'=>$input_number,
-                'result'=>array_values($expected_output)
+                'result'=>$expected_result
             ],
             $this->occurrences_service->occurrences($input_number)
         );

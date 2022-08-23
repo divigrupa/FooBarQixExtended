@@ -11,6 +11,7 @@ class IntegratedNumberService extends NumberService
 {
     public $multiples_service;
     public $occurrences_service;
+    public $separator;
 
     function __construct(){
         $this->multiples_service = new MultiplesService();
@@ -33,7 +34,12 @@ class IntegratedNumberService extends NumberService
 
         //Check if calculations were successful and return the combined result
         if($multiples_response['success'] && $occurrences_response['success']){
-            $combined_result = array_merge($multiples_response['result'],$occurrences_response['result']);
+
+            if($this->separator)
+                $combined_result = $multiples_response['result']. $this->separator. $occurrences_response['result'];
+            else
+                $combined_result = array_merge($multiples_response['result'],$occurrences_response['result']);
+
             return [
                 'success'=>true,
                 'input' =>$input_number,

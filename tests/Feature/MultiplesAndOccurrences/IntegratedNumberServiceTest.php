@@ -7,9 +7,10 @@ use Tests\TestCase;
 
 class IntegratedNumberServiceTest extends TestCase
 {
-    private $integrated_number_service; //The class instance that will produce the actual output
-    private $multipliers;
-    private $digits;
+    protected $integrated_number_service; //The class instance that will produce the actual output
+    protected $multipliers;
+    protected $digits;
+    protected $separator;
 
     public function setUp(): void
     {
@@ -85,7 +86,15 @@ class IntegratedNumberServiceTest extends TestCase
             }
         }
 
-        $combined_output = array_merge($multiples_output,$occurrences_output);
+        if($this->separator){
+            $combined_result =
+                join($this->integrated_number_service->multiples_service->separator, $multiples_output)
+                . $this->separator.
+                join($this->integrated_number_service->occurrences_service->separator, $occurrences_output);
+        }
+        else{
+            $combined_result = array_merge($multiples_output,$occurrences_output);
+        }
 
         //Assert that when passing the generated number as input to integrated number service
         //the result is the same as combined output of multiples and occurrences
@@ -93,7 +102,7 @@ class IntegratedNumberServiceTest extends TestCase
             [
                 'success'=>true,
                 'input'=>$new_number,
-                'result'=>$combined_output
+                'result'=>$combined_result
             ],
             $this->integrated_number_service->multiples_and_occurrences($new_number)
         );

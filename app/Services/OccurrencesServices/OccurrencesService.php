@@ -9,6 +9,7 @@ class OccurrencesService extends NumberService
 {
 
     public $digits;   //Key value pairs with digit values and their associated output
+    public $separator;   //String of characters to use as glue if the array needs to be converted to string
 
     function __construct(){
         $this->digits = collect([
@@ -51,6 +52,7 @@ class OccurrencesService extends NumberService
             }
         }
 
+        if($this->separator) $result = join($this->separator, $result);
         return [
             'success'=>true,
             'input'=>$input_number,

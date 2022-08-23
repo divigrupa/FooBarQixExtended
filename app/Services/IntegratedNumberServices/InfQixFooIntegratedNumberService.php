@@ -10,6 +10,7 @@ class InfQixFooIntegratedNumberService extends IntegratedNumberService
 {
     public $multiples_service;
     public $occurrences_service;
+    public $digit_sum_multipliers;
 
     function __construct(){
 
@@ -18,5 +19,12 @@ class InfQixFooIntegratedNumberService extends IntegratedNumberService
         $this->occurrences_service = new InfQixFooOccurrencesService();
 
         $this->separator = "; ";
+
+        $this->digit_sum_multipliers = array_values(collect([
+            [
+                'multiplier' => 8,
+                'suffix' => 'Inf'
+            ],
+        ])->sortBy('multiplier')->toArray());
     }
 }

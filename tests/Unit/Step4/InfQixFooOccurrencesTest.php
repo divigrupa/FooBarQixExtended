@@ -108,6 +108,40 @@ class InfQixFooOccurrencesTest extends OccurrencesTest
 
 
     /**
+     * Create input numbers that are expected to have no transformations and test
+     * if function returns an empty array
+     *
+     * @test
+     * @return void
+     */
+    public function no_transformation_test(){
+
+        //Create an array of numbers that have no digits for transformation
+        $no_transformation_numbers = collect(range(0,100));
+        foreach ($this->digits as $digit){
+
+            //Reject the numbers that when converted to array contain the current digit
+            $no_transformation_numbers = $no_transformation_numbers->reject(function ($number) use ($digit) {
+                return collect(str_split((string)$number))  //Split number by digit
+                ->contains((string)$digit['digit']);    //Compare with current digit
+            });
+        }
+
+        //Go through each number that has no digits for transformation and compare output
+        foreach ($no_transformation_numbers as $no_transformation_number){
+            $this->assertSame(
+                [
+                    'success'=>true,
+                    'input'=>$no_transformation_number,
+                    'result'=>''
+                ], //No output if number has no defined digits for transformation
+                $this->occurrences_service->occurrences($no_transformation_number)
+            );
+        }
+    }
+
+
+    /**
      * Overridden parent function.
      * Create an input number that has both digits with defined transformations
      * and a digit without defined transformation. Compare if output skips the digit

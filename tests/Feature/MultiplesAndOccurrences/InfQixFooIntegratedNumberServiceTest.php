@@ -60,7 +60,7 @@ class InfQixFooIntegratedNumberServiceTest extends IntegratedNumberServiceTest
             }
         }
 
-        $combined_output = join("; ",array_merge($multiples_output,$occurrences_output));
+        $combined_output = join("; ",$multiples_output)."; ".join("; ",$occurrences_output);
 
         //Assert that when passing the generated number as input to integrated number service
         //the result is the same as combined output of multiples and occurrences

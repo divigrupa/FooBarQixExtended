@@ -60,7 +60,7 @@ class InfQixFooIntegratedNumberServiceTest extends IntegratedNumberServiceTest
                     'success'=>true,
                     'input'=>$input,
                     'result'=>$expected_result
-                ], $this->integrated_number_service->multiples_and_occurrences($input));
+                ], $this->integrated_number_service->multiples_occurrences_and_digit_sum($input));
             }
             else{
 
@@ -70,7 +70,7 @@ class InfQixFooIntegratedNumberServiceTest extends IntegratedNumberServiceTest
                     'success'=>true,
                     'input'=>$input,
                     'result'=>$expected_result
-                ], $this->integrated_number_service->multiples_and_occurrences($input));
+                ], $this->integrated_number_service->multiples_occurrences_and_digit_sum($input));
             }
 
         }
@@ -125,7 +125,7 @@ class InfQixFooIntegratedNumberServiceTest extends IntegratedNumberServiceTest
                     'success'=>true,
                     'input'=>$input,
                     'result'=>$expected_result
-                ], $this->integrated_number_service->multiples_and_occurrences($input));
+                ], $this->integrated_number_service->multiples_occurrences_and_digit_sum($input));
             }
             else{
 
@@ -135,7 +135,7 @@ class InfQixFooIntegratedNumberServiceTest extends IntegratedNumberServiceTest
                     'success'=>true,
                     'input'=>$input,
                     'result'=>$expected_result
-                ], $this->integrated_number_service->multiples_and_occurrences($input));
+                ], $this->integrated_number_service->multiples_occurrences_and_digit_sum($input));
             }
 
         }

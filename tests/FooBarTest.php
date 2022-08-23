@@ -17,7 +17,12 @@ test("should return 'Foo, Bar' if number is multiple of 3 and 5", function() {
     expect($fooBar->run())->toEqual("Foo, Bar");
 });
 
+test("should return 'Foo, Bar, Qix' if number is multiple of 3 and 5, and 7", function() {
+    $fooBar = new FooBar(105);
+    expect($fooBar->run())->toEqual("Foo, Bar, Qix");
+});
+
 test("should return given number as a string if there is no transformation to do", function() {
-    $fooBar = new FooBar(7);
-    expect($fooBar->run())->toEqual("7");
+    $fooBar = new FooBar(1);
+    expect($fooBar->run())->toEqual("1");
 });

@@ -5,8 +5,12 @@ use TestJob\Services\FooBarQix;
 
 class InfQixFoo
 {
+    protected static int $totalNumber = 0;
+
     public static function occurrences( int $number ): string
     {
+        static::$totalNumber += $number;
+
         return FooBarQix::occurrences( $number, [
             3 => "Foo",
             8 => "Inf",
@@ -16,6 +20,8 @@ class InfQixFoo
 
     public static function multiples( int $number ): string
     {
+        static::$totalNumber += $number;
+
         return FooBarQix::multiples( $number, [
             8 => "Inf",
             7 => "Qix",
@@ -25,11 +31,11 @@ class InfQixFoo
 
     public static function resetSum(): void
     {
-
+        static::$totalNumber = 0;
     }
 
     public static function sum(): string
     {
-        return "";
+        return static::$totalNumber > 0 && static::$totalNumber % 8 === 0 ? "Inf" : "";
     }
 }

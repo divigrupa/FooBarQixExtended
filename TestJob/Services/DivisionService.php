@@ -16,6 +16,25 @@ class DivisionService
 {
     public static function run( int $number ): string
     {
-        return "";
+        if ( $number < 1 ) return (string)$number;
+
+        $dividerAndName = [
+            3 => "Foo",
+            5 => "Bar",
+        ];
+
+        $result = [];
+
+        foreach ( $dividerAndName as $divider => $name )
+        {
+            if ( $number % $divider === 0 )
+            {
+                $result[] = $name;
+            }
+        }
+
+        return $result
+            ? implode( ", ", $result )
+            : (string)$number;
     }
 }

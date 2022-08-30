@@ -15,7 +15,7 @@ final class DivisionServiceTest extends TestCase
 
         # normal division
         $this->assertEquals( DivisionService::run( 3 ), "Foo" );
-        $this->assertEquals( DivisionService::run( 6000 ), "Foo" );
+        $this->assertEquals( DivisionService::run( 999 ), "Foo" );
         $this->assertEquals( DivisionService::run( 5 ), "Bar" );
         $this->assertEquals( DivisionService::run( 5000 ), "Bar" );
         $this->assertEquals( DivisionService::run( 15 ), "Foo, Bar" );

@@ -16,5 +16,10 @@
         "ext-pcre": ">=7.3",
         "ext-reflection": ">=7.3",
         "ext-spl": ">=7.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "TestJob\\Services\\": "Services/"
+        }
     }
 }

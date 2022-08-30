@@ -14,6 +14,16 @@ namespace TestJob\Services;
 
 class NumberService
 {
+    public static function multiplesAndOccurrences( int $number ): string
+    {
+        return "";
+    }
+
+    public static function occurrences( int $number ): string
+    {
+        return "";
+    }
+
     public static function multiples( int $number ): string
     {
         if ( $number < 1 ) return (string)$number;

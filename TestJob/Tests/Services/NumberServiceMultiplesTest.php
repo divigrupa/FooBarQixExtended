@@ -4,7 +4,7 @@ declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
 use TestJob\Services\NumberService;
 
-final class NumberServiceTest extends TestCase
+final class NumberServiceMultiplesTest extends TestCase
 {
     public function testInvalidNumbers(): void
     {

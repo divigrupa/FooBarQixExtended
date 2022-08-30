@@ -12,7 +12,7 @@ namespace TestJob\Services;
     We will return the given number as a string if there is no transformation to do.
  */
 
-class NumberService
+class FooBarQix
 {
     public static function multiplesAndOccurrences( int $number ): string
     {

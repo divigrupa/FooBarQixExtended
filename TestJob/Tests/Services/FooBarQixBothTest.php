@@ -2,15 +2,15 @@
 declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
-use TestJob\Services\NumberService;
+use TestJob\Services\FooBarQix;
 
-final class NumberServiceBothTest extends TestCase
+final class FooBarQixBothTest extends TestCase
 {
     public function equal( int $number )
     {
         $this->assertEquals(
-            NumberService::multiplesAndOccurrences( $number ),
-            NumberService::multiples( $number ).NumberService::occurrences( $number ),
+            FooBarQix::multiplesAndOccurrences( $number ),
+            FooBarQix::multiples( $number ).FooBarQix::occurrences( $number ),
             "Fail equal {$number}"
         );
     }

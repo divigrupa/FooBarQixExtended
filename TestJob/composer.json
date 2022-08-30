@@ -1,0 +1,20 @@
+{
+    "name": "divigrupa/test_job",
+    "description": "Test job for divigrupa",
+    "type": "project",
+    "authors": [
+        {
+            "name": "systemaworking",
+            "email": "69110904+systemaworking@users.noreply.github.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "ext-dom": "*",
+        "ext-json": "*",        "php": ">=7.3",
+        "ext-pcre": ">=7.3",
+        "ext-reflection": ">=7.3",
+        "ext-spl": ">=7.3"
+    }
+}

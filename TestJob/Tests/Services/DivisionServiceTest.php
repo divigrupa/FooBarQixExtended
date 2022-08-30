@@ -18,8 +18,12 @@ final class DivisionServiceTest extends TestCase
         $this->assertEquals( DivisionService::run( 999 ), "Foo" );
         $this->assertEquals( DivisionService::run( 5 ), "Bar" );
         $this->assertEquals( DivisionService::run( 5000 ), "Bar" );
+        $this->assertEquals( DivisionService::run( 7 ), "Qix" );
+        $this->assertEquals( DivisionService::run( 777 ), "Qix" );
         $this->assertEquals( DivisionService::run( 15 ), "Foo, Bar" );
         $this->assertEquals( DivisionService::run( 3000 ), "Foo, Bar" );
+        $this->assertEquals( DivisionService::run( 105 ), "Foo, Bar, Qix" );
+        $this->assertEquals( DivisionService::run( 2310 ), "Foo, Bar, Qix" );
 
         # fail division
         $this->assertEquals( DivisionService::run( 19 ), "19" );

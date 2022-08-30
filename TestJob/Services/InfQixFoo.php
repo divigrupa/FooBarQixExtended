@@ -22,4 +22,14 @@ class InfQixFoo
             3 => "Foo",
         ], "; " );
     }
+
+    public static function resetSum(): void
+    {
+
+    }
+
+    public static function sum(): string
+    {
+        return "";
+    }
 }

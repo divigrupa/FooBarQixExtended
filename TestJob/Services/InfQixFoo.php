@@ -1,15 +1,25 @@
 <?php
 namespace TestJob\Services;
 
+use TestJob\Services\FooBarQix;
+
 class InfQixFoo
 {
     public static function occurrences( int $number ): string
     {
-        return "";
+        return FooBarQix::occurrences( $number, [
+            3 => "Foo",
+            8 => "Inf",
+            7 => "Qix",
+        ] );
     }
 
     public static function multiples( int $number ): string
     {
-        return "";
+        return FooBarQix::multiples( $number, [
+            8 => "Inf",
+            7 => "Qix",
+            3 => "Foo",
+        ], "; " );
     }
 }

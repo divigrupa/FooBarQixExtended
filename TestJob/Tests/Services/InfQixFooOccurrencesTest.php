@@ -42,19 +42,19 @@ final class InfQixFooOccurrencesTest extends TestCase
 
     public function testOnlyInf(): void
     {
-        $this->assertEquals( InfInfFoo::occurrences( 8 ), "Inf" );
-        $this->assertEquals( InfInfFoo::occurrences( 888 ), "InfInfInf" );
-        $this->assertEquals( InfInfFoo::occurrences( 11118 ), "Inf" );
-        $this->assertEquals( InfInfFoo::occurrences( 81111 ), "Inf" );
-        $this->assertEquals( InfInfFoo::occurrences( 11811811 ), "InfInf" );
-        $this->assertEquals( InfInfFoo::occurrences( 18181 ), "InfInf" );
+        $this->assertEquals( InfQixFoo::occurrences( 8 ), "Inf" );
+        $this->assertEquals( InfQixFoo::occurrences( 888 ), "InfInfInf" );
+        $this->assertEquals( InfQixFoo::occurrences( 11118 ), "Inf" );
+        $this->assertEquals( InfQixFoo::occurrences( 81111 ), "Inf" );
+        $this->assertEquals( InfQixFoo::occurrences( 11811811 ), "InfInf" );
+        $this->assertEquals( InfQixFoo::occurrences( 18181 ), "InfInf" );
 
-        $this->assertEquals( InfInfFoo::occurrences( -8 ), "Inf" );
-        $this->assertEquals( InfInfFoo::occurrences( -888 ), "InfInfInf" );
-        $this->assertEquals( InfInfFoo::occurrences( -11118 ), "Inf" );
-        $this->assertEquals( InfInfFoo::occurrences( -81111 ), "Inf" );
-        $this->assertEquals( InfInfFoo::occurrences( -11811811 ), "InfInf" );
-        $this->assertEquals( InfInfFoo::occurrences( -18181 ), "InfInf" );
+        $this->assertEquals( InfQixFoo::occurrences( -8 ), "Inf" );
+        $this->assertEquals( InfQixFoo::occurrences( -888 ), "InfInfInf" );
+        $this->assertEquals( InfQixFoo::occurrences( -11118 ), "Inf" );
+        $this->assertEquals( InfQixFoo::occurrences( -81111 ), "Inf" );
+        $this->assertEquals( InfQixFoo::occurrences( -11811811 ), "InfInf" );
+        $this->assertEquals( InfQixFoo::occurrences( -18181 ), "InfInf" );
     }
 
     public function testMultiple(): void

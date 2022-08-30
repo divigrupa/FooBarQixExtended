@@ -19,7 +19,7 @@ class FooBarQix
         return static::multiples( $number ).static::occurrences( $number );
     }
 
-    public static function occurrences( int $number ): string
+    public static function occurrences( int $number, ?array $forceOptions = null ): string
     {
         $string = (string)$number;
         $result = [];
@@ -29,6 +29,11 @@ class FooBarQix
             "5" => "Bar",
             "7" => "Qix",
         ];
+
+        if ( $forceOptions !== null )
+        {
+            $charToWords = $forceOptions;
+        }
 
         foreach( str_split( $string ) as $char )
         {
@@ -41,7 +46,7 @@ class FooBarQix
         return implode( "", $result );
     }
 
-    public static function multiples( int $number ): string
+    public static function multiples( int $number, ?array $forceOptions = null, ?string $forceSeparator = null ): string
     {
         if ( $number < 1 ) return (string)$number;
 
@@ -50,6 +55,11 @@ class FooBarQix
             5 => "Bar",
             7 => "Qix",
         ];
+
+        if ( $forceOptions !== null )
+        {
+            $dividerAndName = $forceOptions;
+        }
 
         $result = [];
 
@@ -62,7 +72,7 @@ class FooBarQix
         }
 
         return $result
-            ? implode( ", ", $result )
+            ? implode( $forceSeparator ?? ", ", $result )
             : (string)$number;
     }
 }

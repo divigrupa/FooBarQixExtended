@@ -12,9 +12,9 @@ namespace TestJob\Services;
     We will return the given number as a string if there is no transformation to do.
  */
 
-class DivisionService
+class NumberService
 {
-    public static function run( int $number ): string
+    public static function multiples( int $number ): string
     {
         if ( $number < 1 ) return (string)$number;
 

@@ -1,0 +1,3 @@
+/TestJob/vendor/
+.phpunit.*.cache
+.idea

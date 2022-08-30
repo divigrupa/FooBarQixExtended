@@ -16,12 +16,29 @@ class NumberService
 {
     public static function multiplesAndOccurrences( int $number ): string
     {
-        return "";
+        return static::multiples( $number ).static::occurrences( $number );
     }
 
     public static function occurrences( int $number ): string
     {
-        return "";
+        $string = (string)$number;
+        $result = [];
+
+        $charToWords = [
+            "3" => "Foo",
+            "5" => "Bar",
+            "7" => "Qix",
+        ];
+
+        foreach( str_split( $string ) as $char )
+        {
+            if ( isset( $charToWords[ $char ] ) )
+            {
+                $result[] = $charToWords[ $char ];
+            }
+        }
+
+        return implode( "", $result );
     }
 
     public static function multiples( int $number ): string

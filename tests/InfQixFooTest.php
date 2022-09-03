@@ -59,7 +59,7 @@ test("if number contains 8, 7 and 3 append 'Inf; Qix; Foo'", function() {
 
 test("should return 'Inf; Foo' if number is multiple of 8 and 3 and if it contains 7, append 'Qix'", function() {
     $infQixFoo = new InfQixFoo(72);
-    expect($infQixFoo->run())->toEqual("Inf; Qix; Foo; 2");
+    expect($infQixFoo->run())->toEqual("Inf; Foo; Qix; 2");
 });
 
 test("should return 'Inf; Foo; Qix' if number is multiple of 8 and 3, and 7 and if it contains 8, append 'Inf'", function() {

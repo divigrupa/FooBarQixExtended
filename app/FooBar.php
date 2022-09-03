@@ -50,8 +50,6 @@ class FooBar
 
     public function run(): string
     {
-        $fooBar = new FooBar($this->getInputNumber());
-
         if ($this->getInputNumber() < 0) {
             throw new Exception("need positive integer");
         }
@@ -69,9 +67,6 @@ class FooBar
             } else {
                 array_push($this->result, $inputNumberToArray[$i]);
             }
-        }
-        if (count($this->result) == 0){
-            array_push($this->result, $this->getInputNumber());
         }
         return implode("", $this->result);
     }

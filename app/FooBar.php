@@ -6,34 +6,73 @@ use Exception;
 
 class FooBar
 {
-    private int $number;
-    private const FOO = 3;
-    private const BAR = 5;
-    private const QIX = 7;
+    private int $inputNumber;
+    private array $multiples = [3, 5, 7];
+    private array $multiplesText = [
+        3 => "Foo",
+        5 => "Bar",
+        7 => "Qix"
+    ];
     private array $result = [];
 
-    public function __construct(int $number)
+    public function __construct(int $inputNumber)
     {
-        $this->number = $number;
+        $this->inputNumber = $inputNumber;
+    }
+
+    public function getInputNumber(): int
+    {
+        return $this->inputNumber;
+    }
+
+    public function determineMultiples(): string
+    {
+        for ($i = 0; $i < count($this->multiples); $i++) {
+            if ($this->inputNumber % $this->multiples[$i] == 0) {
+                array_push($this->result, $this->multiplesText[$this->multiples[$i]]);
+            }
+        }
+        return implode("", $this->result);
+    }
+
+    public function determineAppearances(): string
+    {
+        $inputNumberToArray = str_split($this->inputNumber);
+        for ($i = 0; $i < count($inputNumberToArray); $i++) {
+            if (in_array($inputNumberToArray[$i], $this->multiples)) {
+                array_push($this->result, $this->multiplesText[$inputNumberToArray[$i]]);
+            } else {
+                array_push($this->result, $inputNumberToArray[$i]);
+            }
+        }
+        return implode("", $this->result);
     }
 
     public function run(): string
     {
-        if ($this->number < 0) {
+        $fooBar = new FooBar($this->getInputNumber());
+
+        if ($this->getInputNumber() < 0) {
             throw new Exception("need positive integer");
         }
-        if ($this->number % self::FOO == 0) {
-            array_push($this->result, "Foo");
+
+        for ($i = 0; $i < count($this->multiples); $i++) {
+            if ($this->getInputNumber() % $this->multiples[$i] == 0) {
+                array_push($this->result, $this->multiplesText[$this->multiples[$i]]);
+            }
         }
-        if ($this->number % self::BAR == 0) {
-            array_push($this->result, "Bar");
+
+        $inputNumberToArray = str_split($this->getInputNumber());
+        for ($i = 0; $i < count($inputNumberToArray); $i++) {
+            if (in_array($inputNumberToArray[$i], $this->multiples)) {
+                array_push($this->result, $this->multiplesText[$inputNumberToArray[$i]]);
+            } else {
+                array_push($this->result, $inputNumberToArray[$i]);
+            }
         }
-        if ($this->number % self::QIX == 0) {
-            array_push($this->result, "Qix");
+        if (count($this->result) == 0){
+            array_push($this->result, $this->getInputNumber());
         }
-        if ($this->number % self::FOO !== 0 && $this->number % self::BAR !== 0 && $this->number % self::QIX !== 0) {
-            array_push($this->result, $this->number);
-        }
-        return implode(", ", $this->result);
+        return implode("", $this->result);
     }
 };

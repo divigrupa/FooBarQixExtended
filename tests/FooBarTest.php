@@ -54,10 +54,10 @@ test(
     ];
 
     $function = new NumberTransformation($multiples,$occurrences);
-    expect($function->execute(7))->toBe('Qix') ;
-    expect($function->execute(105))->toBe('Foo,Bar,Qix');
-    expect($function->execute(177))->toBe('Foo');
-    expect($function->execute(707))->toBe('Qix');
+    expect($function->execute(7))->toBe('Qix,Qix') ;
+    expect($function->execute(105))->toBe('Foo,Bar,Qix,Bar');
+    expect($function->execute(177))->toBe('Foo,Qix,Qix');
+    expect($function->execute(707))->toBe('Qix,Qix,Qix');
     expect($function->execute(152))->toBe('Bar');
     expect($function->execute(17434))->toBe('Qix,Foo');
     expect($function->execute(153752))->toBe('Bar,Foo,Qix,Bar');

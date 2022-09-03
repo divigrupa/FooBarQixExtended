@@ -103,9 +103,9 @@ test(
         $bar=new Element('Inf',8),
         $qix=new Element('Qix',7)
     ];
+    $addInf=new Element('Inf',8);
 
-
-    $function = new NumberTransformation($multiples,';',$occurrences);
+    $function = new NumberTransformation($multiples,';',$occurrences,$addInf);
     expect($function->execute(556))->toBe('Inf') ;
     expect($function->execute(5373222))->toBe('Foo;Foo;Qix;FooInf');
 

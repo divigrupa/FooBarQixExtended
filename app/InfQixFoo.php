@@ -68,8 +68,12 @@ class InfQixFoo
                 array_push($this->result, $inputNumberToArray[$i]);
             }
         }
-        if ($inputNumberToArray == $this->result) {
-            return implode ("", $this->result);
+        
+        $sumOfNumbers = array_sum($inputNumberToArray);
+        if ($sumOfNumbers % $this->multiples[0] == 0 && $inputNumberToArray == $this->result) {
+            return implode ("", $this->result) . $this->multiplesText[8];
+        } elseif ($sumOfNumbers % $this->multiples[0] == 0) {
+            return implode ("; ", $this->result) . $this->multiplesText[8];
         } else {
             return implode ("; ", $this->result);
         }

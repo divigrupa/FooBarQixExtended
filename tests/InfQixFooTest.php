@@ -72,7 +72,7 @@ test("If sum of all digits is multiple of 8, we will append “Inf” at the ver
     expect($infQixFoo->run())->toEqual("Qix; Foo; 5Inf");
 });
 
-test("If sum of all digits is multiple of 8, we will append “Inf” at the very end of response", function() {
+test("If sum of all digits is multiple of 8, append “Inf” at the very end of response", function() {
     $infQixFoo = new InfQixFoo(800);
     expect($infQixFoo->run())->toEqual("Inf; Inf; 0; 0Inf");
 });

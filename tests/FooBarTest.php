@@ -53,7 +53,7 @@ test(
         $qix=new Element('Qix',7)
     ];
 
-    $function = new NumberTransformation($multiples,$occurrences);
+    $function = new NumberTransformation($multiples,',',$occurrences);
     expect($function->execute(7))->toBe('Qix,Qix') ;
     expect($function->execute(105))->toBe('Foo,Bar,Qix,Bar');
     expect($function->execute(177))->toBe('Foo,Qix,Qix');

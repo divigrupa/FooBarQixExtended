@@ -22,3 +22,19 @@ test(
     expect($function->execute(8))->toBe('8');
 });
 
+test(
+    'return "Qix" if this number is multiple of 7,
+    "Foo,Bar,Qix" if this number is multiple of 3 and 5 and 7,
+    else return number as string'
+    , function () {
+    $elements=[
+        $foo=new Element('Foo',3),
+        $bar=new Element('Bar',5),
+        $qix=new Element('Qix',7)
+    ];
+
+    $function = new NumberTransformation($elements);
+    expect($function->execute(7))->toBe('Qix') ;
+    expect($function->execute(105))->toBe('Foo,Bar,Qix');
+    expect($function->execute(8))->toBe('8');
+});

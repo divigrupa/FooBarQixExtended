@@ -88,3 +88,25 @@ test(
     expect($function->execute(8))->toBe('Inf;Inf');
     expect($function->execute(17485))->toBe('Qix;Inf');
 });
+test(
+    '
+   If sum of all digits is multiple of 8 return Inf at the end.
+'
+    , function () {
+    $multiples=[
+        $foo=new Element('Inf',8),
+        $bar=new Element('Qix',7),
+        $qix=new Element('Foo',3)
+    ];
+    $occurrences=[
+        $foo=new Element('Foo',3),
+        $bar=new Element('Inf',8),
+        $qix=new Element('Qix',7)
+    ];
+
+
+    $function = new NumberTransformation($multiples,';',$occurrences);
+    expect($function->execute(556))->toBe('Inf') ;
+    expect($function->execute(5373222))->toBe('Foo;Foo;Qix;FooInf');
+
+});

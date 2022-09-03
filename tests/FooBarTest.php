@@ -62,3 +62,29 @@ test(
     expect($function->execute(17434))->toBe('Qix,Foo');
     expect($function->execute(153752))->toBe('Bar,Foo,Qix,Bar');
 });
+test(
+    '
+    "Inf" if this number is multiple of 8
+    "Qix" if this number is multiple of 7
+    "Foo" if this number is multiple of 3
+    if number is equal to 3,8,7 append "Foo","Inf","Qix"
+    Use ";" as separator.
+'
+    , function () {
+    $multiples=[
+        $foo=new Element('Inf',8),
+        $bar=new Element('Qix',7),
+        $qix=new Element('Foo',3)
+    ];
+    $occurrences=[
+        $foo=new Element('Foo',3),
+        $bar=new Element('Inf',8),
+        $qix=new Element('Qix',7)
+    ];
+
+    $function = new NumberTransformation($multiples,';',$occurrences);
+    expect($function->execute(14))->toBe('Qix') ;
+    expect($function->execute(168))->toBe('Inf;Qix;Foo;Inf');
+    expect($function->execute(8))->toBe('Inf;Inf');
+    expect($function->execute(17485))->toBe('Qix;Inf');
+});

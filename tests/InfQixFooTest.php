@@ -66,3 +66,13 @@ test("should return 'Inf; Foo; Qix' if number is multiple of 8 and 3, and 7 and 
     $infQixFoo = new InfQixFoo(168);
     expect($infQixFoo->run())->toEqual("Inf; Qix; Foo; 1; 6; Inf");
 });
+
+test("If sum of all digits is multiple of 8, we will append “Inf” at the very end of response", function() {
+    $infQixFoo = new InfQixFoo(35);
+    expect($infQixFoo->run())->toEqual("Qix; Foo; 5Inf");
+});
+
+test("If sum of all digits is multiple of 8, we will append “Inf” at the very end of response", function() {
+    $infQixFoo = new InfQixFoo(800);
+    expect($infQixFoo->run())->toEqual("Inf; Inf; 0; 0Inf");
+});

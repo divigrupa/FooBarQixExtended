@@ -38,3 +38,23 @@ test(
     expect($function->execute(105))->toBe('Foo,Bar,Qix');
     expect($function->execute(8))->toBe('8');
 });
+test(
+    'If the given number contains specific digit,
+    we will append a word to the transformation in the order they appear in the number.'
+    , function () {
+    $elements=[
+        $foo=new Element('Foo',3),
+        $bar=new Element('Bar',5),
+        $qix=new Element('Qix',7)
+    ];
+
+    $function = new NumberTransformation($elements);
+    expect($function->execute(7))->toBe('Qix') ;
+    expect($function->execute(105))->toBe('Foo,Bar,Qix');
+    expect($function->execute(177))->toBe('Foo');
+    expect($function->execute(707))->toBe('Qix');
+    expect($function->execute(152))->toBe('Bar');
+    expect($function->execute(17434))->toBe('Qix,Foo');
+    expect($function->execute(153752))->toBe('Bar,Foo,Qix,Bar');
+
+});

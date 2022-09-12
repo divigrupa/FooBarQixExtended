@@ -45,7 +45,7 @@ test("Should return Foo,Bar,Qix in case if number is not multiple to 3,5,7 and c
 test("Should return Inf in case if multiple by 8",
     function (){
         $step1 = new InfQixFoo();
-        expect($step1->execute(8))->toEqual("Inf");
+        expect($step1->execute(8))->toEqual("InfInf");
         expect($step1->execute(16))->toEqual("Inf");
 });
 
@@ -66,7 +66,7 @@ test("Should return Inf;Qix;Foo in case of multiple by 8 and 7 and 3",
     function (){
         $step1 = new InfQixFoo();
         expect($step1->execute(56))->toEqual("Inf;Qix");
-        expect($step1->execute(224))->toEqual("Inf;Qix");
+        expect($step1->execute(224))->toEqual("Inf;QixInf");
         expect($step1->execute(168))->toEqual("Inf;Qix;Foo");
     });
 test("Should return Inf;Qix,Foo in case if number is not multiple to 8,7,3 and contains digit 8,7,3 in it",

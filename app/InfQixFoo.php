@@ -41,6 +41,11 @@ class InfQixFoo
                 $result[] = strval($number);
             }
         }
+        if($result) {
+            if (array_sum(str_split($number)) % self::InfNumber == 0) {
+                $result[sizeof($result)-1] = $result[sizeof($result)-1] . self::CaseOfEight;
+            }
+        }
         return implode(';', $result);
     }
 }

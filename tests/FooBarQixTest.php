@@ -30,3 +30,12 @@ test("Should return Qix in case of multiple by 7",
         expect($step1->execute(7))->toEqual("Qix");
         expect($step1->execute(14))->toEqual("Qix");
     });
+test("Should return Foo,Bar,Qix in case if number is not multiple to 3,5,7 and contains digit 3,5,7 in it",
+    function (){
+        $step1 = new FooBarQix();
+        expect($step1->execute(34))->toEqual("Foo");
+        expect($step1->execute(52))->toEqual("Bar");
+        expect($step1->execute(73))->toEqual("Qix");
+        expect($step1->execute(1234567))->toEqual("Foo,Bar,Qix");
+        expect($step1->execute(7654321))->toEqual("Qix,Bar,Foo");
+    });

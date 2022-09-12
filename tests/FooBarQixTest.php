@@ -1,5 +1,7 @@
 <?php
 
+use App\FooBarQix;
+
 test("Should return Foo in case if multiple by 3",
     function () {
         $step1 = new FooBarQix();
@@ -18,6 +20,7 @@ test("Should return Bar in case if multiple by 5",
 test("Should return FooBar in case of multiple by 3 and 5",
     function () {
         $step1 = new FooBarQix();
-        expect($step1->execute(15))->toEqual("FooBar");
-        expect($step1->execute(45))->toEqual("FooBar");
+        expect($step1->execute(15))->toEqual("Foo,Bar");
+        expect($step1->execute(45))->toEqual("Foo,Bar");
     });
+

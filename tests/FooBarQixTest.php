@@ -1,7 +1,7 @@
 <?php
 
 use App\FooBarQix;
-
+use App\InfQixFoo;
 test("Should return Foo in case if multiple by 3",
     function () {
         $step1 = new FooBarQix();
@@ -76,5 +76,5 @@ test("Should return Inf;Qix,Foo in case if number is not multiple to 8,7,3 and c
         expect($step1->execute(74))->toEqual("Qix");
         expect($step1->execute(34))->toEqual("Foo");
         expect($step1->execute(3587))->toEqual("Foo;Inf;Qix");
-        expect($step1->execute(7853))->toEqual("Qix;Inf,Foo");
+        expect($step1->execute(7853))->toEqual("Qix;Inf;Foo");
     });

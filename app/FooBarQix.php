@@ -7,9 +7,10 @@ class FooBarQix
 {
     private const MultipleByThree = "Foo";
     private const MultipleByFive = "Bar";
+    private const MultipleBySeven = "Qix";
     private const FooNumber = 3;
     private const BarNumber = 5;
-
+    private const QixNUmber = 7;
     public function execute(int $number): string
     {
         $result = [];
@@ -19,6 +20,9 @@ class FooBarQix
             }
             if ($number % self::BarNumber == 0) {
                 $result[] = self::MultipleByFive;
+            }
+            if($number % self::QixNUmber == 0){
+                $result[] = self::MultipleBySeven;
             }
             if (!$result) {
                 $result[] = strval($number);

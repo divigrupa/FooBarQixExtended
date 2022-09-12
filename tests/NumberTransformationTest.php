@@ -78,3 +78,9 @@ test("Should return Inf;Qix,Foo in case if number is not multiple to 8,7,3 and c
         expect($step1->execute(3587))->toEqual("Foo;Inf;Qix");
         expect($step1->execute(7853))->toEqual("Qix;Inf;Foo");
     });
+
+test("If sum of all digits is multiple of 8, we will append “Inf” at the very and of response",
+    function (){
+        $step1 = new InfQixFoo();
+        expect($step1->execute(8))->toEqual("InfInf");
+    });

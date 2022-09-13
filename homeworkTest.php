@@ -24,7 +24,7 @@ class HomeWorkTest extends TestCase {
             'number is multiple of 3' => [3, 'Foo'],
             'number is multiple of 5' => [5, 'Bar'],
             'number has several multiples' => [15, 'Foo, Bar'],
-            'number has not multiples' => [11, 11]
+            'number has not multiples' => [11, '11']
         ];
     }
 }

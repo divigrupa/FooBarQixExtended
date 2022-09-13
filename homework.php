@@ -3,12 +3,20 @@ class HomeWork
 {
     function Task(int $value) : string
     {
+        if ($value <= 0)
+            throw new InvalidArgumentException('Input value must be positive integer');
+
         $res = [];
 
-        if ($value % 3 === 0)
-            $res[] = 'Foo';
-        if ($value % 5 === 0)
-            $res[] = 'Bar';
+        $multiples = [
+            [3, 'Foo'],
+            [5, 'Bar'],
+            [7, 'Qix'],
+        ];
+
+        foreach($multiples as [$multiple, $text])
+            if ($value % $multiple === 0)
+                $res[] = $text;
 
         if (count($res))
             return join(', ', $res);

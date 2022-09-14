@@ -65,7 +65,7 @@ class HomeWorkTest extends TestCase {
             'number contains 3 and without multiples' => [13, 'Foo'],
             'number contains two 3 and without multiples' => [313, 'Foo, Foo'],
 
-            'number contains 5 and without multiples' => [51, 'Bar'],
+            'number contains 5 and without multiples' => [52, 'Bar'],
             'number contains two 5 and without multiples' => [551, 'Bar, Bar'],
 
             'number contains 7 and without multiples' => [17, 'Qix'],
@@ -77,10 +77,10 @@ class HomeWorkTest extends TestCase {
             'number contains 3 and 7 and without multiples' => [73, 'Qix, Foo'],
             'number contains several 3 and 7 and without multiples' => [373, 'Foo, Qix, Foo'],
 
-            'number contains 5 and 7 and without multiples' => [57, 'Bar, Qix'],
+            'number contains 5 and 7 and without multiples' => [157, 'Bar, Qix'],
             'number contains several 5 and 7 and without multiples' => [373, 'Foo, Qix, Foo'],
 
-            'number contains 3, 5 and 7 and without multiples' => [5537, 'Bar, Bar, Foo, Qix'],
+            'number contains 3, 5 and 7 and without multiples' => [5371, 'Bar, Foo, Qix'],
         ];
     }
 
@@ -118,7 +118,7 @@ class HomeWorkTest extends TestCase {
             'number contains 3, 5 and is multiple of 5' => [235, 'Bar, Foo, Bar'],
             'number contains 3, 5 and is multiple of 7' => [532, 'Qix, Bar, Foo'],
             'number contains 3, 5 and is multiple of 3 and 5' => [135, 'Foo, Bar, Foo, Bar'],
-            'number contains 3, 5 and is multiple of 3 and 7' => [1533, 'Foo, Qix, Bar, Foo. Foo'],
+            'number contains 3, 5 and is multiple of 3 and 7' => [1533, 'Foo, Qix, Bar, Foo, Foo'],
             'number contains 3, 5 and is multiple of 5 and 7' => [35, 'Bar, Qix, Foo, Bar'],
             'number contains 3, 5 and is multiple of 3, 5 and 7' => [315, 'Foo, Bar, Qix, Foo, Bar'],
 

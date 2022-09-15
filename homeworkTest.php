@@ -12,29 +12,60 @@ class HomeWorkTest extends TestCase {
 
     /**
      * @depends testInclude
-     * @dataProvider taskMultipleProvider
-     * @dataProvider taskContainProvider
-     * @dataProvider taskBothFunctionalityProvider
+     * @dataProvider taskFooBarQixMultipleProvider
+     * @dataProvider taskFooBarQixContainProvider
+     * @dataProvider taskFooBarQixBothFunctionalityProvider
      * @dataProvider taskOtherProvider
      */
-    public function testTask($value, $expection, $obj) {
+    public function testFooBarQixTask($value, $expection, $obj) {
         $this->assertSame($expection, $obj->Task($value));
     }
 
     /**
      * @depends testInclude
-     * @dataProvider taskMultipleProvider
+     * @dataProvider taskFooBarQixMultipleProvider
      */
-    public function testMultipleCheckTask($value, $expection, $obj) {
-        $this->assertSame($expection, $obj->MultipleCheckTask($value));
+    public function testFooBarQixMultipleCheckTask($value, $expection, $obj) {
+        $arr = $obj->MultipleCheckTask($value, [3 => 'Foo', 5 => 'Bar', 7 => 'Qix']);
+        $this->assertSame($expection, join(', ', $arr));
     }
 
     /**
      * @depends testInclude
-     * @dataProvider taskContainProvider
+     * @dataProvider taskFooBarQixContainProvider
      */
-    public function testContainCheckTask($value, $expection, $obj) {
-        $this->assertSame($expection, $obj->ContainCheckTask($value));
+    public function testFooBarQixContainCheckTask($value, $expection, $obj) {
+        $arr = $obj->ContainCheckTask($value, [3 => 'Foo', 5 => 'Bar', 7 => 'Qix']);
+        $this->assertSame($expection, join(', ', $arr));
+    }
+
+   /**
+     * @depends testInclude
+     * @dataProvider taskInfQixFooMultipleProvider
+     * @dataProvider taskInfQixFooContainProvider
+     * @dataProvider taskInfQixFooBothFunctionalityProvider
+     * @dataProvider taskOtherProvider
+     */
+    public function testInfQixFooTask($value, $expection, $obj) {
+        $this->assertSame($expection, $obj->NewTask($value));
+    }
+
+    /**
+     * @depends testInclude
+     * @dataProvider taskInfQixFooMultipleProvider
+     */
+    public function testInfQixFooMultipleCheckTask($value, $expection, $obj) {
+        $arr = $obj->MultipleCheckTask($value, [8 => 'Inf', 7 => 'Qix', 3 => 'Foo']);
+        $this->assertSame($expection, join('; ', $arr));
+    }
+
+    /**
+     * @depends testInclude
+     * @dataProvider taskInfQixFooContainProvider
+     */
+    public function testInfQixFooContainCheckTask($value, $expection, $obj) {
+        $arr = $obj->ContainCheckTask($value, [8 => 'Inf', 7 => 'Qix', 3 => 'Foo']);
+        $this->assertSame($expection, join('; ', $arr));
     }
 
     /**
@@ -45,7 +76,7 @@ class HomeWorkTest extends TestCase {
         $obj->Task(-1);
     }
 
-    public function taskMultipleProvider()
+    public function taskFooBarQixMultipleProvider()
     {
         return [
             'number is multiple of 3 and without contains' => [6, 'Foo'],
@@ -58,7 +89,21 @@ class HomeWorkTest extends TestCase {
         ];
     }
 
-    public function taskContainProvider()
+
+    public function taskInfQixFooMultipleProvider()
+    {
+        return [
+            'number is multiple of 3 and without contains' => [6, 'Foo'],
+            'number is multiple of 8 and without contains' => [16, 'Inf'],
+            'number is multiple of 7 and without contains' => [14, 'Qix'],
+            'number is multiple of 3 and 8 and without contains' => [24, 'Inf; Foo'],
+            'number is multiple of 3 and 7 and without contains' => [21, 'Qix; Foo'],
+            'number is multiple of 8 and 7 and without contains' => [56, 'Inf; Qix'],
+            'number is multiple of 3, 8 and 7 and without contains' => [504, 'Inf; Qix; Foo'],
+        ];
+    }
+
+    public function taskFooBarQixContainProvider()
     {
         return [
 
@@ -78,14 +123,41 @@ class HomeWorkTest extends TestCase {
             'number contains several 3 and 7 and without multiples' => [373, 'Foo, Qix, Foo'],
 
             'number contains 5 and 7 and without multiples' => [157, 'Bar, Qix'],
-            'number contains several 5 and 7 and without multiples' => [373, 'Foo, Qix, Foo'],
+            'number contains several 5 and 7 and without multiples' => [757, 'Qix, Bar, Qix'],
 
             'number contains 3, 5 and 7 and without multiples' => [5371, 'Bar, Foo, Qix'],
         ];
     }
 
+    public function taskInfQixFooContainProvider()
+    {
+        return [
 
-    public function taskBothFunctionalityProvider()
+            'number contains 3 and without multiples' => [13, 'Foo'],
+            'number contains two 3 and without multiples' => [313, 'Foo; Foo'],
+
+            'number contains 8 and without multiples' => [82, 'Inf'],
+            'number contains two 8 and without multiples' => [881, 'Inf; Inf'],
+
+            'number contains 7 and without multiples' => [17, 'Qix'],
+            'number contains two 7 and without multiples' => [277, 'Qix; Qix'],
+
+            'number contains 3 and 8 and without multiples' => [83, 'Inf; Foo'],
+            'number contains several 3 and 8 and without multiples' => [383, 'Foo; Inf; Foo'],
+
+            'number contains 3 and 7 and without multiples' => [73, 'Qix; Foo'],
+            'number contains several 3 and 7 and without multiples' => [373, 'Foo; Qix; Foo'],
+
+            'number contains 8 and 7 and without multiples' => [187, 'Inf; Qix'],
+            'number contains several 8 and 7 and without multiples' => [787, 'Qix; Inf; Qix'],
+
+            'number contains 3, 8 and 7 and without multiples' => [8371, 'Inf; Foo; Qix'],
+        ];
+    }
+
+
+
+    public function taskFooBarQixBothFunctionalityProvider()
     {
         return [
 
@@ -145,6 +217,70 @@ class HomeWorkTest extends TestCase {
             'number contains 3, 5, 7 and is multiple of 3 and 7' => [357, 'Foo, Qix, Foo, Bar, Qix'],
             'number contains 3, 5, 7 and is multiple of 5 and 7' => [3745, 'Bar, Qix, Foo, Qix, Bar'],
             'number contains 3, 5, 7 and is multiple of 3, 5 and 7' => [735, 'Foo, Bar, Qix, Qix, Foo, Bar']
+        ];
+    }
+
+
+    public function taskInfQixFooBothFunctionalityProvider()
+    {
+        return [
+
+            'number contains 3 and is multiple of 3' => [3, 'Foo; Foo'],
+            'number contains 3 and is multiple of 8' => [136, 'Inf; Foo'],
+            'number contains 3 and is multiple of 7' => [203, 'Qix; Foo'],
+            'number contains 3 and is multiple of 3 and 8' => [312, 'Inf; Foo; Foo'],
+            'number contains 3 and is multiple of 3 and 7' => [63, 'Qix; Foo; Foo'],
+            'number contains 3 and is multiple of 8 and 7' => [392, 'Inf; Qix; Foo'],
+            'number contains 3 and is multiple of 3, 8 and 7' => [1344, 'Inf; Qix; Foo; Foo'],
+
+            'number contains 8 and is multiple of 3' => [18, 'Foo; Inf'],
+            'number contains 8 and is multiple of 8' => [8, 'Inf; Inf'],
+            'number contains 8 and is multiple of 7' => [28, 'Qix; Inf'],
+            'number contains 8 and is multiple of 3 and 8' => [48, 'Inf; Foo; Inf'],
+            'number contains 8 and is multiple of 3 and 7' => [84, 'Qix; Foo; Inf'],
+            'number contains 8 and is multiple of 8 and 7' => [280, 'Inf; Qix; Inf'],
+            'number contains 8 and is multiple of 3, 8 and 7' => [840, 'Inf; Qix; Foo; Inf'],
+
+            'number contains 7 and is multiple of 3' => [27, 'Foo; Qix'],
+            'number contains 7 and is multiple of 8' => [176, 'Inf; Qix'],
+            'number contains 7 and is multiple of 7' => [7, 'Qix; Qix'],
+            'number contains 7 and is multiple of 3 and 8' => [72, 'Inf; Foo; Qix'],
+            'number contains 7 and is multiple of 3 and 7' => [147, 'Qix; Foo; Qix'],
+            'number contains 7 and is multiple of 8 and 7' => [1792, 'Inf; Qix; Qix'],
+            'number contains 7 and is multiple of 3, 8 and 7' => [672, 'Inf; Qix; Foo; Qix'],
+
+
+            'number contains 3, 8 and is multiple of 3' => [183, 'Foo; Inf; Foo'],
+            'number contains 3, 8 and is multiple of 8' => [328, 'Inf; Foo; Inf'],
+            'number contains 3, 8 and is multiple of 7' => [238, 'Qix; Foo; Inf'],
+            'number contains 3, 8 and is multiple of 3 and 8' => [384, 'Inf; Foo; Foo; Inf'],
+            'number contains 3, 8 and is multiple of 3 and 7' => [483, 'Qix; Foo; Inf; Foo'],
+            'number contains 3, 8 and is multiple of 8 and 7' => [3080, 'Inf; Qix; Foo; Inf'],
+            'number contains 3, 8 and is multiple of 3, 8 and 7' => [3528, 'Inf; Qix; Foo; Foo; Inf'],
+
+            'number contains 3, 7 and is multiple of 3' => [237, 'Foo; Foo; Qix'],
+            'number contains 3, 7 and is multiple of 8' => [376, 'Inf; Foo; Qix'],
+            'number contains 3, 7 and is multiple of 7' => [371, 'Qix; Foo; Qix'],
+            'number contains 3, 7 and is multiple of 3 and 8' => [2376, 'Inf; Foo; Foo; Qix'],
+            'number contains 3, 7 and is multiple of 3 and 7' => [357, 'Qix; Foo; Foo; Qix'],
+            'number contains 3, 7 and is multiple of 8 and 7' => [1736, 'Inf; Qix; Qix; Foo'],
+            'number contains 3, 7 and is multiple of 3, 8 and 7' => [5376, 'Inf; Qix; Foo; Foo; Qix'],
+
+            'number contains 8, 7 and is multiple of 3' => [87, 'Foo; Inf; Qix'],
+            'number contains 8, 7 and is multiple of 8' => [872, 'Inf; Inf; Qix'],
+            'number contains 8, 7 and is multiple of 7' => [287, 'Qix; Inf; Qix'],
+            'number contains 8, 7 and is multiple of 3 and 8' => [768, 'Inf; Foo; Qix; Inf'],
+            'number contains 8, 7 and is multiple of 3 and 7' => [798, 'Qix; Foo; Qix; Inf'],
+            'number contains 8, 7 and is multiple of 8 and 7' => [728, 'Inf; Qix; Qix; Inf'],
+            'number contains 8, 7 and is multiple of 3, 8 and 7' => [4872, 'Inf; Qix; Foo; Inf; Qix'],
+
+            'number contains 3, 8, 7 and is multiple of 3' => [387, 'Foo; Foo; Inf; Qix'],
+            'number contains 3, 8, 7 and is multiple of 8' => [3872, 'Inf; Foo; Inf; Qix'],
+            'number contains 3, 8, 7 and is multiple of 7' => [2387, 'Qix; Foo; Inf; Qix'],
+            'number contains 3, 8, 7 and is multiple of 3 and 8' => [3768, 'Inf; Foo; Foo; Qix; Inf'],
+            'number contains 3, 8, 7 and is multiple of 3 and 7' => [378, 'Qix; Foo; Foo; Qix; Inf'],
+            'number contains 3, 8, 7 and is multiple of 8 and 7' => [27328, 'Inf; Qix; Qix; Foo; Inf'],
+            'number contains 3, 8, 7 and is multiple of 3, 8 and 7' => [8736, 'Inf; Qix; Foo; Inf; Qix; Foo']
         ];
     }
 

@@ -1,24 +1,18 @@
 <?php
 class HomeWork
 {
-    const MULTIPLES = [
-        3 => 'Foo',
-        5 => 'Bar',
-        7 => 'Qix',
-    ];
-
-    function MultipleCheckTask(int $value) : string
+    function MultipleCheckTask(int $value, array $arr) : array
     {
         $res = [];
 
-        foreach(self::MULTIPLES as $multiple => $text)
+        foreach($arr as $multiple => $text)
             if ($value % $multiple === 0)
                 $res[] = $text;
 
-        return join(', ', $res);
+        return $res;
     }
 
-    function ContainCheckTask(int $value) : string
+    function ContainCheckTask(int $value, array $arr) : array
     {
         $res = [];
 
@@ -26,14 +20,33 @@ class HomeWork
         {
             [$value, $key] = [intdiv($value, 10), $value % 10];
 
-            if (array_key_exists($key, self::MULTIPLES))
-                $res[] = self::MULTIPLES[$key];
+            if (array_key_exists($key, $arr))
+                $res[] = $arr[$key];
         }
 
-        return join(', ', array_reverse($res));
+        return array_reverse($res);
     }
 
+
+
     function Task(int $value) : string
+    {
+        $rules = [3 => 'Foo', 5 => 'Bar', 7 => 'Qix'];
+        $delimiter = ', ';
+        return $this->MainProcess($value, $rules, $delimiter);
+    }
+
+    function NewTask(int $value) : string
+    {
+        $rules = [8 => 'Inf', 7 => 'Qix', 3 => 'Foo'];
+        $delimiter = '; ';
+        return $this->MainProcess($value, $rules, $delimiter);
+    }
+
+
+
+
+    function MainProcess(int $value, array $rules, string $delimiter) : string
     {
         if ($value <= 0)
             throw new InvalidArgumentException('Input value must be positive integer');
@@ -44,22 +57,15 @@ class HomeWork
 
         foreach($checkFunctions as $func)
         {
-            $ret = $this->$func($value);
-            if($ret !== '')
-                $res[] = $ret;
+            $ret = $this->$func($value, $rules);
+            $res = [...$res, ...$ret];
         }
 
         if (count($res))
-            return join(', ', $res);
+            return join($delimiter, $res);
         else
             return (string)$value;
     }
-
-
 }
 
-// $hw = new HomeWork();
-// // echo($hw->ContainCheckTask(3).PHP_EOL);
-// // echo($hw->MultipleCheckTask(3).PHP_EOL);
-// echo($hw->Task(3).PHP_EOL);
 ?>

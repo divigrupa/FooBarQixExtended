@@ -44,6 +44,7 @@ class HomeWorkTest extends TestCase {
      * @dataProvider taskInfQixFooMultipleProvider
      * @dataProvider taskInfQixFooContainProvider
      * @dataProvider taskInfQixFooBothFunctionalityProvider
+     * @dataProvider taskInfQixFooDigitSumProvider
      * @dataProvider taskOtherProvider
      */
     public function testInfQixFooTask($value, $expection, $obj) {
@@ -70,11 +71,21 @@ class HomeWorkTest extends TestCase {
 
     /**
      * @depends testInclude
+     * @dataProvider taskDigitSumProvider
+     */
+    public function testSumDigits($value, $expection, $obj) {
+        $this->assertSame($expection, $obj->SumDigits($value));
+    }
+
+    /**
+     * @depends testInclude
      */
     public function testNegativeIntegerException($obj) {
         $this->expectException(InvalidArgumentException::class);
         $obj->Task(-1);
     }
+
+
 
     public function taskFooBarQixMultipleProvider()
     {
@@ -139,8 +150,8 @@ class HomeWorkTest extends TestCase {
             'number contains 8 and without multiples' => [82, 'Inf'],
             'number contains two 8 and without multiples' => [881, 'Inf; Inf'],
 
-            'number contains 7 and without multiples' => [17, 'Qix'],
-            'number contains two 7 and without multiples' => [277, 'Qix; Qix'],
+            'number contains 7 and without multiples' => [47, 'Qix'],
+            'number contains two 7 and without multiples' => [577, 'Qix; Qix'],
 
             'number contains 3 and 8 and without multiples' => [83, 'Inf; Foo'],
             'number contains several 3 and 8 and without multiples' => [383, 'Foo; Inf; Foo'],
@@ -148,7 +159,7 @@ class HomeWorkTest extends TestCase {
             'number contains 3 and 7 and without multiples' => [73, 'Qix; Foo'],
             'number contains several 3 and 7 and without multiples' => [373, 'Foo; Qix; Foo'],
 
-            'number contains 8 and 7 and without multiples' => [187, 'Inf; Qix'],
+            'number contains 8 and 7 and without multiples' => [487, 'Inf; Qix'],
             'number contains several 8 and 7 and without multiples' => [787, 'Qix; Inf; Qix'],
 
             'number contains 3, 8 and 7 and without multiples' => [8371, 'Inf; Foo; Qix'],
@@ -234,7 +245,7 @@ class HomeWorkTest extends TestCase {
             'number contains 3 and is multiple of 3, 8 and 7' => [1344, 'Inf; Qix; Foo; Foo'],
 
             'number contains 8 and is multiple of 3' => [18, 'Foo; Inf'],
-            'number contains 8 and is multiple of 8' => [8, 'Inf; Inf'],
+            'number contains 8 and is multiple of 8' => [248, 'Inf; Inf'],
             'number contains 8 and is multiple of 7' => [28, 'Qix; Inf'],
             'number contains 8 and is multiple of 3 and 8' => [48, 'Inf; Foo; Inf'],
             'number contains 8 and is multiple of 3 and 7' => [84, 'Qix; Foo; Inf'],
@@ -259,7 +270,7 @@ class HomeWorkTest extends TestCase {
             'number contains 3, 8 and is multiple of 3, 8 and 7' => [3528, 'Inf; Qix; Foo; Foo; Inf'],
 
             'number contains 3, 7 and is multiple of 3' => [237, 'Foo; Foo; Qix'],
-            'number contains 3, 7 and is multiple of 8' => [376, 'Inf; Foo; Qix'],
+            'number contains 3, 7 and is multiple of 8' => [1376, 'Inf; Foo; Qix'],
             'number contains 3, 7 and is multiple of 7' => [371, 'Qix; Foo; Qix'],
             'number contains 3, 7 and is multiple of 3 and 8' => [2376, 'Inf; Foo; Foo; Qix'],
             'number contains 3, 7 and is multiple of 3 and 7' => [357, 'Qix; Foo; Foo; Qix'],
@@ -270,20 +281,39 @@ class HomeWorkTest extends TestCase {
             'number contains 8, 7 and is multiple of 8' => [872, 'Inf; Inf; Qix'],
             'number contains 8, 7 and is multiple of 7' => [287, 'Qix; Inf; Qix'],
             'number contains 8, 7 and is multiple of 3 and 8' => [768, 'Inf; Foo; Qix; Inf'],
-            'number contains 8, 7 and is multiple of 3 and 7' => [798, 'Qix; Foo; Qix; Inf'],
+            'number contains 8, 7 and is multiple of 3 and 7' => [1785, 'Qix; Foo; Qix; Inf'],
             'number contains 8, 7 and is multiple of 8 and 7' => [728, 'Inf; Qix; Qix; Inf'],
             'number contains 8, 7 and is multiple of 3, 8 and 7' => [4872, 'Inf; Qix; Foo; Inf; Qix'],
 
             'number contains 3, 8, 7 and is multiple of 3' => [387, 'Foo; Foo; Inf; Qix'],
             'number contains 3, 8, 7 and is multiple of 8' => [3872, 'Inf; Foo; Inf; Qix'],
             'number contains 3, 8, 7 and is multiple of 7' => [2387, 'Qix; Foo; Inf; Qix'],
-            'number contains 3, 8, 7 and is multiple of 3 and 8' => [3768, 'Inf; Foo; Foo; Qix; Inf'],
+            'number contains 3, 8, 7 and is multiple of 3 and 8' => [13728, 'Inf; Foo; Foo; Qix; Inf'],
             'number contains 3, 8, 7 and is multiple of 3 and 7' => [378, 'Qix; Foo; Foo; Qix; Inf'],
             'number contains 3, 8, 7 and is multiple of 8 and 7' => [27328, 'Inf; Qix; Qix; Foo; Inf'],
-            'number contains 3, 8, 7 and is multiple of 3, 8 and 7' => [8736, 'Inf; Qix; Foo; Inf; Qix; Foo']
+            'number contains 3, 8, 7 and is multiple of 3, 8 and 7' => [33768, 'Inf; Qix; Foo; Foo; Foo; Qix; Inf']
         ];
     }
 
+    public function taskInfQixFooDigitSumProvider()
+    {
+        return [
+            'sum of all digits is multiple of 8 (1 digit)' => [8, 'Inf; InfInf'],
+            'sum of all digits is multiple of 8 (2 digits)' => [17, 'QixInf'],
+            'sum of all digits is multiple of 8 (3 digits)' => [376, 'Inf; Foo; QixInf'],
+            'sum of all digits is multiple of 8 (4 digits)' => [3768, 'Inf; Foo; Foo; Qix; InfInf'],
+        ];
+    }
+
+    public function taskDigitSumProvider()
+    {
+        return [
+            '1 digit' => [4, 4],
+            '2 digits' => [43, 7],
+            '3 digits' => [435, 12],
+            '4 digits' => [4359, 21],
+        ];
+    }
 
     public function taskOtherProvider()
     {

@@ -27,26 +27,54 @@ class HomeWork
         return array_reverse($res);
     }
 
-
+    function SumDigits(int $value) : int
+    {
+        $sum = 0;
+        while($value > 0)
+        {
+            $sum += $value % 10;
+            $value = intdiv($value, 10);
+        }
+        return $sum;
+    }
+    
 
     function Task(int $value) : string
     {
         $rules = [3 => 'Foo', 5 => 'Bar', 7 => 'Qix'];
         $delimiter = ', ';
-        return $this->MainProcess($value, $rules, $delimiter);
+
+        $res = $this->MainProcess($value, $rules);
+
+        if (count($res))
+            return join($delimiter, $res);
+        else
+            return (string)$value;
     }
 
     function NewTask(int $value) : string
     {
         $rules = [8 => 'Inf', 7 => 'Qix', 3 => 'Foo'];
         $delimiter = '; ';
-        return $this->MainProcess($value, $rules, $delimiter);
+
+
+        $res = $this->MainProcess($value, $rules);
+
+        if (count($res))
+        {
+            $ret = join($delimiter, $res);
+            if ($this->SumDigits($value) % 8 === 0)
+                $ret = $ret . 'Inf';
+            return $ret;
+        }
+        else
+            return (string)$value;
     }
 
 
 
 
-    function MainProcess(int $value, array $rules, string $delimiter) : string
+    function MainProcess(int $value, array $rules) : array
     {
         if ($value <= 0)
             throw new InvalidArgumentException('Input value must be positive integer');
@@ -61,10 +89,7 @@ class HomeWork
             $res = [...$res, ...$ret];
         }
 
-        if (count($res))
-            return join($delimiter, $res);
-        else
-            return (string)$value;
+        return $res;
     }
 }
 

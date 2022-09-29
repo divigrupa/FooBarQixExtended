@@ -1,4 +1,3 @@
-import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -8,46 +7,44 @@ public class FooBarQixTest {
     Ascription ascription = new Ascription();
 
     @Test
-    public void shouldAscribeFooCorrectlyTest() throws Exception {
+    public void shouldAscribeFooCorrectlyTest() {
 
         int theNumber = 18;
-        String expectedName = "Foo";
-        String expectedNumber = String.valueOf(theNumber);
+        String expectedNumberString = "Foo";
 
-        String resultName = ascription.ascribeFooToTheNumber(theNumber);
-        String resultNumber = ascription.tranformTheNumber(theNumber);
-
-        assertEquals(expectedName, resultName);
-        assertEquals(expectedNumber, resultNumber);
+        String resultNumberString = ascription.ascribeFooToTheNumber(theNumber);
+        assertEquals(expectedNumberString, resultNumberString);
     }
 
 
     @Test
-    public void shouldAscribeBarCorrectlyTest() throws Exception {
+    public void shouldAscribeBarCorrectlyTest() {
 
         int theNumber = 20;
-        String expectedName = "Bar";
-        String expectedNumber = String.valueOf(theNumber);
+        String expectedNumberString = "Bar";
 
-        String resultName = ascription.ascribeBarToTheNumber(theNumber);
-        String resultNumber = ascription.tranformTheNumber(theNumber);
-
-        assertEquals(expectedName, resultName);
-        assertEquals(expectedNumber, resultNumber);
+        String resultNumberString = ascription.ascribeBarToTheNumber(theNumber);
+        assertEquals(expectedNumberString, resultNumberString);
     }
 
 
     @Test
-    public void shouldAscribeFooBarCorrectlyTest() throws Exception {
+    public void shouldAscribeFooBarCorrectlyTest() {
 
         int theNumber = 15;
-        String expectedName = "Foo" + "Bar";
-        String expectedNumber = String.valueOf(theNumber);
+        String expectedNumberString = "Foo" + "Bar";
 
-        String resultName = ascription.ascribeFooBarToTheNumber(theNumber);
-        String resultNumber = ascription.tranformTheNumber(theNumber);
+        String resultNumberString = ascription.ascribeFooBarToTheNumber(theNumber);
+        assertEquals(expectedNumberString, resultNumberString);
+    }
 
-        assertEquals(expectedName, resultName);
-        assertEquals(expectedNumber, resultNumber);
+    @Test
+    public void shouldReturnOtherNumbersAsStringTest() {
+
+        int theNumber = 8;
+        String expectedNumberString = String.valueOf(theNumber);
+
+        String resultNumberString = ascription.ascribeFooBarToTheNumber(theNumber);
+        assertEquals(expectedNumberString.getClass().getName(), resultNumberString.getClass().getName());
     }
 }

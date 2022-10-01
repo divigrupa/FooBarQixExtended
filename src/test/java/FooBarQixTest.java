@@ -16,7 +16,6 @@ public class FooBarQixTest {
         assertEquals(expectedNumberString, resultNumberString);
     }
 
-
     @Test
     public void shouldAscribeBarCorrectlyTest() {
 
@@ -32,9 +31,49 @@ public class FooBarQixTest {
     public void shouldAscribeFooBarCorrectlyTest() {
 
         int theNumber = 15;
-        String expectedNumberString = "Foo" + "Bar";
-
+        String expectedNumberString = "FooBar";  // Fixed to make it more concrete.
+//        Fix the method
         String resultNumberString = ascription.ascribeFooBarToTheNumber(theNumber);
+        assertEquals(expectedNumberString, resultNumberString);
+    }
+
+    @Test
+    public void shouldAscribeQixCorrectlyTest() {
+
+        int theNumber = 42;
+        String expectedNumberString = "Qix";
+
+        String resultNumberString = ascription.ascribeQixToTheNumber(theNumber);
+        assertEquals(expectedNumberString, resultNumberString);
+    }
+
+    @Test
+    public void shouldAscribeFooBarQixCorrectlyTest() {
+
+        int theNumber = 10290;
+        String expectedNumberString = "FooBarQix";
+
+        String resultNumberString = ascription.ascribeFooBarQixToTheNumber(theNumber);
+        assertEquals(expectedNumberString, resultNumberString);
+    }
+
+    @Test
+    public void shouldAscribeFooQixCorrectlyTest() {
+
+        int theNumber = 21;
+        String expectedNumberString = "FooQix";
+
+        String resultNumberString = ascription.ascribeFooQixToTheNumber(theNumber);
+        assertEquals(expectedNumberString, resultNumberString);
+    }
+
+    @Test
+    public void shouldAscribeBarQixCorrectlyTest() {
+
+        int theNumber = 21;
+        String expectedNumberString = "BarQix";
+
+        String resultNumberString = ascription.ascribeBarQixToTheNumber(theNumber);
         assertEquals(expectedNumberString, resultNumberString);
     }
 

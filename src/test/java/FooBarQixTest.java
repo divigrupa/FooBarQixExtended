@@ -12,6 +12,7 @@ public class FooBarQixTest {
         int theNumber = 18;
         String expectedNumberString = "Foo";
 
+
         String resultNumberString = ascription.convertNumberToString(theNumber);
         assertEquals(expectedNumberString, resultNumberString);
     }
@@ -84,5 +85,25 @@ public class FooBarQixTest {
 
         String resultNumberString = ascription.convertNumberToString(theNumber);
         assertEquals(expectedNumberString.getClass().getName(), resultNumberString.getClass().getName());
+    }
+
+    @Test
+    public void shouldCreateAppendagesCorrectlyTest() {
+
+        int theNumber = 35383;
+        String expectedNumberString = "FooBarFooFoo";
+
+        String resultNumberString = ascription.appendagesToTheNumberString(theNumber);
+        assertEquals(expectedNumberString, resultNumberString);
+    }
+
+    @Test
+    public void shouldAppendTheCreatedAppendagesCorrectly() {
+
+        int theNumber = 14_679;
+        String expectedNumberString = "FooQixQix";
+
+        String resultNumberString = ascription.convertNumberToString(theNumber) + ascription.appendagesToTheNumberString(theNumber);
+        assertEquals(expectedNumberString, resultNumberString);
     }
 }

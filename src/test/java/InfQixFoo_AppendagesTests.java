@@ -14,63 +14,55 @@ public class InfQixFoo_AppendagesTests {
     InfQixFooService infQixFooService = new InfQixFooService();
 
     @Test
-    public void shouldCreateAppendagesCorrectlyTest1() {
+    public void shouldCreateAppendagesCorrectlyTest1() throws Exception {
 
         int theNumber = 15796;
         String expectedNumberString = "Qix";
 
-        String resultNumberString = infQixFooService.creatingAppendages(theNumber);
+        String resultNumberString = infQixFooService.finalTransformation(theNumber);
         assertEquals(expectedNumberString, resultNumberString);
     }
 
     @Test
-    public void shouldCreateAppendagesCorrectlyTest2() {
+    public void shouldCreateAppendagesCorrectlyTest2() throws Exception {
 
         int theNumber = 2887963;
         String expectedNumberString = "InfInfQixFoo";
 
-        String resultNumberString = infQixFooService.creatingAppendages(theNumber);
+        String resultNumberString = infQixFooService.finalTransformation(theNumber);
         assertEquals(expectedNumberString, resultNumberString);
     }
 
     @Test
-    public void shouldCreateAppendagesCorrectlyTest3() {
-
-        int theNumber = 5946;
-        String expectedNumberString = "";
-
-        String resultNumberString = infQixFooService.creatingAppendages(theNumber);
-        assertEquals(expectedNumberString, resultNumberString);
-    }
-
-    @Test
-    public void shouldAppendInfQixFooCorrectlyTest1() {
+    public void shouldAppendInfQixFooCorrectlyTest1() throws Exception {
 
         int theNumber = 10290;
-        String expectedNumberString = "Qix; Foo ";
+        String expectedNumberString = "Qix; Foo";
 
-        String resultNumberString = infQixFooService.basicInfQixFooService(theNumber) + infQixFooService.creatingAppendages(theNumber);
+        infQixFooService.basicService(theNumber);
+        String resultNumberString = infQixFooService.finalTransformation(theNumber);
         assertEquals(expectedNumberString, resultNumberString);
     }
 
     @Test
-    public void shouldAppendInfQixFooCorrectlyTest2() {
+    public void shouldAppendInfQixFooCorrectlyTest2() throws Exception {
 
         int theNumber = 1008;
         String expectedNumberString = "Inf; Qix; FooInf";
 
-        String resultNumberString = infQixFooService.basicInfQixFooService(theNumber) + infQixFooService.creatingAppendages(theNumber);
+        infQixFooService.basicService(theNumber);
+        String resultNumberString = infQixFooService.finalTransformation(theNumber);
         assertEquals(expectedNumberString, resultNumberString);
     }
 
     @Test
-    public void shouldAppendInfQixFooCorrectlyTest3() {
+    public void shouldAppendInfQixFooCorrectlyTest3() throws Exception {
 
         int theNumber = 13_824;
         String expectedNumberString = "Inf; FooFooInf";
 
-        String resultNumberString = infQixFooService.basicInfQixFooService(theNumber) + infQixFooService.creatingAppendages(theNumber);
+        infQixFooService.basicService(theNumber);
+        String resultNumberString = infQixFooService.finalTransformation(theNumber);
         assertEquals(expectedNumberString, resultNumberString);
     }
 }
-

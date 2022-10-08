@@ -1,8 +1,8 @@
-public class FooBarQixService extends Service {
+public class InfQixFooService extends Service {
 
     String numberString = "";
-    int[] multipliers = {3, 5, 7};
-    String[] numberNames = {"Foo", "Bar", "Qix"};
+    int[] multipliers = {8, 7, 3};
+    String[] numberNames = {"Inf", "Qix", "Foo"};
 
     @Override
     public String basicService(int theNumber) throws NumberPositiveIntegerException {
@@ -10,6 +10,7 @@ public class FooBarQixService extends Service {
 
         for (int i = 0; i < multipliers.length; i++) {
             if (theNumber % multipliers[i] == 0) {
+                if (!numberString.isEmpty()) numberString += "; ";
                 numberString += numberNames[i];
             }
         }

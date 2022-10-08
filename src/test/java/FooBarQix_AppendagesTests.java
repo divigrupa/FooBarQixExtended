@@ -14,32 +14,33 @@ public class FooBarQix_AppendagesTests {
     FooBarQixService fooBarQixService = new FooBarQixService();
 
     @Test
-    public void shouldCreateAppendagesCorrectlyTest() throws NumberPositiveIntegerException {
+    public void shouldCreateAppendagesCorrectlyTest() throws Exception {
 
         int theNumber = 15796;
         String expectedNumberString = "BarQix";
 
-        String resultNumberString = fooBarQixService.creatingAppendagesToTheNumberString(theNumber);
+        String resultNumberString = fooBarQixService.finalTransformation(theNumber);
         assertEquals(expectedNumberString, resultNumberString);
     }
 
     @Test
-    public void shouldCreateAppendagesCorrectlyTest1() throws NumberPositiveIntegerException {
+    public void shouldCreateAppendagesCorrectlyTest1() throws Exception {
 
         int theNumber = 35;
         String expectedNumberString = "FooBar";
 
-        String resultNumberString = fooBarQixService.creatingAppendagesToTheNumberString(theNumber);
+        String resultNumberString = fooBarQixService.finalTransformation(theNumber);
         assertEquals(expectedNumberString, resultNumberString);
     }
 
     @Test
-    public void shouldAppendFooBarQixCorrectlyTest1() throws Exception {
+    public void shouldAppendFooBarQixCorrectlyTest1() throws NumberPositiveIntegerException {
 
         int theNumber = 35;
         String expectedNumberString = "BarQixFooBar";
 
-        String resultNumberString = fooBarQixService.basicFooBarQixService(theNumber) + fooBarQixService.creatingAppendagesToTheNumberString(theNumber);
+        fooBarQixService.basicService(theNumber);
+        String resultNumberString = fooBarQixService.finalTransformation(theNumber);
         assertEquals(expectedNumberString, resultNumberString);
     }
 }

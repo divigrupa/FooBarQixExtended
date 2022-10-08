@@ -6,17 +6,17 @@ public class FooBarQixService_BasicFunctionalityTests {
 
     FooBarQixService fooBarQixService = new FooBarQixService();
 
-//    The following are various tests assessing the fooBarQixService.basicFooBarQixService() method.
+//    The following are various tests assessing the fooBarQixService.basicService() method.
 //    It ascribes words Foo, Bar, Qix depending on whether the given number is a multiple of 3, 5, or 7.
 //    For several multiples,the words are chained together in natural order.
 
     @Test
-    public void shouldAscribeFooCorrectlyTest() throws Exception {
+    public void shouldAscribeFooCorrectlyTest() throws NumberPositiveIntegerException {
 
         int theNumber = 18;
         String expectedNumberString = "Foo";
 
-        String resultNumberString = fooBarQixService.basicFooBarQixService(theNumber);
+        String resultNumberString = fooBarQixService.basicService(theNumber);
         assertEquals(expectedNumberString, resultNumberString);
     }
 
@@ -26,7 +26,7 @@ public class FooBarQixService_BasicFunctionalityTests {
         int theNumber = 20;
         String expectedNumberString = "Bar";
 
-        String resultNumberString = fooBarQixService.basicFooBarQixService(theNumber);
+        String resultNumberString = fooBarQixService.basicService(theNumber);
         assertEquals(expectedNumberString, resultNumberString);
     }
 
@@ -36,7 +36,7 @@ public class FooBarQixService_BasicFunctionalityTests {
         int theNumber = 15;
         String expectedNumberString = "FooBar";
 
-        String resultNumberString = fooBarQixService.basicFooBarQixService(theNumber);
+        String resultNumberString = fooBarQixService.basicService(theNumber);
         assertEquals(expectedNumberString, resultNumberString);
     }
 
@@ -46,7 +46,7 @@ public class FooBarQixService_BasicFunctionalityTests {
         int theNumber = 49;
         String expectedNumberString = "Qix";
 
-        String resultNumberString = fooBarQixService.basicFooBarQixService(theNumber);
+        String resultNumberString = fooBarQixService.basicService(theNumber);
         assertEquals(expectedNumberString, resultNumberString);
     }
 
@@ -56,7 +56,7 @@ public class FooBarQixService_BasicFunctionalityTests {
         int theNumber = 10290;
         String expectedNumberString = "FooBarQix";
 
-        String resultNumberString = fooBarQixService.basicFooBarQixService(theNumber);
+        String resultNumberString = fooBarQixService.basicService(theNumber);
         assertEquals(expectedNumberString, resultNumberString);
     }
 
@@ -66,7 +66,7 @@ public class FooBarQixService_BasicFunctionalityTests {
         int theNumber = 21;
         String expectedNumberString = "FooQix";
 
-        String resultNumberString = fooBarQixService.basicFooBarQixService(theNumber);
+        String resultNumberString = fooBarQixService.basicService(theNumber);
         assertEquals(expectedNumberString, resultNumberString);
     }
 
@@ -76,7 +76,7 @@ public class FooBarQixService_BasicFunctionalityTests {
         int theNumber = 35;
         String expectedNumberString = "BarQix";
 
-        String resultNumberString = fooBarQixService.basicFooBarQixService(theNumber);
+        String resultNumberString = fooBarQixService.basicService(theNumber);
         assertEquals(expectedNumberString, resultNumberString);
     }
 }

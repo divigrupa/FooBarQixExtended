@@ -13,62 +13,68 @@ public class finalTransformationTests {
     InfQixFooService infQixFooService = new InfQixFooService();
 
     @Test
-    public void shouldAscribeFooQixCorrectlyTest() throws Exception {
+    public void shouldAscribeFooQixCorrectlyTest() throws NumberPositiveIntegerException {
 
         int theNumber = 21;
         String expectedNumberString = "FooQix";
 
-        String resultNumberString = fooBarQixService.finalTransformationOfTheNumber(theNumber);
+        fooBarQixService.basicService(theNumber);
+        String resultNumberString = fooBarQixService.finalTransformation(theNumber);
         assertEquals(expectedNumberString, resultNumberString);
     }
 
     @Test
-    public void shouldAscribeInfCorrectlyTest() {
+    public void shouldAscribeInfCorrectlyTest() throws Exception {
 
         int theNumber = 64;
         String expectedNumberString = "Inf";
 
-        String resultNumberString = infQixFooService.finalTransformationOfTheNumber(theNumber);  // Create an interface for the method, so that it does not repeat in both classes.
+        infQixFooService.basicService(theNumber);
+        String resultNumberString = infQixFooService.finalTransformation(theNumber);
         assertEquals(expectedNumberString, resultNumberString);
     }
 
     @Test
-    public void shouldAscribeBarQixFooBarCorrectlyTest() throws Exception {
+    public void shouldAscribeBarQixFooBarCorrectlyTest() throws NumberPositiveIntegerException {
 
         int theNumber = 35;
         String expectedNumberString = "BarQixFooBar";
 
-        String resultNumberString = fooBarQixService.finalTransformationOfTheNumber(theNumber);
+        fooBarQixService.basicService(theNumber);
+        String resultNumberString = fooBarQixService.finalTransformation(theNumber);
         assertEquals(expectedNumberString, resultNumberString);
     }
 
     @Test
-    public void shouldAscribeInfFooFooInfCorrectlyTest() {
+    public void shouldAscribeInfFooFooInfCorrectlyTest() throws Exception {
 
         int theNumber = 13_824;
         String expectedNumberString = "Inf; FooFooInf";
 
-        String resultNumberString = infQixFooService.finalTransformationOfTheNumber(theNumber);   // Create an interface for the method, so that it does not repeat in both classes.
+        infQixFooService.basicService(theNumber);
+        String resultNumberString = infQixFooService.finalTransformation(theNumber);
         assertEquals(expectedNumberString, resultNumberString);
     }
 
     @Test
-    public void shouldAscribeFooBarQixNumberStringCorrectlyTest() throws Exception {
+    public void shouldAscribeFooBarQixNumberStringCorrectlyTest() throws NumberPositiveIntegerException {
 
         int theNumber = 8;
         String expectedNumberString = "8";
 
-        String resultNumberString = fooBarQixService.finalTransformationOfTheNumber(theNumber);
+        fooBarQixService.basicService(theNumber);
+        String resultNumberString = fooBarQixService.finalTransformation(theNumber);
         assertEquals(expectedNumberString, resultNumberString);
     }
 
     @Test
-    public void shouldAscribeInfQixFooNumberStringCorrectlyTest() {
+    public void shouldAscribeInfQixFooNumberStringCorrectlyTest() throws Exception {
 
         int theNumber = 5;
         String expectedNumberString = "5";
 
-        String resultNumberString = infQixFooService.finalTransformationOfTheNumber(theNumber);  // Create an interface for the method, so that it does not repeat in both classes.
+        infQixFooService.basicService(theNumber);
+        String resultNumberString = infQixFooService.finalTransformation(theNumber);
         assertEquals(expectedNumberString, resultNumberString);
     }
 }

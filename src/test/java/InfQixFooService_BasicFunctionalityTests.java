@@ -16,7 +16,7 @@ public class InfQixFooService_BasicFunctionalityTests {
         int theNumber = 64;
         String expectedNumberString = "Inf";
 
-        String resultNumberString = infQixFooService.basicInfQixFooService(theNumber);
+        String resultNumberString = infQixFooService.basicService(theNumber);
         assertEquals(expectedNumberString, resultNumberString);
     }
 
@@ -26,7 +26,7 @@ public class InfQixFooService_BasicFunctionalityTests {
         int theNumber = 49;
         String expectedNumberString = "Qix";
 
-        String resultNumberString = infQixFooService.basicInfQixFooService(theNumber);
+        String resultNumberString = infQixFooService.basicService(theNumber);
         assertEquals(expectedNumberString, resultNumberString);
     }
 
@@ -36,7 +36,7 @@ public class InfQixFooService_BasicFunctionalityTests {
         int theNumber = 15;
         String expectedNumberString = "Foo";
 
-        String resultNumberString = infQixFooService.basicInfQixFooService(theNumber);
+        String resultNumberString = infQixFooService.basicService(theNumber);
         assertEquals(expectedNumberString, resultNumberString);
     }
 
@@ -46,7 +46,7 @@ public class InfQixFooService_BasicFunctionalityTests {
         int theNumber = 56;
         String expectedNumberString = "Inf; Qix";
 
-        String resultNumberString = infQixFooService.basicInfQixFooService(theNumber);
+        String resultNumberString = infQixFooService.basicService(theNumber);
         assertEquals(expectedNumberString, resultNumberString);
     }
 
@@ -56,7 +56,7 @@ public class InfQixFooService_BasicFunctionalityTests {
         int theNumber = 10290;
         String expectedNumberString = "Qix; Foo";
 
-        String resultNumberString = infQixFooService.basicInfQixFooService(theNumber);
+        String resultNumberString = infQixFooService.basicService(theNumber);
         assertEquals(expectedNumberString, resultNumberString);
     }
 
@@ -66,7 +66,7 @@ public class InfQixFooService_BasicFunctionalityTests {
         int theNumber = 216;
         String expectedNumberString = "Inf; Foo";
 
-        String resultNumberString = infQixFooService.basicInfQixFooService(theNumber);
+        String resultNumberString = infQixFooService.basicService(theNumber);
         assertEquals(expectedNumberString, resultNumberString);
     }
 
@@ -76,7 +76,7 @@ public class InfQixFooService_BasicFunctionalityTests {
         int theNumber = 2520;
         String expectedNumberString = "Inf; Qix; Foo";
 
-        String resultNumberString = infQixFooService.basicInfQixFooService(theNumber);
+        String resultNumberString = infQixFooService.basicService(theNumber);
         assertEquals(expectedNumberString, resultNumberString);
     }
 }

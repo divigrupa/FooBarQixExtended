@@ -65,4 +65,13 @@ public class InfQixFoo_AppendagesTests {
         String resultNumberString = infQixFooService.finalTransformation(theNumber);
         assertEquals(expectedNumberString, resultNumberString);
     }
+
+    @Test
+    public void shouldAppendInfIfSumOfNumberDigitsDividesBy8Test () throws Exception {
+        int theNumber = 343_824;
+        String expectedNumberString = "Inf; FooFooFooInfInf";
+
+        String resultNumberString = infQixFooService.appendFinalInf(theNumber);
+        assertEquals(expectedNumberString, resultNumberString);
+    }
 }

@@ -67,11 +67,38 @@ public class InfQixFoo_AppendagesTests {
     }
 
     @Test
-    public void shouldAppendInfIfSumOfNumberDigitsDividesBy8Test () throws Exception {
+    public void shouldAppendInfIfSumOfNumberDigitsDividesBy8Test() throws Exception {
         int theNumber = 343_824;
         String expectedNumberString = "Inf; FooFooFooInfInf";
 
-        String resultNumberString = infQixFooService.appendFinalInf(theNumber);
+        String resultNumberString = infQixFooService.updateInQixFoo(theNumber);
         assertEquals(expectedNumberString, resultNumberString);
+    }
+
+    @Test
+    public void shouldNotAppendInfIfSumOfNumberDigitsDividesBy8Test() throws Exception {
+        int theNumber = 343_823;
+        String expectedNumberString = "FooFooInfFoo";
+
+        String resultNumberString = infQixFooService.updateInQixFoo(theNumber);
+        assertEquals(expectedNumberString, resultNumberString);
+    }
+
+    @Test
+    public void shouldNotAppendInfIfSumOfNumberDigitsDividesBy8Test1() throws Exception {
+        int theNumber = 2;
+        String expectedNumberString = "2";
+
+        String resultNumberString = infQixFooService.updateInQixFoo(theNumber);
+        assertEquals(expectedNumberString, resultNumberString);
+    }
+
+    @Test
+    public void shouldAddDigitsCorrectly() throws Exception {
+        int theNumber = 343_824;
+        int expectedSum = 24;
+
+        int resultantSum = Service.sumOfDigits(theNumber);
+        assertEquals(expectedSum, resultantSum);
     }
 }

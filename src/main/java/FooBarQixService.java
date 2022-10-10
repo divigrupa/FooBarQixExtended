@@ -6,7 +6,7 @@ public class FooBarQixService extends Service {
 
     @Override
     public String basicService(int theNumber) throws NumberPositiveIntegerException {
-        if (theNumber < 0) throw new NumberPositiveIntegerException();
+        NumberPositiveIntegerException.validateTheNumber(theNumber);
 
         for (int i = 0; i < multipliers.length; i++) {
             if (theNumber % multipliers[i] == 0) {

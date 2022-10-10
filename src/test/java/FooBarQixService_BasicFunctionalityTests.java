@@ -79,4 +79,6 @@ public class FooBarQixService_BasicFunctionalityTests {
         String resultNumberString = fooBarQixService.basicService(theNumber);
         assertEquals(expectedNumberString, resultNumberString);
     }
+
+
 }

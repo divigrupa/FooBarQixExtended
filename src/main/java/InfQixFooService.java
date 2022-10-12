@@ -18,8 +18,7 @@ public class InfQixFooService extends Service {
     }
 
     public String finalTransformation(int theNumber) throws NumberPositiveIntegerException {
-        String finalNumberString = finalTransformationOfTheNumber(theNumber, multipliers, numberNames, numberString);
-        return finalNumberString;
+        return finalTransformationOfTheNumber(theNumber, multipliers, numberNames, numberString);
     }
 
     public String updateInQixFoo(int theNumber) throws NumberPositiveIntegerException {

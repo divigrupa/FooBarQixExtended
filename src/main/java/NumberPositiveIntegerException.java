@@ -3,10 +3,9 @@ public class NumberPositiveIntegerException extends Exception {
         super("The given number has to be a positive integer.");
     }
 
-    public static Exception validateTheNumber(int theNumber) throws NumberPositiveIntegerException {
-        if (theNumber < 0) {
+    public static void validateTheNumber(int theNumber) throws NumberPositiveIntegerException {
+        if (theNumber <= 0) {
             throw new NumberPositiveIntegerException();
         }
-        return null;
     }
 }

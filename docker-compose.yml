@@ -1,0 +1,33 @@
+version: '3'
+services:
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: php-fpm
+    container_name: php-fpm-container
+    restart: unless-stopped
+    tty: true
+    working_dir: /var/www
+    volumes:
+      - ./app/:/var/www
+    networks:
+      - app-network
+
+  nginx:
+    image: nginx:alpine
+    container_name: nginx-container
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - ./app/:/var/www
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    networks:
+      - app-network
+    depends_on:
+      - php
+
+networks:
+  app-network:
+    driver: bridge

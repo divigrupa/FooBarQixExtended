@@ -15,35 +15,88 @@ use TypeError;
  */
 final class FooBarServiceTest extends TestCase
 {
+    private const FOO = 'Foo';
+    private const BAR = 'Bar';
+    private const QIX = 'Qix';
+    private const FOOBAR = self::FOO . self::BAR;
+    private const BARQIX = self::BAR . self::QIX;
+    private const FOOQIX = self::FOO . self::QIX;
+    private const FOOBARQIX = self::FOO . self::BAR . self::QIX;
+
     /**
-     * Provides valid input for the testProcessNumber test.
+     * Provides valid input for the test of only multiples.
      *
      * @return array
      */
-    public static function fooBarServiceProvider(): array
+    public static function multiplesProvider(): array
     {
         return [
-            '3 Foo'             => [3, 'Foo'],
-            '3x3 Foo'           => [9, 'Foo'],
-            '5 Bar'             => [5, 'Bar'],
-            '5x2 Bar'           => [10, 'Bar'],
-            '7 Qix'             => [7, 'Qix'],
-            '7x2 Qix'           => [14, 'Qix'],
-            '3x5 FooBar'        => [15, 'FooBar'],
-            '3x5x3 FooBar'      => [45, 'FooBar'],
-            '3x7 FooQix'        => [21, 'FooQix'],
-            '3x7x2 FooQix'      => [42, 'FooQix'],
-            '5x7 BarQix'        => [35, 'BarQix'],
-            '5x7x2 BarQix'      => [70, 'BarQix'],
-            '3x5x7 FooBarQix'   => [105, 'FooBarQix'],
-            '3x5x7x2 FooBarQix' => [210, 'FooBarQix'],
-            '4'                 => [4, '4'],
-            '11'                => [11, '11'],
+            'Multiple 3'          => [6, self::FOO],
+            'Multiple 5'          => [10, self::BAR],
+            'Multiple 7'          => [14, self::QIX],
+            'Multiples 3 & 5'     => [60, self::FOOBAR],
+            'Multiples 3 & 7'     => [21, self::FOOQIX],
+            'Multiples 5 & 7'     => [140, self::BARQIX],
+            'Multiples 3 & 5 & 7' => [210, self::FOOBARQIX],
         ];
     }
 
     /**
-     * Provides invalid input for the testInvalidInputThrowsException test.
+     * Provides valid input for the test of only occurrences.
+     *
+     * @return array
+     */
+    public static function occurrencesProvider(): array
+    {
+        return [
+            'Contains 3'         => [13, self::FOO],
+            'Contains 5'         => [151, self::BAR],
+            'Contains 7'         => [17, self::QIX],
+            'Contains 3 & 5'     => [352, self::FOOBAR],
+            'Contains 3 & 7'     => [307, self::FOOQIX],
+            'Contains 5 & 7'     => [507, self::BARQIX],
+            'Contains 3 & 5 & 7' => [3571, self::FOOBARQIX],
+            'Contains 7 & 5 & 3' => [7531, self::FOOBARQIX],
+        ];
+    }
+
+    /**
+     * Provides valid input for the test of multiples and occurrences.
+     *
+     * @return array
+     */
+    public static function multiplesAndOccurrencesProvider(): array
+    {
+        return [
+            'Multiple 3 | Contains 7'                     => [27, self::FOOQIX],
+            'Multiple 5 & 7 | Contains 3 & 5'             => [35, self::BARQIX . self::FOOBAR],
+            'Multiple 3 & 5 & 7  | Contains 5'            => [1050, self::FOOBARQIX . self::BAR],
+            'Multiple 5 & 7 | Contains 7 & 3 & 5'         => [735, self::BARQIX . self::QIX . self::FOO . self::BAR],
+            'Multiple 3 & 5 | Contains 7 & 7 & 5 & 3 & 5' => [
+                77535,
+                self::FOOBAR . self::QIX . self::QIX . self::BAR . self::FOOBAR
+            ],
+        ];
+    }
+
+    /**
+     * Provides input to test the no-transformation cases.
+     *
+     * @return array
+     */
+    public static function noTransformationProvider(): array
+    {
+        return [
+            '1'  => [1, '1'],
+            '2'  => [2, '2'],
+            '4'  => [4, '4'],
+            '8'  => [8, '8'],
+            '11' => [11, '11'],
+        ];
+    }
+
+    /**
+     * Provides invalid numeric input.
      *
      * @return array
      */
@@ -56,7 +109,7 @@ final class FooBarServiceTest extends TestCase
     }
 
     /**
-     * Provides invalid input types for the testInvalidTypeInputThrowsException test.
+     * Provides invalid input types.
      *
      * @return array
      */
@@ -73,13 +126,16 @@ final class FooBarServiceTest extends TestCase
     }
 
     /**
-     * Tests that the correct result is returned for a given number.
+     * Tests that the processNumber method returns the expected result.
      *
      * @param $number
      * @param $expectedResult
      * @return void
      */
-    #[DataProvider('fooBarServiceProvider')]
+    #[DataProvider('multiplesProvider')]
+    #[DataProvider('occurrencesProvider')]
+    #[DataProvider('multiplesAndOccurrencesProvider')]
+    #[DataProvider('noTransformationProvider')]
     public function testProcessNumber($number, $expectedResult): void
     {
         $service = new FooBarService();

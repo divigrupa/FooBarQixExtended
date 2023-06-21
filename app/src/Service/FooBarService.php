@@ -15,7 +15,7 @@ final class FooBarService
      *
      * @var array
      */
-    private const MULTIPLY_DICTIONARY = [
+    private const DIGIT_DICTIONARY = [
         3 => 'Foo',
         5 => 'Bar',
         7 => 'Qix',
@@ -42,19 +42,20 @@ final class FooBarService
             throw new InvalidArgumentException('Number must be a positive integer.');
         }
 
-        $this->generateString($number);
+        $this->processMultiples($number);
+        $this->processOccurrences($number);
 
         return strlen($this->result) ? $this->result : (string)$number;
     }
 
     /**
-     * Generates a string based on the number provided.
+     * Processes multiples of a number to generate corresponding string.
      *
      * @param int $number
      */
-    private function generateString(int $number): void
+    private function processMultiples(int $number): void
     {
-        foreach (self::MULTIPLY_DICTIONARY as $multiple => $word) {
+        foreach (self::DIGIT_DICTIONARY as $multiple => $word) {
             if ($this->isMultipleOf($number, $multiple)) {
                 $this->result .= $word;
             }
@@ -71,5 +72,23 @@ final class FooBarService
     private function isMultipleOf(int $number, int $multiple): bool
     {
         return $number % $multiple === 0;
+    }
+
+    /**
+     * Appends words corresponding to individual digits in the number to the result string.
+     *
+     * @param int $number
+     */
+    private function processOccurrences(int $number): void
+    {
+        $digitArray = str_split((string)$number);
+
+        foreach ($digitArray as $digit) {
+            $digit = (int)$digit;
+
+            if (isset(self::DIGIT_DICTIONARY[$digit])) {
+                $this->result .= self::DIGIT_DICTIONARY[$digit];
+            }
+        }
     }
 }

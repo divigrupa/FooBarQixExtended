@@ -54,9 +54,9 @@ final class FooBarServiceTest extends TestCase
             'Contains 7'         => [17, self::QIX],
             'Contains 3 & 5'     => [352, self::FOOBAR],
             'Contains 3 & 7'     => [307, self::FOOQIX],
-            'Contains 5 & 7'     => [507, self::BARQIX],
+            'Contains 5 & 7'     => [5017, self::BARQIX],
             'Contains 3 & 5 & 7' => [3571, self::FOOBARQIX],
-            'Contains 7 & 5 & 3' => [7531, self::FOOBARQIX],
+            'Contains 7 & 5 & 3' => [7531, self::QIX . self::BAR . self::FOO],
         ];
     }
 
@@ -71,7 +71,10 @@ final class FooBarServiceTest extends TestCase
             'Multiple 3 | Contains 7'                     => [27, self::FOOQIX],
             'Multiple 5 & 7 | Contains 3 & 5'             => [35, self::BARQIX . self::FOOBAR],
             'Multiple 3 & 5 & 7  | Contains 5'            => [1050, self::FOOBARQIX . self::BAR],
-            'Multiple 5 & 7 | Contains 7 & 3 & 5'         => [735, self::BARQIX . self::QIX . self::FOO . self::BAR],
+            'Multiple 3 & 5 & 7 | Contains 7 & 7 & 7'     => [
+                7770,
+                self::FOOBARQIX . self::QIX . self::QIX . self::QIX
+            ],
             'Multiple 3 & 5 | Contains 7 & 7 & 5 & 3 & 5' => [
                 77535,
                 self::FOOBAR . self::QIX . self::QIX . self::BAR . self::FOOBAR

@@ -18,7 +18,9 @@ final class FooBarService
     private const MULTIPLY_DICTIONARY = [
         3 => 'Foo',
         5 => 'Bar',
+        7 => 'Qix',
     ];
+
     /**
      * Stores the result of the processNumber method.
      *

@@ -1,10 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace unit;
+namespace App\Tests\Unit;
 
-use PHPUnit\Framework\TestCase;
+use App\Service\FooBarService;
+use InvalidArgumentException;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\TestCase;
 use stdClass;
+use TypeError;
 
 /**
  * Class FooBarServiceTest
@@ -36,17 +39,28 @@ final class FooBarServiceTest extends TestCase
      *
      * @return array
      */
-    public static function invalidInputProvider(): array
+    public static function invalidNumericInputProvider(): array
     {
         return [
             [-3],
             [0],
+        ];
+    }
+
+    /**
+     * Provides invalid input types for the testInvalidTypeInputThrowsException test.
+     *
+     * @return array
+     */
+    public static function invalidTypeInputProvider(): array
+    {
+        return [
             [3.14159],
             ['string'],
             [null],
             [false],
             [[]],
-            [new stdClass()]
+            [new stdClass()],
         ];
     }
 
@@ -66,17 +80,32 @@ final class FooBarServiceTest extends TestCase
     }
 
     /**
-     * Tests that an invalid input throws an exception.
+     * Tests that an invalid numeric input throws an exception.
      *
      * @param $invalidInput
      * @return void
      */
-    #[DataProvider('invalidInputProvider')]
-    public function testInvalidInputThrowsException ($invalidInput): void
+    #[DataProvider('invalidNumericInputProvider')]
+    public function testInvalidInputThrowsException($invalidInput): void
     {
         $service = new FooBarService();
 
         $this->expectException(InvalidArgumentException::class);
+        $service->processNumber($invalidInput);
+    }
+
+    /**
+     * Tests that an invalid type input throws an exception.
+     *
+     * @param $invalidInput
+     * @return void
+     */
+    #[DataProvider('invalidTypeInputProvider')]
+    public function testInvalidTypeInputThrowsException($invalidInput): void
+    {
+        $service = new FooBarService();
+
+        $this->expectException(TypeError::class);
         $service->processNumber($invalidInput);
     }
 }

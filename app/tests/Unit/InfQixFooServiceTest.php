@@ -57,20 +57,20 @@ final class InfQixFooServiceTest extends AbstractServiceTest
     /**
      * Converts an array of digits to a string.
      *
-     * @param array $numbers
+     * @param array $digits
      * @return string
      */
-    protected static function digitsToString(array $numbers): string
+    protected static function digitsToString(array $digits): string
     {
-        $string = '';
+        $words = [];
 
-        foreach ($numbers as $number) {
+        foreach ($digits as $number) {
             if (isset(self::DIGIT_DICTIONARY[$number])) {
-                $string .= self::DIGIT_DICTIONARY[$number];
+                $words[] = self::DIGIT_DICTIONARY[$number];
             }
         }
 
-        return $string;
+        return implode('; ', $words);
     }
 
     /**

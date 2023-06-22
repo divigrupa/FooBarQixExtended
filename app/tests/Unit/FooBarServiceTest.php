@@ -3,17 +3,12 @@
 namespace App\Tests\Unit;
 
 use App\Service\FooBarService;
-use InvalidArgumentException;
-use PHPUnit\Framework\Attributes\DataProvider;
-use PHPUnit\Framework\TestCase;
-use stdClass;
-use TypeError;
 
 /**
  * Class FooBarServiceTest
  * @package unit
  */
-final class FooBarServiceTest extends TestCase
+final class FooBarServiceTest extends AbstractServiceTest
 {
     private const FOO = 'Foo';
     private const BAR = 'Bar';
@@ -22,6 +17,22 @@ final class FooBarServiceTest extends TestCase
     private const BARQIX = self::BAR . self::QIX;
     private const FOOQIX = self::FOO . self::QIX;
     private const FOOBARQIX = self::FOO . self::BAR . self::QIX;
+
+    /**
+     * Provides input to test the no-transformation cases.
+     *
+     * @return array
+     */
+    public static function noTransformationProvider(): array
+    {
+        return [
+            'Number: 1'  => [1, '1'],
+            'Number: 2'  => [2, '2'],
+            'Number: 4'  => [4, '4'],
+            'Number: 8'  => [8, '8'],
+            'Number: 11' => [11, '11'],
+        ];
+    }
 
     /**
      * Provides valid input for the test of only multiples.
@@ -83,96 +94,12 @@ final class FooBarServiceTest extends TestCase
     }
 
     /**
-     * Provides input to test the no-transformation cases.
+     * Returns the tested service.
      *
-     * @return array
+     * @return FooBarService
      */
-    public static function noTransformationProvider(): array
+    protected static function getTestedService(): FooBarService
     {
-        return [
-            '1'  => [1, '1'],
-            '2'  => [2, '2'],
-            '4'  => [4, '4'],
-            '8'  => [8, '8'],
-            '11' => [11, '11'],
-        ];
-    }
-
-    /**
-     * Provides invalid numeric input.
-     *
-     * @return array
-     */
-    public static function invalidNumericInputProvider(): array
-    {
-        return [
-            [-3],
-            [0],
-        ];
-    }
-
-    /**
-     * Provides invalid input types.
-     *
-     * @return array
-     */
-    public static function invalidTypeInputProvider(): array
-    {
-        return [
-            [3.14159],
-            ['string'],
-            [null],
-            [false],
-            [[]],
-            [new stdClass()],
-        ];
-    }
-
-    /**
-     * Tests that the processNumber method returns the expected result.
-     *
-     * @param $number
-     * @param $expectedResult
-     * @return void
-     */
-    #[DataProvider('multiplesProvider')]
-    #[DataProvider('occurrencesProvider')]
-    #[DataProvider('multiplesAndOccurrencesProvider')]
-    #[DataProvider('noTransformationProvider')]
-    public function testProcessNumber($number, $expectedResult): void
-    {
-        $service = new FooBarService();
-
-        $this->assertEquals($expectedResult, $service->processNumber($number));
-    }
-
-    /**
-     * Tests that an invalid numeric input throws an exception.
-     *
-     * @param $invalidInput
-     * @return void
-     */
-    #[DataProvider('invalidNumericInputProvider')]
-    public function testInvalidInputThrowsException($invalidInput): void
-    {
-        $service = new FooBarService();
-
-        $this->expectException(InvalidArgumentException::class);
-        $service->processNumber($invalidInput);
-    }
-
-    /**
-     * Tests that an invalid type input throws an exception.
-     *
-     * @param $invalidInput
-     * @return void
-     */
-    #[DataProvider('invalidTypeInputProvider')]
-    public function testInvalidTypeInputThrowsException($invalidInput): void
-    {
-        $service = new FooBarService();
-
-        $this->expectException(TypeError::class);
-        $service->processNumber($invalidInput);
+        return new FooBarService();
     }
 }

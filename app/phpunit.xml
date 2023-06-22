@@ -5,6 +5,7 @@
     <testsuites>
         <testsuite name="Project Unit Test Suit">
             <directory>tests/Unit</directory>
+            <exclude>tests/Unit/AbstractServiceTest.php</exclude>
         </testsuite>
     </testsuites>
 </phpunit>

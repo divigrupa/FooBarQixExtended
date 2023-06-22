@@ -6,9 +6,9 @@ use InvalidArgumentException;
 
 /**
  * Class FooBarService
- * @package app\src
+ * @package App\Service
  */
-final class FooBarService
+final class FooBarService extends AbstractService
 {
     /**
      * Dictionary of multiples and their corresponding words.

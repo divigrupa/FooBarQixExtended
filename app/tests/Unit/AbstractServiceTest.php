@@ -114,6 +114,20 @@ abstract class AbstractServiceTest extends TestCase
     }
 
     /**
+     * Returns the separator used to join the words.
+     *
+     * @return string
+     */
+    abstract protected static function getSeparator(): string;
+
+    /**
+     * Returns the dictionary of words.
+     *
+     * @return array
+     */
+    abstract protected static function getDigitDictionary(): array;
+
+    /**
      * Tests that the processNumber method returns the expected result.
      *
      * @param $number
@@ -171,18 +185,4 @@ abstract class AbstractServiceTest extends TestCase
      * @return AbstractService
      */
     abstract protected static function getTestedService(): AbstractService;
-
-    /**
-     * Returns the separator used to join the words.
-     *
-     * @return string
-     */
-    abstract protected static function getSeparator(): string;
-
-    /**
-     * Returns the dictionary of words.
-     *
-     * @return array
-     */
-    abstract protected static function getDigitDictionary(): array;
 }

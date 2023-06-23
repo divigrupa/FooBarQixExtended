@@ -8,5 +8,25 @@ namespace App\Service;
  */
 final class InfQixFooService extends AbstractService
 {
-    // TODO: implement the rest of the class
+    /**
+     * Dictionary of multiples and their corresponding words.
+     *
+     * @var array
+     */
+    private const DIGIT_DICTIONARY = [
+        8 => 'Inf',
+        7 => 'Qix',
+        3 => 'Foo',
+    ];
+
+    /**
+     * InfQixFooService constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->separator = '; ';
+        $this->digitDictionary = self::DIGIT_DICTIONARY;
+    }
 }

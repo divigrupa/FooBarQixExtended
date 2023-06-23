@@ -55,11 +55,15 @@ final class FooBarService extends AbstractService
      */
     private function processMultiples(int $number): void
     {
+        $words = [];
+
         foreach (self::DIGIT_DICTIONARY as $multiple => $word) {
             if ($this->isMultipleOf($number, $multiple)) {
-                $this->result .= $word;
+                $words[] = $word;
             }
         }
+
+        $this->result = implode(', ', $words);
     }
 
     /**

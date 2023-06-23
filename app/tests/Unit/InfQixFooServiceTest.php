@@ -21,9 +21,7 @@ final class InfQixFooServiceTest extends AbstractServiceTest
     ];
 
     /**
-     * Provides input to test the no-transformation cases.
-     *
-     * @return array
+     * {@inheritdoc}
      */
     public static function noTransformationProvider(): array
     {
@@ -37,74 +35,49 @@ final class InfQixFooServiceTest extends AbstractServiceTest
     }
 
     /**
-     * Provides valid input for the test of only multiples.
-     *
-     * @return array
+     * {@inheritdoc}
      */
     public static function multiplesProvider(): array
     {
         return [
-            'Multiple 8'          => [16, self::digitsToString([8])],
-            'Multiple 7'          => [14, self::digitsToString([7])],
-            'Multiple 3'          => [9, self::digitsToString([3])],
-            'Multiples 8 & 7'     => [56, self::digitsToString([8, 7])],
-            'Multiples 8 & 3'     => [24, self::digitsToString([8, 3])],
-            'Multiples 7 & 3'     => [21, self::digitsToString([7, 3])],
-            'Multiples 8 & 7 & 3' => [48, self::digitsToString([8, 7, 3])],
+            'Multiple 8'          => [16, self::getExpectedResult(mult:[8])],
+            'Multiple 7'          => [14, self::getExpectedResult(mult:[7])],
+            'Multiple 3'          => [9, self::getExpectedResult(mult:[3])],
+            'Multiples 8 & 7'     => [56, self::getExpectedResult(mult:[8, 7])],
+            'Multiples 8 & 3'     => [24, self::getExpectedResult(mult:[8, 3])],
+            'Multiples 7 & 3'     => [21, self::getExpectedResult(mult:[7, 3])],
+            'Multiples 8 & 7 & 3' => [48, self::getExpectedResult(mult:[8, 7, 3])],
         ];
     }
 
     /**
-     * Converts an array of digits to a string.
-     *
-     * @param array $digits
-     * @return string
-     */
-    protected static function digitsToString(array $digits): string
-    {
-        $words = [];
-
-        foreach ($digits as $number) {
-            if (isset(self::DIGIT_DICTIONARY[$number])) {
-                $words[] = self::DIGIT_DICTIONARY[$number];
-            }
-        }
-
-        return implode('; ', $words);
-    }
-
-    /**
-     * Provides valid input for the test of only occurrences.
-     *
-     * @return array
+     * {@inheritdoc}
      */
     public static function occurrencesProvider(): array
     {
         return [
-            'Contains 8'         => [38, self::digitsToString([8])],
-            'Contains 7'         => [17, self::digitsToString([7])],
-            'Contains 3'         => [13, self::digitsToString([3])],
-            'Contains 8 & 3'     => [83, self::digitsToString([8, 3])],
-            'Contains 8 & 7'     => [874, self::digitsToString([8, 7])],
-            'Contains 7 & 3'     => [73, self::digitsToString([7, 3])],
-            'Contains 8 & 7 & 3' => [873, self::digitsToString([8, 7, 3])],
-            'Contains 3 & 8 & 7' => [3874, self::digitsToString([3, 8, 7])],
+            'Contains 8'         => [38, self::getExpectedResult(occur:[8])],
+            'Contains 7'         => [17, self::getExpectedResult(occur:[7])],
+            'Contains 3'         => [13, self::getExpectedResult(occur:[3])],
+            'Contains 8 & 3'     => [83, self::getExpectedResult(occur:[8, 3])],
+            'Contains 8 & 7'     => [874, self::getExpectedResult(occur:[8, 7])],
+            'Contains 7 & 3'     => [73, self::getExpectedResult(occur:[7, 3])],
+            'Contains 8 & 7 & 3' => [873, self::getExpectedResult(occur:[8, 7, 3])],
+            'Contains 3 & 8 & 7' => [3874, self::getExpectedResult(occur:[3, 8, 7])],
         ];
     }
 
     /**
-     * Provides valid input for the test of multiples and occurrences.
-     *
-     * @return array
+     * {@inheritdoc}
      */
     public static function multiplesAndOccurrencesProvider(): array
     {
         return [
-            'Multiple 8 | Contains 3'                 => [32, self::digitsToString([8, 3])],
-            'Multiple 8 & 7 | Contains 7 & 8'         => [728, self::digitsToString([8, 7, 7, 8])],
-            'Multiple 8 & 7 & 3 | Contains 3 & 3'     => [336, self::digitsToString([8, 7, 3, 3, 3])],
-            'Multiple 8 & 7 & 3 | Contains 3 & 8 '    => [4368, self::digitsToString([8, 7, 3, 3, 8])],
-            'Multiple 8 & 7 | Contains 7 & 8 & 7 & 3' => [78736, self::digitsToString([8, 7, 7, 8, 7, 3])],
+            'Multiple 8 | Contains 3'                 => [32, self::getExpectedResult(mult:[8], occur: [3])],
+            'Multiple 8 & 7 | Contains 7 & 8'         => [728, self::getExpectedResult(mult:[8, 7], occur:[7, 8])],
+            'Multiple 8 & 7 & 3 | Contains 3 & 3'     => [336, self::getExpectedResult(mult: [8, 7, 3], occur: [3,3])],
+            'Multiple 8 & 7 & 3 | Contains 3 & 8 '    => [4368, self::getExpectedResult(mult: [8, 7, 3], occur: [3, 8])],
+            'Multiple 8 & 7 | Contains 7 & 8 & 7 & 3' => [78736, self::getExpectedResult(mult: [8, 7], occur: [7, 8, 7, 3])],
         ];
     }
 
@@ -116,5 +89,21 @@ final class InfQixFooServiceTest extends AbstractServiceTest
     protected static function getTestedService(): InfQixFooService
     {
         return new InfQixFooService();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected static function getSeparator(): string
+    {
+        return '; ';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected static function getDigitDictionary(): array
+    {
+        return self::DIGIT_DICTIONARY;
     }
 }

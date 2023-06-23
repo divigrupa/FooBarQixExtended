@@ -15,6 +15,11 @@ use TypeError;
  */
 abstract class AbstractServiceTest extends TestCase
 {
+    /**
+     * Contains the service being tested.
+     *
+     * @var AbstractService $testedService
+     */
     protected AbstractService $testedService;
 
     /**
@@ -47,13 +52,66 @@ abstract class AbstractServiceTest extends TestCase
         ];
     }
 
+    /**
+     * Provider of valid input to the test only multiples.
+     *
+     * @return array
+     */
     abstract public static function multiplesProvider(): array;
 
+    /**
+     * Provider of valid input to the test only occurrences.
+     *
+     * @return array
+     */
     abstract public static function occurrencesProvider(): array;
 
+    /**
+     * Provider of valid input to the test multiples and occurrences together.
+     *
+     * @return array
+     */
     abstract public static function multiplesAndOccurrencesProvider(): array;
 
+    /**
+     * Provider of valid input to the test no transformation cases.
+     *
+     * @return array
+     */
     abstract public static function noTransformationProvider(): array;
+
+    /**
+     * Get expected result for the given multiples and occurrences.
+     *
+     * @param array $mult
+     * @param array $occur
+     * @return string
+     */
+    protected static function getExpectedResult(array $mult = [], array $occur = []): string
+    {
+        $words = [];
+        $result = '';
+        $separator = static::getSeparator();
+        $digitDictionary = static::getDigitDictionary();
+
+        // Process multiples
+        foreach ($mult as $digit) {
+            if (isset($digitDictionary[$digit])) {
+                $words[] = $digitDictionary[$digit];
+            }
+        }
+
+        $result .= implode($separator, $words);
+
+        // Process occurrences
+        foreach ($occur as $digit) {
+            if (isset($digitDictionary[$digit])) {
+                $result .= $digitDictionary[$digit];
+            }
+        }
+
+        return $result;
+    }
 
     /**
      * Tests that the processNumber method returns the expected result.
@@ -107,5 +165,24 @@ abstract class AbstractServiceTest extends TestCase
         $this->testedService = static::getTestedService();
     }
 
+    /**
+     * Returns the service being tested.
+     *
+     * @return AbstractService
+     */
     abstract protected static function getTestedService(): AbstractService;
+
+    /**
+     * Returns the separator used to join the words.
+     *
+     * @return string
+     */
+    abstract protected static function getSeparator(): string;
+
+    /**
+     * Returns the dictionary of words.
+     *
+     * @return array
+     */
+    abstract protected static function getDigitDictionary(): array;
 }

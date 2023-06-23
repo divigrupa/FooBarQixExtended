@@ -10,18 +10,19 @@ use App\Service\FooBarService;
  */
 final class FooBarServiceTest extends AbstractServiceTest
 {
-    private const FOO = 'Foo';
-    private const BAR = 'Bar';
-    private const QIX = 'Qix';
-    private const FOOBAR = self::FOO . self::BAR;
-    private const BARQIX = self::BAR . self::QIX;
-    private const FOOQIX = self::FOO . self::QIX;
-    private const FOOBARQIX = self::FOO . self::BAR . self::QIX;
+    /**
+     * Dictionary of multiples/occurrences with their corresponding words.
+     *
+     * @var array
+     */
+    private const DIGIT_DICTIONARY = [
+        3 => 'Foo',
+        5 => 'Bar',
+        7 => 'Qix',
+    ];
 
     /**
-     * Provides input to test the no-transformation cases.
-     *
-     * @return array
+     * {@inheritdoc}
      */
     public static function noTransformationProvider(): array
     {
@@ -35,61 +36,49 @@ final class FooBarServiceTest extends AbstractServiceTest
     }
 
     /**
-     * Provides valid input for the test of only multiples.
-     *
-     * @return array
+     * {@inheritdoc}
      */
     public static function multiplesProvider(): array
     {
         return [
-            'Multiple 3'          => [6, self::FOO],
-            'Multiple 5'          => [10, self::BAR],
-            'Multiple 7'          => [14, self::QIX],
-            'Multiples 3 & 5'     => [60, self::FOOBAR],
-            'Multiples 3 & 7'     => [21, self::FOOQIX],
-            'Multiples 5 & 7'     => [140, self::BARQIX],
-            'Multiples 3 & 5 & 7' => [210, self::FOOBARQIX],
+            'Multiple 3'          => [6, self::getExpectedResult(mult: [3])],
+            'Multiple 5'          => [10, self::getExpectedResult(mult: [5])],
+            'Multiple 7'          => [14, self::getExpectedResult(mult: [7])],
+            'Multiples 3 & 5'     => [60, self::getExpectedResult(mult: [3, 5])],
+            'Multiples 3 & 7'     => [21, self::getExpectedResult(mult: [3, 7])],
+            'Multiples 5 & 7'     => [140, self::getExpectedResult(mult: [5, 7])],
+            'Multiples 3 & 5 & 7' => [210, self::getExpectedResult(mult: [3, 5, 7])],
         ];
     }
 
     /**
-     * Provides valid input for the test of only occurrences.
-     *
-     * @return array
+     * {@inheritdoc}
      */
     public static function occurrencesProvider(): array
     {
         return [
-            'Contains 3'         => [13, self::FOO],
-            'Contains 5'         => [151, self::BAR],
-            'Contains 7'         => [17, self::QIX],
-            'Contains 3 & 5'     => [352, self::FOOBAR],
-            'Contains 3 & 7'     => [307, self::FOOQIX],
-            'Contains 5 & 7'     => [5017, self::BARQIX],
-            'Contains 3 & 5 & 7' => [3571, self::FOOBARQIX],
-            'Contains 7 & 5 & 3' => [7531, self::QIX . self::BAR . self::FOO],
+            'Contains 3'         => [13, self::getExpectedResult(occur: [3])],
+            'Contains 5'         => [151, self::getExpectedResult(occur: [5])],
+            'Contains 7'         => [17, self::getExpectedResult(occur: [7])],
+            'Contains 3 & 5'     => [352, self::getExpectedResult(occur: [3, 5])],
+            'Contains 3 & 7'     => [307, self::getExpectedResult(occur: [3, 7])],
+            'Contains 5 & 7'     => [5017, self::getExpectedResult(occur: [5, 7])],
+            'Contains 3 & 5 & 7' => [3571, self::getExpectedResult(occur: [3, 5, 7])],
+            'Contains 7 & 5 & 3' => [7531, self::getExpectedResult(occur: [7, 5, 3])],
         ];
     }
 
     /**
-     * Provides valid input for the test of multiples and occurrences.
-     *
-     * @return array
+     * {@inheritdoc}
      */
     public static function multiplesAndOccurrencesProvider(): array
     {
         return [
-            'Multiple 3 | Contains 7'                     => [27, self::FOOQIX],
-            'Multiple 5 & 7 | Contains 3 & 5'             => [35, self::BARQIX . self::FOOBAR],
-            'Multiple 3 & 5 & 7  | Contains 5'            => [1050, self::FOOBARQIX . self::BAR],
-            'Multiple 3 & 5 & 7 | Contains 7 & 7 & 7'     => [
-                7770,
-                self::FOOBARQIX . self::QIX . self::QIX . self::QIX
-            ],
-            'Multiple 3 & 5 | Contains 7 & 7 & 5 & 3 & 5' => [
-                77535,
-                self::FOOBAR . self::QIX . self::QIX . self::BAR . self::FOOBAR
-            ],
+            'Multiple 3 | Contains 7'                     => [27, self::getExpectedResult([3], [7])],
+            'Multiple 5 & 7 | Contains 3 & 5'             => [35, self::getExpectedResult([5, 7], [3, 5])],
+            'Multiple 3 & 5 & 7  | Contains 5'            => [1050, self::getExpectedResult([3, 5, 7], [5])],
+            'Multiple 3 & 5 & 7 | Contains 7 & 7 & 7'     => [7770, self::getExpectedResult([3, 5, 7], [7, 7, 7])],
+            'Multiple 3 & 5 | Contains 7 & 7 & 5 & 3 & 5' => [77535, self::getExpectedResult([3, 5], [7, 7, 5, 3, 5])],
         ];
     }
 
@@ -101,5 +90,21 @@ final class FooBarServiceTest extends AbstractServiceTest
     protected static function getTestedService(): FooBarService
     {
         return new FooBarService();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected static function getSeparator(): string
+    {
+        return ', ';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected static function getDigitDictionary(): array
+    {
+        return self::DIGIT_DICTIONARY;
     }
 }

@@ -40,14 +40,14 @@ final class InfQixFooServiceTest extends AbstractServiceTest
     public static function multiplesProvider(): array
     {
         return [
-            'Multiple 8'             => [16, self::getExpectedResult(mult: [8])],
-            'Multiple 7'             => [14, self::getExpectedResult(mult: [7])],
-            'Multiple 3'             => [9, self::getExpectedResult(mult: [3])],
-            'Multiples 8 & 7'        => [56, self::getExpectedResult(mult: [8, 7])],
-            'Multiples 8 & 3'        => [24, self::getExpectedResult(mult: [8, 3])],
+            'Multiple 8'              => [16, self::getExpectedResult(mult: [8])],
+            'Multiple 7'              => [14, self::getExpectedResult(mult: [7])],
+            'Multiple 3'              => [9, self::getExpectedResult(mult: [3])],
+            'Multiples 8 & 7'         => [56, self::getExpectedResult(mult: [8, 7])],
+            'Multiples 8 & 3'         => [24, self::getExpectedResult(mult: [8, 3])],
             'Multiples 8 & 7 | Sum 8' => [1456, self::getExpectedResult(mult: [8, 7], num: 1456)],
-            'Multiples 7 & 3'        => [21, self::getExpectedResult(mult: [7, 3])],
-            'Multiples 8 & 7 & 3'    => [1512, self::getExpectedResult(mult: [8, 7, 3])],
+            'Multiples 7 & 3'         => [21, self::getExpectedResult(mult: [7, 3])],
+            'Multiples 8 & 7 & 3'     => [1512, self::getExpectedResult(mult: [8, 7, 3])],
         ];
     }
 

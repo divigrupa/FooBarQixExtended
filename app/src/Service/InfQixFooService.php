@@ -29,4 +29,31 @@ final class InfQixFooService extends AbstractService
         $this->separator = '; ';
         $this->digitDictionary = self::DIGIT_DICTIONARY;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function processNumber(int $number): string
+    {
+        $result = parent::processNumber($number);
+        $digitSum = $this->getDigitSum($number);
+
+        // If digit sum is a multiple of 8, append 'Inf' to the result.
+        if ($this->isMultipleOf($digitSum, 8)) {
+            $result .= $this->digitDictionary[8];
+        }
+
+        return $result;
+    }
+
+    /**
+     * Get the sum of the digits of a number.
+     *
+     * @param int $number
+     * @return int
+     */
+    protected function getDigitSum(int $number): int
+    {
+        return array_sum(str_split((string)$number));
+    }
 }

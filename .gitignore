@@ -1,3 +1,4 @@
 .idea
 app/vendor
 app/.phpunit.result.cache
+app/coverage

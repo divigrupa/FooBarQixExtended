@@ -27,16 +27,16 @@ final class InfQixFooService implements ServiceInterface
     /**
      * Number processor.
      *
-     * @var NumberProcessorInterface $processor
+     * @var ProcessorInterface $processor
      */
-    protected NumberProcessorInterface $processor;
+    protected ProcessorInterface $processor;
 
     /**
      * InfQixFooService constructor.
      *
-     * @param NumberProcessorInterface $processor
+     * @param ProcessorInterface $processor
      */
-    public function __construct(NumberProcessorInterface $processor)
+    public function __construct(ProcessorInterface $processor)
     {
         $this->processor = $processor;
     }
@@ -57,7 +57,7 @@ final class InfQixFooService implements ServiceInterface
      */
     public function execute(int $number): string
     {
-        $result = $this->processor->processNumber($number);
+        $result = $this->processor->process($number);
         $digitSum = $this->getDigitSum($number);
 
         // If digit sum is a multiple of 8, append 'Inf' to the result.

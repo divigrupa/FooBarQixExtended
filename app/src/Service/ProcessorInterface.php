@@ -6,7 +6,7 @@ namespace App\Service;
  * Interface NumberProcessorInterface
  * @package App\Service
  */
-interface NumberProcessorInterface
+interface ProcessorInterface
 {
     /**
      * Processes a number and returns a string.
@@ -14,7 +14,7 @@ interface NumberProcessorInterface
      * @param int $number
      * @return string
      */
-    public function processNumber(int $number): string;
+    public function process(int $number): string;
 
     /**
      * Processes multiples of a number.

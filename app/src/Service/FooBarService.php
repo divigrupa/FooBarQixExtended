@@ -27,16 +27,16 @@ final class FooBarService implements ServiceInterface
     /**
      * Number processor.
      *
-     * @var NumberProcessorInterface $processor
+     * @var ProcessorInterface $processor
      */
-    protected NumberProcessorInterface $processor;
+    protected ProcessorInterface $processor;
 
     /**
      * FooBarService constructor.
      *
-     * @param NumberProcessorInterface $processor
+     * @param ProcessorInterface $processor
      */
-    public function __construct(NumberProcessorInterface $processor)
+    public function __construct(ProcessorInterface $processor)
     {
         $this->processor = $processor;
     }
@@ -57,6 +57,6 @@ final class FooBarService implements ServiceInterface
      */
     public function execute(int $number): string
     {
-        return $this->processor->processNumber($number);
+        return $this->processor->process($number);
     }
 }

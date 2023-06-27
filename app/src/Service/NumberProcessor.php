@@ -8,7 +8,7 @@ use InvalidArgumentException;
  * Class NumberProcessor
  * @package App\Service
  */
-class NumberProcessor implements NumberProcessorInterface
+class NumberProcessor implements ProcessorInterface
 {
     /**
      * Separator between words.
@@ -41,7 +41,7 @@ class NumberProcessor implements NumberProcessorInterface
      * @param int $number
      * @return string
      */
-    public function processNumber(int $number): string
+    public function process(int $number): string
     {
         if ($number <= 0) {
             throw new InvalidArgumentException('Number must be a positive integer.');

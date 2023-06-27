@@ -6,27 +6,57 @@ namespace App\Service;
  * Class FooBarService
  * @package App\Service
  */
-final class FooBarService extends AbstractService
+final class FooBarService implements ServiceInterface
 {
     /**
      * Dictionary of multiples and their corresponding words.
      *
      * @var array
      */
-    private const DIGIT_DICTIONARY = [
+    public const DIGIT_DICTIONARY = [
         3 => 'Foo',
         5 => 'Bar',
         7 => 'Qix',
     ];
 
     /**
-     * FooBarService constructor.
+     * Separator between words.
      */
-    public function __construct()
-    {
-        parent::__construct();
+    public const SEPARATOR = ', ';
 
-        $this->separator = ', ';
-        $this->digitDictionary = self::DIGIT_DICTIONARY;
+    /**
+     * Number processor.
+     *
+     * @var NumberProcessorInterface $processor
+     */
+    protected NumberProcessorInterface $processor;
+
+    /**
+     * FooBarService constructor.
+     *
+     * @param NumberProcessorInterface $processor
+     */
+    public function __construct(NumberProcessorInterface $processor)
+    {
+        $this->processor = $processor;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public static function getConfig(): array
+    {
+        return [
+            'digitDictionary' => self::DIGIT_DICTIONARY,
+            'separator'       => self::SEPARATOR,
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function execute(int $number): string
+    {
+        return $this->processor->processNumber($number);
     }
 }

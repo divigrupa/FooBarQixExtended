@@ -2,7 +2,7 @@
 
 namespace App\Tests\Unit;
 
-use App\Service\AbstractService;
+use App\Service\ServiceInterface;
 use InvalidArgumentException;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
@@ -18,9 +18,9 @@ abstract class AbstractServiceTest extends TestCase
     /**
      * Contains the service being tested.
      *
-     * @var AbstractService $testedService
+     * @var ServiceInterface $testedService
      */
-    protected AbstractService $testedService;
+    protected ServiceInterface $testedService;
 
     /**
      * Provides invalid numeric input.
@@ -140,7 +140,7 @@ abstract class AbstractServiceTest extends TestCase
     #[DataProvider('noTransformationProvider')]
     public function testExpectedServiceResults($number, $expectedResult): void
     {
-        $this->assertEquals($expectedResult, $this->testedService->processNumber($number));
+        $this->assertEquals($expectedResult, $this->testedService->execute($number));
     }
 
     /**
@@ -153,7 +153,7 @@ abstract class AbstractServiceTest extends TestCase
     public function testInvalidInputThrowsException($invalidInput): void
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->testedService->processNumber($invalidInput);
+        $this->testedService->execute($invalidInput);
     }
 
     /**
@@ -166,7 +166,7 @@ abstract class AbstractServiceTest extends TestCase
     public function testInvalidTypeInputThrowsException($invalidInput): void
     {
         $this->expectException(TypeError::class);
-        $this->testedService->processNumber($invalidInput);
+        $this->testedService->execute($invalidInput);
     }
 
     /**
@@ -182,7 +182,7 @@ abstract class AbstractServiceTest extends TestCase
     /**
      * Returns the service being tested.
      *
-     * @return AbstractService
+     * @return ServiceInterface
      */
-    abstract protected static function getTestedService(): AbstractService;
+    abstract protected static function getTestedService(): ServiceInterface;
 }

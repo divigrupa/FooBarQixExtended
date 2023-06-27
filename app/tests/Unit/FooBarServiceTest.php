@@ -3,6 +3,7 @@
 namespace App\Tests\Unit;
 
 use App\Service\FooBarService;
+use App\Service\NumberProcessor;
 
 /**
  * Class FooBarServiceTest
@@ -15,7 +16,7 @@ final class FooBarServiceTest extends AbstractServiceTest
      *
      * @var array
      */
-    private const DIGIT_DICTIONARY = [
+    protected const DIGIT_DICTIONARY = [
         3 => 'Foo',
         5 => 'Bar',
         7 => 'Qix',
@@ -89,7 +90,8 @@ final class FooBarServiceTest extends AbstractServiceTest
      */
     protected static function getTestedService(): FooBarService
     {
-        return new FooBarService();
+        $processor = new NumberProcessor(FooBarService::getConfig());
+        return new FooBarService($processor);
     }
 
     /**

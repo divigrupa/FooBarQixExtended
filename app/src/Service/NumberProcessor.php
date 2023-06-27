@@ -5,38 +5,34 @@ namespace App\Service;
 use InvalidArgumentException;
 
 /**
- * Class AbstractService
+ * Class NumberProcessor
  * @package App\Service
  */
-abstract class AbstractService
+class NumberProcessor implements NumberProcessorInterface
 {
     /**
-     * Stores the service response.
-     *
-     * @var string
-     */
-    protected string $response;
-
-    /**
-     * Stores the separator between words in multipliers.
+     * Separator between words.
      *
      * @var string
      */
     protected string $separator;
 
     /**
-     * Stores the dictionary with digits and their corresponding words.
+     * Dictionary of multiples and their corresponding words.
      *
      * @var array
      */
     protected array $digitDictionary;
 
     /**
-     * AbstractService constructor.
+     * NumberProcessor constructor.
+     *
+     * @param array $config
      */
-    public function __construct()
+    public function __construct(array $config)
     {
-        $this->response = '';
+        $this->digitDictionary = $config['digitDictionary'];
+        $this->separator = $config['separator'];
     }
 
     /**
@@ -51,18 +47,19 @@ abstract class AbstractService
             throw new InvalidArgumentException('Number must be a positive integer.');
         }
 
-        $this->processMultiples($number);
-        $this->processOccurrences($number);
+        $response = $this->processMultiples($number);
+        $response .= $this->processOccurrences($number);
 
-        return strlen($this->response) ? $this->response : (string)$number;
+        return strlen($response) ? $response : (string)$number;
     }
 
     /**
-     * Processes multiples of a number to generate corresponding string.
+     * Processes multiples of a number.
      *
      * @param int $number
+     * @return string
      */
-    protected function processMultiples(int $number): void
+    protected function processMultiples(int $number): string
     {
         $words = [];
 
@@ -72,7 +69,7 @@ abstract class AbstractService
             }
         }
 
-        $this->response .= implode($this->separator, $words);
+        return implode($this->separator, $words);
     }
 
     /**
@@ -82,26 +79,30 @@ abstract class AbstractService
      * @param int $multiple
      * @return bool
      */
-    protected function isMultipleOf(int $number, int $multiple): bool
+    public function isMultipleOf(int $number, int $multiple): bool
     {
         return $number % $multiple === 0;
     }
 
     /**
-     * Appends words corresponding to individual digits in the number to the result string.
+     * Processes occurrences of digits in a number.
      *
      * @param int $number
+     * @return string
      */
-    protected function processOccurrences(int $number): void
+    protected function processOccurrences(int $number): string
     {
+        $result = '';
         $digitArray = str_split((string)$number);
 
         foreach ($digitArray as $digit) {
             $digit = (int)$digit;
 
             if (isset($this->digitDictionary[$digit])) {
-                $this->response .= $this->digitDictionary[$digit];
+                $result .= $this->digitDictionary[$digit];
             }
         }
+
+        return $result;
     }
 }

@@ -1,6 +1,7 @@
 <?php declare(strict_types=1);
 
 use App\Service\InfQixFooService;
+use App\Service\NumberProcessor;
 use App\Tests\Unit\AbstractServiceTest;
 
 /**
@@ -14,7 +15,7 @@ final class InfQixFooServiceTest extends AbstractServiceTest
      *
      * @var array
      */
-    public const DIGIT_DICTIONARY = [
+    protected const DIGIT_DICTIONARY = [
         8 => 'Inf',
         7 => 'Qix',
         3 => 'Foo',
@@ -115,7 +116,8 @@ final class InfQixFooServiceTest extends AbstractServiceTest
      */
     protected static function getTestedService(): InfQixFooService
     {
-        return new InfQixFooService();
+        $processor = new NumberProcessor(InfQixFooService::getConfig());
+        return new InfQixFooService($processor);
     }
 
     /**

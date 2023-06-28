@@ -4,8 +4,25 @@ namespace App;
 
 class FooBarQix
 {
+    private array $rules = [
+        3 => 'Foo',
+        5 => 'Bar'
+    ];
+
     public function execute(int $number): string
     {
+        $result = [];
+        foreach ($this->rules as $multiple => $message) {
+            if ($this->isMultipleOf($number, $multiple)) {
+                $result[] = $message;
+            }
+        }
 
+        return !empty($result) ? implode(', ', $result) : "$number" ;
+    }
+
+    private function isMultipleOf(int $number, int $multiple): bool
+    {
+        return $number % $multiple === 0;
     }
 }

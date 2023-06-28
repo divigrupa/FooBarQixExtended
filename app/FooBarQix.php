@@ -6,7 +6,8 @@ class FooBarQix
 {
     private array $rules = [
         3 => 'Foo',
-        5 => 'Bar'
+        5 => 'Bar',
+        7 => 'Qix',
     ];
 
     public function execute(int $number): string

@@ -20,12 +20,44 @@ class FooBarQixTest extends PHPUnit\Framework\TestCase
         $this->assertEquals('Bar', $fooBarQix->execute(20));
     }
 
+    public function testQix(): void
+    {
+        $fooBarQix = new FooBarQix();
+        $this->assertEquals('Qix', $fooBarQix->execute(7));
+        $this->assertEquals('Qix', $fooBarQix->execute(14));
+        $this->assertEquals('Qix', $fooBarQix->execute(28));
+    }
+
     public function testFooBar(): void
     {
         $fooBarQix = new FooBarQix();
         $this->assertEquals('Foo, Bar', $fooBarQix->execute(15));
         $this->assertEquals('Foo, Bar', $fooBarQix->execute(30));
         $this->assertEquals('Foo, Bar', $fooBarQix->execute(45));
+    }
+
+    public function testFooQix(): void
+    {
+        $fooBarQix = new FooBarQix();
+        $this->assertEquals('Foo, Qix', $fooBarQix->execute(21));
+        $this->assertEquals('Foo, Qix', $fooBarQix->execute(42));
+        $this->assertEquals('Foo, Qix', $fooBarQix->execute(63));
+    }
+
+    public function testBarQix(): void
+    {
+        $fooBarQix = new FooBarQix();
+        $this->assertEquals('Bar, Qix', $fooBarQix->execute(35));
+        $this->assertEquals('Bar, Qix', $fooBarQix->execute(70));
+        $this->assertEquals('Bar, Qix', $fooBarQix->execute(140));
+    }
+
+    public function testFooBarQix(): void
+    {
+        $fooBarQix = new FooBarQix();
+        $this->assertEquals('Foo, Bar, Qix', $fooBarQix->execute(105));
+        $this->assertEquals('Foo, Bar, Qix', $fooBarQix->execute(210));
+        $this->assertEquals('Foo, Bar, Qix', $fooBarQix->execute(315));
     }
 
     public function testNoTransformation(): void

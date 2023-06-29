@@ -2,11 +2,13 @@
 
 namespace App;
 
+use App\Rules\InfQixFooRule;
 use App\Rules\NumberTransformationRule;
 
 class NumberTransformationCalculator
 {
     private NumberTransformationRule $rule;
+
     public function __construct(NumberTransformationRule $rule)
     {
         $this->rule = $rule;
@@ -16,6 +18,7 @@ class NumberTransformationCalculator
     {
         $multipleResult = [];
         $occurrenceResult = [];
+
         foreach ($this->rule->getRules() as $multiple => $message) {
             if ($this->isMultipleOf($number, $multiple)) {
                 $multipleResult[] = $message;
@@ -26,13 +29,31 @@ class NumberTransformationCalculator
                 $occurrenceResult[] = $this->rule->getRules()[(int)$digit];
             }
         }
-        $result = array_merge($multipleResult, $occurrenceResult);
 
-        return !empty($result) ? implode($this->rule->getSeparator(), $result) : "$number";
+        $result = implode($this->rule->getSeparator(), array_merge($multipleResult, $occurrenceResult));
+
+        if ($this->sumIsMultipleOfInf($number)) {
+            $result .= "Inf";
+        }
+
+        return !empty($result) ? $result : "$number";
     }
 
     private function isMultipleOf(int $number, int $multiple): bool
     {
         return $number % $multiple === 0;
+    }
+
+    private function sumIsMultipleOfInf($number): bool
+    {
+        if (!$this->rule instanceof InfQixFooRule) {
+            return false;
+        }
+
+        $sum = array_sum(str_split((string)$number));
+        $multiple = array_search('Inf', $this->rule->getRules());
+
+        return $this->isMultipleOf($sum, $multiple);
+
     }
 }

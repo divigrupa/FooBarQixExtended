@@ -28,7 +28,7 @@ class InfQixFooTest extends PHPUnit\Framework\TestCase
     public function testInfQixOccurrence(): void
     {
         $infQixFoo = new NumberTransformationCalculator(new InfQixFooRule());
-        $this->assertEquals('Inf; Qix', $infQixFoo->execute(187));
+        $this->assertEquals('Inf; Qix', $infQixFoo->execute(616));
     }
 
     public function testInfFoo(): void
@@ -76,7 +76,7 @@ class InfQixFooTest extends PHPUnit\Framework\TestCase
     public function testInfAppendage(): void
     {
         $infQixFoo = new NumberTransformationCalculator(new InfQixFooRule());
-        $this->assertEquals('InfInf', $infQixFoo->execute(800));
+        $this->assertEquals('Inf; InfInf', $infQixFoo->execute(800));
     }
 
     public function testNoTransformation(): void

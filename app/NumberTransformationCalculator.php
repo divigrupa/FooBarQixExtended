@@ -54,6 +54,5 @@ class NumberTransformationCalculator
         $multiple = array_search('Inf', $this->rule->getRules());
 
         return $this->isMultipleOf($sum, $multiple);
-
     }
 }

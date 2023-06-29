@@ -78,14 +78,14 @@ class FooBarQixTest extends PHPUnit\Framework\TestCase
     {
         $fooBarQix = new FooBarQix();
         $this->assertEquals('Bar, Qix', $fooBarQix->execute(280));
-        $this->assertEquals('Bar, Qix', $fooBarQix->execute(350));
+        $this->assertEquals('Bar, Qix', $fooBarQix->execute(490));
         $this->assertEquals('Bar, Qix', $fooBarQix->execute(140));
     }
 
     public function testBarQixOccurrence(): void
     {
         $fooBarQix = new FooBarQix();
-        $this->assertEquals('Bar, Qix', $fooBarQix->execute(57));
+        $this->assertEquals('Bar, Qix', $fooBarQix->execute(571));
     }
 
     public function testFooBarQix(): void
@@ -99,15 +99,15 @@ class FooBarQixTest extends PHPUnit\Framework\TestCase
     public function testFooBarQixOccurrence(): void
     {
         $fooBarQix = new FooBarQix();
-        $this->assertEquals('Foo, Bar, Qix', $fooBarQix->execute(357));
+        $this->assertEquals('Foo, Bar, Qix', $fooBarQix->execute(1357));
     }
 
     public function testMultipleAndOccurrence(): void
     {
         $fooBarQix = new FooBarQix();
-        $this->assertEquals('Bar, Foo, Bar', $fooBarQix->execute(35));
-        $this->assertEquals('Foo, Bar, Qiz, Bar', $fooBarQix->execute(75));
-        $this->assertEquals('Foo, Bar, Qix, Bar', $fooBarQix->execute(45));
+        $this->assertEquals('Bar, Foo, Bar', $fooBarQix->execute(305));
+        $this->assertEquals('Foo, Bar, Qix, Bar', $fooBarQix->execute(75));
+        $this->assertEquals('Bar, Qix, Foo, Bar', $fooBarQix->execute(35));
     }
 
     public function testNoTransformation(): void

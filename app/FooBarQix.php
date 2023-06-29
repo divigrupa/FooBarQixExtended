@@ -12,14 +12,21 @@ class FooBarQix
 
     public function execute(int $number): string
     {
-        $result = [];
+        $multipleResult = [];
+        $occurrenceResult = [];
         foreach ($this->rules as $multiple => $message) {
             if ($this->isMultipleOf($number, $multiple)) {
-                $result[] = $message;
+                $multipleResult[] = $message;
             }
         }
+        foreach (str_split((string)$number) as $digit) {
+            if (isset($this->rules[(int)$digit])) {
+                $occurrenceResult[] = $this->rules[(int)$digit];
+            }
+        }
+        $result = array_merge($multipleResult, $occurrenceResult);
 
-        return !empty($result) ? implode(', ', $result) : "$number" ;
+        return !empty($result) ? implode(', ', $result) : "$number";
     }
 
     private function isMultipleOf(int $number, int $multiple): bool

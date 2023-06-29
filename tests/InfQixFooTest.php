@@ -73,6 +73,12 @@ class InfQixFooTest extends PHPUnit\Framework\TestCase
         $this->assertEquals('Inf; Qix; Qix; Inf', $infQixFoo->execute(728));
     }
 
+    public function testInfAppendage(): void
+    {
+        $infQixFoo = new NumberTransformationCalculator(new InfQixFooRule());
+        $this->assertEquals('InfInf', $infQixFoo->execute(800));
+    }
+
     public function testNoTransformation(): void
     {
         $infQixFoo = new NumberTransformationCalculator(new InfQixFooRule());

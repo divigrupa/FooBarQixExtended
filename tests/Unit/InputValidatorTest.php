@@ -1,5 +1,6 @@
 <?php
 
+use App\Validators\InputValidator;
 use PHPUnit\Framework\TestCase;
 
 class InputValidatorTest extends TestCase

@@ -1,5 +1,7 @@
 <?php
 
+use App\Services\FooBarTransformer;
+use App\Services\NumberTransformationService;
 use PHPUnit\Framework\TestCase;
 
 class NumberTransformationServiceTest extends TestCase

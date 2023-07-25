@@ -1,14 +1,14 @@
 <?php
 
-use App\Services\FooBarTransformer;
+use App\Services\FooBarQixTransformer;
 use App\Services\NumberTransformationService;
 use PHPUnit\Framework\TestCase;
 
-class FooBarQixTransformationTest extends TestCase
+class FooBarQixNumberTransformationTest extends TestCase
 {
     public function testMultiplesOf3()
     {
-        $transformer = new FooBarTransformer();
+        $transformer = new FooBarQixTransformer();
         $transformationService = new NumberTransformationService($transformer);
 
         $this->assertEquals('Foo', $transformationService->transformNumber(3)->getOutput());
@@ -16,7 +16,7 @@ class FooBarQixTransformationTest extends TestCase
 
     public function testMultiplesOf5()
     {
-        $transformer = new FooBarTransformer();
+        $transformer = new FooBarQixTransformer();
         $transformationService = new NumberTransformationService($transformer);
 
         $this->assertEquals('Bar', $transformationService->transformNumber(5)->getOutput());
@@ -24,7 +24,7 @@ class FooBarQixTransformationTest extends TestCase
 
     public function testMultiplesOf7()
     {
-        $transformer = new FooBarTransformer();
+        $transformer = new FooBarQixTransformer();
         $transformationService = new NumberTransformationService($transformer);
 
         $this->assertEquals('Qix', $transformationService->transformNumber(7)->getOutput());
@@ -32,7 +32,7 @@ class FooBarQixTransformationTest extends TestCase
 
     public function testMultiplesOf3And5()
     {
-        $transformer = new FooBarTransformer();
+        $transformer = new FooBarQixTransformer();
         $transformationService = new NumberTransformationService($transformer);
 
         $this->assertEquals('Foo,Bar', $transformationService->transformNumber(15)->getOutput());
@@ -40,7 +40,7 @@ class FooBarQixTransformationTest extends TestCase
 
     public function testMultiplesOf3And5And7()
     {
-        $transformer = new FooBarTransformer();
+        $transformer = new FooBarQixTransformer();
         $transformationService = new NumberTransformationService($transformer);
 
         $this->assertEquals('Foo,Bar,Qix', $transformationService->transformNumber(105)->getOutput());
@@ -48,7 +48,7 @@ class FooBarQixTransformationTest extends TestCase
 
     public function testNoTransformation()
     {
-        $transformer = new FooBarTransformer();
+        $transformer = new FooBarQixTransformer();
         $transformationService = new NumberTransformationService($transformer);
 
         $this->assertEquals('1', $transformationService->transformNumber(1)->getOutput());

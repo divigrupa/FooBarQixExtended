@@ -3,5 +3,5 @@
 namespace App\Services;
 interface NumberTransformer
 {
-    public function transform(int $number): string;
+    public function transformNumber(int $number): string;
 }

@@ -15,7 +15,7 @@ class NumberTransformationService
 
     public function transformNumber(string $number): Output
     {
-        $result = $this->transformer->transform($number);
+        $result = $this->transformer->transformNumber($number);
         $result = substr($result, 0, strlen($result) - 1);
 
         return new Output($result);

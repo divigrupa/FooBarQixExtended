@@ -5,7 +5,7 @@ namespace App\Services;
 class FooBarTransformer implements NumberTransformer
 {
     protected const SEPARATOR = ',';
-    protected const TRANSFORMATIONS = [3 => 'Foo', 5 => 'Bar',];
+    protected const TRANSFORMATIONS = [3 => 'Foo', 5 => 'Bar'];
 
     public function transform(int $number): string
     {

@@ -7,3 +7,4 @@ $controller = new TransformationController();
 $userInputNumber = readline('Input number For Transformation:');
 $result = $controller->fooBarTransformer($userInputNumber);
 echo $result->getOutput();
+echo PHP_EOL;

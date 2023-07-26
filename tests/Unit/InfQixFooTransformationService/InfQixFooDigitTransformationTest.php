@@ -3,6 +3,7 @@
 use App\Services\InfQixFooTransformer;
 use App\Services\NumberTransformationService;
 use PHPUnit\Framework\TestCase;
+
 class InfQixFooDigitTransformationTest extends TestCase
 {
     public function testAppendWordForDigit8()

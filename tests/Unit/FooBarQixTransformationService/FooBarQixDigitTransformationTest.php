@@ -1,6 +1,5 @@
 <?php
 
-
 use App\Services\FooBarQixTransformer;
 use App\Services\NumberTransformationService;
 use PHPUnit\Framework\TestCase;

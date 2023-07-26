@@ -31,4 +31,9 @@ class FooBarQixTransformer implements NumberTransformer
         }
         return $result;
     }
+
+    public function transformSum($number):string
+    {
+        return '';
+    }
 }

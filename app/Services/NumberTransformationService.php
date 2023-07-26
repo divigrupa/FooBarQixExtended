@@ -33,17 +33,24 @@ class NumberTransformationService
     {
         $transformedNumber = $this->transformer->transformNumber($number);
         $transformedDigits = $this->transformer->transformDigits($number);
+        $transformedSum = $this->transformer->transformSum($number);
 
         if (empty($transformedDigits) and !empty($transformedNumber)) {
             $transformedNumber = substr($transformedNumber, 0, strlen($transformedNumber) - 1);
             return new Output($transformedNumber);
         }
 
-        $fullTransformation = $transformedNumber . $transformedDigits;
+        $fullTransformation = $transformedNumber . $transformedDigits . $transformedSum;
 
         if (empty($transformedNumber) and empty($transformedDigits)) {
             return new Output($number);
         } else
             return new Output($fullTransformation);
+    }
+
+    public function getSumTransformation(string $number): Output
+    {
+        $transformedSum = $this->transformer->transformSum($number);
+        return new Output($transformedSum);
     }
 }

@@ -6,54 +6,42 @@ use PHPUnit\Framework\TestCase;
 
 class InfQixFooNumberTransformationTest extends TestCase
 {
-    public function testMultiplesOf8()
+    private NumberTransformationService $transformationService;
+    protected function setUp(): void
     {
         $transformer = new InfQixFooTransformer();
-        $transformationService = new NumberTransformationService($transformer);
-
-        $this->assertEquals('Inf', $transformationService->getTransformedNumber(8)->getOutput());
+        $this->transformationService = new NumberTransformationService($transformer);
+    }
+    public function testMultiplesOf8()
+    {
+        $this->assertEquals('Inf', $this->transformationService->getTransformedNumber(8)->getOutput());
     }
 
     public function testMultiplesOf7()
     {
-        $transformer = new InfQixFooTransformer();
-        $transformationService = new NumberTransformationService($transformer);
-
-        $this->assertEquals('Qix', $transformationService->getTransformedNumber(7)->getOutput());
+        $this->assertEquals('Qix', $this->transformationService->getTransformedNumber(7)->getOutput());
     }
 
     public function testMultiplesOf3()
     {
-        $transformer = new InfQixFooTransformer();
-        $transformationService = new NumberTransformationService($transformer);
-
-        $this->assertEquals('Foo', $transformationService->getTransformedNumber(3)->getOutput());
+        $this->assertEquals('Foo', $this->transformationService->getTransformedNumber(3)->getOutput());
     }
 
     public function testMultiplesOf8And7()
     {
-        $transformer = new InfQixFooTransformer();
-        $transformationService = new NumberTransformationService($transformer);
-
-        $this->assertEquals('Inf;Qix', $transformationService->getTransformedNumber(56)->getOutput());
+        $this->assertEquals('Inf;Qix', $this->transformationService->getTransformedNumber(56)->getOutput());
     }
 
     public function testMultiplesOf8And3()
     {
-        $transformer = new InfQixFooTransformer();
-        $transformationService = new NumberTransformationService($transformer);
-
-        $this->assertEquals('Inf;Foo', $transformationService->getTransformedNumber(24)->getOutput());
+        $this->assertEquals('Inf;Foo', $this->transformationService->getTransformedNumber(24)->getOutput());
     }
 
     public function testNoTransformation()
     {
-        $transformer = new InfQixFooTransformer();
-        $transformationService = new NumberTransformationService($transformer);
-
-        $this->assertEquals('1', $transformationService->getTransformedNumber(1)->getOutput());
-        $this->assertIsString($transformationService->getTransformedNumber(1)->getOutput());
-        $this->assertEquals('1234567', $transformationService->getTransformedNumber(1234567)->getOutput());
-        $this->assertIsString($transformationService->getTransformedNumber(1234567)->getOutput());
+        $this->assertEquals('1', $this->transformationService->getTransformedNumber(1)->getOutput());
+        $this->assertIsString($this->transformationService->getTransformedNumber(1)->getOutput());
+        $this->assertEquals('1234567', $this->transformationService->getTransformedNumber(1234567)->getOutput());
+        $this->assertIsString($this->transformationService->getTransformedNumber(1234567)->getOutput());
     }
 }

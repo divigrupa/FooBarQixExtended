@@ -32,7 +32,7 @@ class FooBarQixTransformer implements NumberTransformer
         return $result;
     }
 
-    public function transformSum($number):string
+    public function transformSum(string $number):string
     {
         return '';
     }

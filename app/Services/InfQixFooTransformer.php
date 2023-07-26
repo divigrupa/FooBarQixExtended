@@ -2,12 +2,12 @@
 
 namespace App\Services;
 
-use PHPUnit\Util\Xml\ValidationResult;
-
 class InfQixFooTransformer implements NumberTransformer
 {
     protected const SEPARATOR = ';';
     protected const TRANSFORMATIONS = [8 => 'Inf', 7 => 'Qix', 3 => 'Foo'];
+
+    //SUM_DIVISOR must be in TRANSFORMATIONS array with value, for Example: [8 => 'Inf']
     protected const SUM_DIVISOR = 8;
 
     public function transformNumber(string $number): string

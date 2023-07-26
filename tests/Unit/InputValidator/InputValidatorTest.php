@@ -3,28 +3,34 @@
 namespace Unit\InputValidator;
 
 use App\Exceptions\PositiveNumberException;
+use App\Models\ValidatedInput;
 use App\Validators\InputValidator;
 use PHPUnit\Framework\TestCase;
 
 class InputValidatorTest extends TestCase
 {
+    private InputValidator $validator;
+    protected function setUp(): void
+    {
+        $this->validator = new InputValidator();
+    }
     public function testValidInput()
     {
-        $validator = new InputValidator();
-        $this->assertEquals(1, $validator->validate(1)->getInput());
-        $this->assertEquals(1991, $validator->validate(1991)->getInput());
+        $this->validator = new InputValidator();
+        $this->assertEquals(1, $this->validator->validate(1)->getInput());
+        $this->assertEquals(1991, $this->validator->validate(1991)->getInput());
     }
 
     public function testInvalidInput()
     {
-        $validator = new InputValidator();
+        $this->validator = new InputValidator();
 
         $this->expectException(PositiveNumberException::class);
         $this->expectExceptionMessage('Only Positive Integer Numbers are Accepted!');
 
-        $validator->validate(-1);
-        $validator->validate(0);
-        $validator->validate(1.1);
-        $validator->validate('stringMessage');
+        $this->validator->validate(-1);
+        $this->validator->validate(0);
+        $this->validator->validate(1.1);
+        $this->validator->validate('stringMessage');
     }
 }

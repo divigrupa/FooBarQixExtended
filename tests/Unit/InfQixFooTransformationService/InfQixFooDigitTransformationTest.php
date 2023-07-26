@@ -6,48 +6,39 @@ use PHPUnit\Framework\TestCase;
 
 class InfQixFooDigitTransformationTest extends TestCase
 {
-    public function testAppendWordForDigit8()
+    private NumberTransformationService $transformationService;
+    protected function setUp(): void
     {
         $transformer = new InfQixFooTransformer();
-        $transformationService = new NumberTransformationService($transformer);
-
-        $this->assertEquals('Inf', $transformationService->getTransformedDigits(18)->getOutput());
-        $this->assertEquals('InfInf', $transformationService->getTransformedDigits(88)->getOutput());
+        $this->transformationService = new NumberTransformationService($transformer);
+    }
+    public function testAppendWordForDigit8()
+    {
+        $this->assertEquals('Inf', $this->transformationService->getTransformedDigits(18)->getOutput());
+        $this->assertEquals('InfInf', $this->transformationService->getTransformedDigits(88)->getOutput());
     }
 
     public function testAppendWordForDigit7()
     {
-        $transformer = new InfQixFooTransformer();
-        $transformationService = new NumberTransformationService($transformer);
-
-        $this->assertEquals('Qix', $transformationService->getTransformedDigits(70)->getOutput());
-        $this->assertEquals('QixQix', $transformationService->getTransformedDigits(77)->getOutput());
+        $this->assertEquals('Qix', $this->transformationService->getTransformedDigits(70)->getOutput());
+        $this->assertEquals('QixQix', $this->transformationService->getTransformedDigits(77)->getOutput());
     }
 
     public function testAppendWordForDigit3()
     {
-        $transformer = new InfQixFooTransformer();
-        $transformationService = new NumberTransformationService($transformer);
-
-        $this->assertEquals('Foo', $transformationService->getTransformedDigits(13)->getOutput());
-        $this->assertEquals('FooFoo', $transformationService->getTransformedDigits(33)->getOutput());
+        $this->assertEquals('Foo', $this->transformationService->getTransformedDigits(13)->getOutput());
+        $this->assertEquals('FooFoo', $this->transformationService->getTransformedDigits(33)->getOutput());
     }
 
     public function testAppendMultipleWordsForMultipleDigits()
     {
-        $transformer = new InfQixFooTransformer();
-        $transformationService = new NumberTransformationService($transformer);
-
-        $this->assertEquals('FooInfQix', $transformationService->getTransformedDigits(387)->getOutput());
-        $this->assertEquals('InfFooQixInf', $transformationService->getTransformedDigits(8378)->getOutput());
-        $this->assertEquals('QixFooInf', $transformationService->getTransformedDigits(738)->getOutput());
-        $this->assertEquals('InfInfFooInfInfQixQix', $transformationService->getTransformedDigits(8838877)->getOutput());
+        $this->assertEquals('FooInfQix', $this->transformationService->getTransformedDigits(387)->getOutput());
+        $this->assertEquals('InfFooQixInf', $this->transformationService->getTransformedDigits(8378)->getOutput());
+        $this->assertEquals('QixFooInf', $this->transformationService->getTransformedDigits(738)->getOutput());
+        $this->assertEquals('InfInfFooInfInfQixQix', $this->transformationService->getTransformedDigits(8838877)->getOutput());
     }
     public function testNoTransformation()
     {
-        $transformer = new InfQixFooTransformer();
-        $transformationService = new NumberTransformationService($transformer);
-
-        $this->assertEquals('', $transformationService->getTransformedDigits(1)->getOutput());
+        $this->assertEquals('', $this->transformationService->getTransformedDigits(1)->getOutput());
     }
 }

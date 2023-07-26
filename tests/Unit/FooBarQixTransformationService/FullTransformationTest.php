@@ -6,28 +6,26 @@ use PHPUnit\Framework\TestCase;
 
 class FullTransformationTest extends TestCase
 {
-    public function testMultiplesOf3andAppendsWords()
+    private NumberTransformationService $transformationService;
+    protected function setUp(): void
     {
         $transformer = new FooBarQixTransformer();
-        $transformationService = new NumberTransformationService($transformer);
-        $this->assertEquals('Foo,Qix,FooBarQix', $transformationService->getFullTransformation(357)->getOutput());
+        $this->transformationService = new NumberTransformationService($transformer);
+    }
+    public function testMultiplesOf3andAppendsWords()
+    {
+        $this->assertEquals('Foo,Qix,FooBarQix', $this->transformationService->getFullTransformation(357)->getOutput());
     }
     public function testMultiplesOf5andAppendsWords()
     {
-        $transformer = new FooBarQixTransformer();
-        $transformationService = new NumberTransformationService($transformer);
-        $this->assertEquals('Bar,FooBarBar', $transformationService->getFullTransformation(355)->getOutput());
+        $this->assertEquals('Bar,FooBarBar', $this->transformationService->getFullTransformation(355)->getOutput());
     }
     public function testMultiplesOf7andAppendsWords()
     {
-        $transformer = new FooBarQixTransformer();
-        $transformationService = new NumberTransformationService($transformer);
-        $this->assertEquals('Bar,Qix,FooBar', $transformationService->getFullTransformation(350)->getOutput());
+        $this->assertEquals('Bar,Qix,FooBar', $this->transformationService->getFullTransformation(350)->getOutput());
     }
     public function testNoTransformation()
     {
-        $transformer = new FooBarQixTransformer();
-        $transformationService = new NumberTransformationService($transformer);
-        $this->assertEquals('1', $transformationService->getFullTransformation(1)->getOutput());
+        $this->assertEquals('1', $this->transformationService->getFullTransformation(1)->getOutput());
     }
 }

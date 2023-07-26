@@ -20,6 +20,10 @@ class TransformationController
         $transformationService = new NumberTransformationService($transformer);
 
         $validatedInput = $validator->validate($number);
-        return $transformationService->transformNumber($validatedInput->getInput());
+
+        $transformationService->getTransformedNumber($validatedInput->getInput());
+        $transformationService->getTransformedDigits($validatedInput->getInput());
+
+        return $transformationService->getFullTransformation($number);
     }
 }

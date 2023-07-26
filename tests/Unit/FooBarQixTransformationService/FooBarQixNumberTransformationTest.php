@@ -11,7 +11,7 @@ class FooBarQixNumberTransformationTest extends TestCase
         $transformer = new FooBarQixTransformer();
         $transformationService = new NumberTransformationService($transformer);
 
-        $this->assertEquals('Foo', $transformationService->transformNumber(3)->getOutput());
+        $this->assertEquals('Foo', $transformationService->getTransformedNumber(3)->getOutput());
     }
 
     public function testMultiplesOf5()
@@ -19,7 +19,7 @@ class FooBarQixNumberTransformationTest extends TestCase
         $transformer = new FooBarQixTransformer();
         $transformationService = new NumberTransformationService($transformer);
 
-        $this->assertEquals('Bar', $transformationService->transformNumber(5)->getOutput());
+        $this->assertEquals('Bar', $transformationService->getTransformedNumber(5)->getOutput());
     }
 
     public function testMultiplesOf7()
@@ -27,7 +27,7 @@ class FooBarQixNumberTransformationTest extends TestCase
         $transformer = new FooBarQixTransformer();
         $transformationService = new NumberTransformationService($transformer);
 
-        $this->assertEquals('Qix', $transformationService->transformNumber(7)->getOutput());
+        $this->assertEquals('Qix', $transformationService->getTransformedNumber(7)->getOutput());
     }
 
     public function testMultiplesOf3And5()
@@ -35,7 +35,7 @@ class FooBarQixNumberTransformationTest extends TestCase
         $transformer = new FooBarQixTransformer();
         $transformationService = new NumberTransformationService($transformer);
 
-        $this->assertEquals('Foo,Bar', $transformationService->transformNumber(15)->getOutput());
+        $this->assertEquals('Foo,Bar', $transformationService->getTransformedNumber(15)->getOutput());
     }
 
     public function testMultiplesOf3And5And7()
@@ -43,7 +43,7 @@ class FooBarQixNumberTransformationTest extends TestCase
         $transformer = new FooBarQixTransformer();
         $transformationService = new NumberTransformationService($transformer);
 
-        $this->assertEquals('Foo,Bar,Qix', $transformationService->transformNumber(105)->getOutput());
+        $this->assertEquals('Foo,Bar,Qix', $transformationService->getTransformedNumber(105)->getOutput());
     }
 
     public function testNoTransformation()
@@ -51,9 +51,9 @@ class FooBarQixNumberTransformationTest extends TestCase
         $transformer = new FooBarQixTransformer();
         $transformationService = new NumberTransformationService($transformer);
 
-        $this->assertEquals('1', $transformationService->transformNumber(1)->getOutput());
-        $this->assertIsString($transformationService->transformNumber(1)->getOutput());
-        $this->assertEquals('1234567', $transformationService->transformNumber(1234567)->getOutput());
-        $this->assertIsString($transformationService->transformNumber(1234567)->getOutput());
+        $this->assertEquals('1', $transformationService->getTransformedNumber(1)->getOutput());
+        $this->assertIsString($transformationService->getTransformedNumber(1)->getOutput());
+        $this->assertEquals('1234567', $transformationService->getTransformedNumber(1234567)->getOutput());
+        $this->assertIsString($transformationService->getTransformedNumber(1234567)->getOutput());
     }
 }

@@ -1,6 +1,8 @@
 <?php
 
+use App\Services\InfQixFooTransformer;
 use App\Services\NumberTransformationService;
+use PHPUnit\Framework\TestCase;
 
 class InfQixFooNumberTransformationTest extends TestCase
 {
@@ -41,7 +43,7 @@ class InfQixFooNumberTransformationTest extends TestCase
         $transformer = new InfQixFooTransformer();
         $transformationService = new NumberTransformationService($transformer);
 
-        $this->assertEquals('Qix;Foo', $transformationService->getTransformedNumber(24)->getOutput());
+        $this->assertEquals('Inf;Foo', $transformationService->getTransformedNumber(24)->getOutput());
     }
 
     public function testNoTransformation()

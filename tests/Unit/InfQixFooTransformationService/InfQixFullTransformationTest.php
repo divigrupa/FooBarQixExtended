@@ -1,6 +1,8 @@
 <?php
 
-namespace Unit\InfQixFooTransformationService;
+use App\Services\InfQixFooTransformer;
+use App\Services\NumberTransformationService;
+use PHPUnit\Framework\TestCase;
 
 class InfQixFullTransformationTest extends TestCase
 {
@@ -8,19 +10,19 @@ class InfQixFullTransformationTest extends TestCase
     {
         $transformer = new InfQixFooTransformer();
         $transformationService = new NumberTransformationService($transformer);
-        $this->assertEquals('Foo;Inf', $transformationService->getFullTransformation(352)->getOutput());
+        $this->assertEquals('Inf;Foo', $transformationService->getFullTransformation(352)->getOutput());
     }
     public function testMultiplesOf7andAppendsWords()
     {
         $transformer = new InfQixFooTransformer();
         $transformationService = new NumberTransformationService($transformer);
-        $this->assertEquals('Qix;Inf;Inf', $transformationService->getFullTransformation(420)->getOutput());
+        $this->assertEquals('Qix;Foo', $transformationService->getFullTransformation(420)->getOutput());
     }
     public function testMultiplesOf3andAppendsWords()
     {
         $transformer = new InfQixFooTransformer();
         $transformationService = new NumberTransformationService($transformer);
-        $this->assertEquals('Inf;QixQix', $transformationService->getFullTransformation(177)->getOutput());
+        $this->assertEquals('Foo;QixQix', $transformationService->getFullTransformation(177)->getOutput());
     }
     public function testNoTransformation()
     {

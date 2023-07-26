@@ -1,5 +1,6 @@
 <?php
 
+use App\Services\InfQixFooTransformer;
 use App\Services\NumberTransformationService;
 use PHPUnit\Framework\TestCase;
 class InfQixFooDigitTransformationTest extends TestCase
@@ -9,8 +10,8 @@ class InfQixFooDigitTransformationTest extends TestCase
         $transformer = new InfQixFooTransformer();
         $transformationService = new NumberTransformationService($transformer);
 
-        $this->assertEquals('Foo', $transformationService->getTransformedDigits(18)->getOutput());
-        $this->assertEquals('FooFoo', $transformationService->getTransformedDigits(88)->getOutput());
+        $this->assertEquals('Inf', $transformationService->getTransformedDigits(18)->getOutput());
+        $this->assertEquals('InfInf', $transformationService->getTransformedDigits(88)->getOutput());
     }
 
     public function testAppendWordForDigit7()
@@ -27,8 +28,8 @@ class InfQixFooDigitTransformationTest extends TestCase
         $transformer = new InfQixFooTransformer();
         $transformationService = new NumberTransformationService($transformer);
 
-        $this->assertEquals('Inf', $transformationService->getTransformedDigits(13)->getOutput());
-        $this->assertEquals('InfInf', $transformationService->getTransformedDigits(33)->getOutput());
+        $this->assertEquals('Foo', $transformationService->getTransformedDigits(13)->getOutput());
+        $this->assertEquals('FooFoo', $transformationService->getTransformedDigits(33)->getOutput());
     }
 
     public function testAppendMultipleWordsForMultipleDigits()
@@ -39,7 +40,7 @@ class InfQixFooDigitTransformationTest extends TestCase
         $this->assertEquals('FooInfQix', $transformationService->getTransformedDigits(387)->getOutput());
         $this->assertEquals('InfFooQixInf', $transformationService->getTransformedDigits(8378)->getOutput());
         $this->assertEquals('QixFooInf', $transformationService->getTransformedDigits(738)->getOutput());
-        $this->assertEquals('FooFooInfFooFooQixQix', $transformationService->getTransformedDigits(8838877)->getOutput());
+        $this->assertEquals('InfInfFooInfInfQixQix', $transformationService->getTransformedDigits(8838877)->getOutput());
     }
     public function testNoTransformation()
     {

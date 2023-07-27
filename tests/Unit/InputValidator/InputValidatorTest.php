@@ -1,9 +1,6 @@
 <?php
 
-namespace Unit\InputValidator;
-
 use App\Exceptions\PositiveNumberException;
-use App\Models\ValidatedInput;
 use App\Validators\InputValidator;
 use PHPUnit\Framework\TestCase;
 
@@ -23,8 +20,6 @@ class InputValidatorTest extends TestCase
 
     public function testInvalidInput()
     {
-        $this->validator = new InputValidator();
-
         $this->expectException(PositiveNumberException::class);
         $this->expectExceptionMessage('Only Positive Integer Numbers are Accepted!');
 

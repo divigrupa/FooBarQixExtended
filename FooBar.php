@@ -4,8 +4,10 @@ class FooBar
 {
     public string $foo = "Foo";
     public string $bar = "Bar";
+    public string $qix = "Qix";
     public int $divisorFoo = 3;
     public int $divisorBar = 5;
+    public int $divisorQix = 7;
 
     public function isDivisible(int $number, int $divisor): bool
     {
@@ -29,14 +31,24 @@ class FooBar
     {
         if ($this->isPositive($number)) {
 
-            if ($this->isDivisible($number, $this->divisorFoo) && $this->isDivisible($number, $this->divisorBar)) {
-                return $this->foo . $this->bar;
-            } elseif ($this->isDivisible($number, $this->divisorFoo)) {
-                return $this->foo;
-            } elseif ($this->isDivisible($number, $this->divisorBar)) {
-                return $this->bar;
-            } else {
+            $output = "";
+
+            if ($this->isDivisible($number, $this->divisorFoo)) {
+                $output .= $this->foo;
+            }
+
+            if ($this->isDivisible($number, $this->divisorBar)) {
+                $output .= $this->bar;
+            }
+
+            if ($this->isDivisible($number, $this->divisorQix)) {
+                $output .= $this->qix;
+            }
+
+            if ($output == "") {
                 return (string)$number;
+            } else {
+                return $output;
             }
         }
     }

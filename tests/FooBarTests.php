@@ -28,6 +28,27 @@ class FooBarTests extends TestCase
         $this->assertSame("FooBar", $foobar->checkFooBar(15));
         $this->assertSame("FooBar", $foobar->checkFooBar(30));
     }
+
+    public function testMultiplesOf3and7ReturnsFooQix(): void
+    {
+        $foobar = new FooBar();
+        $this->assertSame("FooQix", $foobar->checkFooBar(21));
+        $this->assertSame("FooQix", $foobar->checkFooBar(42));
+    }
+
+    public function testMultiplesOf5and7ReturnsBarQix(): void
+    {
+        $foobar = new FooBar();
+        $this->assertSame("BarQix", $foobar->checkFooBar(35));
+        $this->assertSame("BarQix", $foobar->checkFooBar(70));
+    }
+
+    public function testMultiplesOf3and5and7ReturnsFooBarQix(): void
+    {
+        $foobar = new FooBar();
+        $this->assertSame("FooBarQix", $foobar->checkFooBar(105));
+        $this->assertSame("FooBarQix", $foobar->checkFooBar(210));
+    }
     
     public function testNonMultiplesReturnsNumberAsString(): void
     {

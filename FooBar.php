@@ -2,12 +2,33 @@
 
 class FooBar
 {
-    public string $foo = "Foo";
-    public string $bar = "Bar";
-    public string $qix = "Qix";
-    public int $divisorFoo = 3;
-    public int $divisorBar = 5;
-    public int $divisorQix = 7;
+    public string $fooString = "Foo";
+    public string $barString = "Bar";
+    public string $qixString = "Qix";
+
+    public int $fooNumber = 3;
+    public int $barNumber = 5;
+    public int $qixNumber = 7;
+
+    public array $digitToString = [];
+    
+    public function __construct()
+    {
+        $this->digitToString = [
+            $this->fooNumber => $this->fooString,
+            $this->barNumber => $this->barString,
+            $this->qixNumber => $this->qixString
+        ];
+    }
+
+    public function digitToString(int $digit): string
+    {
+        if (isset($this->digitToString[$digit])) {
+            return $this->digitToString[$digit];
+        } else {
+            return "";
+        }
+    }
 
     public function isDivisible(int $number, int $divisor): bool
     {
@@ -27,28 +48,22 @@ class FooBar
         }
     }
 
-    public function checkFooBar(int $number): string
+    public function checkFooBarQixMultiples(int $number): string
     {
         if ($this->isPositive($number)) {
 
-            $output = "";
+            $stringOutput = "";
 
-            if ($this->isDivisible($number, $this->divisorFoo)) {
-                $output .= $this->foo;
+            foreach ($this->digitToString as $divisor => $resultString) {
+                if ($this->isDivisible($number, $divisor)) {
+                    $stringOutput .= $resultString;
+                }
             }
 
-            if ($this->isDivisible($number, $this->divisorBar)) {
-                $output .= $this->bar;
-            }
-
-            if ($this->isDivisible($number, $this->divisorQix)) {
-                $output .= $this->qix;
-            }
-
-            if ($output == "") {
+            if ($stringOutput == "") {
                 return (string)$number;
             } else {
-                return $output;
+                return $stringOutput;
             }
         }
     }

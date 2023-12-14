@@ -22,6 +22,13 @@ class FooBarQixMultiplesTest extends TestCase
         $this->assertSame("Bar", $foobarqix->checkMultiples(10));
     }
 
+    public function testMultiplesOf7ReturnsQix(): void
+    {
+        $foobarqix = new FooBarQix();
+        $this->assertSame("Qix", $foobarqix->checkMultiples(7));
+        $this->assertSame("Qix", $foobarqix->checkMultiples(14));
+    }
+
     public function testMultiplesOf3and5ReturnsFooBarQix(): void
     {
         $foobarqix = new FooBarQix();

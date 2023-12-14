@@ -67,4 +67,43 @@ class FooBar
             }
         }
     }
+
+    public function checkFooBarQixOccurrences(int $number): string 
+    {
+        if ($this->isPositive($number)) {
+            $stringOutput = "";
+            $numberAsString = (string)$number;
+
+            for ($i = 0; $i < strlen($numberAsString); $i++) {
+                $digit = $numberAsString[$i];
+                $stringOutput .= $this->digitToString($digit);
+            }
+            
+            if ($stringOutput == "") {
+                return (string)$number;
+            }
+            return $stringOutput;
+        }
+    }
+
+    public function extractTransformation(string $multiples, string $occurrances, int $number): string
+    {
+        if ($multiples == $number && $occurrances == $number) {
+            return (string)$number;
+        } elseif ($multiples == $number && $occurrances != $number) {
+            return $occurrances;
+        } elseif ($multiples != $number && $occurrances == $number) {
+            return $multiples;
+        } else {
+            return $multiples . $occurrances;
+        }
+    }
+
+    public function checkFooBarQixMultiplesAndOccurrences(int $number): string 
+    {
+        $multiples = $this->checkFooBarQixMultiples($number);
+        $occurrences = $this->checkFooBarQixOccurrences($number);
+
+        return $this->extractTransformation($multiples, $occurrences, $number);
+    }
 }

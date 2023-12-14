@@ -1,6 +1,6 @@
 <?php
 
-class FooBar
+class FooBarQix
 {
     public string $fooString = "Foo";
     public string $barString = "Bar";

@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 
 require_once("./FooBar.php");
 
-class FooBarQixMultiplesTests extends TestCase
+class FooBarQixMultiplesTest extends TestCase
 {
     public function testMultiplesOf3ReturnsFoo(): void
     {

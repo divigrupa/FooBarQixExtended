@@ -39,6 +39,20 @@ class FooBarQixOccurrencesTest extends TestCase
         $this->assertSame("FooBarBar", $foobarqix->checkOccurrences(3505));
     }
 
+    public function testReturnsFooBarAsManyTimesAs3And7OccursInTheNumber(): void
+    {
+        $foobarqix = new FooBarQix();
+        $this->assertSame("FooQix", $foobarqix->checkOccurrences(37));
+        $this->assertSame("FooQixQix", $foobarqix->checkOccurrences(3707));
+    }
+
+    public function testReturnsFooBarAsManyTimesAs5And7OccursInTheNumber(): void
+    {
+        $foobarqix = new FooBarQix();
+        $this->assertSame("BarQix", $foobarqix->checkOccurrences(57));
+        $this->assertSame("BarQixQix", $foobarqix->checkOccurrences(5707));
+    }
+
     public function testReturnsFooBarQixAsManyTimesAs3And5And7OccursInTheNumber(): void
     {
         $foobarqix = new FooBarQix();

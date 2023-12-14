@@ -48,7 +48,7 @@ class FooBarQix
         }
     }
 
-    public function checkFooBarQixMultiples(int $number): string
+    public function checkMultiples(int $number): string
     {
         if ($this->isPositive($number)) {
 
@@ -68,7 +68,7 @@ class FooBarQix
         }
     }
 
-    public function checkFooBarQixOccurrences(int $number): string 
+    public function checkOccurrences(int $number): string 
     {
         if ($this->isPositive($number)) {
             $stringOutput = "";
@@ -99,10 +99,10 @@ class FooBarQix
         }
     }
 
-    public function checkFooBarQixMultiplesAndOccurrences(int $number): string 
+    public function checkMultiplesAndOccurrences(int $number): string 
     {
-        $multiples = $this->checkFooBarQixMultiples($number);
-        $occurrences = $this->checkFooBarQixOccurrences($number);
+        $multiples = $this->checkMultiples($number);
+        $occurrences = $this->checkOccurrences($number);
 
         return $this->extractTransformation($multiples, $occurrences, $number);
     }

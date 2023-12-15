@@ -101,10 +101,29 @@ class InfQixFoo
     }
 
     public function checkMultiplesAndOccurrences(int $number): string 
-    {
-        $multiples = $this->checkMultiples($number);
-        $occurrences = $this->checkOccurrences($number);
+    {   
+        if ($this->isPositive($number)) {
+            $multiples = $this->checkMultiples($number);
+            $occurrences = $this->checkOccurrences($number);
 
-        return $this->extractTransformation($multiples, $occurrences, $number);
+            return $this->extractTransformation($multiples, $occurrences, $number);
+        }
+    }
+
+    public function checkDigitSum(int $number): string
+    {
+        $digitSum = array_sum(str_split($number));
+        if ($digitSum == 8) {
+            return $this->infString;
+        }
+        return "";
+    }
+
+    public function checkMultiplesAndOccurrencesAndSum(int $number): string
+    {
+        $multiplesAndOccurrencesString = $this->checkMultiplesAndOccurrences($number);
+        $sumString = $this->checkDigitSum($number);
+
+        return $multiplesAndOccurrencesString . $sumString;
     }
 }

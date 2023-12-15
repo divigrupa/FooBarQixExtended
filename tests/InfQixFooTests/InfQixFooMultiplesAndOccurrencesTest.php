@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 
 require_once("./InfQixFoo.php");
 
-class InfQixFooCombinedTest extends TestCase
+class InfQixFooMultiplesAndOccurrencesTest extends TestCase
 {
     public function testReturnsNumberAsStringIfNoTransformation(): void
     {

@@ -1,9 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests;
 
+use App\models\Trigger;
+use App\services\TransformService;
 use PHPUnit\Framework\TestCase;
-use function PHPUnit\Framework\assertEquals;
 
 class FooBarQixTest extends TestCase
 {
@@ -12,16 +15,21 @@ class FooBarQixTest extends TestCase
      */
     public function testTransformByMultiples($expected, $actual)
     {
-        assertEquals($expected, $actual);
+        $service = new TransformService([
+            new Trigger('Foo', 3),
+            new Trigger('Bar', 5),
+        ]);
+
+        $this->assertEquals($expected, $service->transformMultiples($actual));
     }
 
     public static function provideMultiplesData(): array
     {
         return [
-            ['foo', 6],
-            ['foo', 9],
-            ['foo,bar', 15],
-            ['bar', 10],
+            ['Foo', 6],
+            ['Foo', 9],
+            ['Foo,Bar', 15],
+            ['Bar', 10],
             ['8', 8],
         ];
     }

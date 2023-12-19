@@ -72,7 +72,7 @@ class NumberTransformTest extends TestCase
     public function testTransformAndAppendIfSumOfDigitsDivisible($expected, $actual)
     {
         $service = new TransformService([
-            new Trigger('Inf', 8),
+            new Trigger('Inf', 8, true),
             new Trigger('Foo', 3),
             new Trigger('Qix', 7),
         ], ';');

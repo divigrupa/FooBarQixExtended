@@ -9,6 +9,7 @@ final class Trigger
     public function __construct(
         public readonly string $word,
         public readonly int    $value,
+        public readonly bool   $triggeredIfSumOfDigitsDivisible = false
     )
     {
     }
@@ -21,5 +22,10 @@ final class Trigger
     public function getValue(): int
     {
         return $this->value;
+    }
+
+    public function isTriggeredIfSumOfDigitsDivisible(): bool
+    {
+        return $this->triggeredIfSumOfDigitsDivisible;
     }
 }

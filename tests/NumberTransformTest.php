@@ -8,7 +8,7 @@ use App\models\Trigger;
 use App\services\TransformService;
 use PHPUnit\Framework\TestCase;
 
-class FooBarQixTest extends TestCase
+class NumberTransformTest extends TestCase
 {
     /**
      * @dataProvider provideMultiplesData
@@ -52,6 +52,20 @@ class FooBarQixTest extends TestCase
         $this->assertEquals($expected, $service->transformNumber($actual));
     }
 
+    /**
+     * @dataProvider provideCombinedData2
+     */
+    public function testTransformCombined2($expected, $actual)
+    {
+        $service = new TransformService([
+            new Trigger('Inf', 8),
+            new Trigger('Foo', 3),
+            new Trigger('Qix', 7),
+        ]);
+
+        $this->assertEquals($expected, $service->transformNumber($actual));
+    }
+
     public static function provideMultiplesData(): array
     {
         return [
@@ -86,6 +100,15 @@ class FooBarQixTest extends TestCase
             ['Qix,Foo,Foo,Qix', 1337],
             ['Bar', 10],
             ['11', 11],
+        ];
+    }
+
+    public static function provideCombinedData2(): array
+    {
+        return [
+            ['Foo;Inf;Foo;Qix', 837],
+            ['Qix;Qix;Inf', 778],
+            ['Foo;Qix;Qix;Qix;Qix', 777],
         ];
     }
 }

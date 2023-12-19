@@ -66,6 +66,20 @@ class NumberTransformTest extends TestCase
         $this->assertEquals($expected, $service->transformNumber($actual));
     }
 
+    /**
+     * @dataProvider provideAppendedData
+     */
+    public function testTransformAndAppendIfSumOfDigitsDivisible($expected, $actual)
+    {
+        $service = new TransformService([
+            new Trigger('Inf', 8),
+            new Trigger('Foo', 3),
+            new Trigger('Qix', 7),
+        ], ';');
+
+        $this->assertEquals($expected, $service->transformNumber($actual));
+    }
+
     public static function provideMultiplesData(): array
     {
         return [
@@ -109,6 +123,16 @@ class NumberTransformTest extends TestCase
             ['Foo;Inf;Foo;Qix', 837],
             ['Qix;Qix;Inf', 778],
             ['Foo;Qix;Qix;Qix;Qix', 777],
+        ];
+    }
+
+    public static function provideAppendedData(): array
+    {
+        return [
+            ['Inf;Foo;Inf;Inf;InfInf', 888],
+            ['Qix;QixInf', 772],
+            ['Inf;QixInf', 817],
+            ['Inf;InfInf', 8],
         ];
     }
 }

@@ -6,13 +6,14 @@ namespace App\services;
 
 final class TransformService
 {
-    private const SEPARATOR = ',';
-
-    public function __construct(public readonly array $triggers)
+    public function __construct(
+        public readonly array $triggers,
+        public readonly string $separator = ','
+    )
     {
     }
 
-    public function transformNumber($sourceNumber)
+    public function transformNumber($sourceNumber): string
     {
         $multiples = $this->setBlankIfNumeric($this->transformMultiples($sourceNumber));
         $occurrences = $this->setBlankIfNumeric($this->transformOccurrences($sourceNumber));
@@ -33,11 +34,11 @@ final class TransformService
 
         foreach ($this->triggers as $trigger) {
             if ($sourceNumber % $trigger->getValue() === 0) {
-                $result .= self::SEPARATOR . $trigger->getWord();
+                $result .= $this->separator . $trigger->getWord();
             }
         }
 
-        return empty($result) ? (string)$sourceNumber : trim($result, self::SEPARATOR);
+        return empty($result) ? (string)$sourceNumber : trim($result, $this->separator);
     }
 
     public function transformOccurrences(int $sourceNumber): string
@@ -48,12 +49,12 @@ final class TransformService
         foreach (str_split($sourceNumber) as $digit) {
             foreach ($this->triggers as $trigger) {
                 if ($trigger->getValue() == $digit) {
-                    $result .= self::SEPARATOR . $trigger->getWord();
+                    $result .= $this->separator . $trigger->getWord();
                 }
             }
         }
 
-        return empty($result) ? $sourceNumber : trim($result, self::SEPARATOR);
+        return empty($result) ? $sourceNumber : trim($result, $this->separator);
     }
 
     private function setBlankIfNumeric(string $word): string
@@ -67,6 +68,6 @@ final class TransformService
      */
     private function concatAndTrim(array $words): string
     {
-        return implode(self::SEPARATOR, array_filter($words, 'strlen'));
+        return implode($this->separator, array_filter($words, 'strlen'));
     }
 }

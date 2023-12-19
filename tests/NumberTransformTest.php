@@ -61,7 +61,7 @@ class NumberTransformTest extends TestCase
             new Trigger('Inf', 8),
             new Trigger('Foo', 3),
             new Trigger('Qix', 7),
-        ]);
+        ], ';');
 
         $this->assertEquals($expected, $service->transformNumber($actual));
     }

@@ -18,6 +18,7 @@ class FooBarQixTest extends TestCase
         $service = new TransformService([
             new Trigger('Foo', 3),
             new Trigger('Bar', 5),
+            new Trigger('Qix', 7),
         ]);
 
         $this->assertEquals($expected, $service->transformMultiples($actual));
@@ -31,6 +32,11 @@ class FooBarQixTest extends TestCase
             ['Foo,Bar', 15],
             ['Bar', 10],
             ['8', 8],
+            ['Qix', 14],
+            ['Qix', 49],
+            ['Foo,Qix', 21],
+            ['Bar,Qix', 35],
+            ['Foo,Bar,Qix', 105],
         ];
     }
 }

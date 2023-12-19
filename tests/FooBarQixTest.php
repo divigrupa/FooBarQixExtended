@@ -81,10 +81,11 @@ class FooBarQixTest extends TestCase
     public static function provideCombinedData(): array
     {
         return [
-            ['Foo,Qix,Bar', 375],
-            ['Foo,Qix,Bar', 3705],
-            ['Foo,Foo,Qix', 1337],
-            ['10', 10],
+            ['Foo,Bar,Foo,Qix,Bar', 375],
+            ['Foo,Bar,Foo,Qix,Bar', 3705],
+            ['Qix,Foo,Foo,Qix', 1337],
+            ['Bar', 10],
+            ['11', 11],
         ];
     }
 }

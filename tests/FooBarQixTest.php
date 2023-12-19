@@ -24,6 +24,34 @@ class FooBarQixTest extends TestCase
         $this->assertEquals($expected, $service->transformMultiples($actual));
     }
 
+    /**
+     * @dataProvider provideOccurrencesData
+     */
+    public function testTransformByOccurrences($expected, $actual)
+    {
+        $service = new TransformService([
+            new Trigger('Foo', 3),
+            new Trigger('Bar', 5),
+            new Trigger('Qix', 7),
+        ]);
+
+        $this->assertEquals($expected, $service->transformOccurrences($actual));
+    }
+
+    /**
+     * @dataProvider provideCombinedData
+     */
+    public function testTransformCombined($expected, $actual)
+    {
+        $service = new TransformService([
+            new Trigger('Foo', 3),
+            new Trigger('Bar', 5),
+            new Trigger('Qix', 7),
+        ]);
+
+        $this->assertEquals($expected, $service->transformNumber($actual));
+    }
+
     public static function provideMultiplesData(): array
     {
         return [
@@ -37,6 +65,26 @@ class FooBarQixTest extends TestCase
             ['Foo,Qix', 21],
             ['Bar,Qix', 35],
             ['Foo,Bar,Qix', 105],
+        ];
+    }
+
+    public static function provideOccurrencesData(): array
+    {
+        return [
+            ['Foo,Qix,Bar', 375],
+            ['Foo,Qix,Bar', 3705],
+            ['Foo,Foo,Qix', 1337],
+            ['10', 10],
+        ];
+    }
+
+    public static function provideCombinedData(): array
+    {
+        return [
+            ['Foo,Qix,Bar', 375],
+            ['Foo,Qix,Bar', 3705],
+            ['Foo,Foo,Qix', 1337],
+            ['10', 10],
         ];
     }
 }

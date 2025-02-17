@@ -1,0 +1,3 @@
+D:\CMake\bin\cmake.exe -E rm -f CMakeFiles\FooBarQixExtended.dir/objects.a
+C:\mingw64\bin\ar.exe qc CMakeFiles\FooBarQixExtended.dir/objects.a @CMakeFiles\FooBarQixExtended.dir\objects1.rsp
+C:\mingw64\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\FooBarQixExtended.dir/objects.a -Wl,--no-whole-archive -o FooBarQixExtended.exe -Wl,--out-implib,libFooBarQixExtended.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\FooBarQixExtended.dir\linkLibs.rsp
